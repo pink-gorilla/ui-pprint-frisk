@@ -1,0 +1,14 @@
+{                                                           ;; :source-paths ["src"]
+ :lein   true
+
+ :builds {:demo {:target :browser
+                 :output-dir "public/js"
+                 :asset-path "js"
+                 :modules {:main {:entries [pinkgorilla.ui.demo-leaflet
+                                            pinkgorilla.ui.demo-aggrid
+                                            pinkgorilla.ui.demo-player
+                                            pinkgorilla.ui.demo-sparklines]}}
+                 :devtools {:before-load pinkgorilla.ui.demo-leaflet/stop
+                            :after-load pinkgorilla.ui.demo-leaflet/start
+                            :http-root "public"
+                            :http-port 8020}}}}
