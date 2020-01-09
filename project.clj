@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-ui "0.1.0-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-ui "0.1.1-SNAPSHOT"
   :license {:name "MIT"}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
