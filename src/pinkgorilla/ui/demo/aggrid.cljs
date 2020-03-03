@@ -1,6 +1,5 @@
-(ns pinkgorilla.ui.demo-aggrid
+(ns pinkgorilla.ui.demo.aggrid
   (:require
-   [reagent.core :as r]
    [thi.ng.strf.core :as f]
    [pinkgorilla.ui.aggrid :refer [aggrid]]))
 
@@ -83,14 +82,3 @@
              :rowData rates
              :pagination true
              :paginationAutoPageSize true}]]])
-
-(defn stop []
-  (js/console.log "Stopping..."))
-
-(defn start []
-  (js/console.log "Starting...")
-  (r/render [app]
-            (.getElementById js/document "app")))
-
-(defn ^:export init []
-  (start))

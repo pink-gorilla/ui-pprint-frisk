@@ -1,14 +1,15 @@
-{                                                           ;; :source-paths ["src"]
- :lein   true
-
+{ :source-paths ["src"]
+ :dependencies [[reagent "0.8.1"]
+                 [thi.ng/strf "0.2.2"]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.0"]]
+  
+ ;:lein   true
+ 
  :builds {:demo {:target :browser
                  :output-dir "public/js"
                  :asset-path "js"
-                 :modules {:main {:entries [pinkgorilla.ui.demo-leaflet
-                                            pinkgorilla.ui.demo-aggrid
-                                            pinkgorilla.ui.demo-player
-                                            pinkgorilla.ui.demo-sparklines]}}
-                 :devtools {:before-load pinkgorilla.ui.demo-leaflet/stop
-                            :after-load pinkgorilla.ui.demo-leaflet/start
+                 :modules {:main {:entries [pinkgorilla.ui.demo.core]}}
+                 :devtools {:before-load pinkgorilla.ui.demo.core/stop
+                            :after-load pinkgorilla.ui.demo.core/start
                             :http-root "public"
                             :http-port 8020}}}}

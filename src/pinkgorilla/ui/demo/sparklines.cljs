@@ -1,6 +1,5 @@
-(ns pinkgorilla.ui.demo-sparklines
+(ns pinkgorilla.ui.demo.sparklines
   (:require
-   [reagent.core :as r]
    [pinkgorilla.ui.sparklines :refer [sparkline sparkline-bar sparkline-spot]]))
 
 (defn data [nr]
@@ -19,13 +18,3 @@
                    :svgWidth 300 :svgHeight 20
                    :margin 1}]])
 
-(defn stop []
-  (js/console.log "Stopping..."))
-
-(defn start []
-  (js/console.log "Starting...")
-  (r/render [app]
-            (.getElementById js/document "app")))
-
-(defn ^:export init []
-  (start))
