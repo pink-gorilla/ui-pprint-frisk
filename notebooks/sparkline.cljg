@@ -1,0 +1,68 @@
+;; gorilla-repl.fileformat = 2
+
+;; @@ [meta]
+{:name "", :tagline "Sparkline charts demo", :tags "cljs,cool,ui,sparkline", :description ""}
+
+;; @@
+
+;; **
+;;; # Sparkline Demo
+;; **
+
+;; @@ [cljs]
+(ns sparkline-demo
+  (:require 
+   [pinkgorilla.ui.sparklines :refer [sparkline sparkline-bar sparkline-spot]]
+   )) 
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
+;; <=
+
+;; **
+;;; #  create a vector with random data of size nr
+;; **
+
+;; @@ [cljs]
+(defn data [nr]
+  (let [d (vec (take nr (repeatedly rand)))
+       ; _ (println "d is:" d)
+        ]
+    d
+    ))
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'sparkline-demo/data"],"~:value","#'sparkline-demo/data"]
+;; <=
+
+;; @@ [cljs]
+^:r [sparkline {:data (data 20) :limit 20 :width 100 :height 20 :svgWidth 300 :svgHeight 20 :margin 5}]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",false]
+;; <=
+
+;; @@ [cljs]
+ ^:r [:div.sparklines-container
+   [sparkline {:data (data 20) :limit 20 :width 100 :height 20 :svgWidth 300 :svgHeight 20 :margin 5}]
+   [sparkline {:data (data 40) :limit 40 :width 100 :height 20 :svgWidth 300 :svgHeight 20 :margin 5}]
+   [sparkline-spot {:data (data 100) :limit 100 :svgWidth 300 :svgHeight 20 :margin 10}]
+   [sparkline-bar {:data [50, 10, 5, 20, 10 6 7 88 50 30 60] :limit 10 :svgWidth 300 :svgHeight 20 :margin 10}]
+   [sparkline-bar {:data (data 150) :limit 50 
+                   :svgWidth 300 :svgHeight 20 
+                   :margin 1
+                   }] ]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",false]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=

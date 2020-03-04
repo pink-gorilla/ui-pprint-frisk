@@ -2,6 +2,6 @@
   (:require
    [pinkgorilla.ui.player :refer [player]]))
 
-(defn app []
+(def demo
   [:div.player-container
-   [player "https://www.youtube.com/watch?v=Bs44qdAX5yo"]])
+   [:player "https://www.youtube.com/watch?v=Bs44qdAX5yo"]])

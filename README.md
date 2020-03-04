@@ -8,3 +8,7 @@ Pink Gorilla UI components - mostly around React/Reagent and targetting visualis
 Run `npm install` to download dependencies.
 
 Run `npm run watch-demo` to run the demo app.
+
+## Dev
+
+Note that dependencies are declared twice - in shadow-cljs.edn and project.clj

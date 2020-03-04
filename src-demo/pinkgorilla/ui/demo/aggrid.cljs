@@ -61,7 +61,7 @@
                {:headerName "Vol-F" :field "vol-factor" :width 50 :valueFormatter currency-formatter :sortable false :filter false}
                {:headerName "Comment" :field "s" :width 300 :sortable false :filter false}])
 
-(defn app []
+(def demo 
   [:div ; .aggrid-container
 
    [:h1 "simple demo:"]

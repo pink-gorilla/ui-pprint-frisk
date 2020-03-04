@@ -1,0 +1,40 @@
+;; gorilla-repl.fileformat = 2
+
+;; @@ [meta]
+{:name "", :tagline "Video Demo (Youtube, and more)", :tags "cljs,cool,ui,video,youtube", :description ""}
+
+;; @@
+
+;; **
+;;; # Video demo
+;; **
+
+;; **
+;;; # convenience: meta info to render to reagent:
+;; **
+
+;; @@ [cljs]
+; cljs
+^:R [:player "https://www.youtube.com/watch?v=-6BsiVyC1kM"]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [cljs]
+; clj
+^:R [:player "https://www.youtube.com/watch?v=-6BsiVyC1kM"]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=
