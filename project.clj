@@ -10,7 +10,7 @@
 
   :dependencies [[reagent "0.8.1"]
                  [thi.ng/strf "0.2.2"]
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.0"]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.2"]
                  [thheller/shadow-cljsjs "0.0.21"]]
   
   :profiles {:dev {:dependencies [[thheller/shadow-cljs "2.8.80"]

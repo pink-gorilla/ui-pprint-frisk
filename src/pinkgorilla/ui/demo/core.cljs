@@ -1,6 +1,7 @@
 (ns pinkgorilla.ui.demo.core
   (:require
    [reagent.core :as r]
+   [pinkgorilla.ui.pinkie :refer [print-registered-tags]]
    [pinkgorilla.ui.demo.leaflet]
    [pinkgorilla.ui.demo.sparklines]
    [pinkgorilla.ui.demo.player]
@@ -8,6 +9,7 @@
 
 (def app
   [:<>
+   (print-registered-tags)
    [pinkgorilla.ui.demo.leaflet/app]
    [pinkgorilla.ui.demo.sparklines/app]
    [pinkgorilla.ui.demo.player/app]
@@ -18,6 +20,7 @@
 
 (defn start []
   (js/console.log "Starting...")
+  (js/console.log (print-registered-tags))
   (r/render app
             (.getElementById js/document "app")))
 

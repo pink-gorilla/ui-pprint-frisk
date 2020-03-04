@@ -1,8 +1,10 @@
 { :source-paths ["src"]
+ 
+ ; TODO: dependencies are also in project.clj
  :dependencies [[reagent "0.8.1"]
-                 [thi.ng/strf "0.2.2"]
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.0"]]
-  
+                [thi.ng/strf "0.2.2"]
+                [org.pinkgorilla/gorilla-renderable-ui "0.1.2"]]
+ 
  ;:lein   true
  
  :builds {:demo {:target :browser
