@@ -20,19 +20,58 @@
 ;; @@ [cljs]
 (ns iss-location-tracker
   (:require 
-   [pinkgorilla.shadow] 
+  ; [pinkgorilla.shadow] 
    [module$node_modules$moment$moment]
    [reagent.core :as r]
    [ajax.core :refer [GET POST]]
    [pinkgorilla.ui.leaflet :refer [mymap]])) 
 ;; @@
+;; ->
+;;;  type: data: nil
+;; <-
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
+;; <=
 
 ;; @@ [cljs]
 (pinkgorilla.kernel.cljs-tools/r! [mymap [51.505 -0.09]])
 ;; @@
+;; ->
+;;;  type: data: #object[pinkgorilla.kernel.cljs-tools.t_pinkgorilla$kernel$cljs_tools23317]
+;; <-
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:content",["^ "]]
+;; <=
 
 ;; @@ [cljs]
 ;; @@ [cljs]
 ^:r [mymap [51.505 -0.09]]
 
 ;; @@
+;; ->
+;;;  type: data: [#object[pinkgorilla$ui$leaflet$mymap] [51.505 -0.09]]
+;; <-
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",false]
+;; <=
+
+;; @@ [cljs]
+;; @@ [cljs]
+^:R [:map [51.505 -0.09]]
+;; @@
+;; ->
+;;;  type: data: [:map [51.505 -0.09]]
+;; <-
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=
