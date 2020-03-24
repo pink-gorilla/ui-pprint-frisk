@@ -1,0 +1,125 @@
+;; gorilla-repl.fileformat = 2
+
+;; @@ [meta]
+{}
+
+;; @@
+
+;; **
+;;; # ISS Location tracker - realtime
+;; **
+
+;; @@ [cljs]
+; Define Namespace for your notebook and require namespaces 
+(ns tremendous-cumquartz
+  (:require 
+   [reagent.core :as r]
+   [ajax.core :refer [GET POST]]
+   [pinkgorilla.ui.leaflet :refer [mymap]]
+   )) 
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
+;; <=
+
+;; @@ [cljs]
+; show london
+^:R [mymap [51.505 -0.09]]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [cljs]
+;; download iss position
+;; http://open-notify.org/Open-Notify-API/ISS-Location-Now/
+(def iss (r/atom {}))
+(defn handler [response]
+  (.log js/console (str "data rcvd: " response))
+   (println response)
+    (def r (js->clj response))
+   ; extract position in google format
+   (reset! iss (assoc r :position [ (js/parseFloat (get-in r [:iss_position :latitude]))
+                     (js/parseFloat (get-in r [:iss_position :longitude]))]))
+  )
+
+(defn download-iss-position []
+   (GET "http://api.open-notify.org/iss-now.json" 
+     :response-format :json 
+     :keywords? true
+     :handler handler) )
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'tremendous-cumquartz/download-iss-position"],"~:value","#'tremendous-cumquartz/download-iss-position"]
+;; <=
+
+;; @@ [cljs]
+(download-iss-position)
+@iss
+;; @@
+;; =>
+;;; ["^ ","~:type","~:list-like","~:open",["~:span",["^ ","~:class","clj-map"],"{"],"~:close",["^3",["^ ","^4","clj-map"],"}"],"~:separator",["^3",", "],"~:items",["~#list",[]],"~:value","{}"]
+;; <=
+
+;; @@ [cljs]
+; helper function to execute every 3 secs
+(defn the-loop
+  [todo-fn]
+  (.setTimeout
+    js/window
+    (fn []
+      (todo-fn)
+      (the-loop todo-fn))
+       3000))
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'tremendous-cumquartz/the-loop"],"~:value","#'tremendous-cumquartz/the-loop"]
+;; <=
+
+;; @@ [cljs]
+(the-loop download-iss-position)
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"1829"],"~:value","1829"]
+;; <=
+
+;; @@ [cljs]
+(defn iss-ui []
+  [:div
+     [:h1 "iss time: " (:timestamp @iss)]
+     [:p "location "  (str (:iss_position @iss))]
+     [mymap (:position @iss)]
+   ])
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'tremendous-cumquartz/iss-ui"],"~:value","#'tremendous-cumquartz/iss-ui"]
+;; <=
+
+;; @@ [cljs]
+^:R [iss-ui]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [cljs]
+; binary clock updates in realtime - so check out how it goes..
+^:R [:clock]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=

@@ -5,8 +5,8 @@
 
 (def position [51.505, -0.09])
 
-(defn app []
-  ;[:div.leaflet-container
+(def demo 
+  [:div.leaflet-container
   [mymap position]
-;   ]
+   ]
   )

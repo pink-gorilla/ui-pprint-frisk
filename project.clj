@@ -1,18 +1,22 @@
-(defproject org.pinkgorilla/gorilla-ui "0.1.7-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-ui "0.1.12-SNAPSHOT"
   :license {:name "MIT"}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
                                      :password :env/release_password
                                      :sign-releases false}]]
-  ;; :source-paths ["src"]
-  
+  :source-paths ["src" "test"]
+  :test-paths ["test"]
+
   :plugins [[lein-shell "0.5.0"]]
 
   :dependencies [[reagent "0.8.1"]
                  [thi.ng/strf "0.2.2"]
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.3"]
-                 [thheller/shadow-cljsjs "0.0.21"]]
-  
+                 [thheller/shadow-cljsjs "0.0.21"]
+                 ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
+                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.12"]]
+
+
   :profiles {:dev {:dependencies [[thheller/shadow-cljs "2.8.80"]
                                   ;; [thheller/shadow-cljsjs "0.0.21"]
                                   [clj-kondo "2019.11.23"]]
@@ -30,11 +34,27 @@
                                             with-debug-bindings [[:inner 0]]
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
-  :aliases {;; "build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":ci"]
-            "shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
-            "test-js"                          ^{:doc "Test compiled JavaScript."}
-            ["shell" "npm" "run" "test"]
-            "bump-version" ["change" "version" "leiningen.release/bump-version"]}
+  :aliases {"clean"  ^{:doc "Cleans build artefacts."}
+            ["shell" "./scripts/clean.sh"]
+
+            ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
+            ;"shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
+            "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
+            ["shell" "shadow-cljs" "compile" "ci"]
+
+            "demo"  ^{:doc "Runs UI components via webserver."}
+            ["shell" "shadow-cljs" "watch" "demo"]
+
+            "test-run" ^{:doc "Runs unit tests. Does not build the bundle first.."}
+            ["shell" "./node_modules/karma/bin/karma" "start" "--single-run"]
+
+           ; "test-js"                          ^{:doc "Test compiled JavaScript."}
+           ; ["shell" "npm" "run" "test"]
+            "test-js" ^{:doc "Run Unit Tests. Will compile bundle first."}
+            ["do" "build-test" ["test-run"]]
+
+            "bump-version" ^{:doc "Increases project.clj version number (used by CI)."}
+            ["change" "version" "leiningen.release/bump-version"]}
 
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]

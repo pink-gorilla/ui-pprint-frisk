@@ -8,7 +8,7 @@
         ]
     d))
 
-(defn app []
+(def demo
   [:div.sparklines-container
    [sparkline {:data (data 20) :limit 20 :width 100 :height 20 :margin 5}]
    [sparkline {:data (data 40) :limit 40 :width 100 :height 20 :margin 5}]

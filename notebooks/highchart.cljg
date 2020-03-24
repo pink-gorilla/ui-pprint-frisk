@@ -1,0 +1,79 @@
+;; gorilla-repl.fileformat = 2
+
+;; @@ [meta]
+{:tagline "highchart ui-plugin demo", :tags "highchart, demo, ui-plugin"}
+
+;; @@
+
+;; **
+;;; # HighChart.JS demo
+;; **
+
+;; @@ [clj]
+; this is our helper function to assemble a highchart object. it contains
+; default values that we will use for multiple charts
+(defn make-chart-config [data]
+  {:chart {:type "line"
+           :animation false}
+   :title {:text (:title data)}
+   :subtitle {:text (:subtitle data)}
+   :yAxis {:min 0
+           :title {:text ""
+                   :align "high"}}
+               ;:labels {:overflow "justify"}
+             
+   :xAxis {:categories (:labels data)}
+   :tooltip {:valueSuffix " %"}
+   :plotOptions
+     {:series
+        {:animation 0
+         :label
+           {;:pointStart 2010
+            :connectorAllowed false}}}
+   :legend
+     {;:x -40
+      ;:y 100
+      ;:floating true
+      ;:borderWidth 1
+      ;:shadow true
+      :layout "vertical"
+      :align "right"
+      :verticalAlign "top"}
+    :credits {:enabled false}
+    :series (:series data)})
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'user/make-chart-config"],"~:value","#'user/make-chart-config"]
+;; <=
+
+;; @@ [clj]
+ (def highchart-spec 
+   (make-chart-config 
+    {:title "Economic Activity"
+     :subtitle "made with Love"
+     :labels ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug"]
+     :series 
+     [{:name "Installation" :data [439 523 577 698 931 1131 1333 1175]}
+      {:name "Manufacturing" :data [249 244 292 291 390 302 381 404]}
+      {:name "Sales & Distribution" :data [117 172 165 191 285 247 321 393]}]}))
+;; @@
+;; =>
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'user/highchart-spec"],"~:value","#'user/highchart-spec"]
+;; <=
+
+;; @@ [clj]
+^:R [:highchart highchart-spec]
+;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;; <=
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=

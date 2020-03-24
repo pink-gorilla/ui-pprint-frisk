@@ -1,17 +1,28 @@
-{ :source-paths ["src"]
- 
+{:source-paths ["src" "src-demo" "test"]
+
  ; TODO: dependencies are also in project.clj
  :dependencies [[reagent "0.8.1"]
                 [thi.ng/strf "0.2.2"]
-                [org.pinkgorilla/gorilla-renderable-ui "0.1.2"]]
- 
+                [org.pinkgorilla/gorilla-renderable-ui "0.1.10"]
+                ;[com.taoensso/timbre "4.10.0"]             ; clojurescript logging
+                [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
+                ]
+
  ;:lein   true
- 
+
+ :dev-http {8000 ["public" "classpath:public"]} ;shadow dev http server settings
+
  :builds {:demo {:target :browser
                  :output-dir "public/js"
                  :asset-path "js"
                  :modules {:main {:entries [pinkgorilla.ui.demo.core]}}
                  :devtools {:before-load pinkgorilla.ui.demo.core/stop
                             :after-load pinkgorilla.ui.demo.core/start
-                            :http-root "public"
-                            :http-port 8020}}}}
+                            ; @thheller: :dev-http replaced :http-root quite some time ago
+                            ;:http-root "public" ; awb99: this server cannot be configured to have multiple roots
+                            ;:http-port 8020
+                            }}
+          :ci {:target :karma
+               :output-to  "target/ci.js"
+               :ns-regexp "-test$"}}}
+
