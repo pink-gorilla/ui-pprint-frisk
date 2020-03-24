@@ -3,3 +3,8 @@ node_modules
 target
 .shadow-cljs
 .nrepl-port
+.classpath
+.lein-failures
+.project
+.settings/*
+
