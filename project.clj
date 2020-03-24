@@ -14,7 +14,7 @@
                  [thheller/shadow-cljsjs "0.0.21"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.12"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.13"]]
 
 
   :profiles {:dev {:dependencies [[thheller/shadow-cljs "2.8.80"]
