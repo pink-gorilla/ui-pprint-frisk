@@ -5,13 +5,7 @@
    In early state component development this is helpful."
   (:require
    [pinkgorilla.ui.pinkie :refer [register-tag]]
-   [pinkgorilla.ui.jsrender :refer [jsrender]])
-  (:require-macros [pinkgorilla.ui.macros :refer [inline-resource]]))
-
-
-; self-hosted clojurescript can not deal with clojure macros
-;(def module (inline-resource "pinkgorilla/ui/json-module.js"))
-
+   [pinkgorilla.ui.jsrender :refer [jsrender]]))
 
 (defn json [data]
   [jsrender {:module "pinkie-json" :data data}])
