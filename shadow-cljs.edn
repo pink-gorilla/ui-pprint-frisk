@@ -7,7 +7,7 @@
                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK PROJECT.CLJ - IT CONTAINS SIMILAR DEPENDENCIES
-                [org.pinkgorilla/gorilla-renderable-ui "0.1.18"]]
+                [org.pinkgorilla/gorilla-renderable-ui "0.1.19"]]
 
  ;:lein   true
 
