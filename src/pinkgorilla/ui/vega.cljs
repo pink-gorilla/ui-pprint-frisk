@@ -33,6 +33,7 @@
 ; self-hosted clojurescript can not deal with clojure macros
 ;(def module (inline-resource "pinkgorilla/ui/vega-module.js"))
 
+
 (defn vega [data]
   [jsrender {:module "pinkie-vega" :data data}])
 

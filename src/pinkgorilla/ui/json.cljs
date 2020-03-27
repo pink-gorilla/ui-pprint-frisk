@@ -12,6 +12,7 @@
 ; self-hosted clojurescript can not deal with clojure macros
 ;(def module (inline-resource "pinkgorilla/ui/json-module.js"))
 
+
 (defn json [data]
   [jsrender {:module "pinkie-json" :data data}])
 

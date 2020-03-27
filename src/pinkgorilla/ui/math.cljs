@@ -12,6 +12,7 @@
 
 ;; version 2.x rendering
 
+
 #_(defn ^:export queue-mathjax-rendering ; called from js module, therefore exported
     ([mathjax id]
      (doto (.-Hub mathjax)
@@ -24,6 +25,7 @@
 
 ; self-hosted clojurescript can not deal with clojure macros
 ;(def module (inline-resource "pinkgorilla/ui/math-module.js"))
+
 
 (defn math [data]
   [jsrender {:module "pinkie-math" :data data}])
