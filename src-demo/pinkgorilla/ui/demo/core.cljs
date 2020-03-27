@@ -25,36 +25,27 @@
    (with-out-str
      (cljs.pprint/print-table (renderer-list))))
 
-(defn examples
-  "examples wraps an array of examples and puts a box around all examples"
-  [items]
-  [:div#examples
-   (into [:div#examplejson]
-         (doall (map-indexed (fn [index item]
-                               [:div {:style {:background-color "yellow"}}
-                                [:p "example " index]
-                                item])
-                             items)))])
+(defn example [component tagline]
+  [:div {:style {:background-color "yellow"}}
+   [:p "example: " [:b tagline] ]
+   component])
+
 
 (def app
   [:<>
-  
-   ;[:zzz]
-   (examples ; needs to be function because tag-inject cannot deal with functions
-    [
-      [:text (print-registered-tags)]
-     pinkgorilla.ui.demo.gtable/demo
-    ; js based renderer
-     pinkgorilla.ui.demo.math/demo
-     pinkgorilla.ui.demo.vega/demo
-     pinkgorilla.ui.demo.json/demo
-     pinkgorilla.ui.demo.highchart/demo
+     [:text (print-registered-tags)]
+     [example pinkgorilla.ui.demo.gtable/demo "gtable"]
+     ; js based renderer
+     [example pinkgorilla.ui.demo.math/demo "js-mathjax"]
+     [example pinkgorilla.ui.demo.vega/demo "js-vega"]
+     [example pinkgorilla.ui.demo.json/demo "js-json"]
+     [example pinkgorilla.ui.demo.highchart/demo "js-highchart"]
      ;reagent based renderer
-     pinkgorilla.ui.demo.leaflet/demo
-     pinkgorilla.ui.demo.sparklines/demo
-     pinkgorilla.ui.demo.player/demo
-     pinkgorilla.ui.demo.aggrid/demo
-     pinkgorilla.ui.demo.clock/demo])])
+     [example pinkgorilla.ui.demo.leaflet/demo "leaflet-map"]
+     [example pinkgorilla.ui.demo.sparklines/demo "sparklines"]
+     [example pinkgorilla.ui.demo.player/demo "player"]
+     [example pinkgorilla.ui.demo.aggrid/demo "ag-grid" ]
+     [example pinkgorilla.ui.demo.clock/demo "clock"]])
 
 
 (defn stop []
