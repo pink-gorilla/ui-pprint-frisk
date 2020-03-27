@@ -1,6 +1,6 @@
 (ns pinkgorilla.bongo-test
   (:require
-   [cljs.test :refer-macros [async deftest is testing]]))
+   [cljs.test :refer-macros [deftest is]]))
 
 
 ;; DUMMY TEST

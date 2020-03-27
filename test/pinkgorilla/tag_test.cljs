@@ -1,6 +1,6 @@
 (ns pinkgorilla.tag-test
   (:require
-   [cljs.test :refer-macros [async deftest is testing]]
+   [cljs.test :refer-macros [deftest is]]
    [pinkgorilla.ui.pinkie :refer [tag-inject]]
    [pinkgorilla.ui.math :refer [math]]))
 
