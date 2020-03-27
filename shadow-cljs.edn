@@ -3,10 +3,11 @@
  ; TODO: dependencies are also in project.clj
  :dependencies [[reagent "0.8.1"]
                 [thi.ng/strf "0.2.2"]
-                [org.pinkgorilla/gorilla-renderable-ui "0.1.15"]
                 ;[com.taoensso/timbre "4.10.0"]             ; clojurescript logging
                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                ]
+                 ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
+                 ;; DO NOT FORGET TO CHECK PROJECT.CLJ - IT CONTAINS SIMILAR DEPENDENCIES
+                [org.pinkgorilla/gorilla-renderable-ui "0.1.15"]]
 
  ;:lein   true
 
