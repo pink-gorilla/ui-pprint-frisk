@@ -1,28 +1,57 @@
 (ns pinkgorilla.ui.leaflet
   (:require
-   [reagent.core :as r]
-   ["react-leaflet" :refer [Map Marker TileLayer]]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   ["react-leaflet" :refer [Map TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline]]
+   [pinkgorilla.ui.pinkie :refer [register-tag]]
+   [pinkgorilla.leaflet.core :refer [default-options config]]))
 
-; <style>
-;        .leaflet-container {
-;          height: 400px;
-;          width: 100%;
-;        }
-;    </style>
+(defn log [s] (.log js/console s))
+
+(defn feature [[type data]]
+  (log (str "feature: " type data))
+  (case type
+    :rectangle ^:r [:> Rectangle data] ;  <Rectangle bounds={rectangle} color="black" />
+    :circle ^:r [:> Circle data] ;  <Circle center={center} fillColor="blue" radius={200} />
+    :line ^:r [:> Polyline data]   ; <Polyline color="lime" positions={polyline} />
+    :polygon ^:r [:> Polygon data]  ; <Polygon color="purple" positions={polygon} />
+    :marker ^:r [:> Marker data        ;  <Marker position= {position} >
+                 (when (not (nil? (:popup data)))
+                   ^:r [:> Popup (:popup data)])]  ; <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+    :circlemarker ^:r [:> CircleMarker data   ;  <CircleMarker center= {[51.51, -0.12]} color= "red" radius= {20} >
+                       (when (not (nil? (:popup data)))
+                         ^:r [:> Popup (:popup data)])]  ;<Popup>Popup in CircleMarker</Popup>
+    (do (log (str "No feature found for: " type))
+        nil)))
 
 
-(defn mymap [marker-position]
-  [:div-mymap
-   [:style ".leaflet-container" "{width: 600px; height: 600px;}"]
-   [:link {:rel "stylesheet" :href "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"}]
-   [:> Map {:center marker-position
-            :zoom 10}
-    [:> TileLayer
-     {:url "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"}]
-    [:> Marker {:position marker-position}
-   ; [Popup "A pretty CSS3 popup.<br />Easily customizable."]
-     ]]])
+(defn leaflet-map
+  ([options data]
+   (let [{:keys [width height attribution]} options
+         {:keys [view features]} data
+         {:keys [css tile-layer-url]} config
+         feature-list (partition 2 features)
+         _ (log (str "features:" features))
+         _ (log (str "feature-list:" feature-list))
+          _ (log (str "view:" view))
+         ;{:keys [view]} data
+         ]
+     [:div-mymap {:style {:width width :height height}}
 
-(register-tag :map mymap)
+      [:link {:rel "stylesheet" :href css}]
+      [:> Map view ;{:center marker-position :zoom zoom}
+       [:> TileLayer
+        {:url tile-layer-url
+         :attribution attribution}]
+       ;[:> Marker {:position [51.505, -0.09]}]
+       (into  [:<>]
+             (map feature feature-list))]]))
+  ([data]
+   (leaflet-map default-options data)))
+
+
+
+
+
+
+
+
+(register-tag :map leaflet-map)

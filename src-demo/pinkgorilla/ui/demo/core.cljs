@@ -33,20 +33,21 @@
 
 (def app
   [:<>
-   [:text (print-registered-tags)]
-   [example pinkgorilla.ui.demo.gtable/demo "gtable"]
-   [example [:div [:span 123] [:bongo 456] [:span 789]] "bad-renderer"]
+   ;[:text (print-registered-tags)]
+   ;[example pinkgorilla.ui.demo.gtable/demo "gtable"]
+   ;[example [:div [:span 123] [:bongo 456] [:span 789]] "bad-renderer"]
      ; js based renderer
-   [example pinkgorilla.ui.demo.math/demo "js-mathjax"]
-   [example pinkgorilla.ui.demo.vega/demo "js-vega"]
-   [example pinkgorilla.ui.demo.json/demo "js-json"]
-   [example pinkgorilla.ui.demo.highchart/demo "js-highchart"]
+   ;[example pinkgorilla.ui.demo.math/demo "js-mathjax"]
+   ;[example pinkgorilla.ui.demo.vega/demo "js-vega"]
+   ;[example pinkgorilla.ui.demo.json/demo "js-json"]
+   ;[example pinkgorilla.ui.demo.highchart/demo "js-highchart"]
      ;reagent based renderer
    [example pinkgorilla.ui.demo.leaflet/demo "leaflet-map"]
-   [example pinkgorilla.ui.demo.sparklines/demo "sparklines"]
-   [example pinkgorilla.ui.demo.player/demo "player"]
-   [example pinkgorilla.ui.demo.aggrid/demo "ag-grid" ]
-   [example pinkgorilla.ui.demo.clock/demo "clock"]])
+   ;[example pinkgorilla.ui.demo.sparklines/demo "sparklines"]
+   ;[example pinkgorilla.ui.demo.player/demo "player"]
+   ;[example pinkgorilla.ui.demo.aggrid/demo "ag-grid" ]
+   ;[example pinkgorilla.ui.demo.clock/demo "clock"]
+   ])
 
 
 (defn stop []
@@ -54,7 +55,7 @@
 
 (defn start []
   (js/console.log "Starting...")
-  (js/console.log (print-registered-tags))
+  ;(js/console.log (print-registered-tags))
   (r/render (tag-inject app)
             (.getElementById js/document "app")))
 
