@@ -7,16 +7,16 @@
                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK PROJECT.CLJ - IT CONTAINS SIMILAR DEPENDENCIES
-                [org.pinkgorilla/gorilla-renderable-ui "0.1.19"]]
+                [org.pinkgorilla/gorilla-renderable-ui "0.1.22"]]
 
  ;:lein   true
 
- :dev-http {8000 ["public" "classpath:public" 
+ :dev-http {8000 ["dev" "target" "classpath:public" 
                   "resources/public" "classpath:resources"]} ;shadow dev http server settings
 
  :builds {:demo {:target :browser
-                 :output-dir "public/js"
-                 :asset-path "js"
+                 :output-dir "target" ;"public/js"
+                 :asset-path "/"
                  :modules {:main {:entries [pinkgorilla.ui.demo.core]}}
                  :devtools {:before-load pinkgorilla.ui.demo.core/stop
                             :after-load pinkgorilla.ui.demo.core/start

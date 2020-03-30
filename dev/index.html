@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pinkgorilla UI Demo </title>
+
+  <!--
+ awb99: requirejs is needed so that dependencies can be loaded at runtime
+ this script needs to happen AFTER the bundle gets loaded, because otherwise the
+ react dependency will try to load via requirejs
+  -->
+  <script type="text/javascript" src='/js/require.min.js'></script>
+  <!-- <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js'></script> -->
+  <script type="text/javascript" src='/js/requireconfig.js'></script>
+
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script src="/main.js"></script>
+  <script>pinkgorilla.ui.demo.core.init();</script>
+</body>
+
+</html>

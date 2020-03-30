@@ -46,7 +46,8 @@
    [example pinkgorilla.ui.demo.sparklines/demo "sparklines"]
    [example pinkgorilla.ui.demo.player/demo "player"]
    [example pinkgorilla.ui.demo.aggrid/demo "ag-grid" ]
-   [example pinkgorilla.ui.demo.clock/demo "clock"]])
+   [example pinkgorilla.ui.demo.clock/demo "clock"]
+   ])
 
 
 (defn stop []
@@ -54,7 +55,7 @@
 
 (defn start []
   (js/console.log "Starting...")
-  (js/console.log (print-registered-tags))
+  ;(js/console.log (print-registered-tags))
   (r/render (tag-inject app)
             (.getElementById js/document "app")))
 
