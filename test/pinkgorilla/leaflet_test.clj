@@ -1,7 +1,7 @@
 (ns pinkgorilla.leaflet-test
-  (:require 
+  (:require
    [clojure.test :refer [deftest is testing]]
-   [pinkgorilla.leaflet.core :as lg :refer [parse-args]]))
+   [pinkgorilla.dsl.leaflet :as lg :refer [parse-args]]))
 
 #_(defmacro testable-privates [namespace & symbols]
     (let [defs (map (fn [s] `(def ~s (ns-resolve '~namespace '~s))) symbols)]
@@ -74,21 +74,21 @@
 
 #_(deftest test-render
   ;; Just testing that we don't crash for now.
-  (testing "rendering implicit points"
-    (let [v (render/render (lg/geo [[1 2]]))]
-      (is (= :html (:type v)))))
-  (testing "rendering explicit points"
-    (let [v (render/render (lg/geo [:points [[1 2]]]))]
-      (is (= :html (:type v)))))
-  (testing "rendering line"
-    (let [v (render/render (lg/geo [:line [[1 2] [3 4]]]))]
-      (is (= :html (:type v)))))
-  (testing "rendering polygon with no holes"
-    (let [v (render/render
-             (lg/geo [:polygon [[[1 2] [3 4] [4 5]]]]))]
-      (is (= :html (:type v)))))
-  (testing "rendering polygon with 1 hole"
-    (let [v (render/render
-             (lg/geo
-              [:polygon [[[1 2] [3 4] [4 5]] [[7 8] [9 10] [11 12]]]]))]
-      (is (= :html (:type v))))))
+    (testing "rendering implicit points"
+      (let [v (render/render (lg/geo [[1 2]]))]
+        (is (= :html (:type v)))))
+    (testing "rendering explicit points"
+      (let [v (render/render (lg/geo [:points [[1 2]]]))]
+        (is (= :html (:type v)))))
+    (testing "rendering line"
+      (let [v (render/render (lg/geo [:line [[1 2] [3 4]]]))]
+        (is (= :html (:type v)))))
+    (testing "rendering polygon with no holes"
+      (let [v (render/render
+               (lg/geo [:polygon [[[1 2] [3 4] [4 5]]]]))]
+        (is (= :html (:type v)))))
+    (testing "rendering polygon with 1 hole"
+      (let [v (render/render
+               (lg/geo
+                [:polygon [[[1 2] [3 4] [4 5]] [[7 8] [9 10] [11 12]]]]))]
+        (is (= :html (:type v))))))

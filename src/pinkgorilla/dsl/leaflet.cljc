@@ -1,12 +1,24 @@
-(ns pinkgorilla.leaflet.core)
+(ns pinkgorilla.dsl.leaflet
+  "why dsl? 
+   create functions/macros that allow to easily create renderable data structures
 
+   The data that gets passed to a renderer has to be verbose, because it allows 
+   to configure all options. The dsl allows us to build the data that gets displayed
+   in an easy manner.
+
+   dsl stolen from: https://github.com/wiseman/leaflet-gorilla
+   - currently not working, because:
+     1. we need to calculate map center
+     2. wiseman syntax does not allow to specify all params needed
+
+")
 
 (def default-options
   {:width 600
    :height 400
+
    :zoom 10
-   :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-   
+   :center [8.5407166 -79.8833319] ; panama, but better to calculate center automatically
    ;{style: {color: '{{color}}',
    ;            weight: {{weight}},
    ;            dashArray: '{{dash-array}}',
@@ -87,7 +99,6 @@
                  (conj geodescs arg)
                  options))))))
 
-
 (defn canonicalize-geodesc [default-type g]
   (let [type-desig (first g)
         desc (second g)
@@ -103,8 +114,6 @@
   [& args]
   (let [[geometries opts] (parse-args args)]
     (LeafletView. (map #(canonicalize-geodesc :points %) geometries) opts)))
-
-
 
 (defn geojson
   "Plots geometries on a map."

@@ -18,7 +18,7 @@
                  
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK SHADOW-CLJS.EDN - IT CONTAINS SIMILAR DEPENDENCIES
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.21-SNAPSHOT" ]] 
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.22" ]] 
 
   :profiles {:builder {:dependencies [[thheller/shadow-cljs "2.8.80"]] } ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundelr will fail because shadow contains core.async which is not compatible with self hosted clojurescript
              :dev {:dependencies [;[thheller/shadow-cljs "2.8.80"]
