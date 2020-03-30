@@ -1,17 +1,19 @@
 (ns pinkgorilla.leaflet.core)
 
-; config cannot be overritten by the user. this is ui renderer configuration
-(def config
-  {:css "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   :tile-layer-url "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-   ;:tile-layer-url "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-   })
 
 (def default-options
-  {:width 400
+  {:width 600
    :height 400
    :zoom 10
    :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+   
+   ;{style: {color: '{{color}}',
+   ;            weight: {{weight}},
+   ;            dashArray: '{{dash-array}}',
+   ;            lineCap: '{{line-cap}}',
+   ;            lineJoin: '{{line-join}}',
+   ;            opacity: {{opacity}}}});
+   ; defaults for a new plot that gets added
    :color "steelblue"
    :weight 5.0
    :opacity 1.0
@@ -110,3 +112,34 @@
   (let [[geodescs opts] (parse-args args)]
     (LeafletView. (map #(canonicalize-geodesc :geojson %) geodescs) opts)))
 
+;; TODO
+
+; Leaflet is provider-agnostic, meaning that it doesn’t enforce a particular choice of 
+; providers for tiles. You can try replacing mapbox/streets-v11 with mapbox/satellite-v9
+; .tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+;    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+;    maxZoom: 18,
+;    id: 'mapbox/streets-v11',
+;    tileSize: 512,
+;    zoomOffset: -1,
+;    accessToken: 'your.mapbox.access.token'}
+;
+;   mymap.on ('click', onMapClick);
+
+ ;pointerIcon = new L.Icon({
+ ; iconUrl: '../assets/pointerIcon.svg',
+ ; iconRetinaUrl: '../assets/pointerIcon.svg',
+ ; iconAnchor: [5, 55],
+ ; popupAnchor: [10, -44],
+ ; iconSize: [25, 55],
+ ; shadowUrl: '../assets/marker-shadow.png',
+ ; shadowSize: [68, 95],
+ ; shadowAnchor: [20, 92],
+;})
+;
+;
+; Tooltip
+; attribution: string (optional)
+; className: string (optional)
+; onClose: () => void (optional)
+; onOpen: () => void (optional)
