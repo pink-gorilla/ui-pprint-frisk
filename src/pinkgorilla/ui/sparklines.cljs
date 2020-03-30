@@ -17,6 +17,6 @@
    [:> SparklinesLine {:color "blue"}]
    [:> SparklinesSpots {:color "blue"}]])
 
-(register-tag :sparkline sparkline)
-(register-tag :sparkline-bar sparkline-bar)
-(register-tag :sparkline-spot sparkline-spot)
+(register-tag :p/sparkline sparkline)
+(register-tag :p/sparkline-bar sparkline-bar)
+(register-tag :p/sparkline-spot sparkline-spot)

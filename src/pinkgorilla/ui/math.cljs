@@ -11,4 +11,4 @@
 (defn math [data]
   [jsrender {:module "pinkie-math" :data data}])
 
-(register-tag :math math)
+(register-tag :p/math math)

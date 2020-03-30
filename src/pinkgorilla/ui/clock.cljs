@@ -102,6 +102,6 @@
     [clock time show-100s
      #(swap! clock-state update-in [:show-100s] not)]))
 
-(register-tag :clock binary-clock)
+(register-tag :p/clock binary-clock)
 
 

@@ -62,19 +62,19 @@
                {:headerName "Comment" :field "s" :width 300 :sortable false :filter false}])
 
 (def demo 
-  [:div ; .aggrid-container
+  [:div.aggrid-demo ; .aggrid-container
 
    [:h1 "simple demo:"]
-   [:div {:style {:height "200px"
-                  :width "800px"}}
+   [:div {:style {:height "150px"
+                  :width "600px"}}
     [aggrid {:columnDefs columnDefs
              :rowData rowData}]]
 
    [:h1 "complex demo:"]
    [:div {:className "ag-theme-balham"
           :style {; either both pixels, or both percentage.
-                  :height "200px"
-                  :width "400px"
+                  :height "400px"
+                  :width "600px"
                  ;:height "100%"
                  ;:width "100%"
                   :color "blue"}}

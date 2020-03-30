@@ -33,9 +33,9 @@
 
 (def app
   [:<>
-   [:text (print-registered-tags)]
+   [:p/text (print-registered-tags)]
    [example pinkgorilla.ui.demo.gtable/demo "gtable"]
-   [example [:div [:span 123] [:bongo 456] [:span 789]] "bad-renderer"]
+   [example [:div [:span 123] [:p/bongo 456] [:span 789]] "bad-renderer"]
      ; js based renderer
    [example pinkgorilla.ui.demo.math/demo "js-mathjax"]
    [example pinkgorilla.ui.demo.vega/demo "js-vega"]

@@ -10,5 +10,5 @@
 (defn json [data]
   [jsrender {:module "pinkie-json" :data data}])
 
-(register-tag :json json)
+(register-tag :p/json json)
 

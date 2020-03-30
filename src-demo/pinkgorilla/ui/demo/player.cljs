@@ -4,4 +4,4 @@
 
 (def demo
   [:div.player-container
-   [:player "https://www.youtube.com/watch?v=Bs44qdAX5yo"]])
+   [:p/player "https://www.youtube.com/watch?v=Bs44qdAX5yo"]])

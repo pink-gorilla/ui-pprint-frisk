@@ -24,9 +24,9 @@
 (defn vega [data]
   [jsrender {:module "pinkie-vega" :data data}])
 
-(register-tag :vega vega)
+(register-tag :p/vega vega)
 
 (defn vegaa [s k]
   [vega (k @s)])
 
-(register-tag :vegaa vegaa)
+(register-tag :p/vegaa vegaa)

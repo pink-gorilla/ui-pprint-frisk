@@ -109,4 +109,4 @@
   ([features]
    (leaflet-map default-options features)))
 
-(register-tag :map leaflet-map)
+(register-tag :p/leaflet leaflet-map)

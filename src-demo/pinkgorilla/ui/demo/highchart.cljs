@@ -44,5 +44,6 @@
 
 
 (def demo 
-  [:div.highchart-container
-   [:highchart highchart-spec]])
+  [:div.highchart-demo {:style {:height "400px"
+                                :width "600px"}}
+   [:p/highchart highchart-spec]])

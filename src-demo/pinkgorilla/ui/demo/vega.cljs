@@ -82,9 +82,9 @@
 
 
 (def demo
-  [:div.vega-container
-   [:vega data]
-   [:vega multi-plot-zoom]
-   [:vega multi-line]
+  [:div.vega-demo
+   [:p/vega data]
+   [:p/vega multi-plot-zoom]
+   [:p/vega multi-line]
 
    ])

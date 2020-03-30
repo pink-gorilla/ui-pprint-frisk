@@ -5,7 +5,7 @@
 
 
 (def demo
-  [:div.math-container
-   [:math "(ax ^2 + bx + c = 0 ) a"]
+  [:div.math-demo
+   [:p/math "(ax ^2 + bx + c = 0 ) a"]
    ]
   )

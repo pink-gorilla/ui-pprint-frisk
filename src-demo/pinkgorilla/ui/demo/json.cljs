@@ -13,5 +13,5 @@
 
 
 (def demo
-  [:div.json-container
-   [:json data]])
+  [:div.json-demo
+   [:p/json data]])

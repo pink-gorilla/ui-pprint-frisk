@@ -17,7 +17,7 @@
 (defn highchart [data]
   [jsrender {:module "pinkie-highchart" :data data}])
 
-(register-tag :highchart highchart)
+(register-tag :p/highchart highchart)
 
 (comment
 

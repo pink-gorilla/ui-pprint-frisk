@@ -5,5 +5,5 @@
 (def data [[:p "hi"] [:p "ho"]])
 
 (def demo
-  [:div.table-container
-   [:gtable (repeat 3 data)]])
+  [:div.table-demo
+   [:p/gtable (repeat 3 data)]])

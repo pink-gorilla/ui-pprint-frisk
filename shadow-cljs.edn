@@ -1,4 +1,7 @@
-{:source-paths ["src" "src-demo" "test"]
+{; :lein   {:profile "+demo"}
+ ;:lein   true
+
+ :source-paths ["src" "src-demo" "test"]
 
  ; TODO: dependencies are also in project.clj
  :dependencies [[reagent "0.8.1"]
@@ -7,13 +10,13 @@
                 [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK PROJECT.CLJ - IT CONTAINS SIMILAR DEPENDENCIES
-                [org.pinkgorilla/gorilla-renderable-ui "0.1.22"]]
+                [org.pinkgorilla/gorilla-renderable-ui "0.1.25"]]
 
- ;:lein   true
 
+ 
  :dev-http {8000 ["dev" "target" "classpath:public" 
                   "resources/public" "classpath:resources"]} ;shadow dev http server settings
-
+ 
  :builds {:demo {:target :browser
                  :output-dir "target" ;"public/js"
                  :asset-path "/"

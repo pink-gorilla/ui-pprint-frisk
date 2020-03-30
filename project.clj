@@ -4,23 +4,29 @@
                                      :username :env/release_username
                                      :password :env/release_password
                                      :sign-releases false}]]
-  :source-paths ["src" "test"]
-  :test-paths ["test"]
-  :resource-paths  ["resources"] 
-  
+  :source-paths ["src"] ; "test"
+  ;:test-paths ["test"]
+  :resource-paths  ["resources"]
+
   :plugins [[lein-shell "0.5.0"]]
 
   :dependencies [[reagent "0.8.1"]
                  [thi.ng/strf "0.2.2"]
-                 [thheller/shadow-cljsjs "0.0.21"]
+                ; [thheller/shadow-cljsjs "0.0.21"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 
+
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK SHADOW-CLJS.EDN - IT CONTAINS SIMILAR DEPENDENCIES
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.22" ]] 
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.25"]]
 
-  :profiles {:builder {:dependencies [[thheller/shadow-cljs "2.8.80"]] } ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundelr will fail because shadow contains core.async which is not compatible with self hosted clojurescript
+  :profiles {:test {:source-paths ["src" "test"]
+                    :test-paths ["test"]}
+             :demo {:source-paths ["src" "src-demo"]
+                    :dependencies [;[thheller/shadow-cljs "2.8.80"]
+                                   ;[thheller/shadow-cljsjs "0.0.21"]
+                                   ]
+                    } ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
              :dev {:dependencies [;[thheller/shadow-cljs "2.8.80"]
                                   ;; [thheller/shadow-cljsjs "0.0.21"]
                                   [clj-kondo "2019.11.23"]]
@@ -44,7 +50,7 @@
             ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
             ;"shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
-            ["shell" "shadow-cljs" "compile" "ci"]
+            ["with-profile" "+test" "shell" "shadow-cljs" "compile" "ci"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
             ["shell" "shadow-cljs" "watch" "demo"]
