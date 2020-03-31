@@ -14,9 +14,7 @@
 (ns tremendous-cumquartz
   (:require 
    [reagent.core :as r]
-   [ajax.core :refer [GET POST]]
-   [pinkgorilla.ui.leaflet :refer [mymap]]
-   )) 
+   [ajax.core :refer [GET POST]])) 
 ;; @@
 ;; =>
 ;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"],"~:value","nil"]
@@ -24,10 +22,10 @@
 
 ;; @@ [cljs]
 ; show london
-^:R [mymap [51.505 -0.09]]
+^:R [:p/leaflet [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}]]
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/leaflet",[["^ ","^0","~:view","~:center",[51.49,-0.08],"~:zoom",12,"~:height",600,"~:width",700]]],"~:map-keywords",true,"~:widget",true]]
 ;; <=
 
 ;; @@ [cljs]
@@ -58,7 +56,7 @@
 @iss
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:list-like","~:open",["~:span",["^ ","~:class","clj-map"],"{"],"~:close",["^3",["^ ","^4","clj-map"],"}"],"~:separator",["^3",", "],"~:items",["~#list",[]],"~:value","{}"]
+;;; ["^ ","~:type","~:list-like","~:open",["~:span",["^ ","~:class","clj-map"],"{"],"~:close",["^3",["^ ","^4","clj-map"],"}"],"~:separator",["^3",", "],"~:items",["~#list",[["^ ","^0","^1","^2",null,"^5",null,"^6",["^3"," "],"^7",["^8",[["^ ","^0","~:html","~:content",["^3",["^ ","^4","clj-keyword"],":iss_position"],"~:value",":iss_position"],["^ ","^0","^1","^2",["^3",["^ ","^4","clj-map"],"{"],"^5",["^3",["^ ","^4","clj-map"],"}"],"^6",["^3",", "],"^7",["^8",[["^ ","^0","^1","^2",null,"^5",null,"^6",["^3"," "],"^7",["^8",[["^ ","^0","^9","^:",["^3",["^ ","^4","clj-keyword"],":latitude"],"^;",":latitude"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-string"],"\"-26.6045\""],"^;","\"-26.6045\""]]],"^;","[:latitude \"-26.6045\"]"],["^ ","^0","^1","^2",null,"^5",null,"^6",["^3"," "],"^7",["^8",[["^ ","^0","^9","^:",["^3",["^ ","^4","clj-keyword"],":longitude"],"^;",":longitude"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-string"],"\"-43.1296\""],"^;","\"-43.1296\""]]],"^;","[:longitude \"-43.1296\"]"]]],"^;","{:latitude \"-26.6045\", :longitude \"-43.1296\"}"]]],"^;","[:iss_position {:latitude \"-26.6045\", :longitude \"-43.1296\"}]"],["^ ","^0","^1","^2",null,"^5",null,"^6",["^3"," "],"^7",["^8",[["^ ","^0","^9","^:",["^3",["^ ","^4","clj-keyword"],":message"],"^;",":message"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-string"],"\"success\""],"^;","\"success\""]]],"^;","[:message \"success\"]"],["^ ","^0","^1","^2",null,"^5",null,"^6",["^3"," "],"^7",["^8",[["^ ","^0","^9","^:",["^3",["^ ","^4","clj-keyword"],":timestamp"],"^;",":timestamp"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-long"],"1585630041"],"^;","1585630041"]]],"^;","[:timestamp 1585630041]"],["^ ","^0","^1","^2",null,"^5",null,"^6",["^3"," "],"^7",["^8",[["^ ","^0","^9","^:",["^3",["^ ","^4","clj-keyword"],":position"],"^;",":position"],["^ ","^0","^1","^2",["^3",["^ ","^4","clj-vector"],"["],"^5",["^3",["^ ","^4","clj-vector"],"]"],"^6",["^3"," "],"^7",["^8",[["^ ","^0","^9","^:",["^3",["^ ","^4","clj-long"],"-26.6045"],"^;","-26.6045"],["^ ","^0","^9","^:",["^3",["^ ","^4","clj-long"],"-43.1296"],"^;","-43.1296"]]],"^;","[-26.6045 -43.1296]"]]],"^;","[:position [-26.6045 -43.1296]]"]]],"^;","{:iss_position {:latitude \"-26.6045\", :longitude \"-43.1296\"}, :message \"success\", :timestamp 1585630041, :position [-26.6045 -43.1296]}"]
 ;; <=
 
 ;; @@ [cljs]
@@ -80,34 +78,35 @@
 (the-loop download-iss-position)
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"1829"],"~:value","1829"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-long"],"8658"],"~:value","8658"]
 ;; <=
 
 ;; @@ [cljs]
-(defn iss-ui []
-  [:div
+(defn show-iss-ui []
+ ^:R [:div
      [:h1 "iss time: " (:timestamp @iss)]
      [:p "location "  (str (:iss_position @iss))]
-     [mymap (:position @iss)]
-   ])
+     [:p/leaflet [{:type :view :center (:position @iss) :zoom 3 :height 600 :width 700}
+                  {:type :marker :position (:position @iss) :popup "the international space station is here!"}]]])
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'tremendous-cumquartz/iss-ui"],"~:value","#'tremendous-cumquartz/iss-ui"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-unknown"],"#'tremendous-cumquartz/show-iss-ui"],"~:value","#'tremendous-cumquartz/show-iss-ui"]
 ;; <=
 
 ;; @@ [cljs]
-^:R [iss-ui]
+; this UI will update in realtime!
+(show-iss-ui)
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:div",["~:h1","iss time: ",1585630348],["~:p","location ","{:latitude \"-39.7229\", :longitude \"-26.6497\"}"],["~:p/leaflet",[["^ ","^0","~:view","~:center",[-39.7229,-26.6497],"~:zoom",3,"~:height",600,"~:width",700],["^ ","^0","~:marker","~:position",[-39.7229,-26.6497],"~:popup","the international space station is here!"]]]],"~:map-keywords",true,"~:widget",true]]
 ;; <=
 
 ;; @@ [cljs]
 ; binary clock updates in realtime - so check out how it goes..
-^:R [:clock]
+^:R [:p/clock]
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/clock"],"~:map-keywords",true,"~:widget",true]]
 ;; <=
 
 ;; @@ [clj]

@@ -9,25 +9,25 @@
 ;;; # Video demo
 ;; **
 
-;; **
-;;; # convenience: meta info to render to reagent:
-;; **
-
 ;; @@ [cljs]
 ; cljs
-^:R [:player "https://www.youtube.com/watch?v=-6BsiVyC1kM"]
+^:R [:p/player "https://www.youtube.com/watch?v=-6BsiVyC1kM"]
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/player","https://www.youtube.com/watch?v=-6BsiVyC1kM"],"~:map-keywords",true,"~:widget",true]]
 ;; <=
 
 ;; @@ [cljs]
 ; clj
-^:R [:player "https://www.youtube.com/watch?v=-6BsiVyC1kM"]
+^:R [:p/player "https://www.youtube.com/watch?v=-6BsiVyC1kM"]
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent-cljs","~:map-keywords",true]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/player","https://www.youtube.com/watch?v=-6BsiVyC1kM"],"~:map-keywords",true,"~:widget",true]]
 ;; <=
+
+;; @@ [clj]
+
+;; @@
 
 ;; @@ [clj]
 

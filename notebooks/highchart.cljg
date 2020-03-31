@@ -43,7 +43,7 @@
     :series (:series data)})
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'user/make-chart-config"],"~:value","#'user/make-chart-config"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'demo.matrix/make-chart-config"],"~:value","#'demo.matrix/make-chart-config"]
 ;; <=
 
 ;; @@ [clj]
@@ -58,16 +58,26 @@
       {:name "Sales & Distribution" :data [117 172 165 191 285 247 321 393]}]}))
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'user/highchart-spec"],"~:value","#'user/highchart-spec"]
+;;; ["^ ","~:type","~:html","~:content",["~:span",["^ ","~:class","clj-var"],"#'demo.matrix/highchart-spec"],"~:value","#'demo.matrix/highchart-spec"]
 ;; <=
 
 ;; @@ [clj]
-^:R [:highchart highchart-spec]
+^:R [:p/highchart highchart-spec]
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:highchart",["^ ","~:series",[["^ ","~:name","Installation","~:data",[439,523,577,698,931,1131,1333,1175]],["^ ","^6","Manufacturing","^7",[249,244,292,291,390,302,381,404]],["^ ","^6","Sales & Distribution","^7",[117,172,165,191,285,247,321,393]]],"~:legend",["^ ","~:layout","vertical","~:align","right","~:verticalAlign","top"],"~:plotOptions",["^ ","^5",["^ ","~:animation",0,"~:label",["^ ","~:connectorAllowed",false]]],"~:title",["^ ","~:text","Economic Activity"],"~:chart",["^ ","^0","line","^=",false],"~:yAxis",["^ ","~:min",0,"^@",["^ ","^A","","^:","high"]],"~:credits",["^ ","~:enabled",false],"~:subtitle",["^ ","^A","made with Love"],"~:xAxis",["^ ","~:categories",["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"]],"~:tooltip",["^ ","~:valueSuffix"," %"]]],"~:map-keywords",true,"~:widget",true]]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/highchart",["^ ","~:series",[["^ ","~:name","Installation","~:data",[439,523,577,698,931,1131,1333,1175]],["^ ","^6","Manufacturing","^7",[249,244,292,291,390,302,381,404]],["^ ","^6","Sales & Distribution","^7",[117,172,165,191,285,247,321,393]]],"~:legend",["^ ","~:layout","vertical","~:align","right","~:verticalAlign","top"],"~:plotOptions",["^ ","^5",["^ ","~:animation",0,"~:label",["^ ","~:connectorAllowed",false]]],"~:title",["^ ","~:text","Economic Activity"],"~:chart",["^ ","^0","line","^=",false],"~:yAxis",["^ ","~:min",0,"^@",["^ ","^A","","^:","high"]],"~:credits",["^ ","~:enabled",false],"~:subtitle",["^ ","^A","made with Love"],"~:xAxis",["^ ","~:categories",["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"]],"~:tooltip",["^ ","~:valueSuffix"," %"]]],"~:map-keywords",true,"~:widget",true]]
 ;; <=
 
 ;; @@ [clj]
 
 ;; @@
+
+;; @@ [clj]
+
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; ["^ ","~:type","html","~:value",["~:span"]]
+;; <=

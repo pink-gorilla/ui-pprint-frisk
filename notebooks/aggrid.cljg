@@ -27,12 +27,12 @@
    [:h1 "simple demo:"]
    [:div {:style {:height "200px"
                   :width "800px"}}
-      [:aggrid {:columnDefs columnDefs
+      [:p/aggrid {:columnDefs columnDefs
                :rowData rowData}]
     ]]
 ;; @@
 ;; =>
-;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:div",["~:h1","simple demo:"],["^4",["^ ","~:style",["^ ","~:height","200px","~:width","800px"]],["~:aggrid",["^ ","~:columnDefs",[["^ ","~:headerName","Make","~:field","make"],["^ ","^;","Model","^<","model"],["^ ","^;","Price","^<","price"]],"~:rowData",[["^ ","~:make","Toyota","~:model","Celica","~:price",35000],["^ ","^>","Ford","^?","Mondeo","^@",32000],["^ ","^>","Porsche","^?","Boxter","^@",72000]]]]]],"~:map-keywords",true,"~:widget",true]]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:div",["~:h1","simple demo:"],["^4",["^ ","~:style",["^ ","~:height","200px","~:width","800px"]],["~:p/aggrid",["^ ","~:columnDefs",[["^ ","~:headerName","Make","~:field","make"],["^ ","^;","Model","^<","model"],["^ ","^;","Price","^<","price"]],"~:rowData",[["^ ","~:make","Toyota","~:model","Celica","~:price",35000],["^ ","^>","Ford","^?","Mondeo","^@",32000],["^ ","^>","Porsche","^?","Boxter","^@",72000]]]]]],"~:map-keywords",true,"~:widget",true]]
 ;; <=
 
 ;; **
@@ -124,7 +124,7 @@
                  ;:height "100%"
                  ;:width "100%"
                   :color "blue"}}
-    [:aggrid {:columnDefs  rateCols
+    [:p/aggrid {:columnDefs  rateCols
              :rowData rates
              :pagination true
              :paginationAutoPageSize true}]]
@@ -132,6 +132,14 @@
 ;; =>
 ;;; {}
 ;; <=
+
+;; @@ [clj]
+
+;; @@
+
+;; @@ [clj]
+
+;; @@
 
 ;; @@ [clj]
 
