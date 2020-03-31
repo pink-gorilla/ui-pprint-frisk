@@ -36,6 +36,9 @@
    [:p/text (print-registered-tags)]
    [example pinkgorilla.ui.demo.gtable/demo "gtable"]
    [example [:div [:span 123] [:p/bongo 456] [:span 789]] "bad-renderer"]
+   [example [:div [:h1 "jquery gets loaded below .. jippie "]
+                  [:p/phtml "<script src='https://code.jquery.com/jquery-3.4.1.min.js'>>/script>"]]]
+   
      ; js based renderer
    [example pinkgorilla.ui.demo.math/demo "js-mathjax"]
    [example pinkgorilla.ui.demo.vega/demo "js-vega"]

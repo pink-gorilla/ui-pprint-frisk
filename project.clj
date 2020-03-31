@@ -18,7 +18,7 @@
 
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK SHADOW-CLJS.EDN - IT CONTAINS SIMILAR DEPENDENCIES
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.25"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.26"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths ["test"]}
