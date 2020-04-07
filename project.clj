@@ -10,7 +10,10 @@
 
   :plugins [[lein-shell "0.5.0"]]
 
-  :dependencies [[reagent "0.8.1"]
+  :dependencies [[reagent "0.10.0" ; was 0.8.1
+                  :exclusions [org.clojure/tools.reader
+                               cljsjs/react
+                               cljsjs/react-dom]]
                  [thi.ng/strf "0.2.2"]
                 ; [thheller/shadow-cljsjs "0.0.21"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
@@ -18,15 +21,15 @@
 
                  ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
                  ;; DO NOT FORGET TO CHECK SHADOW-CLJS.EDN - IT CONTAINS SIMILAR DEPENDENCIES
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.26"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.29"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths ["test"]}
              :demo {:source-paths ["src" "src-demo"]
-                    :dependencies [;[thheller/shadow-cljs "2.8.80"]
+                    :dependencies [; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
+                                   ;[thheller/shadow-cljs "2.8.80"]
                                    ;[thheller/shadow-cljsjs "0.0.21"]
-                                   ]
-                    } ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
+                                   ]}
              :dev {:dependencies [;[thheller/shadow-cljs "2.8.80"]
                                   ;; [thheller/shadow-cljsjs "0.0.21"]
                                   [clj-kondo "2019.11.23"]]
