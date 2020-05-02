@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.27</version>
+  <version>0.1.28</version>
   <name>gorilla-ui</name>
   <description/>
   <licenses>
@@ -16,7 +16,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>c4c2716e9279f6fc6fa2f22e2398364e55248b80</tag>
+    <tag>120ee50a69bc74572c6b85ae368ea46f688a79f3</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -25,10 +25,28 @@
       <resource>
         <directory>resources</directory>
       </resource>
+      <resource>
+        <directory>node_modules/leaflet/dist</directory>
+      </resource>
+      <resource>
+        <directory>node_modules/mathjax/es5</directory>
+      </resource>
+      <resource>
+        <directory>node_modules/ag-grid-community</directory>
+      </resource>
     </resources>
     <testResources>
       <testResource>
         <directory>resources</directory>
+      </testResource>
+      <testResource>
+        <directory>node_modules/leaflet/dist</directory>
+      </testResource>
+      <testResource>
+        <directory>node_modules/mathjax/es5</directory>
+      </testResource>
+      <testResource>
+        <directory>node_modules/ag-grid-community</directory>
       </testResource>
     </testResources>
     <directory>target</directory>
@@ -113,7 +131,7 @@
     <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>gorilla-renderable-ui</artifactId>
-      <version>0.1.28</version>
+      <version>0.1.33</version>
     </dependency>
     <dependency>
       <groupId>clj-kondo</groupId>
