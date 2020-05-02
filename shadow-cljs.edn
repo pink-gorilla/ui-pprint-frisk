@@ -3,6 +3,7 @@
  
  :source-paths ["src" 
                 "profiles/demo/src" 
+                "profiles/embed/src"
                 "test"]
 
   :resource-paths  ["resources"
@@ -20,25 +21,41 @@
                 [org.pinkgorilla/gorilla-renderable-ui "0.1.33"]]
 
  ; shadow dev http server settings
- :dev-http {8000 ["profiles/demo/public"
-                  "target" 
+:dev-http {8000 ["profiles/demo/public"
+                 "profiles/embed/public"
+                 "target"
                   ;"classpath:public" 
                   ;"resources/public" 
-                  "classpath:resources"
-                  "node_modules/leaflet/dist"
-                  "node_modules/mathjax/es5"
-                  "node_modules/ag-grid-community"]} 
+                 "classpath:resources"
+                 "node_modules/leaflet/dist"
+                 "node_modules/mathjax/es5"
+                 "node_modules/ag-grid-community"]}
  
  :builds {:demo {:target :browser
-                 :output-dir "target" ;"public/js"
+                 :output-dir "target"
                  :asset-path "/"
                  :modules {:main {:entries [pinkgorilla.ui.demo.core]}}
                  :devtools {:before-load pinkgorilla.ui.demo.core/stop
                             :after-load pinkgorilla.ui.demo.core/start
-                            ; @thheller: :dev-http replaced :http-root quite some time ago
-                            ;:http-root "public" ; awb99: this server cannot be configured to have multiple roots
-                            ;:http-port 8020
-                            }}
+                            }
+                  }
+          
+          :embed {:target :browser
+                  :output-dir "target" 
+                  :asset-path "/"
+                  :modules {:main {:entries [pinkgorilla.embed]}}
+                  :devtools {:before-load pinkgorilla.embed/stop
+                             :after-load pinkgorilla.embed/start
+                             }
+                  :dev-http {8000 ["profiles/embed/public"
+                                   "target"
+                                   ;"classpath:public" 
+                                   ;"resources/public" 
+                                   "classpath:resources"
+                                   "node_modules/leaflet/dist"
+                                   "node_modules/mathjax/es5"
+                                   "node_modules/ag-grid-community"]}}
+          
           :ci {:target :karma
                :output-to  "target/ci.js"
                :ns-regexp "-test$"}}}
