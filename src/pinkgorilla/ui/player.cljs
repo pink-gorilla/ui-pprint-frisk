@@ -6,7 +6,6 @@
 
 (defn player [url]
   [:div-player
-  ;[:link {:rel "stylesheet" :href "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"}]
    [:> rp/default {:url url :playing true}]])
 
 (register-tag :p/player player)

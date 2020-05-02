@@ -15,11 +15,16 @@
     "karma-cljs-test": "^0.1.0"
   },
   "dependencies": {
+    "ag-grid-community": "^22.0.0",
+    "ag-grid-react": "^22.0.0",
+    "highcharts": "^8.0.4",
     "leaflet": "^1.6.0",
+    "mathjax": "^3.0.5",
     "react-leaflet": "^2.6.0",
     "react-player": "^1.14.2",
     "react-sparklines": "^1.7.0",
-    "ag-grid-community": "^22.0.0",
-    "ag-grid-react": "^22.0.0"
+    "vega": "^5.11.1",
+    "vega-embed": "^6.7.0",
+    "vega-lite": "^4.11.0"
   }
 }

@@ -2,7 +2,8 @@
   "plugin to render vega-charts in pink-gorilla"
   (:require
    [pinkgorilla.ui.pinkie :refer [register-tag]]
-   [pinkgorilla.ui.jsrender :refer [jsrender]]))
+   [pinkgorilla.ui.jsrender :refer [render-js]]
+   ["vega-embed" :as vega-embed]))
 
 ;; The follwing RequireJS modules are defined at jsrender initialization
 ;; 'vega-embed'
@@ -21,8 +22,20 @@
 ; for vega embedding options see:  https://github.com/vega/vega-embed
 
 
-(defn vega [data]
-  [jsrender {:module "pinkie-vega" :data data}])
+(def vega-options {:actions false
+                   :defaultStyle true})
+
+(def vega-options-js (clj->js vega-options))
+
+(defn render-vega [dom-node data-js]
+  (-> (vega-embed dom-node data-js vega-options-js)
+      (.catch (fn [em]
+                (println "Error in Rendering Vega Spec: "  em);
+                (.appendChild dom-node
+                              (.createTextNode js/document (str "Vega Spec error: " em)))))))
+
+(defn vega [data-clj]
+  [render-js {:f render-vega :data data-clj}])
 
 (register-tag :p/vega vega)
 

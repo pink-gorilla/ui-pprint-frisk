@@ -83,6 +83,7 @@
 
 (def demo
   [:div.vega-demo
+   [:p/vega "Some really bad spec."]
    [:p/vega data]
    [:p/vega multi-plot-zoom]
    [:p/vega multi-line]

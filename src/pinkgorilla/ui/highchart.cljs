@@ -3,22 +3,21 @@
    Usage:  [:highchart spec-as-clj-data]
 
    Highchart renderer is a pure javascript renderer, the conversion
-   of the spec as clj-data to jaascript is doen in the jsrender component
+   of the spec as clj-data to javascript is done in the render-js component
    "
   (:require
+   ["highcharts" :as highcharts]
    [pinkgorilla.ui.pinkie :refer [register-tag]]
-   [pinkgorilla.ui.jsrender :refer [jsrender]]))
+   [pinkgorilla.ui.jsrender :refer [render-js]]))
 
 ;; https://api.highcharts.com/class-reference/Highcharts.Chart
 
-;; highcharts.Chart (selector_or_dom_node, data, options, callback)
-
+(defn render-highchart [dom-node data]
+  (highcharts/Chart. dom-node data); //.catch(console.warn);
+  )
 
 (defn highchart [data]
-  [jsrender {:module "pinkie-highchart" :data data}])
+  [render-js {:f render-highchart :data data}])
 
 (register-tag :p/highchart highchart)
 
-(comment
-
-  (ns pinkgorilla.ui.pinkie))

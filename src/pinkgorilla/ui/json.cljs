@@ -5,10 +5,16 @@
    In early state component development this is helpful."
   (:require
    [pinkgorilla.ui.pinkie :refer [register-tag]]
-   [pinkgorilla.ui.jsrender :refer [jsrender]]))
+   [pinkgorilla.ui.jsrender :refer [render-js]]))
 
-(defn json [data]
-  [jsrender {:module "pinkie-json" :data data}])
+(defn render-json [dom-node data-js]
+  (let [data-json (.stringify js/JSON data-js)
+        text-node (.createTextNode js/document data-json)
+        p (.appendChild (.createElement js/document "p") text-node)
+        _ (.appendChild dom-node p)]))
+
+(defn json [data-clj]
+  [render-js {:f render-json :data data-clj}])
 
 (register-tag :p/json json)
 

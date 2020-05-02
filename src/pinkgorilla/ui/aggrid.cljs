@@ -6,10 +6,12 @@
  ;  ["ag-grid-community/dist/styles/ag-theme-balham.css"]
    [pinkgorilla.ui.pinkie :refer [register-tag]]))
 
+;node_modules/ag-grid-community/dist/styles/
+
 (defn aggrid [data]
   [:<>
-   [:link {:rel "stylesheet" :href "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/21.2.1/styles/ag-grid.css"}]
-   [:link {:rel "stylesheet" :href "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/21.2.1/styles/ag-theme-balham.css"}]
+   [:link {:rel "stylesheet" :href "dist/styles/ag-grid.css"}]
+   [:link {:rel "stylesheet" :href "dist/styles/ag-theme-balham.css"}]
    [:> AgGridReact data]])
 
 (register-tag :p/aggrid aggrid)
