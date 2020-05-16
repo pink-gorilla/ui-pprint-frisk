@@ -8,6 +8,7 @@
    [pinkgorilla.ui.sparklines]
    [pinkgorilla.ui.clock] ; has no dependencies
    [pinkgorilla.ui.frisk]
+   [pinkgorilla.ui.pydoc]
    ; js
    [pinkgorilla.ui.json]
    [pinkgorilla.ui.highchart]

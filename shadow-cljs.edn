@@ -27,6 +27,9 @@
                   ;"classpath:public" 
                   ;"resources/public" 
                  "classpath:resources"
+                  "classpath:resources/public"
+                 "resources/public"
+                 "node_modules"
                  "node_modules/leaflet/dist"
                  "node_modules/mathjax/es5"
                  "node_modules/ag-grid-community"]}
@@ -52,6 +55,7 @@
                                    ;"classpath:public" 
                                    ;"resources/public" 
                                    "classpath:resources"
+                                   "node_modules"
                                    "node_modules/leaflet/dist"
                                    "node_modules/mathjax/es5"
                                    "node_modules/ag-grid-community"]}}
