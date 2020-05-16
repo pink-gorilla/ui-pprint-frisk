@@ -32,9 +32,27 @@
    component])
 
 
+(def frisk-demo
+  [:div 
+  [:p/frisk {:a "I'm a string"
+             :b :imakeyword
+             :c [1 2 3]
+             :d '(1 2 3)
+             :e #{1 2 3}
+             :f (clj->js {:i-am "an-object"})
+             "g" "String key"
+             0 nil
+             "not a number" js/NaN}]
+   [:p "Frisk Demo end"]
+  ])
+  
+
 (def app
   [:<>
    [:p/text (print-registered-tags)]
+   
+   [example frisk-demo "frisk"]
+   
    [example pinkgorilla.ui.demo.gtable/demo "gtable"]
    [example [:div [:span 123] [:p/bongo 456] [:span 789]] "bad-renderer"]
    [example [:div [:h1 "jquery gets loaded below .. jippie "]

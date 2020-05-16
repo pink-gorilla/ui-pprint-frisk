@@ -7,6 +7,7 @@
    [pinkgorilla.ui.player]
    [pinkgorilla.ui.sparklines]
    [pinkgorilla.ui.clock] ; has no dependencies
+   [pinkgorilla.ui.frisk]
    ; js
    [pinkgorilla.ui.json]
    [pinkgorilla.ui.highchart]
