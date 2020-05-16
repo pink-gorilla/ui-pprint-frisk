@@ -20,7 +20,7 @@
 
 
 (defn py-fn [f]
-  [:span.bg-orange.tooltip (:name f)
+  [:span.bg-orange-300.tooltip (:name f)
    [:span.tooltip-text.bg-blue-200 (:doc f)]
    [:span "p"]])
 
@@ -30,6 +30,7 @@
         _ (println "function count: " (count f-items))]
     [:div
      [:link {:rel "stylesheet" :href "pydoc.css"}]
+     [:p (str "Functions (" (count f-items) ") : ")]
      (map-indexed
       (fn [i data] ^{:key i} [py-fn data]) f-items)]))
 
