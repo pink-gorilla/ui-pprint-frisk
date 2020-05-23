@@ -9,4 +9,6 @@
             "vega-embed" "^6.7.0"
             "vega-lite" "^4.11.0"
             "mathjax" "^3.0.5"
-            "highcharts" "^8.0.4"}}
+            "highcharts" "^8.0.4"
+            "tailwindcss" "^1.4.6"
+            "react-grid-layout" "^0.18.3"}}

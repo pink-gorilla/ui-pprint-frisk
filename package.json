@@ -20,6 +20,7 @@
     "highcharts": "^8.0.4",
     "leaflet": "^1.6.0",
     "mathjax": "^3.0.5",
+    "react-grid-layout": "^0.18.3",
     "react-leaflet": "^2.6.0",
     "react-player": "^1.14.2",
     "react-sparklines": "^1.7.0",

@@ -20,7 +20,8 @@
    [pinkgorilla.ui.demo.sparklines]
    [pinkgorilla.ui.demo.player]
    [pinkgorilla.ui.demo.aggrid]
-   [pinkgorilla.ui.demo.clock]))
+   [pinkgorilla.ui.demo.clock]
+   [pinkgorilla.ui.demo.gridlayout]))
 
 (defn print-registered-tags []
   (with-out-str
@@ -69,6 +70,8 @@
   [:<>
    [:p/text (print-registered-tags)]
 
+   [example pinkgorilla.ui.demo.gridlayout/demo "gridlayout"]
+   
    [example frisk-demo "frisk"]
    [example pydoc-demo "pydoc"]
    

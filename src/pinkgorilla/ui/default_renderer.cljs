@@ -9,6 +9,7 @@
    [pinkgorilla.ui.clock] ; has no dependencies
    [pinkgorilla.ui.frisk]
    [pinkgorilla.ui.pydoc]
+   [pinkgorilla.ui.gridlayout]
    ; js
    [pinkgorilla.ui.json]
    [pinkgorilla.ui.highchart]
