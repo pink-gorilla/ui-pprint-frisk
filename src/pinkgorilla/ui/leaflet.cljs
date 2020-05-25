@@ -8,7 +8,7 @@
 ; config cannot be overritten by the user. this is ui renderer configuration
 
 (def config
-  {:css "leaflet.css" ; "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  {:css "leaflet/dist/leaflet.css" ; "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    :tile-layer-url "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
    ;:tile-layer-url "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
    :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"})

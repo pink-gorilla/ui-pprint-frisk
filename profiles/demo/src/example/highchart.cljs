@@ -1,6 +1,6 @@
-(ns pinkgorilla.ui.demo.highchart
+(ns example.highchart
   (:require
-   [pinkgorilla.ui.highchart :refer [highchart]]))
+   [demo.example :as example]))
 
 (defn make-chart-config [data]
   {:chart {:type "line"
@@ -43,7 +43,8 @@
      {:name "Sales & Distribution" :data [117 172 165 191 285 247 321 393]}]}))
 
 
-(def demo 
-  [:div.highchart-demo {:style {:height "400px"
-                                :width "600px"}}
-   [:p/highchart highchart-spec]])
+(example/add
+ "js-highchart"
+ [:div.highchart-demo {:style {:height "400px"
+                               :width "600px"}}
+  [:p/highchart highchart-spec]])

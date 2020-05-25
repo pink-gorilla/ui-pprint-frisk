@@ -1,6 +1,5 @@
 (ns pinkgorilla.ui.sparklines
   (:require
-   [reagent.core :as r]
    ["react-sparklines" :as rs :refer [Sparklines SparklinesLine SparklinesBars SparklinesSpots]]
    [pinkgorilla.ui.pinkie :refer [register-tag]]))
 

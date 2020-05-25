@@ -1,7 +1,8 @@
-(ns pinkgorilla.ui.demo.player
+(ns example.player
   (:require
-   [pinkgorilla.ui.player :refer [player]]))
+   [demo.example :as example]))
 
-(def demo
+(example/add
+ "player"
   [:div.player-container
    [:p/player "https://www.youtube.com/watch?v=Bs44qdAX5yo"]])

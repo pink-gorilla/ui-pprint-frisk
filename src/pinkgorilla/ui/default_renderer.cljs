@@ -1,6 +1,11 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
    [pinkgorilla.ui.default-setup]
+   ; js
+   [pinkgorilla.ui.json]
+   [pinkgorilla.ui.highchart]
+   [pinkgorilla.ui.math]
+   [pinkgorilla.ui.vega]
    ; reagent
    [pinkgorilla.ui.aggrid]
    [pinkgorilla.ui.leaflet]
@@ -9,9 +14,4 @@
    [pinkgorilla.ui.clock] ; has no dependencies
    [pinkgorilla.ui.frisk]
    [pinkgorilla.ui.pydoc]
-   [pinkgorilla.ui.gridlayout]
-   ; js
-   [pinkgorilla.ui.json]
-   [pinkgorilla.ui.highchart]
-   [pinkgorilla.ui.math]
-   [pinkgorilla.ui.vega]))
+   [pinkgorilla.ui.gridlayout]))

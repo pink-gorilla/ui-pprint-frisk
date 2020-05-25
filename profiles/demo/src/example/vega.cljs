@@ -1,6 +1,6 @@
-(ns pinkgorilla.ui.demo.vega
+(ns example.vega
   (:require
-   [pinkgorilla.ui.vega :refer [vega]]))
+   [demo.example :as example]))
 
 (def data
   {:$schema "https://vega.github.io/schema/vega-lite/v4.json"
@@ -81,11 +81,11 @@
     :color {:field "symbol", :type "nominal"}}})
 
 
-(def demo
+(example/add "js-vega"
   [:div.vega-demo
-   [:p/vega "Some really bad spec."]
+   [:h1 "vega spec with bad url:"]
+   [:p/vega "http://bongistan.com/spec-demo"]
+   [:h1 "specs that should be working:"]
    [:p/vega data]
    [:p/vega multi-plot-zoom]
-   [:p/vega multi-line]
-
-   ])
+   [:p/vega multi-line]])
