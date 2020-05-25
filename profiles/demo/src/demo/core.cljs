@@ -3,6 +3,7 @@
    [reagent.dom]
    [pinkgorilla.ui.default-renderer] ; add ui renderer definitions 
    ; examples
+   [example.error]
    ; from renderable-ui
    [example.gtable]
    ; js based enderer

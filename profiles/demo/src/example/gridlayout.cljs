@@ -8,6 +8,9 @@
 
 (example/add
  "gridlayout"
+ [:div.bg-green-300 {:style {:width 400
+                             :height 300}}
+
   [:p/gridlayout {:className "layout"
                   :layout layout
                   :cols 12
@@ -15,4 +18,4 @@
                   :width 1200}
    [:div.bg-blue-700 {:key "a"} "a"]
    [:div.bg-orange-300 {:key "b"} "b"]
-   [:div.bg-green-600 {:key "c"} "c"]])
+   [:div.bg-green-600 {:key "c"} "c"]]])

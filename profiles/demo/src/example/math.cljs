@@ -4,5 +4,6 @@
 
 (example/add
  "js-math"
- [:div.math-demo
-  [:p/math "(ax ^2 + bx + c = 0 ) a"]])
+ [:div.bg-green-300 {:style {:width 300
+                               :height 100}}
+  [:p/math "(ax ^2 + bx + c = 0 )"]])
