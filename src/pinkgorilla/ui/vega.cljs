@@ -5,12 +5,6 @@
    [pinkgorilla.ui.jsrender :refer [render-js]]
    ["vega-embed" :as vega-embed]))
 
-;; The follwing RequireJS modules are defined at jsrender initialization
-;; 'vega-embed'
-;; 'vega-lib'
-;; 'vega-lite'
-;; 'vega'
-
 ;; NOTES:
 ;; Vega-Embed depends on Vega-Lite and Vega
 ;; Vega-Lite depends on Vega

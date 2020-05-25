@@ -1,16 +1,16 @@
 {; :lein   {:profile "+demo"}
  ;:lein   true
- 
- :source-paths ["src" 
-                "profiles/demo/src" 
+
+ :source-paths ["src"
+                "profiles/demo/src"
                 "profiles/embed/src"
                 "test"]
 
-  :resource-paths  ["resources"
-                    "node_modules/leaflet/dist"
-                    "node_modules/mathjax/es5"
-                    "node_modules/ag-grid-community"]
- 
+ :resource-paths  ["resources"
+                   "node_modules/leaflet/dist"
+                   "node_modules/mathjax/es5"
+                   "node_modules/ag-grid-community"]
+
  ; TODO: dependencies are also in project.clj
  :dependencies [[reagent "0.10.0"]
                 [thi.ng/strf "0.2.2"]
@@ -21,45 +21,38 @@
                 [org.pinkgorilla/gorilla-renderable-ui "0.1.33"]]
 
  ; shadow dev http server settings
-:dev-http {8000 ["profiles/demo/public"
-                 "profiles/embed/public"
-                 "target"
+ :dev-http {8000 ["profiles/demo/public"
+                  "profiles/embed/public"
+                  "target"
                   ;"classpath:public" 
                   ;"resources/public" 
-                 "classpath:resources"
+                  "classpath:resources"
                   "classpath:resources/public"
-                 "resources/public"
-                 "node_modules"
-                 "node_modules/leaflet/dist"
-                 "node_modules/mathjax/es5"
-                 "node_modules/ag-grid-community"]}
- 
+                  "resources/public"
+                  "node_modules" ; access css and bundles in npm dependencies
+                  ]}
+
  :builds {:demo {:target :browser
                  :output-dir "target"
                  :asset-path "/"
-                 :modules {:main {:entries [pinkgorilla.ui.demo.core]}}
-                 :devtools {:before-load pinkgorilla.ui.demo.core/stop
-                            :after-load pinkgorilla.ui.demo.core/start
-                            }
-                  }
-          
+                 :modules {:main {:entries [demo.core]}}
+                 :devtools {:before-load demo.core/stop
+                            :after-load demo.core/start}}
+
           :embed {:target :browser
-                  :output-dir "target" 
+                  :output-dir "target"
                   :asset-path "/"
                   :modules {:main {:entries [pinkgorilla.embed]}}
                   :devtools {:before-load pinkgorilla.embed/stop
-                             :after-load pinkgorilla.embed/start
-                             }
+                             :after-load pinkgorilla.embed/start}
                   :dev-http {8000 ["profiles/embed/public"
                                    "target"
                                    ;"classpath:public" 
                                    ;"resources/public" 
                                    "classpath:resources"
                                    "node_modules"
-                                   "node_modules/leaflet/dist"
-                                   "node_modules/mathjax/es5"
-                                   "node_modules/ag-grid-community"]}}
-          
+                                   "node_modules/mathjax/es5"]}}
+
           :ci {:target :karma
                :output-to  "target/ci.js"
                :ns-regexp "-test$"}}}

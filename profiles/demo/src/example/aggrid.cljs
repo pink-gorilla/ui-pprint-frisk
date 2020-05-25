@@ -1,6 +1,7 @@
-(ns pinkgorilla.ui.demo.aggrid
+(ns example.aggrid
   (:require
    [thi.ng.strf.core :as f]
+   [demo.example :as example]
    [pinkgorilla.ui.aggrid :refer [aggrid]]))
 
 (def columnDefs [{:headerName "Make" :field "make"}
@@ -61,7 +62,9 @@
                {:headerName "Vol-F" :field "vol-factor" :width 50 :valueFormatter currency-formatter :sortable false :filter false}
                {:headerName "Comment" :field "s" :width 300 :sortable false :filter false}])
 
-(def demo 
+
+(example/add
+ "aggrid"
   [:div.aggrid-demo ; .aggrid-container
 
    [:h1 "simple demo:"]

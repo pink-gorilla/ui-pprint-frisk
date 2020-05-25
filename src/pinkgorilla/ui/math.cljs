@@ -1,16 +1,58 @@
 (ns pinkgorilla.ui.math
+  " MathJax has v2 and v3. v3 is breaking the v2 api.
+    es6 modules for the browser not working; this means browser 
+    will load mathjax to window/MathJax
+    so we ship the compiled mathjax.js bundle
+   "
   (:require
-   ;[taoensso.timbre :refer-macros (warn)]
    [pinkgorilla.ui.pinkie :refer [register-tag]]
    [pinkgorilla.ui.jsrender :refer [render-js]]
-   ["/pinkgorilla/ui/mathjax" :as mathjax2]
-   #_["mathjax" :as mathjax]))
+   ["/pinkgorilla/ui/mathjax" :as mathjax-loader])) ;  this creates window/MathJax
+
+; print it, so shadow does not remove the dependency
+; is this necessary ?
+(println "mathjax-loader: " mathjax-loader)
 
 (def mathjax (.-MathJax js/window))
 
-(println "mathjax2: " mathjax2)
 
-;; https://docs.mathjax.org/en/latest/upgrading/v2.html#v2-loading-changes
+#_(def default-config
+    {:messageStyle "none"
+     :showProcessingMessages false
+     :skipStartupTypeset     true
+     :tex2jax                {:inlineMath [["@@" "@@"]]}})
+
+(def default-config
+  {:loader {:load ["input/tex" "output/svg"]}})
+
+(defn add-css 
+  "add mathjax css from the mathjax js bundle to the dom
+   can be called multiple times.
+   "
+  []
+  (let [sheet (.querySelector js/document "#MJX-CHTML-styles")]
+    (when (not sheet)
+      (println "mathjax adding css.")
+      (.appendChild (.-head js/document) (.chtmlStylesheet mathjax)))))
+
+(defn init-mathjax! [config]
+  (let [mathjax (.-MathJax js/window)]
+    (if (nil? mathjax)
+      (println "mathjax-init: error loading Mathjax to js/Window")
+      (do
+        (println "mathjax version:" (.-version mathjax))
+        ;(println "mathjax-init config: " config)
+        (add-css)
+        #_(-> (.init mathjax (clj->js config))
+          ;(.then (fn [MathJax]
+                   ;(let [svg (.tex2svg MathJax "\\frac{1}{x^2-1}" #js {:display true})]
+                    ; (println "svg: " svg)
+      ;console.log(MathJax.startup.adaptor.outerHTML(svg));          
+           ;        ))
+              #_(.catch (fn [err]
+                          (println "mathjax-init error: " (.message err)))))))))
+
+
 ;; https://github.com/mathjax/MathJax-docs/wiki/Integrating-mathjax-into-x%3A-require.js
 
 ;Note the `delayStartupUntil=configured` parameter */
@@ -19,38 +61,7 @@
 ;           'mathjax' : 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml' // .js extension is added automatically
 ;         //"mathjax" : "js/mathjax"
 
-(def default-config
-  {:messageStyle "none"
-   :showProcessingMessages false
-   :skipStartupTypeset     true
-   :tex2jax                {:inlineMath [["@@" "@@"]]}})
 
-;{tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
-;                //                    svg: {fontCache: 'global'} 
-;                //                   }
-
-
-(def config2 {:loader {:load ["input/tex" "output/svg"]}})
-
-(defn init-mathjax! [config]
-  (println "MyMathJax init :" config);
-  (.init js/Mathjax (clj->js config2)))
-
-
-;var options = MathJax.getMetricsFor (node, true);
- ;;           MathJax.tex2chtmlPromise(data, options)
-   ;           .then((html) => {
-    ;             node.appendChild(html);
-     ;            var sheet = document.querySelector('#MJX-CHTML-styles');
-      ;           if (sheet) sheet.parentNode.removeChild(sheet);
-       ;          document.head.appendChild(MathJax.chtmlStylesheet());
-        ;      })
-
-
-(defn add-math-css []
-  (let [sheet (.querySelector js/document "#MJX-CHTML-styles")]
-    (when (not sheet)
-      (.appendChild (.-head js/document) (.chtmlStylesheet mathjax)))))
 
 (def options
   {:display true ;"process as inline math"
@@ -61,24 +72,32 @@
    :fontCache true ; 'whether to use a local font cache or not'
    :dist true ; 'true to use webpacked version, false to use MathJax source files'
    })
-;.then((node) => {
-           ;     const adaptor = MathJax.startup.adaptor;
- ; console.log(adaptor.outerHTML(node));
+
+
+; our mathjax.js bundle does not contain the svg part
+#_(defn mathml->svg [ml]
+    (-> (.mathml2svgPromise mathjax ml options)
+        (.then (fn [math-node]
+                 (println "svg:")))))
 
 
 (defn render-math [dom-node data-js]
   (let [;options (clj->js options)
         options (.getMetricsFor mathjax dom-node true)]
-    (-> (.tex2chtmlPromise mathjax data-js options) ;  .mathml2svgPromise
+    (-> (.tex2chtmlPromise mathjax data-js options)
         (.then (fn [math-node]
-                 (.appendChild dom-node math-node)
-                 (add-math-css))))))
+                 (add-css)
+                 (.appendChild dom-node math-node))))))
 
 (defn math [data-clj]
   [render-js {:f render-math :data data-clj}])
 
 (register-tag :p/math math)
 
-(init-mathjax! default-config)
+;(init-mathjax! default-config)
+
+
+
+
 
 
