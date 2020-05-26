@@ -7,7 +7,10 @@ Pink Gorilla UI components - mostly around React/Reagent and targetting visualis
 
 Run `npm install` to download dependencies.
 
-Run `npm run watch-demo` to run the demo app.
+Run `lein demo` to run the demo app.
+
+Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.
+
 
 ## Dev
 
