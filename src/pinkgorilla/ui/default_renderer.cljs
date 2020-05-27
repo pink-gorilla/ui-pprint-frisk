@@ -14,4 +14,6 @@
    [pinkgorilla.ui.clock] ; has no dependencies
    [pinkgorilla.ui.frisk]
    [pinkgorilla.ui.pydoc]
-   [pinkgorilla.ui.gridlayout]))
+   [pinkgorilla.ui.gridlayout]
+   ; controls
+   [pinkgorilla.controls.select]))
