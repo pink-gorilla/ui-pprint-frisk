@@ -2,8 +2,6 @@
   (:require
    [cljs.pprint]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [tag-inject renderer-list]]
-   [pinkgorilla.controls.select :refer [select]]
    [demo.example :as example]))
 
 
@@ -25,5 +23,5 @@
  (let [items ["javascript" "ruby" "clojure" "clojurescript" "ocaml" "scheme" "elixir" "c#" "R" "python"]
        v (r/atom "ruby")]
    [:<>
-    [select items v]
+    [:p/pselect items v]
     [:p "born with grosse ohrn"]]))
