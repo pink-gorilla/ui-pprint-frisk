@@ -96,4 +96,4 @@
                                    ^{:key i}
                                    [select-item v (selected? v) (pos-key i) select]) items))]])]]])))
 
-(register-tag :p/select select)
+(register-tag :p/pselect select)
