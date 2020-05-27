@@ -1,7 +1,9 @@
 # Pink Gorilla UI [![GitHub Actions status |pink-gorilla/gorilla-ui](https://github.com/pink-gorilla/gorilla-ui/workflows/CI/badge.svg)](https://github.com/pink-gorilla/gorilla-ui/actions?workflow=CI)[![Clojars Project](https://img.shields.io/clojars/v/org.pinkgorilla/gorilla-ui.svg)](https://clojars.org/org.pinkgorilla/gorilla-ui) 
 
-Pink Gorilla UI components - mostly around React/Reagent and targetting visualisation.
-
+- UI components targetting visualisation.
+- to be used from reagent
+- renderers can use npm (js/react) dependencies, or
+  maven (cljs) dependencies
 
 ## Demo:
 
