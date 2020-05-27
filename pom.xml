@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.41</version>
+  <version>0.1.42</version>
   <name>gorilla-ui</name>
   <description/>
   <licenses>
@@ -16,7 +16,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>382edba69ae16c1d66da7e13fc2e005eb89f5dab</tag>
+    <tag>f57ef7726d305cd1364cd72c0d1ad39e52e36147</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
