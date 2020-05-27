@@ -16,4 +16,6 @@
    [pinkgorilla.ui.pydoc]
    [pinkgorilla.ui.gridlayout]
    ; controls
-   [pinkgorilla.controls.select]))
+   [pinkgorilla.controls.select]
+   [pinkgorilla.controls.slider]
+   [pinkgorilla.controls.tailsui]))

@@ -23,5 +23,30 @@
  (let [items ["javascript" "ruby" "clojure" "clojurescript" "ocaml" "scheme" "elixir" "c#" "R" "python"]
        v (r/atom "ruby")]
    [:<>
+
+    [:h1 "ui controls (with tailwind css)"]
+
+    [:h2 "Button"]
+    [:p/button1]
+
+    [:h2 "Tabs"]
+    [:p/tabs
+     [:p/tab {:title "a"
+       :isActive false
+       :color "red"
+       :tabIndex 1}
+      [:h4 "We love the A-team !"]]
+     [:p/tab {:title "b"
+       :isActive true
+       :color "green"
+       :tabIndex 0}
+      [:h4 "Bananas are a great potassium source!"]]]
+
+    [:h2 "select"]
     [:p/pselect items v]
+
+
+    [:h2 "slider"]
+    [:p/slider]
+
     [:p "born with grosse ohrn"]]))
