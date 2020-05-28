@@ -49,4 +49,20 @@
     [:h2 "slider"]
     [:p/slider]
 
+    [:h2 "Popover"]
+    [:p/popover {:color "orange"
+                 :placement "left"
+                 :button-text "orange-l"}
+     [:p/tooltip {:color "orange"
+               :title  "oranges"
+               :content "Lets make orange juice"}]
+     ]
+    [:p/popover {:color "green"
+                 :placement "right"
+                 :button-text "trees-r"}
+     [:p/tooltip {:color "green"
+               :title  "tree"
+               :content "How many trees are in a forest?"}]]
+    
+    
     [:p "born with grosse ohrn"]]))
