@@ -1,25 +1,9 @@
-{; :lein   {:profile "+demo"}
- ;:lein   true
-
- :source-paths ["src"
-                "profiles/demo/src"
-                "profiles/embed/src"
-                "test"]
-
+{:lein   {:profile "+demo"}
  :resource-paths  ["resources"
                    "node_modules/leaflet/dist"
                    "node_modules/mathjax/es5"
                    "node_modules/ag-grid-community"]
-
- ; TODO: dependencies are also in project.clj
- :dependencies [[reagent "0.10.0"]
-                [thi.ng/strf "0.2.2"]
-                ;[com.taoensso/timbre "4.10.0"]             ; clojurescript logging
-                [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 ;; OUR BUILD NEEDS TO BE UPDATED. WE HAVE DUPLICATE DEPENDENCIES
-                 ;; DO NOT FORGET TO CHECK PROJECT.CLJ - IT CONTAINS SIMILAR DEPENDENCIES
-                [org.pinkgorilla/gorilla-renderable-ui "0.1.33"]]
-
+ 
  ; shadow dev http server settings
  :dev-http {8000 ["profiles/demo/public"
                   "profiles/embed/public"
