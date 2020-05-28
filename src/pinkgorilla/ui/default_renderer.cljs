@@ -19,4 +19,5 @@
    [pinkgorilla.controls.select]
    [pinkgorilla.controls.slider]
    [pinkgorilla.controls.popover]
+   [pinkgorilla.controls.progressbar]
    [pinkgorilla.controls.tailsui]))

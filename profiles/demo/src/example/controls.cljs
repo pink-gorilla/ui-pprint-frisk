@@ -64,5 +64,8 @@
                :title  "tree"
                :content "How many trees are in a forest?"}]]
     
-    
+    [:h2 "progress bar"]
+    [:p/progressbar 30]
+    [:p/progressbar 80]
+
     [:p "born with grosse ohrn"]]))

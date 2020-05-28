@@ -55,4 +55,3 @@
 (register-tag :p/tooltip tooltip)
 (register-tag :p/popover popover)
 
-;      return <Popover color="pink" />
