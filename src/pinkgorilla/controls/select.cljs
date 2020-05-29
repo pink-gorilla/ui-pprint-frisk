@@ -4,12 +4,12 @@
    [pinkgorilla.ui.pinkie :refer [register-tag]]))
 
 (defn css []
-  [:style "
-    .top-100 {top: 100%}
-    .bottom-100 {bottom: 100%}
-    .max-h-select {
-        max-height: 300px;
-    "])
+  [:style ".top-100 {top: 100%}
+           .bottom-100 {bottom: 100%}
+           .max-h-select {
+              max-height: 300px;
+           }
+          "])
 
 (defn select-item [text selected? position select]
   (let [s (when selected? "border-teal-600")
@@ -77,7 +77,7 @@
     (fn []
       [:<>
        [css]
-       [:div {:class "flex-auto flex flex-col items-center h-64"}
+       [:div {:class "flex-auto flex flex-col items-center"} ; h-64
         [:div {:class "flex flex-col items-center relative"}
 
          [:div {:class "w-full svelte-1l8159u"}
@@ -85,12 +85,13 @@
            [:div {:class "flex flex-auto flex-wrap"}]
            [:input {:value @val-atom
                     :on-change no-op
-                    :class "p-1 px-2 appearance-none outline-none w-full text-gray-800  svelte-1l8159u"}]
+                    :class "p-1 px-2 appearance-none outline-none w-full text-gray-800 svelte-1l8159u"}]
            [button-remove-selection unselect]
            [button-dropdown @dropdown? toggle-dropdown]]]
 
          (when @dropdown?
-           [:div {:class "absolute shadow top-100 z-40 w-full lef-0 rounded max-h-select overflow-y-auto svelte-5uyqqj"}
+           [:div {:class (str "absolute shadow z-40 w-full lef-0 rounded max-h-select top-100" ; top-100
+                              "overflow-y-auto svelte-5uyqqj")}
             [:div {:class "flex flex-col w-full"}
              (doall (map-indexed (fn [i v]
                                    ^{:key i}

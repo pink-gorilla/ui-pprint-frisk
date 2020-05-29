@@ -27,3 +27,7 @@ thheller: both buffer and process are polyfills packages that shadow-cljs will p
 the compiler is from the CLJ dependency you have in project.clj.
 the npm stuff never does any actual compilation, just runs the java process
 
+## Tailwind CSS
+
+- https://umeshmk.github.io/Tailwindcss-cheatsheet/
+- 
