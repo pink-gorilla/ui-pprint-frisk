@@ -74,7 +74,7 @@
                     (reset! dropdown? false))
         unselect #(change-fn "") ; #(reset! val-atom "")
         no-op #()]
-    (fn []
+    (fn [items val change-fn]
       [:<>
        [css]
        [:div {:class "flex-auto flex flex-col items-center"} ; h-64
