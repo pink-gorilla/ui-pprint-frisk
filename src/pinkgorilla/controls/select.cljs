@@ -59,20 +59,20 @@
              :height "100%"}
        [:polyline {:points points}]]]]))
 
-(defn select [items val-atom]
+(defn select [items val change-fn]
   (let [l (count items)
         l1 (- l 1)
         dropdown? (r/atom false)
         toggle-dropdown #(swap! dropdown? not)
-        selected? (fn [name] (= name @val-atom))
+        selected? (fn [name] (= name val))
         pos-key (fn [i]
                   (case i
                     0 :first
                     l1 :last
                     nil))
-        select #(do (reset! val-atom %)
+        select #(do (change-fn %)
                     (reset! dropdown? false))
-        unselect #(reset! val-atom "")
+        unselect #(change-fn "") ; #(reset! val-atom "")
         no-op #()]
     (fn []
       [:<>
@@ -83,7 +83,7 @@
          [:div {:class "w-full svelte-1l8159u"}
           [:div {:class "my-2 bg-white p-1 flex border border-gray-200 rounded svelte-1l8159u"}
            [:div {:class "flex flex-auto flex-wrap"}]
-           [:input {:value @val-atom
+           [:input {:value val
                     :on-change no-op
                     :class "p-1 px-2 appearance-none outline-none w-full text-gray-800 svelte-1l8159u"}]
            [button-remove-selection unselect]
@@ -97,4 +97,13 @@
                                    ^{:key i}
                                    [select-item v (selected? v) (pos-key i) select]) items))]])]]])))
 
-(register-tag :p/pselect select)
+(defn select-atom [items val-atom]
+  (let [change-fn #(reset! val-atom %)]
+    [select items @val-atom change-fn]))
+
+(defn select-map [items val-atom k]
+  (let [change-fn #(swap! val-atom assoc k %)]
+    [select items (k @val-atom) change-fn]))
+
+(register-tag :p/pselect select-atom)
+(register-tag :p/pselectm select-map)
