@@ -101,9 +101,27 @@
   (let [change-fn #(reset! val-atom %)]
     [select items @val-atom change-fn]))
 
-(defn select-map [items val-atom k]
-  (let [change-fn #(swap! val-atom assoc k %)]
-    [select items (k @val-atom) change-fn]))
+(defn select-map
+  "select one item from a seq of items
+   parameters:
+     options: this is an optional parameter
+              map, keys:
+                 on-change: fn with parameter selected-val 
+     items: vec of selectable items
+     val-atom: map iside an atom
+     k: the key that the selected value is bound to in the val-atom
+
+   examle:
+   (def state reagent.core/atom {:letter \"a\"})
+   [select-map [\"a\" \"b\"] state :letter]
+  "
+  ([items val-atom k]
+   (select-map {} items val-atom k))
+  ([{:keys [on-change] :as options} items val-atom k]
+   (let [change-fn (fn [v]
+                     (swap! val-atom assoc k v)
+                     (when on-change (on-change v)))]
+     [select items (k @val-atom) change-fn])))
 
 (register-tag :p/pselect select-atom)
 (register-tag :p/pselectm select-map)
