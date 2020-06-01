@@ -91,7 +91,7 @@
           [button-dropdown @dropdown? toggle-dropdown]]]
 
         (when @dropdown?
-          [:div {:class (str "absolute shadow z-999 w-full lef-0 rounded max-h-select top-100 " ; top-100
+          [:div {:class (str "absolute shadow z-50 w-full lef-0 rounded max-h-select top-100 " ; top-100
                              "overflow-y-auto svelte-5uyqqj")}
            [:div {:class "flex flex-col w-full"}
             (doall (map-indexed (fn [i v]

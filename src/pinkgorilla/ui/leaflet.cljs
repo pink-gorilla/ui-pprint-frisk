@@ -94,9 +94,14 @@
          ;_ (log (str "view:" view))
          ;{:keys [view]} data
          ]
-     [:<>
+     [:div.z-10
       [:link {:rel "stylesheet" :href css}]
-      [:> Map (merge  {:zoom zoom :center center :style {:width width :height height}} view-map)
+      [:> Map (merge  {:zoom zoom
+                       :center center
+                       :style {:width width :height height}
+                       :keyboard true ; navigate map with arrows and +-
+                       :class "z-10"}
+                      view-map)
 ;{:center marker-position :zoom zoom}
        [:> TileLayer
         {:url tile-layer-url
