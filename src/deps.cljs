@@ -7,6 +7,7 @@
   "create-react-class" "^15.6.3"
   "highcharts" "^8.0.4"
   "leaflet" "^1.6.0"
+  "marked" "^0.7.0"
   "react" "^16.13.0"
   "react-dom" "^16.13.0"
   "react-dom-factories" "^1.0.2"

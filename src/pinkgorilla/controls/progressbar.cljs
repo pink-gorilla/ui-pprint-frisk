@@ -6,7 +6,6 @@
 ; stolen from:
 ; https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/progressbars
 
-
 (defn progressbar [percent]
   [:div {:class "relative pt-1"}
    [:div {:class "overflow-hidden h-2 mb-4 text-xs flex rounded bg-pink-200"}
@@ -15,10 +14,3 @@
 
 (register-tag :p/progressbar progressbar)
 
-(defn input []
-  [:div {:class "mb-3 pt-0"}
-   [:input {:type "text"
-            :placeholder "Placeholder"
-            :class "px-2 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:shadow-outline w-full"}]])
-
-(register-tag :p/input input)

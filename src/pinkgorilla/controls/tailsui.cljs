@@ -6,18 +6,18 @@
 
 (def css "tails-ui/dist/index.css")
 
-(defn button1 []
-  [:<>
-   [:link {:rel "stylesheet" :href css}]
-   [:p "tails ui button:"]
-   [:> Button {:color "blue"
-               :type "submit"
-               :fullWidth true
-               :outline true}
+#_(defn button1 []
+    [:<>
+     [:link {:rel "stylesheet" :href css}]
+     [:p "tails ui button:"]
+     [:> Button {:color "blue"
+                 :type "submit"
+                 :fullWidth true
+                 :outline true}
 
-    "Submit"]])
+      "Submit"]])
 
-(register-tag :p/button1 button1)
+#_(register-tag :p/button1 button1)
 
 ;; tabs
 ;; tails-ui-tabs are a little complicated as they expect react 
@@ -34,9 +34,11 @@
         (r/children (r/current-component))))
 
 (defn tabs [& children]
-  (into [:> Tabs]
-        (map (fn [child]
-               (into [:> Tab] (rest child))) children)))
+  [:<>
+   [:link {:rel "stylesheet" :href css}]
+   (into [:> Tabs]
+         (map (fn [child]
+                (into [:> Tab] (rest child))) children))])
 
 (register-tag :p/tab tab)
 (register-tag :p/tabs tabs)

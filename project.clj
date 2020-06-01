@@ -28,7 +28,7 @@
                  [thi.ng/strf "0.2.2"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.33"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.1.35"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}

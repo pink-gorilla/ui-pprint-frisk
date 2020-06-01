@@ -20,52 +20,62 @@
 
 (example/add
  "controls"
- (let [items ["javascript" "ruby" "clojure" "clojurescript" "ocaml" "scheme" "elixir" "c#" "R" "python"]
-       v (r/atom "ruby")]
+ (let [languages ["javascript" "ruby" "clojure" "clojurescript" "ocaml" "scheme" "elixir" "c#" "R" "python"]
+       state (r/atom {:name "Someone Special"
+                      :language "ruby"
+                      :super? true})]
    [:<>
+    [:h3 "styling by tailwind css"]
 
-    [:h1 "ui controls (with tailwind css)"]
+    [:div {:class "flex items-center justify-between"}
 
-    [:h2 "Button"]
-    [:p/button1]
+     [:p/panel {:title "panel with controls"}
+      [:h2 "button"]
+      [:p/button {:on-click #(js/alert "clicked")} "click me!"]
 
-    [:h2 "Tabs"]
-    [:p/tabs
-     [:p/tab {:title "a"
-       :isActive false
-       :color "red"
-       :tabIndex 1}
-      [:h4 "We love the A-team !"]]
-     [:p/tab {:title "b"
-       :isActive true
-       :color "green"
-       :tabIndex 0}
-      [:h4 "Bananas are a great potassium source!"]]]
+      [:h2 "select"]
+      [:p/pselectm {:nav? true} languages state :language]
 
-    [:h2 "select"]
-    [:p/pselect items v]
+      [:h2 "checkbox"]
+      [:p/checkbox state :super?]
 
+      [:h2 "input"]
+      [:p/input state :name]
 
-    [:h2 "slider"]
-    [:p/slider]
+      [:h2 "slider"]
+      [:p/slider]]
 
-    [:h2 "Popover"]
-    [:p/popover {:color "orange"
-                 :placement "left"
-                 :button-text "orange-l"}
-     [:p/tooltip {:color "orange"
-               :title  "oranges"
-               :content "Lets make orange juice"}]
-     ]
-    [:p/popover {:color "green"
-                 :placement "right"
-                 :button-text "trees-r"}
-     [:p/tooltip {:color "green"
-               :title  "tree"
-               :content "How many trees are in a forest?"}]]
-    
-    [:h2 "progress bar"]
-    [:p/progressbar 30]
-    [:p/progressbar 80]
+     [:div
+      [:h2 "Tabs"]
+      [:p/tabs
+       [:p/tab {:title "a"
+                :isActive false
+                :color "red"
+                :tabIndex 1}
+        [:h4 "We love the A-team !"]]
+       [:p/tab {:title "b"
+                :isActive true
+                :color "green"
+                :tabIndex 0}
+        [:h4 "Bananas are a great potassium source!"]]]]
 
-    [:p "born with grosse ohrn"]]))
+     [:p/panel {:title "display only controls"}
+      [:h2 "Popover"]
+      [:p/popover {:color "orange"
+                   :placement "left"
+                   :button-text "orange-l"}
+       [:p/tooltip {:color "orange"
+                    :title  "oranges"
+                    :content "Lets make orange juice"}]]
+      [:p/popover {:color "green"
+                   :placement "right"
+                   :button-text "trees-r"}
+       [:p/tooltip {:color "green"
+                    :title  "tree"
+                    :content "How many trees are in a forest?"}]]
+
+      [:h2 "progress bar"]
+      [:p/progressbar 30]
+      [:p/progressbar 80]
+
+      [:p "born with grosse ohrn"]]]]))
