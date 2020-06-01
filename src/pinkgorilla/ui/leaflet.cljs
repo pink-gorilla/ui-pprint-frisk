@@ -80,6 +80,20 @@
         (assoc-if-exists :center center)
         (assoc-if-exists :useFlyTo useFlyTo))))
 
+;   handleClick = () => {
+;    const map = this.mapRef.current
+;    if (map != null) {
+;      map.leafletElement.locate()
+;    }
+;  }
+
+;  handleLocationFound = (e: Object) => {
+;    this.setState({
+;      hasLocation: true,
+;      latlng: e.latlng,
+;    })
+
+
 (defn leaflet-map
   ([options features-incl-view]
    (let [{:keys [css tile-layer-url attribution]} config ; config cannot be set by user
@@ -100,7 +114,11 @@
                        :center center
                        :style {:width width :height height}
                        :keyboard true ; navigate map with arrows and +-
-                       :class "z-10"}
+                       :class "z-10"
+                       ;:ref {this.mapRef}
+                       ;:onClick {this.handleClick}
+                       ;:onLocationfound= {this.handleLocationFound}
+                       }
                       view-map)
 ;{:center marker-position :zoom zoom}
        [:> TileLayer

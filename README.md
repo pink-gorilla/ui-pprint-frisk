@@ -30,4 +30,8 @@ the npm stuff never does any actual compilation, just runs the java process
 ## Tailwind CSS
 
 - https://umeshmk.github.io/Tailwindcss-cheatsheet/
-- 
+- https://mertjf.github.io/tailblocks/
+- https://merakiui.com/
+- https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
+- https://tailwindcomponents.com/
+- http://www.heropatterns.com/
