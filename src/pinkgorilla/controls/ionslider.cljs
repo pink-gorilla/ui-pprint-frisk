@@ -33,7 +33,7 @@
                            to (get v "to")]
                        (println "slider value: from: " from "to: " to)
                        (swap! state assoc kw-from from)
-                       (when kw-to 
+                       (when kw-to
                          (swap! state assoc kw-to to))))
          options-to (if kw-to {:to (kw-to @state)
                                :type "double"} {})
