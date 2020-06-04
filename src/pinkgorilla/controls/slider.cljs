@@ -3,6 +3,8 @@
    [reagent.core :as r]
    [pinkgorilla.ui.pinkie :refer [register-tag]]))
 
+; dash: https://www.npmjs.com/package/rc-slider
+
 (defn svg1 []
   [:svg {:class "absolute text-black w-full h-2 left-0 top-100"
          :x "0px"
@@ -87,3 +89,5 @@
       [:div {:class "absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6"} "$ 70"]]]]])
 
 (register-tag :p/slider slider)
+
+(println ":p/slider was registered!")

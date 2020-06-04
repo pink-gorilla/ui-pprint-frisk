@@ -24,12 +24,14 @@
    [demo.app]
    ))
 
+(enable-console-print!)
 
 (defn stop []
   (js/console.log "Stopping..."))
 
 (defn start []
   (js/console.log "Starting...")
+  (println "starting with println")
   (reagent.dom/render [demo.app/app]
                       (.getElementById js/document "app")))
 

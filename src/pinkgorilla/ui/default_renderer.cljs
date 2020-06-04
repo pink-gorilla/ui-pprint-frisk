@@ -1,11 +1,12 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
    [pinkgorilla.ui.default-setup]
-      ; controls
+   ; controls
    [pinkgorilla.controls.button]
    [pinkgorilla.controls.input]
    [pinkgorilla.controls.select]
    [pinkgorilla.controls.slider]
+   [pinkgorilla.controls.ionslider]
    [pinkgorilla.controls.popover]
    [pinkgorilla.controls.progressbar]
    [pinkgorilla.controls.tailsui]
