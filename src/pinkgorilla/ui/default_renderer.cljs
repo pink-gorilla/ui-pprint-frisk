@@ -13,6 +13,7 @@
    [pinkgorilla.controls.markdown]
    [pinkgorilla.controls.checkbox]
    [pinkgorilla.controls.panel]
+   [pinkgorilla.controls.aspect-ratio]
    ; js
    [pinkgorilla.ui.json]
    [pinkgorilla.ui.highchart]
