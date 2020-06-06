@@ -7,14 +7,16 @@
 
 ## Demo:
 
-Run `npm install` to download dependencies.
+Run `npm install` to download npm dependencies.
 
-Run `lein demo` to run the demo app.
+Run `lein demo` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.
 
 Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.
 
 
 ## Dev
+
+Add a dependency to your clojurescript project, and you are good to go. Note that we use shadow-cljs which allows easy management of npm dependencies.
 
 If there are problems in using vega with errors to "buffer" then do
 this in your project: 
