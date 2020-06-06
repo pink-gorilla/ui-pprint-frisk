@@ -16,8 +16,6 @@ Run `lein embed` to see how to embed pinkie ui components in ordinary html pages
 
 ## Dev
 
-Note that dependencies are declared twice - in shadow-cljs.edn and project.clj
-
 If there are problems in using vega with errors to "buffer" then do
 this in your project: 
 ```

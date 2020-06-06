@@ -36,9 +36,10 @@ jobs:
         lein deps
     - name: Check formatting
       run: lein cljfmt check
-    #- name: Run tests
-    #  run: |
-    #    lein test
+    - name: Run tests
+      run: |
+        lein test
+        lein cloverage
     #    lein build-shadow-ci
     #    ./node_modules/karma/bin/karma start --single-run
     - name: Release
@@ -50,3 +51,4 @@ jobs:
         git config --global user.email "ci@pinkgorilla.org"
         git config --global user.name "CI/CD"
         lein release
+        bash <(curl -s https://codecov.io/bash)
