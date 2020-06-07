@@ -18,12 +18,7 @@ Run `lein embed` to see how to embed pinkie ui components in ordinary html pages
 
 Add a dependency to your clojurescript project, and you are good to go. Note that we use shadow-cljs which allows easy management of npm dependencies.
 
-If there are problems in using vega with errors to "buffer" then do
-this in your project: 
-```
-npm install shadow-cljs --save
-```
-thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
+If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
 the compiler is from the CLJ dependency you have in project.clj.
 the npm stuff never does any actual compilation, just runs the java process
 
