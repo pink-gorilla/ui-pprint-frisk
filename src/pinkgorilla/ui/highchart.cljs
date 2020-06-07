@@ -16,7 +16,7 @@
   (highcharts/Chart. dom-node data); //.catch(console.warn);
   )
 
-(defn ^{:category :ui-data}
+(defn ^{:category :data}
   highchart [data]
   [render-js {:f render-highchart :data data}])
 

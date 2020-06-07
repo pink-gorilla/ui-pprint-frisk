@@ -94,7 +94,7 @@
 ;    })
 
 
-(defn ^{:category :ui-data}
+(defn ^{:category :data}
   leaflet-map
   ([options features-incl-view]
    (let [{:keys [css tile-layer-url attribution]} config ; config cannot be set by user

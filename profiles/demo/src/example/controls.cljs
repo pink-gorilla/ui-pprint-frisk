@@ -37,6 +37,20 @@
      [:div {:class "flex items-center justify-between"}
 
       [:p/panel {:title "panel with controls"}
+       [:h1 "wowow"]
+       [:h2 "button"]
+       [:p/button {:on-click #(js/alert "clicked")} "click me!"]
+       [:h2 "select"]
+       [:p/pselectm {:nav? true} languages state :language]
+       [:h2 "checkbox"]
+       [:p/checkbox state :super?]
+
+       [:h2 "input"]
+       [:p/input state :name]
+       [:h2 "slider"]
+       [:p/slider]]
+
+      [:p/panel {:title "panel with controls"}
        [:h2 "ion-slider " (:slider @state)]
        [:p/slideriona {:min 1
                        :max 10
@@ -44,23 +58,8 @@
                      ;:on-change #((let [v  %] ; (-> % .-target .-value)]
                      ;               (debug v)
                      ;               (js/alert v)))
-                       } state :slider]
-       [:p/slideriona {:min 1 :max 10} state :slider :slider-to]
-
-       [:h2 "button"]
-       [:p/button {:on-click #(js/alert "clicked")} "click me!"]
-
-       [:h2 "select"]
-       [:p/pselectm {:nav? true} languages state :language]
-
-       [:h2 "checkbox"]
-       [:p/checkbox state :super?]
-
-       [:h2 "input"]
-       [:p/input state :name]
-
-       [:h2 "slider"]
-       [:p/slider]]
+                       }state :slider]
+       [:p/slideriona {:min 1 :max 10} state :slider :slider-to]]
 
       [:div
        [:h2 "Tabs"]

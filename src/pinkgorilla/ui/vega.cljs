@@ -28,13 +28,13 @@
                 (.appendChild dom-node
                               (.createTextNode js/document (str "Vega Spec error: " em)))))))
 
-(defn ^{:category :ui-data}
+(defn ^{:category :data}
   vega [data-clj]
   [render-js {:f render-vega :data data-clj}])
 
 (register-component :p/vega vega)
 
-(defn ^{:category :ui-data}
+(defn ^{:category :data}
   vegaa [s k]
   [vega (k @s)])
 

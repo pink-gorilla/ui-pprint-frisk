@@ -52,8 +52,7 @@
     (fn []
       [:<>
        [:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
-       [:div {:class "flex font-sans antialiased h-screen"}
+       [:div.flex.font-sans.antialiased.h-screen
         [sidebar {:examples @examples :goto-page goto-page}]
-        [:div {:class "bg-white h-full pt-8"}
-         [:div {:class "text-center w-full text-grey-darkest"}
-          [@current]]]]])))
+        [:div.bg-white.h-full.w-full.text-center.text-grey-darkest
+          [@current]]]])))

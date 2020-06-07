@@ -403,7 +403,7 @@
                   :transform (when visible? "rotate(90deg)")}}
     [:polygon {:points "0,0 0,100 100,50" :stroke "black"}]]])
 
-(defn ^{:category :control}
+(defn ^{:category :pinkie}
   DataFriskView [data]
   (let [expand-by-default (reduce #(assoc-in %1 [:data-frisk %2 :metadata-paths [] :expanded?] true) {} (range (count data)))
         state-atom (r/atom expand-by-default)]

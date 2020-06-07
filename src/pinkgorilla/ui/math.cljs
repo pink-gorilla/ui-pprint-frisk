@@ -35,7 +35,7 @@
                  (.appendChild dom-node math-node)
                  #_(add-math-css))))))
 
-(defn ^{:category :interface}
+(defn ^{:category :ui}
   math [data-clj]
   [render-js {:f render-math :data data-clj}])
 

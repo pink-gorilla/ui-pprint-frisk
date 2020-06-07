@@ -9,8 +9,8 @@
   (swap! examples conj {:name name :component component}))
 
 (defn show-example [{:keys [name component]}]
-  [:div ; {:style {:background-color "yellow"}}
+  [:div.flex.flex-col.w-full.h-full ; {:style {:background-color "yellow"}}
    [:h1.mb-5 name]
-   [error-boundary
-    (tag-inject component)
-    ]])
+   [:div.w-full.h-full
+    [error-boundary
+     (tag-inject component)]]])

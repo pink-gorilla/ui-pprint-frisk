@@ -13,7 +13,7 @@
         p (.appendChild (.createElement js/document "p") text-node)
         _ (.appendChild dom-node p)]))
 
-(defn ^{:category :ui-data}
+(defn ^{:category :ui}
   json [data-clj]
   [render-js {:f render-json :data data-clj}])
 

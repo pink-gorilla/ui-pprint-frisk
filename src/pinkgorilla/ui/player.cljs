@@ -4,7 +4,7 @@
    ["react-player" :as rp :refer [ReactPlayer]]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
-(defn ^{:category :ui-interface}
+(defn ^{:category :ui}
   player [url]
   [:div-player
    [:> rp/default {:url url :playing true}]])

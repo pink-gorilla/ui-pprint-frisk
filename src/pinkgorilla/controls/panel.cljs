@@ -17,7 +17,10 @@
      title]
     [:div extra]]
    [:div {:class "p-2"}
-    (map-indexed (fn [i c] ^{:key i} c) children)
+      ;(into [] children)
+    (into [:div] children)
+    ; the div wrapper for the c children is weird.
+     ;(map-indexed (fn [i c] ^{:key i} [:div.p c]) children)
     ;children
     ]])
 

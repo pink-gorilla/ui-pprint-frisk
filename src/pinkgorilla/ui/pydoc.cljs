@@ -27,14 +27,14 @@
 
 (defn py-category [category-name items]
   [:<>
-   [:p (str category-name " (" (count items) ") : ")]
+   [:p (str category-name " (ñ" (count items) ") : ")]
    (doall (map-indexed
            (fn [i data] ^{:key i} [py-entry data]) items))])
 
 (defn of-type [type items]
   (filter #(= type (:type %)) items))
 
-(defn ^{:category :ui-data}
+(defn ^{:category :pinkie}
   py-doc [py-module]
   (let [items (if (map? py-module)
                 (vals py-module)

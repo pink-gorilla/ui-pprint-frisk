@@ -6,10 +6,12 @@
 
 (example/add
  "renderer"
- [:p/components])
+ ;[:p/components]   ; simple ui in renderable-ui
+ [:p/componentsui]
+ )
 
 
-(def img
+(defn img []
   [:img.object-cover.object-bottom.w-full.h-full
    {:src "https://images.unsplash.com/photo-1516464731083-b50c0b838068"
     :alt "gorilla"}])
@@ -21,7 +23,7 @@
   [:p/bongo 456] ; unknown renderer
   [:h1 "aspect ratio test"]
   [:div {:class "w-1/3 h-64 overflow-hidden"}
-   [:p/aspectratio 16 9 img]]
+   [:p/aspectratio 16 9 [img]]]
   [:div.bg-gray-800.h-64
    [:p/aspectratio 16 3
     [:div.flex.justify-center.items-center.h-full
@@ -32,8 +34,8 @@
  "html"
  [:div
   [:h1 "html in reagent"]
-  [:p "please open developer tools to check if jquery gets loaded below."]
-  [:p/phtml "<script src='https://code.jquery.com/jquery-3.4.1.min.js'>>/script>"]])
+  [:p "please open developer tools to check if ramda gets loaded below."]
+  [:p/phtml "<script src='https://cdn.jsdelivr.net/npm/ramda@0.27.0/dist/ramda.min.js'>>/script>"]])
 
 
 

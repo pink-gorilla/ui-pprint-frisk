@@ -7,7 +7,7 @@
 
 ;node_modules/ag-grid-community/dist/styles/
 
-(defn ^{:category :ui-data}
+(defn ^{:category :data}
   aggrid [data]
   [:<>
    [:link {:rel "stylesheet" :href "ag-grid-community/dist/styles/ag-grid.css"}]

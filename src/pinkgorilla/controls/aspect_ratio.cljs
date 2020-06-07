@@ -12,7 +12,7 @@
 (defn ^{:category :layout}
   aspect-ratio
   [w h & children]
-  [:div {:style {:padding-bottom (padding-ratio w h)}}
-   children])
+  (into [:div {:style {:padding-bottom (padding-ratio w h)}}
+         children]))
 
 (register-component :p/aspectratio aspect-ratio)

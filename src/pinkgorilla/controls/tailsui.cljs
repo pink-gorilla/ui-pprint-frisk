@@ -29,12 +29,12 @@
 ;; see:
 ;; https://presumably.de/reagent-mysteries-part-4-children-and-other-props.html
 ;; 
-(defn ^{:category :control}
+(defn ^{:category :layout}
   tab [options]
   (into [:> Tab options]
         (r/children (r/current-component))))
 
-(defn ^{:category :control}
+(defn ^{:category :layout}
   tabs [& children]
   [:<>
    [:link {:rel "stylesheet" :href css}]

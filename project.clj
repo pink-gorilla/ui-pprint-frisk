@@ -1,5 +1,5 @@
 (defproject org.pinkgorilla/gorilla-ui "0.2.2-SNAPSHOT"
-  :description "Reagent components for daa vizualisation."
+  :description "Reagent components for data visualisation."
   :url "https://github.com/pink-gorilla/gorilla-ui"
   :license {:name "MIT"}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
@@ -30,7 +30,7 @@
                  [thi.ng/strf "0.2.2"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/gorilla-renderable-ui "0.2.1"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.2.2"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}
@@ -45,7 +45,15 @@
                                    [clj-kondo "2019.11.23"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]]
-                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
+                    :aliases      {"clj-kondo"
+                                   ["run" "-m" "clj-kondo.main"]
+                                   
+                                   "bump-version" ^{:doc "Increases project.clj version number (used by CI)."}
+                                   ["change" "version" "leiningen.release/bump-version"]
+                                   
+                                   
+                                   
+                                   }
                     :cloverage    {:codecov? true ; https://github.com/codecov/example-clojure
                                   ;; In case we want to exclude stuff
                                   ;; :ns-exclude-regex [#".*util.instrument"]
@@ -59,9 +67,7 @@
 
   :aliases {"clean"  ^{:doc "Cleans build artefacts."}
             ["shell" "./scripts/clean.sh"]
-            "bump-version" ^{:doc "Increases project.clj version number (used by CI)."}
-            ["change" "version" "leiningen.release/bump-version"]
-            ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
+             ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
             ;"shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
             ["with-profile" "+test" "shell" "shadow-cljs" "compile" "ci"]

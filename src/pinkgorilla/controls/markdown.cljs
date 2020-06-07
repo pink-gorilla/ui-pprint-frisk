@@ -7,7 +7,7 @@
    ["marked" :as marked]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
-(defn ^{:category :ui-data}
+(defn ^{:category :ui}
   markdown
   "reagent markdown render component
    usage:

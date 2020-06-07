@@ -1,6 +1,7 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
    [pinkgorilla.ui.default-setup]
+   [pinkgorilla.ui.components-ui]
    ; controls
    [pinkgorilla.controls.button]
    [pinkgorilla.controls.input]
