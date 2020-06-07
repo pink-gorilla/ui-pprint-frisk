@@ -1,11 +1,12 @@
 (ns pinkgorilla.ui.gridlayout
   (:require
    ["react-grid-layout" :as ReactGridLayout]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ; https://github.com/STRML/react-grid-layout
 
-(defn gridlayout [data & children]
+(defn ^{:category :layout}
+  gridlayout [data & children]
 
   [:<>
    [:link {:rel "stylesheet" :href "react-grid-layout/css/styles.css"}]
@@ -13,4 +14,4 @@
    [:> ReactGridLayout data
     children]])
 
-(register-tag :p/gridlayout gridlayout)
+(register-component :p/gridlayout gridlayout)

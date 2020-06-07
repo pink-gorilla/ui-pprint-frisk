@@ -2,10 +2,11 @@
   (:require
    [reagent.core :as r]
    ["react-player" :as rp :refer [ReactPlayer]]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
-(defn player [url]
+(defn ^{:category :ui-interface}
+  player [url]
   [:div-player
    [:> rp/default {:url url :playing true}]])
 
-(register-tag :p/player player)
+(register-component :p/player player)

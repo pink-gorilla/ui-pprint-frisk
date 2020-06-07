@@ -2,17 +2,11 @@
   (:require
    [cljs.pprint]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [tag-inject renderer-list]]
-   [pinkgorilla.controls.select :refer [select]]
    [demo.example :as example]))
-
-(defn print-registered-tags []
-  (with-out-str
-    (cljs.pprint/print-table (renderer-list))))
 
 (example/add
  "renderer"
- [:p/text (print-registered-tags)])
+ [:p/components])
 
 
 (def img

@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-ui "0.1.67-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-ui "0.2.1-SNAPSHOT"
   :description "Reagent components for daa vizualisation."
   :url "https://github.com/pink-gorilla/gorilla-ui"
   :license {:name "MIT"}
@@ -30,7 +30,7 @@
                  [thi.ng/strf "0.2.2"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/gorilla-renderable-ui "0.1.36"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.2.1"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}

@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.pydoc
   (:require
    [clojure.string :as str]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ;{:module "numpy"
 ; :name "transpose"
@@ -34,7 +34,8 @@
 (defn of-type [type items]
   (filter #(= type (:type %)) items))
 
-(defn py-doc [py-module]
+(defn ^{:category :ui-data}
+  py-doc [py-module]
   (let [items (if (map? py-module)
                 (vals py-module)
                 py-module)
@@ -68,5 +69,5 @@
      [py-category "Float" float-items]
      [py-category "Str" str-items]]))
 
-(register-tag :p/pydoc py-doc)
+(register-component :p/pydoc py-doc)
 

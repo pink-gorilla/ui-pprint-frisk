@@ -1,6 +1,6 @@
 (ns pinkgorilla.controls.checkbox
   (:require
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ;todo:
 ; add options: disabled, label
@@ -8,7 +8,8 @@
 ; refer also to:
 ;https://github.com/knipferrc/tails-ui/blob/master/src/components/Checkbox.re
 
-(defn checkbox
+(defn ^{:category :control}
+  checkbox
   "checkbox that is bound to a key of an external atom"
   [a k]
   [:div {:class "mb-3 pt-0"}
@@ -19,6 +20,6 @@
                          (println "onchange checkbox")
                          (swap! a assoc k (not (k @a))))}]])
 
-(register-tag :p/checkbox checkbox)
+(register-component :p/checkbox checkbox)
 
 

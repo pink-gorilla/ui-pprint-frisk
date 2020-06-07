@@ -2,7 +2,7 @@
   (:require
    [cljs.pprint :refer [pprint]]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ;; stolen from: https://github.com/Odinodin/data-frisk-reagent
 
@@ -403,7 +403,8 @@
                   :transform (when visible? "rotate(90deg)")}}
     [:polygon {:points "0,0 0,100 100,50" :stroke "black"}]]])
 
-(defn DataFriskView [data]
+(defn ^{:category :control}
+  DataFriskView [data]
   (let [expand-by-default (reduce #(assoc-in %1 [:data-frisk %2 :metadata-paths [] :expanded?] true) {} (range (count data)))
         state-atom (r/atom expand-by-default)]
     (fn [& data]
@@ -432,4 +433,4 @@
             (map-indexed (fn [id x]
                            ^{:key id} [Root x id state-atom]) data)])]))))
 
-(register-tag :p/frisk DataFriskView)
+(register-component :p/frisk DataFriskView)

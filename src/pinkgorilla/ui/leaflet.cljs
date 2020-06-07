@@ -2,7 +2,7 @@
   (:require
    ["react-leaflet" :refer [Map TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.dsl.leaflet :refer [default-options]]))
 
 ; config cannot be overritten by the user. this is ui renderer configuration
@@ -94,7 +94,8 @@
 ;    })
 
 
-(defn leaflet-map
+(defn ^{:category :ui-data}
+  leaflet-map
   ([options features-incl-view]
    (let [{:keys [css tile-layer-url attribution]} config ; config cannot be set by user
          {:keys [width height zoom center]} options
@@ -130,4 +131,4 @@
   ([features]
    (leaflet-map default-options features)))
 
-(register-tag :p/leaflet leaflet-map)
+(register-component :p/leaflet leaflet-map)

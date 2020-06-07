@@ -1,11 +1,12 @@
 (ns pinkgorilla.controls.button
   (:require
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ; for ideas for props for button look at:
 ; https://github.com/knipferrc/tails-ui/blob/master/src/components/Button.re
 
-(defn button
+(defn ^{:category :control}
+  button
   ([text]
    [button {} text])
   ([{:keys [on-click] :as options} text]
@@ -13,4 +14,4 @@
              :on-click (fn [_ & _] (when on-click (on-click)))}
     text]))
 
-(register-tag :p/button button)
+(register-component :p/button button)

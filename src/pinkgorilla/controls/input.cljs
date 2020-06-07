@@ -1,11 +1,12 @@
 (ns pinkgorilla.controls.input
   (:require
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ; stolen from:
 ; https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/progressbars
 
-(defn input
+(defn ^{:category :control}
+  input
   "textbox that is bound to a key of an external atom"
   [a k]
   [:div {:class "mb-3 pt-0"}
@@ -19,4 +20,4 @@
                            (println "new value: " v)
                            (swap! a assoc k v)))}]])
 
-(register-tag :p/input input)
+(register-component :p/input input)

@@ -5,7 +5,7 @@
   (:require
    [reagent.core :as r]
    ["@popperjs/core" :refer [createPopper]]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ; stolen from:
 ; https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/react/popovers/left
@@ -13,14 +13,16 @@
 ; ref handling from:
 ; https://gist.github.com/pesterhazy/4d9df2edc303e5706d547aeabe0e17e1
 
-(defn tooltip [{:keys [title content color]}]
+(defn ^{:category :control}
+  tooltip [{:keys [title content color]}]
   [:div
    [:div {:class (str "bg-" color "-600 text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-gray-200 uppercase rounded-t-lg")}
     title]
    [:div {:class "text-white p-3"}
     content]])
 
-(defn popover [{:keys [color placement button-text]} child]
+(defn ^{:category :control}
+  popover [{:keys [color placement button-text]} child]
   (let [popover? (r/atom false)
         btn (r/atom nil)
         popover (r/atom nil)
@@ -52,6 +54,6 @@
                 :ref  #(reset! popover %)}
           child]]]])))
 
-(register-tag :p/tooltip tooltip)
-(register-tag :p/popover popover)
+(register-component :p/tooltip tooltip)
+(register-component :p/popover popover)
 

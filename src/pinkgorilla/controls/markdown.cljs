@@ -5,9 +5,10 @@
    "
   (:require
    ["marked" :as marked]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
-(defn markdown
+(defn ^{:category :ui-data}
+  markdown
   "reagent markdown render component
    usage:
     [markdown markdown-string]"
@@ -37,4 +38,4 @@
 
 #_(println "react-md: " (pr-str react-md))
 
-(register-tag :p/markdown markdown)
+(register-component :p/markdown markdown)

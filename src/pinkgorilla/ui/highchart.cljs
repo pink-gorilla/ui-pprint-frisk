@@ -7,7 +7,7 @@
    "
   (:require
    ["highcharts" :as highcharts]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.jsrender :refer [render-js]]))
 
 ;; https://api.highcharts.com/class-reference/Highcharts.Chart
@@ -16,8 +16,9 @@
   (highcharts/Chart. dom-node data); //.catch(console.warn);
   )
 
-(defn highchart [data]
+(defn ^{:category :ui-data}
+  highchart [data]
   [render-js {:f render-highchart :data data}])
 
-(register-tag :p/highchart highchart)
+(register-component :p/highchart highchart)
 

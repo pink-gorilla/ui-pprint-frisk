@@ -3,7 +3,7 @@
    [cljs.pprint]
    [goog.object :as g]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [tag-inject renderer-list]]
+   [pinkgorilla.ui.pinkie :refer [tag-inject]]
    [demo.example :as example]))
 
 
@@ -37,8 +37,6 @@
      [:div {:class "flex items-center justify-between"}
 
       [:p/panel {:title "panel with controls"}
-
-
        [:h2 "ion-slider " (:slider @state)]
        [:p/slideriona {:min 1
                        :max 10

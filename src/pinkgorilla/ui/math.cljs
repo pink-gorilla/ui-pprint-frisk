@@ -6,7 +6,7 @@
    "
   (:require
    ;[taoensso.timbre :refer-macros (warn)]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.jsrender :refer [render-js]]
    ["/pinkgorilla/ui/mathinit" :as mathjax-init]))
 
@@ -35,10 +35,11 @@
                  (.appendChild dom-node math-node)
                  #_(add-math-css))))))
 
-(defn math [data-clj]
+(defn ^{:category :interface}
+  math [data-clj]
   [render-js {:f render-math :data data-clj}])
 
-(register-tag :p/math math)
+(register-component :p/math math)
 
 
 

@@ -21,7 +21,13 @@
                  :asset-path "/"
                  :modules {:main {:entries [demo.core]}}
                  :devtools {:before-load demo.core/stop
-                            :after-load demo.core/start}}
+                            :after-load demo.core/start}
+                 :compiler-options {;; preferrably implicit by shadow-cljs compile/watch/release
+                                                        ;; Beware: releasing :none not supported by shadow
+                                                        ;; :optimizations   :none
+                                   ;:optimizations   :simple
+                                   :optimizations  :none
+                 }}
 
           :embed {:target :browser
                   :output-dir "target"
@@ -34,8 +40,7 @@
                                    ;"classpath:public" 
                                    ;"resources/public" 
                                    "classpath:resources"
-                                   "node_modules"
-                                   "node_modules/mathjax/es5"]}}
+                                   "node_modules"]}}
 
           :ci {:target :karma
                :output-to  "target/ci.js"

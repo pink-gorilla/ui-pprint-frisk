@@ -2,7 +2,7 @@
   (:require
    [reagent.core :as r]
    [pinkgorilla.controls.button :refer [button]]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 (defn css []
   [:style ".top-100 {top: 100%}
@@ -60,7 +60,8 @@
              :height "100%"}
        [:polyline {:points points}]]]]))
 
-(defn select [items val change-fn]
+(defn ^{:category :control}
+  select [items val change-fn]
   (let [l (count items)
         l1 (- l 1)
         dropdown? (r/atom false)
@@ -128,7 +129,8 @@
    [button {:on-click #(go-next v items change-fn)} "<"]
    [button {:on-click #(go-next v items change-fn)} ">"]])
 
-(defn select-map
+(defn ^{:category :control}
+  select-map
   "select one item from a seq of items
    parameters:
      options: this is an optional parameter, a map with keys:
@@ -153,5 +155,5 @@
       (when nav?
         [nav-buttons items (k @val-atom) change-fn])])))
 
-(register-tag :p/pselect select)
-(register-tag :p/pselectm select-map)
+(register-component :p/pselect select)
+(register-component :p/pselectm select-map)

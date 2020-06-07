@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.vega
   "plugin to render vega-charts in pink-gorilla"
   (:require
-   [pinkgorilla.ui.pinkie :refer [register-tag]]
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.jsrender :refer [render-js]]
    ["vega-embed" :as vega-embed]))
 
@@ -28,12 +28,14 @@
                 (.appendChild dom-node
                               (.createTextNode js/document (str "Vega Spec error: " em)))))))
 
-(defn vega [data-clj]
+(defn ^{:category :ui-data}
+  vega [data-clj]
   [render-js {:f render-vega :data data-clj}])
 
-(register-tag :p/vega vega)
+(register-component :p/vega vega)
 
-(defn vegaa [s k]
+(defn ^{:category :ui-data}
+  vegaa [s k]
   [vega (k @s)])
 
-(register-tag :p/vegaa vegaa)
+(register-component :p/vegaa vegaa)

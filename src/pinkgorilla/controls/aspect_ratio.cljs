@@ -1,6 +1,6 @@
 (ns pinkgorilla.controls.aspect-ratio
   (:require
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ; https://www.youtube.com/watch?v=nqNIy8HkEQ8
 
@@ -9,9 +9,10 @@
     (println "padding-ratio: " r)
     r))
 
-(defn aspect-ratio
+(defn ^{:category :layout}
+  aspect-ratio
   [w h & children]
   [:div {:style {:padding-bottom (padding-ratio w h)}}
    children])
 
-(register-tag :p/aspectratio aspect-ratio)
+(register-component :p/aspectratio aspect-ratio)

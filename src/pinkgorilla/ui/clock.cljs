@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.clock
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.html :refer [html]]))
 
 (def clock-style
@@ -76,7 +76,8 @@
         (map (partial vector :div.clock-cell)
              items)))
 
-(defn clock [date show-100s toggle-100s]
+(defn ^{:category :demo}
+  clock [date show-100s toggle-100s]
   [:div.clock-main {:on-click toggle-100s
                     :class (when show-100s "wide")}
    [html clock-style]
@@ -94,7 +95,8 @@
 (defn update-time []
   (swap! clock-state assoc :time (js/Date.)))
 
-(defn binary-clock []
+(defn ^{:category :demo}
+  binary-clock []
   (let [{:keys [time show-100s]} @clock-state]
     (if show-100s
       (r/next-tick update-time)
@@ -102,6 +104,6 @@
     [clock time show-100s
      #(swap! clock-state update-in [:show-100s] not)]))
 
-(register-tag :p/clock binary-clock)
+(register-component :p/clock binary-clock)
 
 

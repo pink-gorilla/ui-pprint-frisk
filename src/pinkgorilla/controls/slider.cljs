@@ -1,7 +1,7 @@
 (ns pinkgorilla.controls.slider
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [register-tag]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 ; dash: https://www.npmjs.com/package/rc-slider
 
@@ -18,7 +18,8 @@
   (println "on-select")
   false)
 
-(defn slider []
+(defn ^{:category :control}
+  slider []
   [:<>
    [:div {:class "flex w-64 m-auto items-center h-32 justify-center"}
     [:div {:class "py-1 relative min-w-full"}
@@ -40,7 +41,8 @@
       [:div {:class "absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6"} "10"]
       [:div {:class "absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6"} "150"]]]]])
 
-(defn slider-between []
+(defn ^{:category :control}
+  slider-between []
   [:<>
    ; between two numbers
    [:div {:class "flex w-64 m-auto items-center h-32 justify-center"}
@@ -88,6 +90,6 @@
       [:div {:class "absolute text-gray-800 -ml-1 bottom-0 left-0 -mb-6"} "$ 8"]
       [:div {:class "absolute text-gray-800 -mr-1 bottom-0 right-0 -mb-6"} "$ 70"]]]]])
 
-(register-tag :p/slider slider)
+(register-component :p/slider slider)
 
 (println ":p/slider was registered!")

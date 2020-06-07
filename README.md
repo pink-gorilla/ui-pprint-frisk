@@ -5,7 +5,7 @@
 - renderers can use npm (js/react) dependencies, or
   maven (cljs) dependencies
 
-## Demo:
+## Demo
 
 Run `npm install` to download npm dependencies.
 
@@ -16,7 +16,7 @@ Run `lein embed` to see how to embed pinkie ui components in ordinary html pages
 
 ## Dev
 
-Documentation: [![cljdoc badge](https://cljdoc.org/badge/org.pinkgorilla/gorilla-ui)](https://cljdoc.org/d/org.pinkgorilla/gorilla-ui/CURRENT)
+Documentation: Run lein demo .. this showcases all components.
 
 Add a dependency to your clojurescript project, and you are good to go. Note that we use shadow-cljs which allows easy management of npm dependencies.
 
