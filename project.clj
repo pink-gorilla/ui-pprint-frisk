@@ -1,4 +1,6 @@
 (defproject org.pinkgorilla/gorilla-ui "0.1.66-SNAPSHOT"
+  :description "Reagent components for daa vizualisation."
+  :url "https://github.com/pink-gorilla/gorilla-ui"
   :license {:name "MIT"}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
@@ -42,8 +44,7 @@
                                    [thheller/shadow-cljsjs "0.0.21"]
                                    [clj-kondo "2019.11.23"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
-                                   [lein-cloverage "1.1.2"]
-                                   ]
+                                   [lein-cloverage "1.1.2"]]
                     :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
                     :cloverage    {:codecov? true
                                   ;; In case we want to exclude stuff
