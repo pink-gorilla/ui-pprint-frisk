@@ -54,4 +54,4 @@ jobs:
     - name: CodeCoverage
       run: |
         lein cloverage
-        bash <(curl -s https://codecov.io/bash)
+        bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json

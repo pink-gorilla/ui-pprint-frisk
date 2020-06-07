@@ -16,6 +16,8 @@ Run `lein embed` to see how to embed pinkie ui components in ordinary html pages
 
 ## Dev
 
+Documentation: [![cljdoc badge](https://cljdoc.org/badge/org.pinkgorilla/gorilla-ui)](https://cljdoc.org/d/org.pinkgorilla/gorilla-ui/CURRENT)
+
 Add a dependency to your clojurescript project, and you are good to go. Note that we use shadow-cljs which allows easy management of npm dependencies.
 
 If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages

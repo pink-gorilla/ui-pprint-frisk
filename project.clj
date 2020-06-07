@@ -46,7 +46,7 @@
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]]
                     :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
-                    :cloverage    {:codecov? true
+                    :cloverage    {:codecov? true ; https://github.com/codecov/example-clojure
                                   ;; In case we want to exclude stuff
                                   ;; :ns-exclude-regex [#".*util.instrument"]
                                   ;; :test-ns-regex [#"^((?!debug-integration-test).)*$$"]
