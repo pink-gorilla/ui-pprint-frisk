@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.67</version>
+  <version>0.2.1</version>
   <name>gorilla-ui</name>
   <description>Reagent components for daa vizualisation.</description>
   <url>https://github.com/pink-gorilla/gorilla-ui</url>
@@ -17,7 +17,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>fe5158a185e8f536af48fff637ed436b9e148d78</tag>
+    <tag>4b30faf87ca33e62b72c3a56cc48bf76a261ca5a</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -137,7 +137,7 @@
     <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>gorilla-renderable-ui</artifactId>
-      <version>0.1.36</version>
+      <version>0.2.1</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>

@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-ui "0.2.1"
+(defproject org.pinkgorilla/gorilla-ui "0.2.2-SNAPSHOT"
   :description "Reagent components for daa vizualisation."
   :url "https://github.com/pink-gorilla/gorilla-ui"
   :license {:name "MIT"}
