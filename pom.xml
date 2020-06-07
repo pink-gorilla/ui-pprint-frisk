@@ -4,9 +4,10 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.65</version>
+  <version>0.1.66</version>
   <name>gorilla-ui</name>
-  <description/>
+  <description>Reagent components for daa vizualisation.</description>
+  <url>https://github.com/pink-gorilla/gorilla-ui</url>
   <licenses>
     <license>
       <name>MIT</name>
@@ -16,7 +17,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>1f595c9b575e0063a3d92917c434f279cbaf55f1</tag>
+    <tag>f8c97151d05e2c8358ca773c673debab429a33d6</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
