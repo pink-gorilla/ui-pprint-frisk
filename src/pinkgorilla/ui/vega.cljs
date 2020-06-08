@@ -29,13 +29,20 @@
                               (.createTextNode js/document (str "Vega Spec error: " em)))))))
 
 (defn ^{:category :data}
-  vega [data-clj]
+  vega
+  "displays chart defined in vega spec
+   "
+  [data-clj]
   [render-js {:f render-vega :data data-clj}])
 
 (register-component :p/vega vega)
 
 (defn ^{:category :data}
-  vegaa [s k]
+  vegaa
+  "displays chart defined in vega spec
+   gets spec from the key k in atom s 
+   "
+  [s k]
   [vega (k @s)])
 
 (register-component :p/vegaa vegaa)

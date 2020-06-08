@@ -2,6 +2,8 @@
   (:require
    [cljs.pprint]
    [reagent.core :as r]
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkgorilla.ui.pinkie-render :refer [pinkie-render]]
    [demo.example :as example]))
 
 (example/add
@@ -16,11 +18,31 @@
    {:src "https://images.unsplash.com/photo-1516464731083-b50c0b838068"
     :alt "gorilla"}])
 
+(defn ^{:category :pinkie
+        :hidden true}
+    exception-component
+    "a component that throws exceptions for testing."
+  []
+   (throw {:type :custom-error
+           :message "Something unpleasant occurred"}))
+
+(register-component :p/exc exception-component)
+
+
 (example/add
  "bad-renderer"
  [:div
-  [:span 123]
+  
+  ; unknown renderer
+  [:h1 "If a component cannot be found, then this will be displayed:"]
   [:p/bongo 456] ; unknown renderer
+  
+  ; exception
+  [:h1 "Exception test:"]
+  [:p/pinkie {:content {:map-keywords true 
+                        :fix-style false 
+                        :hiccup [:p/exc]}} ]
+  ; aspect
   [:h1 "aspect ratio test"]
   [:div {:class "w-1/3 h-64 overflow-hidden"}
    [:p/aspectratio 16 9 [img]]]

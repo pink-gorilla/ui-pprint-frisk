@@ -1,8 +1,5 @@
 (ns pinkgorilla.ui.highchart
-  "reagent component to render highchart-spec via highcharts.js
-   Usage:  [:highchart spec-as-clj-data]
-
-   Highchart renderer is a pure javascript renderer, the conversion
+  "Highchart renderer is a pure javascript renderer, the conversion
    of the spec as clj-data to javascript is done in the render-js component
    "
   (:require
@@ -17,7 +14,10 @@
   )
 
 (defn ^{:category :data}
-  highchart [data]
+  highchart
+  "reagent component to render highchart-spec via highcharts.js
+   Usage:  [:p/highchart spec-as-clj-data]"
+  [data]
   [render-js {:f render-highchart :data data}])
 
 (register-component :p/highchart highchart)

@@ -96,6 +96,21 @@
 
 (defn ^{:category :data}
   leaflet-map
+  "displays a map with leaflet.
+   example:
+  [:p/leaflet
+   [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}
+    {:type :rectangle :bounds rectangle}
+    {:type :circle :center center :fillColor :blue :radius 200}
+    {:type :polygon :positions polygon :color :purple}
+    {:type :polygon :positions multiPolygon :color :purple}
+    {:type :line :positions polyline :color :lime}
+    {:type :line :positions multi-polyline :color :lime}
+    {:type :marker :position [51.505, -0.09]}
+    {:type :marker :position [51.51, -0.12] :popup \"wow\"}
+    {:type :circlemarker :center [51.52, -0.06] :fillColor :blue :radius 200 :popup \"square the circle\"}
+    {:type :geojson :data geojson}]]"
+
   ([options features-incl-view]
    (let [{:keys [css tile-layer-url attribution]} config ; config cannot be set by user
          {:keys [width height zoom center]} options

@@ -36,7 +36,9 @@
                  #_(add-math-css))))))
 
 (defn ^{:category :ui}
-  math [data-clj]
+  math
+  "displays mathematical formulas"
+  [data-clj]
   [render-js {:f render-math :data data-clj}])
 
 (register-component :p/math math)

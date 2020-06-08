@@ -5,7 +5,12 @@
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 (defn ^{:category :ui}
-  player [url]
+  player
+  "plays Youtube videos
+   usage:
+   [:p/player {:url url}]
+   "
+  [url]
   [:div-player
    [:> rp/default {:url url :playing true}]])
 

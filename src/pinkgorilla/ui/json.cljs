@@ -14,7 +14,10 @@
         _ (.appendChild dom-node p)]))
 
 (defn ^{:category :ui}
-  json [data-clj]
+  json
+  "renders data formatted as json 
+   (helpful to export data or debugging)"
+  [data-clj]
   [render-js {:f render-json :data data-clj}])
 
 (register-component :p/json json)

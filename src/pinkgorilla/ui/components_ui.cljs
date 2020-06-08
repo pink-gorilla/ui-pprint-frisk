@@ -38,7 +38,9 @@
    [text (docstring c)]])
 
 (defn ^{:category :pinkie}
-  components-ui []
+  components-ui
+  "displays a list of currently registered  pinkie components."
+  []
   (let [components (component-list)
         groups (group-by category components)
         _ (println "category count: " (count groups))

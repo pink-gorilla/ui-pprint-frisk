@@ -8,7 +8,16 @@
 ;node_modules/ag-grid-community/dist/styles/
 
 (defn ^{:category :data}
-  aggrid [data]
+  aggrid
+  "displays a seq in a table, uses ag-grid
+   [aggrid {:columnDefs [{:headerName \"Make\" :field \"make\"}
+                         {:headerName \"Model\" :field \"model\"}
+                         {:headerName \"Price\" :field \"price\"}]
+            :rowData [{:make \"Toyota\" :model \"Celica\" :price 35000}
+                      {:make \"Ford\" :model \"Mondeo\" :price 32000}
+                      {:make \"Porsche\" :model \"Boxter\" :price 72000}]}]
+   "
+  [data]
   [:<>
    [:link {:rel "stylesheet" :href "ag-grid-community/dist/styles/ag-grid.css"}]
    [:link {:rel "stylesheet" :href "ag-grid-community/dist/styles/ag-theme-balham.css"}]
