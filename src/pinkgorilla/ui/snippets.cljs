@@ -2,7 +2,23 @@
   (:require
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.error :refer [error-boundary]]
-   [pinkgorilla.ui.pinkie-render :refer [reagent-inject]]))
+   [pinkgorilla.ui.pinkie-render :refer [reagent-inject]]
+   ["highlight.js/lib/core" :as hljs]
+   ["highlight.js/lib/languages/javascript" :as javascript]
+   ["highlight.js/lib/languages/markdown" :as markdown]
+   ["highlight.js/lib/languages/plaintext" :as plaintext]
+   ["highlight.js/lib/languages/clojure" :as clojure]
+   ["highlight.js/lib/languages/clojure-repl" :as clojure-repl]))
+
+(.registerLanguage hljs "javascript" javascript)
+(.registerLanguage hljs "markdown" markdown)
+(.registerLanguage hljs "plaintext" plaintext)
+(.registerLanguage hljs "clojure" clojure)
+(.registerLanguage hljs "clojure-repl" clojure-repl)
+
+(println "CLOJURE: " clojure)
+;(.initHighlightingOnLoad hljs)
+
 
 (defn console-cell [c]
   [:div.bg-gray-700.gray-100.font-mono.w-full
@@ -11,8 +27,13 @@
                            }]])
 
 (defn code-cell [c]
-  [:div.w-full.bg-blue-200.font-mono
-   [:p c]])
+  [:pre ;.clojure
+   [:code {:ref  #(.highlightBlock hljs %)}
+    ;.w-full.bg-blue-200.font-mono
+    ;[:p
+    c
+    ; ]
+    ]])
 
 (defn pinkie-cell [p]
   [:div.w-full.mt-5
@@ -33,6 +54,7 @@
   "renders a snippet list"
   [list]
   [:div.w-full.h-full
+   [:link {:rel "stylesheet" :href "/highlight.js/styles/default.css"}]
    (into [:div] (map snippet list))])
 
 (register-component :p/snippets snippets)

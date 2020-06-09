@@ -18,6 +18,7 @@
     "ag-grid-community": "^22.0.0",
     "ag-grid-react": "^22.0.0",
     "highcharts": "^8.0.4",
+    "highlight.js": "^10.0.3",
     "jquery": "^3.5.1",
     "leaflet": "^1.6.0",
     "marked": "^0.7.0",

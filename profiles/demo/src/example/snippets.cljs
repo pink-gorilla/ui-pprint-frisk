@@ -6,7 +6,8 @@
   [{:session "3ced9967-e16c-4e47-a661-53b2d8527d96"
     :id 242
     :ns nil
-    :code "(println \"hello, world!\")"
+    :code "(for [i (range 10)]
+             (println \"hello, world!\"))"
     :value nil
     :pinkie nil
     :out "hello, world!"}
