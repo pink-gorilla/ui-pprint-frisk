@@ -96,7 +96,10 @@
   (swap! clock-state assoc :time (js/Date.)))
 
 (defn ^{:category :demo}
-  binary-clock []
+  binary-clock
+  "displays a binary clock; on click with seconds.
+  useful to debug reagent component that do not update"
+  []
   (let [{:keys [time show-100s]} @clock-state]
     (if show-100s
       (r/next-tick update-time)

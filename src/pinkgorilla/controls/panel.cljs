@@ -7,10 +7,13 @@
 
 
 (defn ^{:category :layout}
-  panel [{:keys [color title extra]
-          :or {color "grey"
-               title  "Panel Title"}}
-         & children]
+  panel
+  "a panel displays a seq of components
+  has a header"
+  [{:keys [color title extra]
+    :or {color "grey"
+         title  "Panel Title"}}
+   & children]
   [:div {:class (str "border-2 border-" color "-light rounded")}
    [:div {:class (str "flex flex-row items-center justify-between w-full border-b-2 border-" color "-light p-2")}
     [:div {:class "text-2xl text-grey-darker"}

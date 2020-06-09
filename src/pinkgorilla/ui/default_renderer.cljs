@@ -1,7 +1,18 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
+   ; pinkie
    [pinkgorilla.ui.default-setup]
    [pinkgorilla.ui.components-ui]
+   [pinkgorilla.ui.snippets]
+   [pinkgorilla.ui.frisk]
+   [pinkgorilla.ui.pydoc]
+
+   ; ui
+   [pinkgorilla.ui.json]
+   [pinkgorilla.ui.math]
+   [pinkgorilla.ui.player]
+   [pinkgorilla.controls.markdown]
+
    ; controls
    [pinkgorilla.controls.button]
    [pinkgorilla.controls.input]
@@ -11,21 +22,20 @@
    [pinkgorilla.controls.popover]
    [pinkgorilla.controls.progressbar]
    [pinkgorilla.controls.tailsui]
-   [pinkgorilla.controls.markdown]
    [pinkgorilla.controls.checkbox]
+
+   ; layout
    [pinkgorilla.controls.panel]
    [pinkgorilla.controls.aspect-ratio]
-   ; js
-   [pinkgorilla.ui.json]
+   [pinkgorilla.ui.gridlayout]
+
+   ; data
    [pinkgorilla.ui.highchart]
-   [pinkgorilla.ui.math]
    [pinkgorilla.ui.vega]
-   ; reagent
    [pinkgorilla.ui.aggrid]
    [pinkgorilla.ui.leaflet]
-   [pinkgorilla.ui.player]
    [pinkgorilla.ui.sparklines]
+
+   ; demo
    [pinkgorilla.ui.clock] ; has no dependencies
-   [pinkgorilla.ui.frisk]
-   [pinkgorilla.ui.pydoc]
-   [pinkgorilla.ui.gridlayout]))
+   ))

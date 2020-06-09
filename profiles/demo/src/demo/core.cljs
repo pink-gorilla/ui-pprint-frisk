@@ -4,6 +4,7 @@
    [pinkgorilla.ui.default-renderer] ; add ui renderer definitions 
    ; examples
    [example.pinkie]
+   [example.snippets]
    [example.controls]
    ; from renderable-ui
    [example.gtable]
@@ -21,8 +22,7 @@
    [example.gridlayout]
    [example.pydoc]
    ; demo
-   [demo.app]
-   ))
+   [demo.app]))
 
 (enable-console-print!)
 

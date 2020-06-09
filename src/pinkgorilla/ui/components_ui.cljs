@@ -50,7 +50,7 @@
     (fn []
       [:div.flex.flex-col.w-full.h-full
        (into [:div.h-full.w-full] (map (partial comp-category show-comp) groups))
-       [:div.h-64.w-full.p-2.bg-gray-400.border-solid.border-blue-300
+       [:div.h-64.w-full.p-2.bg-gray-400.border-solid.border-blue-300..overflow-scroll
         (if-let [c @selected-comp]
           [comp-doc c]
           [:p "Hover on components.."])]])))
