@@ -1,5 +1,6 @@
 (ns pinkgorilla.ui.snippets
   (:require
+;   [clojure.string :as str]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.error :refer [error-boundary]]
    [pinkgorilla.ui.pinkie-render :refer [reagent-inject]]
@@ -21,22 +22,23 @@
 
 
 (defn console-cell [c]
-  [:div.bg-gray-700.gray-100.font-mono.w-full
-   [:textarea.bg-gray-700 {:defaultValue c
+  [:div.bg-gray-100.font-mono.w-full.text-left.orange-300  ; .gray-900
+   [:textarea.bg-gray-100.orange-300 {:defaultValue c
                            ;:value c
-                           }]])
+                                      }]])
 
 (defn code-cell [c]
-  [:pre ;.clojure
-   [:code {:ref  #(.highlightBlock hljs %)}
-    ;.w-full.bg-blue-200.font-mono
+  [:div.text-left.bg-gray-100 ; .border-solid
+   [:pre ;.clojure
+    [:code {:ref  #(.highlightBlock hljs %)}
+    ;.w-full.font-mono
     ;[:p
-    c
+     c
     ; ]
-    ]])
+     ]]])
 
 (defn pinkie-cell [p]
-  [:div.w-full.mt-5
+  [:div.w-full.mt-5.bg-gray-100
    [error-boundary
     [reagent-inject {:map-keywords true} p]]])
 
@@ -49,12 +51,16 @@
    (when pinkie
      [pinkie-cell pinkie])])
 
+;(def theme "default.css")
+;(def theme "zenburn")
+(def theme "github")
+
 (defn ^{:category :pinkie}
   snippets
   "renders a snippet list"
   [list]
-  [:div.w-full.h-full
-   [:link {:rel "stylesheet" :href "/highlight.js/styles/default.css"}]
+  [:div.w-full.h-full.bg-gray-100
+   [:link {:rel "stylesheet" :href (str "/highlight.js/styles/" theme ".css")}]
    (into [:div] (map snippet list))])
 
 (register-component :p/snippets snippets)
