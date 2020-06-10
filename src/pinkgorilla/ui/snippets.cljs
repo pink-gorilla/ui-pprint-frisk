@@ -20,12 +20,32 @@
 (println "CLOJURE: " clojure)
 ;(.initHighlightingOnLoad hljs)
 
+; nicely formatted notebooks:
+; https://nextjournal.com/gigasquid/parens-for-python---seaborn-visualizations
+; https://www.maria.cloud/gallery?eval=true
+
 
 (defn console-cell [c]
   [:div.bg-gray-100.font-mono.w-full.text-left.orange-300  ; .gray-900
-   [:textarea.bg-gray-100.orange-300 {:defaultValue c
+   [:textarea.bg-gray-100.orange-300.w-full {:defaultValue c
                            ;:value c
-                                      }]])
+                                             }]])
+
+; https://codepen.io/elomatreb/pen/hbgxp
+
+; span {
+;    display: block;
+;    line-height: 1.5rem;
+;    
+;    &:before {
+;      counter-increment: line;
+;      content: counter(line);
+;      display: inline-block;
+;      border-right: 1px solid #ddd;
+;      padding: 0 .5em;
+;      margin-right: .5em;
+;      color: #888
+;    }
 
 (defn code-cell [c]
   [:div.text-left.bg-gray-100 ; .border-solid
