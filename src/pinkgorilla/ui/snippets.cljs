@@ -27,9 +27,12 @@
 
 (defn console-cell [c]
   [:div.bg-gray-100.font-mono.w-full.text-left.orange-300  ; .gray-900
-   [:textarea.bg-gray-100.orange-300.w-full {:defaultValue c
-                           ;:value c
-                                             }]])
+   [:textarea.bg-gray-100.orange-300.w-full
+    {:style {;:overflow-x "scroll"
+             :overflow-x "hidden"
+             :white-space "pre"}
+      ;:value c     
+     :defaultValue c}]])
 
 ; https://codepen.io/elomatreb/pen/hbgxp
 

@@ -10,7 +10,7 @@
              (println \"hello, world!\"))"
     :value nil
     :pinkie nil
-    :out "hello, world!"}
+    :out "hello, \r\n world!"}
    {:session "840dadb8-3cd2-486a-bf0f-ccf695804c81"
     :id "86"
     :ns "goldy.nrepl.client"
@@ -26,7 +26,7 @@
     :code "[66 (+ 8 8)]"
     :value [66 "16"]
     :pinkie [:div "[" [:div {:class "clj-vector"} [:span {:class "clj-keyword"} ":p"] [:span {:class "clj-long"} "16"]] "]"]
-    :out nil}])
+    :out "LOG LONG: jk k jk l  l kj hlkh lkj lk hkjh kj j hj kh kjh jhg jhg kh jh gj  k hg kg kjgh k  jh gkj kj kjh gkj ghj kjk kh kh gjhg k gkjjkh g hjhj kj kjl ljk lkj jkl ljk lkj kj klj ljk lkj l jk kljh lkj lkj lkj lkj lkj lkj "}])
 
 
 (example/add
