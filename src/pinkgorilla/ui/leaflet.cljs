@@ -14,12 +14,12 @@
    :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"})
 
 (def default-marker
-  (Icon. (clj->js {:iconUrl "images/marker-icon.png"
-                   :iconRetinaUrl "images/marker-icon-2x.png"
+  (Icon. (clj->js {:iconUrl "leaflet/dist/images/marker-icon.png"
+                   :iconRetinaUrl "leaflet/dist/images/marker-icon-2x.png"
                    :iconAnchor [5, 55]
                    :popupAnchor [10, -44]
                    :iconSize [25, 55]
-                   :shadowUrl "images/marker-shadow.png"
+                   :shadowUrl "leaflet/dist/images/marker-shadow.png"
                    :shadowSize [68, 95]
                    :shadowAnchor [20, 92]})))
 

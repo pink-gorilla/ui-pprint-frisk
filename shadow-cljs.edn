@@ -1,23 +1,18 @@
 {:lein   {:profile "+demo"}
- :resource-paths  ["resources"
-                   "node_modules/leaflet/dist"
-                   "node_modules/mathjax/es5"
-                   "node_modules/ag-grid-community"]
- 
+
  ; shadow dev http server settings
- :dev-http {8000 ["profiles/demo/public"
-                  "profiles/embed/public"
-                  "target"
+ :dev-http {8000 ["target/node_modules/public"  ;  css and png from selected npm dependencies
+                  "target/demo" ; demo ui bundle
+                  "profiles/demo/public" ; demo ui resources (html, data files)
+                  "profiles/embed/public" ; embedded renderer resources
+                  "resources/public"; resources we ship without npm
                   ;"classpath:public" 
-                  ;"resources/public" 
-                  "classpath:resources"
-                  "classpath:resources/public"
-                  "resources/public"
-                  "node_modules" ; access css and bundles in npm dependencies
+                  ;"classpath:resources"
+                  ;"classpath:resources/public"
                   ]}
 
  :builds {:demo {:target :browser
-                 :output-dir "target"
+                 :output-dir "target/demo"
                  :asset-path "/"
                  :modules {:main {:entries [demo.core]}}
                  :devtools {:before-load demo.core/stop
@@ -34,13 +29,7 @@
                   :asset-path "/"
                   :modules {:main {:entries [pinkgorilla.embed]}}
                   :devtools {:before-load pinkgorilla.embed/stop
-                             :after-load pinkgorilla.embed/start}
-                  :dev-http {8000 ["profiles/embed/public"
-                                   "target"
-                                   ;"classpath:public" 
-                                   ;"resources/public" 
-                                   "classpath:resources"
-                                   "node_modules"]}}
+                             :after-load pinkgorilla.embed/start}}
 
           :ci {:target :karma
                :output-to  "target/ci.js"

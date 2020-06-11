@@ -13,18 +13,9 @@ Run `lein demo` to run the demo app. This will run a web server at port 8000 wit
 
 Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.
 
-
-## Dev
-
-Documentation: Run lein demo .. this showcases all components.
-
-Add a dependency to your clojurescript project, and you are good to go. Note that we use shadow-cljs which allows easy management of npm dependencies.
-
-If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
-the compiler is from the CLJ dependency you have in project.clj.
-the npm stuff never does any actual compilation, just runs the java process
-
 ## Tailwind CSS
+
+Tailwind css makes it really easy to build custom ui.
 
 - https://umeshmk.github.io/Tailwindcss-cheatsheet/
 - https://mertjf.github.io/tailblocks/
@@ -32,3 +23,22 @@ the npm stuff never does any actual compilation, just runs the java process
 - https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
 - https://tailwindcomponents.com/
 - http://www.heropatterns.com/
+
+## Develop with gorilla-ui
+
+Documentation: Run `lein demo` - this showcases all components.
+
+- gorilla-ui is not a stand alone application.
+  We therefore do NOT bundle compiled javascript bundles.
+
+- however, we ship static images and css files that we collect 
+  from selected npm modules. This makes it easier to consume gorilla-ui library.
+
+- we also ship deps.cljs, which tells shadow cljs to add transient npm deps
+  from gorilla-ui.
+
+Add a dependency to your clojurescript project, and you are good to go. Note that we use shadow-cljs which allows easy management of npm dependencies.
+
+If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
+the compiler is from the CLJ dependency you have in project.clj.
+the npm stuff never does any actual compilation, just runs the java process

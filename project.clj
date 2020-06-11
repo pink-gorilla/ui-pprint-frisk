@@ -6,6 +6,13 @@
                                      :username :env/release_username
                                      :password :env/release_password
                                      :sign-releases false}]]
+  :prep-tasks [;"javac"
+               "compile"
+               "resource"
+               ;"ls"
+               ;"shadowcompile2"
+               ]
+  
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]
                   ["vcs" "commit" "Release %s"]
@@ -14,12 +21,38 @@
                   ["bump-version"]
                   ["vcs" "commit" "Begin %s"]
                   ["vcs" "push"]]
+  
   :source-paths ["src"] ; "test"
   ;:test-paths ["test"]
-  :resource-paths  ["resources"
-                    "node_modules/leaflet/dist"
-                    "node_modules/mathjax/es5"
-                    "node_modules/ag-grid-community"]
+  
+   :target-path  "target/jar"
+    :clean-targets ^{:protect false} [:target-path
+                                      [:demo :builds :app :compiler :output-dir]
+                                      [:demo :builds :app :compiler :output-to]]
+  
+  
+  :resource-paths  ["resources" ; not from npm
+                    "target/node_modules"] ; css png resources from npm modules
+  
+  
+  :resource {:silent false
+             :resource-paths [["node_modules/tailwindcss/dist"
+                               {:includes [#".*"]
+                                :target-path "target/node_modules/public/tailwindcss/dist"}]
+                              ["node_modules/leaflet/dist"
+                               {:includes [#".*\.css" #".*\.png"]
+                                :target-path "target/node_modules/public/leaflet/dist"}]
+                              ["node_modules/ag-grid-community/dist/styles"
+                               {:includes [#".*\.css"]
+                                :target-path "target/node_modules/public/ag-grid-community/dist/styles"}]
+                              ["node_modules/highlight.js/styles"
+                               {:includes [#".*\.css"]
+                                :target-path "target/node_modules/public/highlight.js/styles"}]
+
+                             ;  http://localhost:8000/highlight.js/styles/github.css
+                              ]}
+
+
   :plugins [[lein-shell "0.5.0"]]
   :dependencies [; gorilla-ui is a cljs project, so in here are cljs dependencies
                  [org.clojure/clojurescript "1.10.773"]
@@ -44,16 +77,13 @@
                                    [thheller/shadow-cljsjs "0.0.21"]
                                    [clj-kondo "2019.11.23"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
-                                   [lein-cloverage "1.1.2"]]
+                                   [lein-cloverage "1.1.2"]
+                                   [lein-resource "17.06.1"]]
                     :aliases      {"clj-kondo"
                                    ["run" "-m" "clj-kondo.main"]
-                                   
+
                                    "bump-version" ^{:doc "Increases project.clj version number (used by CI)."}
-                                   ["change" "version" "leiningen.release/bump-version"]
-                                   
-                                   
-                                   
-                                   }
+                                   ["change" "version" "leiningen.release/bump-version"]}
                     :cloverage    {:codecov? true ; https://github.com/codecov/example-clojure
                                   ;; In case we want to exclude stuff
                                   ;; :ns-exclude-regex [#".*util.instrument"]
