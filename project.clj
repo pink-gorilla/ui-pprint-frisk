@@ -48,8 +48,16 @@
                               ["node_modules/highlight.js/styles"
                                {:includes [#".*\.css"]
                                 :target-path "target/node_modules/public/highlight.js/styles"}]
-
                              ;  http://localhost:8000/highlight.js/styles/github.css
+                              ["node_modules/react-grid-layout/css"
+                               {:includes [#".*\.css"]
+                                :target-path "target/node_modules/public/react-grid-layout/css/"}]
+                              ["node_modules/react-resizable/css"
+                               {:includes [#".*\.css"]
+                                :target-path "target/node_modules/public/react-resizable/css/"}]
+ 
+                              
+                              
                               ]}
 
 

@@ -3,9 +3,11 @@
    ["ag-grid-react" :as rs :refer [AgGridReact]]
  ; ["ag-grid-community/dist/styles/ag-grid.css"]
  ;  ["ag-grid-community/dist/styles/ag-theme-balham.css"]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkgorilla.ui.config :refer [link-css]]))
 
 ;node_modules/ag-grid-community/dist/styles/
+
 
 (defn ^{:category :data}
   aggrid
@@ -19,8 +21,8 @@
    "
   [data]
   [:<>
-   [:link {:rel "stylesheet" :href "ag-grid-community/dist/styles/ag-grid.css"}]
-   [:link {:rel "stylesheet" :href "ag-grid-community/dist/styles/ag-theme-balham.css"}]
+   [link-css "ag-grid-community/dist/styles/ag-grid.css"]
+   [link-css "ag-grid-community/dist/styles/ag-theme-balham.css"]
    [:> AgGridReact data]])
 
 (register-component :p/aggrid aggrid)

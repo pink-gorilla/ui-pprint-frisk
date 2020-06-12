@@ -3,6 +3,7 @@
    ["react-leaflet" :refer [Map TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkgorilla.ui.config :refer [link-css res-href]]
    [pinkgorilla.dsl.leaflet :refer [default-options]]))
 
 ; config cannot be overritten by the user. this is ui renderer configuration
@@ -13,18 +14,15 @@
    ;:tile-layer-url "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
    :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"})
 
-(def default-marker
-  (Icon. (clj->js {:iconUrl "leaflet/dist/images/marker-icon.png"
-                   :iconRetinaUrl "leaflet/dist/images/marker-icon-2x.png"
-                   :iconAnchor [5, 55]
-                   :popupAnchor [10, -44]
-                   :iconSize [25, 55]
-                   :shadowUrl "leaflet/dist/images/marker-shadow.png"
-                   :shadowSize [68, 95]
-                   :shadowAnchor [20, 92]})))
-
-(def marker-default
-  {:icon default-marker})
+(defn marker []
+  {:icon (Icon. (clj->js {:iconUrl (res-href "leaflet/dist/images/marker-icon.png")
+                          :iconRetinaUrl (res-href "leaflet/dist/images/marker-icon-2x.png")
+                          :iconAnchor [5, 55]
+                          :popupAnchor [10, -44]
+                          :iconSize [25, 55]
+                          :shadowUrl (res-href "leaflet/dist/images/marker-shadow.png")
+                          :shadowSize [68, 95]
+                          :shadowAnchor [20, 92]}))})
 
 (defn- log [s] (.log js/console s))
 
@@ -39,7 +37,7 @@
       :circle ^:r [:> Circle data] ;  <Circle center={center} fillColor="blue" radius={200} />
       :line ^:r [:> Polyline data]   ; <Polyline color="lime" positions={polyline} />
       :polygon ^:r [:> Polygon data]  ; <Polygon color="purple" positions={polygon} />
-      :marker ^:r [:> Marker (merge marker-default data)        ;  <Marker position= {position} >  <Marker position= {position} icon= {pointerIcon} >
+      :marker ^:r [:> Marker (merge (marker) data)        ;  <Marker position= {position} >  <Marker position= {position} icon= {pointerIcon} >
                    (when (not (nil? (:popup data)))
                      ^:r [:> Popup (:popup data)])]  ; <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
       :circlemarker ^:r [:> CircleMarker data   ;  <CircleMarker center= {[51.51, -0.12]} color= "red" radius= {20} >
@@ -125,7 +123,8 @@
          ;{:keys [view]} data
          ]
      [:div.z-10
-      [:link {:rel "stylesheet" :href css}]
+      [link-css css]
+      ;[:link {:rel "stylesheet" :href css}]
       [:> Map (merge  {:zoom zoom
                        :center center
                        :style {:width width :height height}

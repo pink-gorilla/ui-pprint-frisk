@@ -2,9 +2,8 @@
   (:require
    [reagent.core :as r]
    ["tails-ui" :refer [Button Tab Tabs]]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
-
-(def css "tails-ui/dist/index.css")
+   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkgorilla.ui.config :refer [link-css]]))
 
 #_(defn ^{:category :control} button1 []
     [:<>
@@ -37,7 +36,8 @@
 (defn ^{:category :layout}
   tabs [& children]
   [:<>
-   [:link {:rel "stylesheet" :href css}]
+   [link-css "tails-ui/dist/index.css"]
+   ;[:link {:rel "stylesheet" :href css}]
    (into [:> Tabs]
          (map (fn [child]
                 (into [:> Tab] (rest child))) children))])

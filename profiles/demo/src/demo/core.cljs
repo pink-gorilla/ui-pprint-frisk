@@ -2,6 +2,7 @@
   (:require
    [reagent.dom]
    [pinkgorilla.ui.default-renderer] ; add ui renderer definitions 
+      [pinkgorilla.ui.config :refer [set-prefix!]]
    ; examples
    [example.pinkie]
    [example.snippets]
@@ -25,6 +26,8 @@
    [demo.app]))
 
 (enable-console-print!)
+
+(set-prefix! "/")
 
 (defn stop []
   (js/console.log "Stopping..."))

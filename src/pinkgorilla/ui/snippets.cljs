@@ -4,6 +4,7 @@
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.error :refer [error-boundary]]
    [pinkgorilla.ui.pinkie-render :refer [reagent-inject]]
+   [pinkgorilla.ui.config :refer [link-css]]
    ["highlight.js/lib/core" :as hljs]
    ["highlight.js/lib/languages/javascript" :as javascript]
    ["highlight.js/lib/languages/markdown" :as markdown]
@@ -83,7 +84,8 @@
   "renders a snippet list"
   [list]
   [:div.w-full.h-full.bg-gray-100
-   [:link {:rel "stylesheet" :href (str "/highlight.js/styles/" theme ".css")}]
+   [link-css (str "highlight.js/styles/" theme ".css")]
+   ;[:link {:rel "stylesheet" :href (str "/highlight.js/styles/" theme ".css")}]
    (into [:div] (map snippet list))])
 
 (register-component :p/snippets snippets)
