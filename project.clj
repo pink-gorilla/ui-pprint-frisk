@@ -40,7 +40,7 @@
                                {:includes [#".*"]
                                 :target-path "target/node_modules/public/tailwindcss/dist"}]
                               ["node_modules/leaflet/dist"
-                               {:includes [#".*\.css" #".*\.png"]
+                               {:includes [#".*\.css"] ;  #".*\.png"  png copy gets destroyed
                                 :target-path "target/node_modules/public/leaflet/dist"}]
                               ["node_modules/ag-grid-community/dist/styles"
                                {:includes [#".*\.css"]
