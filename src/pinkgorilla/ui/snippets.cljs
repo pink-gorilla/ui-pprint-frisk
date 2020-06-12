@@ -17,7 +17,7 @@
 (.registerLanguage hljs "clojure" clojure)
 (.registerLanguage hljs "clojure-repl" clojure-repl)
 
-(println "CLOJURE: " clojure)
+
 ;(.initHighlightingOnLoad hljs)
 
 ; nicely formatted notebooks:
@@ -53,7 +53,7 @@
 (defn code-cell [c]
   [:div.text-left.bg-gray-100 ; .border-solid
    [:pre ;.clojure
-    [:code {:ref  #(.highlightBlock hljs %)}
+    [:code {:ref  #(when % (.highlightBlock hljs %))}
     ;.w-full.font-mono
     ;[:p
      c
