@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.json
+(ns pinkgorilla.ui.ui.json
   "custom components need to define a javascript-module
    module-test is a very simple sample that just renders the data as
    JSON to the dom node that is passed.

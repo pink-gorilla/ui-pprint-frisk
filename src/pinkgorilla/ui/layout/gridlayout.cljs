@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.gridlayout
+(ns pinkgorilla.ui.layout.gridlayout
   (:require
    ["react-grid-layout" :as ReactGridLayout]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]

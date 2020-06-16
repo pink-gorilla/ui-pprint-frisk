@@ -1,7 +1,7 @@
 (ns example.sparklines
   (:require
    [demo.example :as example]
-   [pinkgorilla.ui.sparklines :refer [sparkline sparkline-bar sparkline-spot]]))
+   [pinkgorilla.ui.data.sparklines :refer [sparkline sparkline-bar sparkline-spot]]))
 
 (defn data [nr]
   (let [d (vec (take nr (repeatedly rand)))

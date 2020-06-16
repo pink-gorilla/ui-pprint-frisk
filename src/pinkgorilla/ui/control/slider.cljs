@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.slider
+(ns pinkgorilla.ui.control.slider
   (:require
    [reagent.core :as r]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))

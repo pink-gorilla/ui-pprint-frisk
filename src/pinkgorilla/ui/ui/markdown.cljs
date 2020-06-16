@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.markdown
+(ns pinkgorilla.ui.ui.markdown
   "markdown rederers are available as js library or react library
    we implemented a markdown viewer via a js library marked
    because the react component did not work.

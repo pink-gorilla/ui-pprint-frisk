@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.leaflet
+(ns pinkgorilla.ui.data.leaflet
   (:require
    ["react-leaflet" :refer [Map TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]

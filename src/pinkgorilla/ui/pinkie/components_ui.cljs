@@ -1,8 +1,7 @@
-(ns pinkgorilla.ui.components-ui
+(ns pinkgorilla.ui.pinkie.components-ui
   (:require
    [clojure.string :as str]
    [reagent.core :as r]
-   [pinkgorilla.ui.clock]
    [pinkgorilla.ui.text :refer [text]]
    [pinkgorilla.ui.pinkie :refer [component-list] :refer-macros [register-component]]))
 

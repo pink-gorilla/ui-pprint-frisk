@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.card
+(ns pinkgorilla.ui.layout.card
   (:require
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 

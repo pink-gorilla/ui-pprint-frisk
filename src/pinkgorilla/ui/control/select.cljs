@@ -1,7 +1,7 @@
-(ns pinkgorilla.controls.select
+(ns pinkgorilla.ui.control.select
   (:require
    [reagent.core :as r]
-   [pinkgorilla.controls.button :refer [button]]
+   [pinkgorilla.ui.control.button :refer [button]]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 
 (defn css []

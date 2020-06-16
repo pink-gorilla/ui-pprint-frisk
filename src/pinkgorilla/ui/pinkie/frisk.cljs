@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.frisk
+(ns pinkgorilla.ui.pinkie.frisk
   (:require
    [cljs.pprint :refer [pprint]]
    [reagent.core :as r]

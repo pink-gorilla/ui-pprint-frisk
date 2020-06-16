@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.pydoc
+(ns pinkgorilla.ui.pinkie.pydoc
   (:require
    [clojure.string :as str]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]

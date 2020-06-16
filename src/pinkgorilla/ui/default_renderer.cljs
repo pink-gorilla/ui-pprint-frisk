@@ -1,41 +1,41 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
-   ; pinkie
+   ; parent project setups
    [pinkgorilla.ui.default-setup]
-   [pinkgorilla.ui.components-ui]
-   [pinkgorilla.ui.snippets]
-   [pinkgorilla.ui.frisk]
-   [pinkgorilla.ui.pydoc]
 
-   ; ui
-   [pinkgorilla.ui.json]
-   [pinkgorilla.ui.math]
-   [pinkgorilla.ui.player]
-   [pinkgorilla.controls.markdown]
-
-   ; controls
-   [pinkgorilla.controls.button]
-   [pinkgorilla.controls.input]
-   [pinkgorilla.controls.select]
-   [pinkgorilla.controls.slider]
-   [pinkgorilla.controls.ionslider]
-   [pinkgorilla.controls.popover]
-   [pinkgorilla.controls.progressbar]
-   [pinkgorilla.controls.tailsui]
-   [pinkgorilla.controls.checkbox]
-
-   ; layout
-   [pinkgorilla.controls.panel]
-   [pinkgorilla.controls.aspect-ratio]
-   [pinkgorilla.ui.gridlayout]
+   ; control
+   [pinkgorilla.ui.control.button]
+   [pinkgorilla.ui.control.checkbox]
+   [pinkgorilla.ui.control.input]
+   [pinkgorilla.ui.control.ionslider]
+   [pinkgorilla.ui.control.progressbar]
+   [pinkgorilla.ui.control.select]
+   [pinkgorilla.ui.control.slider]
 
    ; data
-   [pinkgorilla.ui.highchart]
-   [pinkgorilla.ui.vega]
-   [pinkgorilla.ui.aggrid]
-   [pinkgorilla.ui.leaflet]
-   [pinkgorilla.ui.sparklines]
+   [pinkgorilla.ui.data.aggrid]
+   [pinkgorilla.ui.data.highchart]
+   [pinkgorilla.ui.data.leaflet]
+   [pinkgorilla.ui.data.sparklines]
+   [pinkgorilla.ui.data.vega]
 
-   ; demo
-   [pinkgorilla.ui.clock] ; has no dependencies
+   ; layout
+   [pinkgorilla.ui.layout.aspect-ratio]
+   [pinkgorilla.ui.layout.card]
+   [pinkgorilla.ui.layout.gridlayout]
+   [pinkgorilla.ui.layout.panel]
+   [pinkgorilla.ui.layout.tailsui]
+
+    ; ui
+   [pinkgorilla.ui.ui.json]
+   [pinkgorilla.ui.ui.markdown]
+   [pinkgorilla.ui.ui.math]
+   [pinkgorilla.ui.ui.player]
+   [pinkgorilla.ui.ui.popover]
+
+   ; pinkie
+   [pinkgorilla.ui.pinkie.components-ui]
+   [pinkgorilla.ui.pinkie.frisk]
+   [pinkgorilla.ui.pinkie.pydoc]
+   [pinkgorilla.ui.pinkie.clock] ; has no dependencies
    ))

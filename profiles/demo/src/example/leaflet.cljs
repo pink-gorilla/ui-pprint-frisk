@@ -2,8 +2,8 @@
   (:require
    [reagent.core :as r]
    ["react-leaflet" :refer [Map Marker TileLayer]]
-   [pinkgorilla.ui.leaflet :refer [leaflet-map]]
-    [pinkgorilla.controls.select :refer [select-map]]
+   [pinkgorilla.ui.data.leaflet :refer [leaflet-map]]
+   [pinkgorilla.ui.control.select :refer [select-map]]
    [demo.example :as example]))
 
 (def center [51.505, -0.09])
@@ -42,27 +42,26 @@
 (def state (r/atom {:location :london}))
 
 (defn demo []
- [:<>
-  [:h2 "select the map you like"]
-  [select-map {:nav? true} [:london :coronado] state :location]
+  [:<>
+   [:h2 "select the map you like"]
+   [select-map {:nav? true} [:london :coronado] state :location]
 
-  (case (:location @state)
-    :london     [leaflet-map
-                 [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}
-                  {:type :rectangle :bounds rectangle}
-                  {:type :circle :center center :fillColor "blue" :radius 200}
-                  {:type :polygon :positions polygon :color "purple"}
-                  {:type :polygon :positions multiPolygon :color "purple"}
-                  {:type :line :positions polyline :color "lime"}
-                  {:type :line :positions multi-polyline :color "lime"}
-                  {:type :marker :position [51.505, -0.09]}
-                  {:type :marker :position [51.51, -0.12] :popup "wow"}
-                  {:type :circlemarker :center [51.52, -0.06] :fillColor "blue" :radius 200 :popup "square the circle"}
-                  {:type :geojson :data geojson}]]
-    :coronado [leaflet-map
-                  [;{:type :view :center [51.49, -0.08]}  ; no center -> no visible features, but will show panamas nicest beach
-                   {:type :rectangle :bounds rectangle}]])])
+   (case (:location @state)
+     :london     [leaflet-map
+                  [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}
+                   {:type :rectangle :bounds rectangle}
+                   {:type :circle :center center :fillColor "blue" :radius 200}
+                   {:type :polygon :positions polygon :color "purple"}
+                   {:type :polygon :positions multiPolygon :color "purple"}
+                   {:type :line :positions polyline :color "lime"}
+                   {:type :line :positions multi-polyline :color "lime"}
+                   {:type :marker :position [51.505, -0.09]}
+                   {:type :marker :position [51.51, -0.12] :popup "wow"}
+                   {:type :circlemarker :center [51.52, -0.06] :fillColor "blue" :radius 200 :popup "square the circle"}
+                   {:type :geojson :data geojson}]]
+     :coronado [leaflet-map
+                [;{:type :view :center [51.49, -0.08]}  ; no center -> no visible features, but will show panamas nicest beach
+                 {:type :rectangle :bounds rectangle}]])])
 
 (example/add
- "leaflet" [demo]
-)
+ "leaflet" [demo])

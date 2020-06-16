@@ -2,7 +2,7 @@
   (:require
    [thi.ng.strf.core :as f]
    [demo.example :as example]
-   [pinkgorilla.ui.aggrid :refer [aggrid]]))
+   [pinkgorilla.ui.data.aggrid :refer [aggrid]]))
 
 (def columnDefs [{:headerName "Make" :field "make"}
                  {:headerName "Model" :field "model"}

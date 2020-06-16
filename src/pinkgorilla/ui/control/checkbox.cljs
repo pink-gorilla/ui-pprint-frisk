@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.checkbox
+(ns pinkgorilla.ui.control.checkbox
   (:require
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 

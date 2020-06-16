@@ -54,10 +54,7 @@
                                 :target-path "target/node_modules/public/react-grid-layout/css/"}]
                               ["node_modules/react-resizable/css"
                                {:includes [#".*\.css"]
-                                :target-path "target/node_modules/public/react-resizable/css/"}]
- 
-                              
-                              
+                                :target-path "target/node_modules/public/react-resizable/css/"}]                              
                               ]}
 
 
@@ -68,10 +65,12 @@
                   :exclusions [org.clojure/tools.reader
                                cljsjs/react
                                cljsjs/react-dom]]
-                 [thi.ng/strf "0.2.2"]
+                 [thi.ng/strf "0.2.2"
+                  :exclusions [org.clojure/clojurescript]]
+  
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/gorilla-renderable-ui "0.2.4"]]
+                 [org.pinkgorilla/gorilla-renderable-ui "0.2.7"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}

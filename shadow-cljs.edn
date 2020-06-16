@@ -14,9 +14,9 @@
  :builds {:demo {:target :browser
                  :output-dir "target/demo"
                  :asset-path "/"
-                 :modules {:main {:entries [demo.core]}}
-                 :devtools {:before-load demo.core/stop
-                            :after-load demo.core/start}
+                 :modules {:main {:entries [demo.app]}}
+                 :devtools {:before-load demo.app/stop
+                            :after-load demo.app/start}
                  :compiler-options {;; preferrably implicit by shadow-cljs compile/watch/release
                                                         ;; Beware: releasing :none not supported by shadow
                                                         ;; :optimizations   :none

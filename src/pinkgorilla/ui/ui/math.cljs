@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.math
+(ns pinkgorilla.ui.ui.math
   " MathJax has v2 and v3. v3 is breaking the v2 api.
     es6 modules for the browser not working; this means browser 
     will load mathjax to window/MathJax
@@ -8,7 +8,7 @@
    ;[taoensso.timbre :refer-macros (warn)]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.jsrender :refer [render-js]]
-   ["/pinkgorilla/ui/mathinit" :as mathjax-init]))
+   ["/pinkgorilla/ui/ui/mathinit" :as mathjax-init]))
 
 #_(defn add-math-css []
     (let [mathjax (.-MathJax js/window)

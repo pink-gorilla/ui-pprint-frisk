@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.tailsui
+(ns pinkgorilla.ui.layout.tailsui
   (:require
    [reagent.core :as r]
    ["tails-ui" :refer [Button Tab Tabs]]

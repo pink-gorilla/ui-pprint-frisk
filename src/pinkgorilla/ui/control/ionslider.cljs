@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.ionslider
+(ns pinkgorilla.ui.control.ionslider
   (:require
    [reagent.core :as r]
    ["jquery" :as jq] ; jquery is a dependency, but it needs to be required separately.

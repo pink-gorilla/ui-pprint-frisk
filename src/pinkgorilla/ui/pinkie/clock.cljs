@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.clock
+(ns pinkgorilla.ui.pinkie.clock
   (:require
    [reagent.core :as r]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]

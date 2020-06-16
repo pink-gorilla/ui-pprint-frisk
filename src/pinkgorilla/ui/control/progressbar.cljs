@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.progressbar
+(ns pinkgorilla.ui.control.progressbar
   (:require
    [reagent.core :as r]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))

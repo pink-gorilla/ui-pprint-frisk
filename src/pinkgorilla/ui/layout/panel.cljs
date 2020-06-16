@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.panel
+(ns pinkgorilla.ui.layout.panel
   (:require
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
 

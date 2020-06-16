@@ -1,4 +1,4 @@
-(ns pinkgorilla.controls.popover
+(ns pinkgorilla.ui.ui.popover
   "   popover
      placement: left, yop, right, bottom
    "

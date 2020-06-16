@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.aggrid
+(ns pinkgorilla.ui.data.aggrid
   (:require
    ["ag-grid-react" :as rs :refer [AgGridReact]]
  ; ["ag-grid-community/dist/styles/ag-grid.css"]

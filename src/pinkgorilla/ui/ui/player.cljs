@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.player
+(ns pinkgorilla.ui.ui.player
   (:require
    [reagent.core :as r]
    ["react-player" :as rp :refer [ReactPlayer]]

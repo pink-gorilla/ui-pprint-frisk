@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.sparklines
+(ns pinkgorilla.ui.data.sparklines
   (:require
    ["react-sparklines" :as rs :refer [Sparklines SparklinesLine SparklinesBars SparklinesSpots]]
    [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
