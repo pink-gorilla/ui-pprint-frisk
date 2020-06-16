@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.14</version>
+  <version>0.2.15</version>
   <name>gorilla-ui</name>
   <description>Reagent components for data visualisation.</description>
   <url>https://github.com/pink-gorilla/gorilla-ui</url>
@@ -17,7 +17,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>d093f0d58d8415a118c1f2c902772a922892a483</tag>
+    <tag>689db0b212b0694e9e71297ac7698f4cdf143222</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -116,6 +116,12 @@
       <groupId>thi.ng</groupId>
       <artifactId>strf</artifactId>
       <version>0.2.2</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>clojurescript</artifactId>
+          <groupId>org.clojure</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.lucasbradstreet</groupId>
@@ -125,7 +131,7 @@
     <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>gorilla-renderable-ui</artifactId>
-      <version>0.2.4</version>
+      <version>0.2.7</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
