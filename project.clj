@@ -9,6 +9,7 @@
   :prep-tasks [;"javac"
                "compile"
                "resource"
+               "css"
                ;"shadowcompile2"
                ]
 
@@ -41,11 +42,11 @@
                               ["node_modules/@fortawesome/fontawesome-free/css"
                                {:includes [#".*\.css"]
                                 :target-path "target/node_modules/public/@fortawesome/fontawesome-free/css"}]
-                             #_["node_modules/@fortawesome/fontawesome-free/webfonts"
-                              {:includes [#".*"]
-                               :target-path "target/node_modules/public/@fortawesome/fontawesome-free/webfonts"}]
+                              #_["node_modules/@fortawesome/fontawesome-free/webfonts"
+                                 {:includes [#".*"]
+                                  :target-path "target/node_modules/public/@fortawesome/fontawesome-free/webfonts"}]
 
-  
+
                               ["node_modules/leaflet/dist"
                                {:includes [#".*\.css"] ;  #".*\.png"  png copy gets destroyed
                                 :target-path "target/node_modules/public/leaflet/dist"}]
@@ -110,6 +111,9 @@
 
   :aliases {"clean"  ^{:doc "Cleans build artefacts."}
             ["shell" "./scripts/clean.sh"]
+            "css"  ^{:doc "Copies certain npm package dependecies"}
+            ["shell" "./scripts/copy_res.sh"]
+
              ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
             ;"shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}

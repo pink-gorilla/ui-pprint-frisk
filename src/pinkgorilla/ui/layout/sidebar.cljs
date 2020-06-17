@@ -85,3 +85,7 @@
    [sidebar {:examples @examples :goto-page goto-page}]
    [:div.bg-white.h-full.w-full.text-center.text-grey-darkest
     [@current]]]
+
+; [:div.flex.font-sans.antialiased.h-screen
+;        [sidebar {:examples @examples :goto-page goto-page}]
+;        [:div.bg-white.h-full.w-full.text-center.text-grey-darkest
