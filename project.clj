@@ -38,6 +38,14 @@
              :resource-paths [["node_modules/tailwindcss/dist"
                                {:includes [#".*"]
                                 :target-path "target/node_modules/public/tailwindcss/dist"}]
+                              ["node_modules/@fortawesome/fontawesome-free/css"
+                               {:includes [#".*\.css"]
+                                :target-path "target/node_modules/public/@fortawesome/fontawesome-free/css"}]
+                             #_["node_modules/@fortawesome/fontawesome-free/webfonts"
+                              {:includes [#".*"]
+                               :target-path "target/node_modules/public/@fortawesome/fontawesome-free/webfonts"}]
+
+  
                               ["node_modules/leaflet/dist"
                                {:includes [#".*\.css"] ;  #".*\.png"  png copy gets destroyed
                                 :target-path "target/node_modules/public/leaflet/dist"}]

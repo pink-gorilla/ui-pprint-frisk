@@ -20,6 +20,7 @@
    [pinkgorilla.ui.data.vega]
 
    ; layout
+   [pinkgorilla.ui.layout.sidebar]
    [pinkgorilla.ui.layout.aspect-ratio]
    [pinkgorilla.ui.layout.card]
    [pinkgorilla.ui.layout.gridlayout]
