@@ -4,7 +4,7 @@
    [pinkgorilla.ui.layout.sidebar :refer [sidebar]]
    [demo.example :refer [examples example-page]]))
 
-(def welcome 
+(def welcome
   [:section {:class "text-gray-700 body-font"}
    [:div {:class "container px-5 py-24 mx-auto"}
     [:div {:class "xl:w-1/2 lg:w-3/4 w-full mx-auto text-center"}
@@ -25,19 +25,13 @@
                  [{:name "a" :component [:h1 "a"]}
                   {:name "b" :component [:h1 "b"]}]))
 
-;   [sidebar-item {:active? false :name "apple"} "a"]
-;[sidebar-item {:active? false :fas "link" :name "banana"} "b"]
-;[sidebar-item {:active? false :name "christmas"} "c"]
-;[sidebar-item {:active? true :name "deep"} "d"]
-;[sidebar-item {:active? false :name "echo"} "e"]
-
-
 (def examples-wrapped
   (map (fn [e]
          (assoc e :page (example-page e))) @examples))
 
 (defn app []
-      [:<>
-       [:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
-       [sidebar examples-wrapped welcome]
-       ])
+  ;[:<>
+   ;[:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
+   [sidebar examples-wrapped welcome]
+ ; ]
+)

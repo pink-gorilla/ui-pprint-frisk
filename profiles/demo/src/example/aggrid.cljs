@@ -65,7 +65,7 @@
 
 (example/add
  "aggrid"
-  [:div.aggrid-demo ; .aggrid-container
+  [:div ; .aggrid-demo ; .aggrid-container
 
    [:h1 "simple demo:"]
    [:div {:style {:height "150px"

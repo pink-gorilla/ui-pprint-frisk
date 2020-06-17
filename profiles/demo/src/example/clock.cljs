@@ -4,5 +4,5 @@
 
 (example/add
  "clock"
-  [:div.clock-demo
+  [:div ; .clock-demo
    [:p/clock]])

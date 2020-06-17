@@ -4,5 +4,7 @@
 
 (example/add
  "player"
-  [:div.player-container
-   [:p/player "https://www.youtube.com/watch?v=Bs44qdAX5yo"]])
+  [:div.w-full.h-screen ; .player-container
+   [:p/player {:width "100%"
+               :height "100%"
+               :url "https://www.youtube.com/watch?v=Bs44qdAX5yo"}]])

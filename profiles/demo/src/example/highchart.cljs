@@ -44,7 +44,7 @@
 
 
 (example/add
- "js-highchart"
- [:div.highchart-demo {:style {:height "400px"
-                               :width "600px"}}
+ "highchart"
+ [:div  {:style {:height "400px"
+                 :width "600px"}}
   [:p/highchart highchart-spec]])

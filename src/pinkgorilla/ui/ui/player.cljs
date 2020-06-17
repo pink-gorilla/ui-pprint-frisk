@@ -9,9 +9,12 @@
   "plays Youtube videos
    usage:
    [:p/player {:url url}]
+   
+   for more config options, see:
+   https://www.npmjs.com/package/react-player
    "
-  [url]
-  [:div-player
-   [:> rp/default {:url url :playing true}]])
+  [options]
+  ;[:div ; -player
+  [:> rp/default options]) ; {:url url :playing true}
 
 (register-component :p/player player)

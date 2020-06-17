@@ -47,21 +47,31 @@
                   ;(println "active? " (:name item) (= (:name item) @active-name))
                   (= (:name item) @active-name))]
     (fn []
-      [:div {:class "flex md:flex-row-reverse flex-wrap"}
+      [:div
        [link-css "@fortawesome/fontawesome-free/css/all.min.css"]
- ; Main Content
-       [:div {:class "w-full md:w-4/5 bg-gray-100"}
-        [:div {:class "container bg-gray-100 pt-16 px-6"}
-         (when @active-page
-           @active-page)]]
- ; Sidebar
-       [:div {:class "w-full md:w-1/5 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600"}
-        [:div {:class "md:relative mx-auto lg:float-right lg:px-6"}
-         (into [:ul {:class "list-reset flex flex-row md:flex-col text-center md:text-left"}]
-               (map (fn [item]
-                      [sidebar-item (assoc item
-                                           :goto-page goto-page
-                                           :active? active?)]) items))]]])))
+       ;flexbox container
+       [:div {:class (str "flex flex-wrap h-screen w-screen "
+                          "md:flex-row-reverse")}
+       ; Main Content
+        [:div {:class (str "w-full h-full bg-blue-100 " ; sm: w-full
+                           "lg:w-5/6 "
+                           "md:w-4/5 ")}
+         [:div {:class "p-0 m-0"} ; "pt-16 px-6"} ; bg-gray-100 container
+          (when @active-page
+            @active-page)]]
+        ; Sidebar
+        [:div {:class (str "w-full bg-blue-500 px-2 text-center fixed bottom-0 " ; sm: w-full bg-blue-500
+                           "lg:w-1/6 "
+                           "md:w-1/5 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-pink-600 md:bg-teal-800 ")}
+         [:div {:class (str " mx-auto "
+                            "lg:float-right lg:px-6 "
+                            "md:relative")}
+          (into [:ul {:class (str "list-reset flex flex-row text-center "
+                                  "md:flex-col  md:text-left")}]
+                (map (fn [item]
+                       [sidebar-item (assoc item
+                                            :goto-page goto-page
+                                            :active? active?)]) items))]]]])))
 
 (register-component :p/sidebar sidebar)
 

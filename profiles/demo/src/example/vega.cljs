@@ -81,8 +81,8 @@
     :color {:field "symbol", :type "nominal"}}})
 
 
-(example/add "js-vega"
-  [:div.vega-demo
+(example/add "vega"
+  [:div.w-full.h-full.overflow-scroll ; .vega-demo
    [:h1 "vega spec with bad url:"]
    [:p/vega "http://bongistan.com/spec-demo"]
    [:h1 "specs that should be working:"]

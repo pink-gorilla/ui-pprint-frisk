@@ -3,7 +3,7 @@
    [demo.example :as example]))
 
 (example/add
- "js-math"
+ "math"
  [:div.bg-green-300 {:style {:width 300
-                               :height 100}}
+                             :height 100}}
   [:p/math "(ax ^2 + bx + c = 0 )"]])
