@@ -1,6 +1,6 @@
 (ns pinkgorilla.ui.control.button
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; for ideas for props for button look at:
 ; https://github.com/knipferrc/tails-ui/blob/master/src/components/Button.re

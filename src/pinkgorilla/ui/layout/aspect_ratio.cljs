@@ -1,6 +1,6 @@
 (ns pinkgorilla.ui.layout.aspect-ratio
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; https://www.youtube.com/watch?v=nqNIy8HkEQ8
 

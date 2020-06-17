@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.control.progressbar
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; stolen from:
 ; https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/css/progressbars

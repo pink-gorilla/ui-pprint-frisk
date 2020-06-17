@@ -1,8 +1,8 @@
 (ns pinkgorilla.ui.pinkie.clock
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.html :refer [html]]))
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkie.html :refer [html]]))
 
 (def clock-style
   "<style> 

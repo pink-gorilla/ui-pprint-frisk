@@ -6,8 +6,8 @@
    "
   (:require
    ;[taoensso.timbre :refer-macros (warn)]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.jsrender :refer [render-js]]
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkie.jsrender :refer [render-js]]
    ["/pinkgorilla/ui/ui/mathinit" :as mathjax-init]))
 
 #_(defn add-math-css []

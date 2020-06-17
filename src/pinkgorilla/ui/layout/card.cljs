@@ -1,6 +1,6 @@
 (ns pinkgorilla.ui.layout.card
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 (defn ^{:category :layout}
   card [{:keys [heading text img href]}]

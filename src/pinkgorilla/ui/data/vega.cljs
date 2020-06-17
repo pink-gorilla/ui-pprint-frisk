@@ -1,8 +1,8 @@
 (ns pinkgorilla.ui.data.vega
   "plugin to render vega-charts in pink-gorilla"
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.jsrender :refer [render-js]]
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkie.jsrender :refer [render-js]]
    ["vega-embed" :as vega-embed]))
 
 ;; NOTES:

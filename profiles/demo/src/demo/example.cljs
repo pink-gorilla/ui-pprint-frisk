@@ -1,7 +1,7 @@
 (ns demo.example
   (:require
-   [pinkgorilla.ui.error :refer [error-boundary]]
-   [pinkgorilla.ui.pinkie :refer [tag-inject]]))
+   [pinkie.error :refer [error-boundary]]
+   [pinkie.pinkie :refer [tag-inject]]))
 
 (defonce examples (atom []))
 

@@ -3,7 +3,7 @@
    [cljs.pprint]
    [goog.object :as g]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer [tag-inject]]
+   [pinkie.pinkie :refer [tag-inject]]
    [demo.example :as example]))
 
 

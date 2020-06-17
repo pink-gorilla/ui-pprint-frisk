@@ -5,7 +5,7 @@
   (:require
    [reagent.core :as r]
    ["@popperjs/core" :refer [createPopper]]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; stolen from:
 ; https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/react/popovers/left

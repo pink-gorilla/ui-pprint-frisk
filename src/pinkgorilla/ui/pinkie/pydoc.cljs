@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.pinkie.pydoc
   (:require
    [clojure.string :as str]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.config :refer [link-css]]))
 
 ;{:module "numpy"

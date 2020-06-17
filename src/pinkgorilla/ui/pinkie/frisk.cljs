@@ -2,7 +2,7 @@
   (:require
    [cljs.pprint :refer [pprint]]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ;; stolen from: https://github.com/Odinodin/data-frisk-reagent
 

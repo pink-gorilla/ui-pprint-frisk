@@ -4,8 +4,8 @@
    "
   (:require
    ["highcharts" :as highcharts]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.jsrender :refer [render-js]]))
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkie.jsrender :refer [render-js]]))
 
 ;; https://api.highcharts.com/class-reference/Highcharts.Chart
 

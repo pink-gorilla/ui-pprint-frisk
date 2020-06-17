@@ -9,10 +9,9 @@
   :prep-tasks [;"javac"
                "compile"
                "resource"
-               ;"ls"
                ;"shadowcompile2"
                ]
-  
+
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]
                   ["vcs" "commit" "Release %s"]
@@ -21,20 +20,20 @@
                   ["bump-version"]
                   ["vcs" "commit" "Begin %s"]
                   ["vcs" "push"]]
-  
+
   :source-paths ["src"] ; "test"
   ;:test-paths ["test"]
-  
-   :target-path  "target/jar"
-    :clean-targets ^{:protect false} [:target-path
-                                      [:demo :builds :app :compiler :output-dir]
-                                      [:demo :builds :app :compiler :output-to]]
-  
-  
+
+  :target-path  "target/jar"
+  :clean-targets ^{:protect false} [:target-path
+                                    [:demo :builds :app :compiler :output-dir]
+                                    [:demo :builds :app :compiler :output-to]]
+
+
   :resource-paths  ["resources" ; not from npm
                     "target/node_modules"] ; css png resources from npm modules
-  
-  
+
+
   :resource {:silent false
              :resource-paths [["node_modules/tailwindcss/dist"
                                {:includes [#".*"]
@@ -54,8 +53,7 @@
                                 :target-path "target/node_modules/public/react-grid-layout/css/"}]
                               ["node_modules/react-resizable/css"
                                {:includes [#".*\.css"]
-                                :target-path "target/node_modules/public/react-resizable/css/"}]                              
-                              ]}
+                                :target-path "target/node_modules/public/react-resizable/css/"}]]}
 
 
   :plugins [[lein-shell "0.5.0"]]
@@ -67,10 +65,10 @@
                                cljsjs/react-dom]]
                  [thi.ng/strf "0.2.2"
                   :exclusions [org.clojure/clojurescript]]
-  
+
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/gorilla-renderable-ui "0.2.7"]]
+                 [org.pinkgorilla/pinkie "0.2.9"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}

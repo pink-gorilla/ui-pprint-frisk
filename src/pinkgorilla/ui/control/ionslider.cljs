@@ -3,7 +3,7 @@
    [reagent.core :as r]
    ["jquery" :as jq] ; jquery is a dependency, but it needs to be required separately.
    ["react-ion-slider" :as IonRangeSlider]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; shiny: http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html
 ; https://www.npmjs.com/package/react-ion-slider#1-before-using-react-ion-slider-please-import-module

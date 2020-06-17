@@ -2,7 +2,7 @@
   (:require
    [reagent.core :as r]
    ["tails-ui" :refer [Button Tab Tabs]]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.config :refer [link-css]]))
 
 #_(defn ^{:category :control} button1 []

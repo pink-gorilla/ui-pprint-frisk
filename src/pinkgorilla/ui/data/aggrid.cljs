@@ -3,7 +3,7 @@
    ["ag-grid-react" :as rs :refer [AgGridReact]]
  ; ["ag-grid-community/dist/styles/ag-grid.css"]
  ;  ["ag-grid-community/dist/styles/ag-theme-balham.css"]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.config :refer [link-css]]))
 
 ;node_modules/ag-grid-community/dist/styles/

@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
    ; parent project setups
-   [pinkgorilla.ui.default-setup]
+   [pinkie.default-setup]
 
    ; control
    [pinkgorilla.ui.control.button]

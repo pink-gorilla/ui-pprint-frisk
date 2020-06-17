@@ -2,8 +2,8 @@
   (:require
    [cljs.pprint]
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.pinkie-render :refer [pinkie-render]]
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkie.pinkie-render :refer [pinkie-render]]
    [demo.example :as example]))
 
 (example/add

@@ -1,6 +1,6 @@
 (ns pinkgorilla.ui.control.checkbox
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ;todo:
 ; add options: disabled, label

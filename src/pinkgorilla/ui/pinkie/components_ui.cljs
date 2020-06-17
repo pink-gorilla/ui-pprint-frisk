@@ -2,8 +2,8 @@
   (:require
    [clojure.string :as str]
    [reagent.core :as r]
-   [pinkgorilla.ui.text :refer [text]]
-   [pinkgorilla.ui.pinkie :refer [component-list] :refer-macros [register-component]]))
+   [pinkie.text :refer [text]]
+   [pinkie.pinkie :refer [component-list] :refer-macros [register-component]]))
 
 (defn docstring [c]
   (get-in c [:meta :doc]))

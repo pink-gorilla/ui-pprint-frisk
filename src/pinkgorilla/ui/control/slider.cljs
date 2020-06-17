@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.control.slider
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; dash: https://www.npmjs.com/package/rc-slider
 

@@ -4,8 +4,8 @@
    JSON to the dom node that is passed.
    In early state component development this is helpful."
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.jsrender :refer [render-js]]))
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkie.jsrender :refer [render-js]]))
 
 (defn render-json [dom-node data-js]
   (let [data-json (.stringify js/JSON data-js)

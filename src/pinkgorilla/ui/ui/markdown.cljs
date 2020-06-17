@@ -5,7 +5,7 @@
    "
   (:require
    ["marked" :as marked]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 (defn ^{:category :ui}
   markdown

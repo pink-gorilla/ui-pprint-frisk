@@ -2,7 +2,7 @@
   (:require
    ["react-leaflet" :refer [Map TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.config :refer [link-css res-href]]
    [pinkgorilla.dsl.leaflet :refer [default-options]]))
 

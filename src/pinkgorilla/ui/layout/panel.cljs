@@ -1,6 +1,6 @@
 (ns pinkgorilla.ui.layout.panel
   (:require
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; stolen from:
 ; https://github.com/knipferrc/tails-ui/blob/master/src/components/Panel.re

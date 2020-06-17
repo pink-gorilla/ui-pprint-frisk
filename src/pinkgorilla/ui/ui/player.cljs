@@ -2,7 +2,7 @@
   (:require
    [reagent.core :as r]
    ["react-player" :as rp :refer [ReactPlayer]]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 (defn ^{:category :ui}
   player

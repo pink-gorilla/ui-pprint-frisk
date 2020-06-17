@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.layout.gridlayout
   (:require
    ["react-grid-layout" :as ReactGridLayout]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]
+   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.config :refer [link-css]]))
 
 ; https://github.com/STRML/react-grid-layout

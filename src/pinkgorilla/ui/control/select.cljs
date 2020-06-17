@@ -2,7 +2,7 @@
   (:require
    [reagent.core :as r]
    [pinkgorilla.ui.control.button :refer [button]]
-   [pinkgorilla.ui.pinkie :refer-macros [register-component]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 (defn css []
   [:style ".top-100 {top: 100%}
