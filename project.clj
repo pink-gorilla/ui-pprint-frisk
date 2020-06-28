@@ -77,7 +77,7 @@
 
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/pinkie "0.2.9"]]
+                 [org.pinkgorilla/pinkie "0.2.10"]]
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}
@@ -117,7 +117,7 @@
              ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
             ;"shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
-            ["with-profile" "+test" "shell" "shadow-cljs" "compile" "ci"]
+            ["with-profile" "+test" "run" "-m" "shadow.cljs.devtools.cli" "compile" "ci"]
 
             "test-run" ^{:doc "Runs unit tests. Does not build the bundle first.."}
             ["shell" "./node_modules/karma/bin/karma" "start" "--single-run"]
@@ -128,7 +128,7 @@
             ["do" "build-test" ["test-run"]]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
-            ["shell" "shadow-cljs" "watch" "demo"]
+            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "demo"]
 
             "embed"  ^{:doc "Runs UI embedding via webserver."}
-            ["shell" "shadow-cljs" "watch" "embed"]})
+            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "embed"]})

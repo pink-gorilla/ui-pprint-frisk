@@ -39,9 +39,9 @@
   
   ; exception
   [:h1 "Exception test:"]
-  [:p/pinkie {:content {:map-keywords true 
-                        :fix-style false 
-                        :hiccup [:p/exc]}} ]
+  [:p/pinkie {:map-keywords true 
+              :fix-style false} 
+              [:p/exc]]
   ; aspect
   [:h1 "aspect ratio test"]
   [:div {:class "w-1/3 h-64 overflow-hidden"}

@@ -1,7 +1,7 @@
 {:lein   {:profile "+demo"}
 
  ; shadow dev http server settings
- :dev-http {8000 ["target/node_modules/public"  ;  css and png from selected npm dependencies
+ :dev-http {8007 ["target/node_modules/public"  ;  css and png from selected npm dependencies
                   "target/demo" ; demo ui bundle
                   "profiles/demo/public" ; demo ui resources (html, data files)
                   "profiles/embed/public" ; embedded renderer resources
