@@ -68,13 +68,13 @@
   :plugins [[lein-shell "0.5.0"]]
   :dependencies [; gorilla-ui is a cljs project, so in here are cljs dependencies
                  [org.clojure/clojurescript "1.10.773"]
+                  [thi.ng/strf "0.2.2"
+                   :exclusions [org.clojure/clojurescript]]
                  [reagent "0.10.0"
                   :exclusions [org.clojure/tools.reader
                                cljsjs/react
                                cljsjs/react-dom]]
-                 [thi.ng/strf "0.2.2"
-                  :exclusions [org.clojure/clojurescript]]
-
+                  [re-frame "0.10.9"]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  [org.pinkgorilla/pinkie "0.2.10"]]

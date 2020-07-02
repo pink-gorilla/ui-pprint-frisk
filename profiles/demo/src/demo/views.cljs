@@ -2,6 +2,7 @@
   (:require
    [reagent.core :as r]
    [pinkgorilla.ui.layout.sidebar :refer [sidebar]]
+   [pinkgorilla.ui.ui.dialog :refer [modal-container]]
    [demo.example :refer [examples example-page]]))
 
 (def welcome
@@ -30,8 +31,7 @@
          (assoc e :page (example-page e))) @examples))
 
 (defn app []
-  ;[:<>
+  [:div
    ;[:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
-   [sidebar examples-wrapped welcome]
- ; ]
-)
+   [modal-container]
+   [sidebar examples-wrapped welcome]])
