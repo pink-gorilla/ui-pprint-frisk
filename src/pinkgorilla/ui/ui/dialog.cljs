@@ -15,15 +15,25 @@
  (fn [db [_ data]]
    (assoc-in db [:modal] data)))
 
+(defn close-modal []
+  (dispatch [:modal {:show? false
+                     :child nil
+                     :size :default
+                     :close nil}]))
+
 (defn modal-panel
-  [{:keys [child size show?]}]
+  [{:keys [child size show? close]}]
   [:div {:class "modal-wrapper"}
    [:div {:class "modal-backdrop"
           :on-click (fn [event]
                       (do
-                        (dispatch [:modal {:show? (not show?)
-                                           :child nil
-                                           :size :default}])
+                        (when close
+                          (dispatch [close]))
+
+                        (close-modal)
+                        #_(dispatch [:modal {:show? (not show?)
+                                             :child nil
+                                             :size :default}])
                         (.preventDefault event)
                         (.stopPropagation event)))}]
    [:div {:class "modal-child"
@@ -42,8 +52,7 @@
        (if (:show? @modal)
          [modal-panel @modal])])))
 
-(defn- close-modal []
-  (dispatch [:modal {:show? false :child nil}]))
+
 
 
 
