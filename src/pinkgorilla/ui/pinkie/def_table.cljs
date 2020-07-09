@@ -1,4 +1,4 @@
-(ns comp.def-table
+(ns pinkgorilla.ui.pinkie.def-table
   (:require [cljs.spec.alpha :as s]
             [reagent.core :as reagent]))
 
