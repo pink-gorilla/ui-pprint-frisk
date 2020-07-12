@@ -1,7 +1,8 @@
 (ns pinkgorilla.ui.ui.dialog
+  (:require-macros [reagent.ratom :refer [reaction]])
   (:require
-   [re-frame.core :refer [reg-sub-raw reg-event-db reg-event-fx path dispatch subscribe]])
-  (:require-macros [reagent.ratom :refer [reaction]]))
+   [re-frame.core :refer [reg-sub-raw reg-event-db reg-event-fx path dispatch subscribe]]
+   [pinkgorilla.ui.config :refer [link-css]]))
 
 ; stolen from:
 ; https://github.com/benhowell/re-frame-modal
@@ -48,7 +49,8 @@
   (let [modal (subscribe [:modal])]
     (fn []
       [:div
-       [:link {:rel "stylesheet" :href "/dialog.css"}]
+       [link-css "gorillaui/dialog.css"]
+       ;[:link {:rel "stylesheet" :href "/dialog.css"}]
        (if (:show? @modal)
          [modal-panel @modal])])))
 
