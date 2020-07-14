@@ -1,7 +1,6 @@
 (ns example.json
   (:require
    [re-frame.core :refer [dispatch]]
-   [pinkgorilla.ui.ui.dialog :refer [close-modal]]
    [demo.example :as example]))
 
 (def data
@@ -20,36 +19,21 @@
             :border-radius    "6px"
             :text-align "center"}} "Hello modal!"])
 
+(defn awesome-dialogs []
+  [:div
+   [:button.bg-green-300
+    {:title "Click to show dialog!"
+     :on-click #(dispatch [:modal/open [hello] :small])}
+    "small dialog!"]
 
-(defn- hello-bootstrap []
-  [:div {:class "modal-content panel-danger"}
-   [:div {:class "modal-header panel-heading"}
-    [:button {:type "button" :title "Cancel"
-              :class "close"
-              :on-click #(close-modal)}
-     [:i {:class "material-icons"} "close"]]
-    [:h4 {:class "modal-title"} "Hello Bootstrap modal!"]]
-   [:div {:class "modal-body"}
-    [:div [:b (str "You can close me by clicking the Ok button, the X in the"
-                   " top right corner, or by clicking on the backdrop.")]]]
-   [:div {:class "modal-footer"}
-    [:button {:type "button" :title "Ok"
-              :class "btn btn-default"
-              :on-click #(close-modal)} "Ok"]]])
-
-
-
-(defn my-awesome-modal-fn []
-  [:button
-   {:title "Click to show modal!"
-    :on-click #(dispatch [:modal {:show? true
-                                  :child [hello]
-                                  :size :small}])} "Show me the modal!"])
-
+   [:button.bg-blue-300
+    {:title "Click to show dialog!"
+     :on-click #(dispatch [:modal/open [hello]])}
+    "default-size dialog!"]])
 
 
 (example/add
  "json"
  [:div.json-demo
   [:p/json data]
-  [my-awesome-modal-fn]])
+  [awesome-dialogs]])

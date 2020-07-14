@@ -7,34 +7,46 @@
 ; stolen from:
 ; https://github.com/benhowell/re-frame-modal
 
-(reg-sub-raw
- :modal
- (fn [db _] (reaction (:modal @db))))
-
 (reg-event-db
  :modal
  (fn [db [_ data]]
    (assoc-in db [:modal] data)))
 
-(defn close-modal []
-  (dispatch [:modal {:show? false
-                     :child nil
-                     :size :default
-                     :close nil}]))
+(reg-event-db
+ :modal/open
+ (fn [db [_ child size]]
+   (assoc-in db [:modal]
+             {:show? true
+              :child child
+              :size (or size :default)})))
+
+(reg-event-db
+ :modal/close
+ (fn [db [_]]
+   (if (get-in db [:modal :show?])
+     (assoc-in db [:modal] {:show? false
+                            :child nil
+                            :size :default})
+     db)))
+
+#_(reg-event-db
+   :dialog/keydown
+   (fn [db [_ keycode]]
+     (case keycode
+       27 (do (close-modal)
+              db)
+       db)))
 
 (defn modal-panel
-  [{:keys [child size show? close]}]
+  [{:keys [child size]}]
   [:div {:class "modal-wrapper"}
    [:div {:class "modal-backdrop"
+          ; keydown not working
+          ;:on-key-down #(dispatch [:dialog/keydown (.-which %)])
           :on-click (fn [event]
                       (do
-                        (when close
-                          (dispatch [close]))
-
-                        (close-modal)
-                        #_(dispatch [:modal {:show? (not show?)
-                                             :child nil
-                                             :size :default}])
+                        (dispatch [:modal/close])
+                        ;(close-modal)
                         (.preventDefault event)
                         (.stopPropagation event)))}]
    [:div {:class "modal-child"
@@ -45,12 +57,15 @@
                            :extra-large "85%"
                            "50%")}} child]])
 
+(reg-sub-raw
+ :modal
+ (fn [db _] (reaction (:modal @db))))
+
 (defn modal-container []
   (let [modal (subscribe [:modal])]
     (fn []
       [:div
        [link-css "gorillaui/dialog.css"]
-       ;[:link {:rel "stylesheet" :href "/dialog.css"}]
        (if (:show? @modal)
          [modal-panel @modal])])))
 
