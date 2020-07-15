@@ -8,11 +8,6 @@
 ; https://github.com/benhowell/re-frame-modal
 
 (reg-event-db
- :modal
- (fn [db [_ data]]
-   (assoc-in db [:modal] data)))
-
-(reg-event-db
  :modal/open
  (fn [db [_ child size close]]
    (assoc-in db [:modal]
@@ -34,26 +29,14 @@
                                   :close nil}))
        db))))
 
-#_(reg-event-db
-   :dialog/keydown
-   (fn [db [_ keycode]]
-     (case keycode
-       27 (do (close-modal)
-              db)
-       db)))
-
 (defn modal-panel
   [{:keys [child size]}]
   [:div {:class "modal-wrapper"}
    [:div {:class "modal-backdrop"
-          ; keydown not working
-          ;:on-key-down #(dispatch [:dialog/keydown (.-which %)])
           :on-click (fn [event]
-                      (do
-                        (dispatch [:modal/close])
-                        ;(close-modal)
-                        (.preventDefault event)
-                        (.stopPropagation event)))}]
+                      (dispatch [:modal/close])
+                      (.preventDefault event)
+                      (.stopPropagation event))}]
    [:div {:class "modal-child"
           :style {:width (case size
                            :extra-small "15%"
@@ -71,7 +54,7 @@
     (fn []
       [:div
        [link-css "gorillaui/dialog.css"]
-       (if (:show? @modal)
+       (when (:show? @modal)
          [modal-panel @modal])])))
 
 
