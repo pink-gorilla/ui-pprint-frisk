@@ -14,20 +14,25 @@
 
 (reg-event-db
  :modal/open
- (fn [db [_ child size]]
+ (fn [db [_ child size close]]
    (assoc-in db [:modal]
              {:show? true
               :child child
+              :close (or close nil) ; optionally dispatch on close reframe event
               :size (or size :default)})))
 
 (reg-event-db
  :modal/close
  (fn [db [_]]
-   (if (get-in db [:modal :show?])
-     (assoc-in db [:modal] {:show? false
-                            :child nil
-                            :size :default})
-     db)))
+   (let [{:keys [show? close]} (:modal db)]
+     (if show?
+       (do (when close
+             (dispatch close))
+           (assoc-in db [:modal] {:show? false
+                                  :child nil
+                                  :size :default
+                                  :close nil}))
+       db))))
 
 #_(reg-event-db
    :dialog/keydown
