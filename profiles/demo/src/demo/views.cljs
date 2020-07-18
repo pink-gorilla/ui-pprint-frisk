@@ -1,8 +1,8 @@
 (ns demo.views
   (:require
-   [reagent.core :as r]
+   [webly.web.handler :refer [reagent-page]]
+   ;[pinkgorilla.ui.ui.dialog :refer [modal-container]] 
    [pinkgorilla.ui.layout.sidebar :refer [sidebar]]
-   [pinkgorilla.ui.ui.dialog :refer [modal-container]]
    [demo.example :refer [examples example-page]]))
 
 (def welcome
@@ -33,5 +33,8 @@
 (defn app []
   [:div
    ;[:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
-   [modal-container]
+   ;[modal-container]
    [sidebar examples-wrapped welcome]])
+
+(defmethod reagent-page :demo/main [& args]
+  [app])

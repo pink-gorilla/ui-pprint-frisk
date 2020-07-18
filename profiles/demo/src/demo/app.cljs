@@ -1,8 +1,13 @@
 (ns demo.app
   (:require
-   [reagent.dom]
+   ;[reagent.dom]
+   [taoensso.timbre :as timbre :refer [info]]
    [pinkgorilla.ui.default-renderer] ; add ui renderer definitions 
+
    [pinkgorilla.ui.config :refer [set-prefix!]]
+   [webly.web.app]
+   [webly.config :refer [webly-config]]
+
    ; examples
    [example.pinkie]
    [example.controls]
@@ -22,20 +27,29 @@
    [example.gridlayout]
    [example.pydoc]
    ; demo
+   [demo.routes :refer [demo-routes-backend]]
    [demo.views]))
 
-(enable-console-print!)
+(defn ^:export start []
+  (swap! webly-config assoc :timbre-loglevel :info)
+  (info "gorilla-ui demo starting ..")
+  (webly.web.app/start demo-routes-backend)
+  (webly.web.app/mount-app))
 
-(set-prefix! "/")
 
-(defn stop []
-  (js/console.log "Stopping..."))
 
-(defn start []
-  (js/console.log "Starting...")
-  (println "starting with println")
-  (reagent.dom/render [demo.views/app]
-                      (.getElementById js/document "app")))
+;(enable-console-print!)
 
-(defn ^:export init []
-  (start))
+;(set-prefix! "/")
+
+#_(defn stop []
+    (js/console.log "Stopping .."))
+
+#_(defn start []
+    (js/console.log "Starting gorilla-ui ...")
+    (println "starting with println")
+    (reagent.dom/render [demo.views/app]
+                        (.getElementById js/document "app")))
+
+#_(defn ^:export init []
+    (start))

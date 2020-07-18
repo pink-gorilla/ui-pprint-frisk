@@ -1,0 +1,37 @@
+{:lein   {:profile "+demo"}
+
+ ; shadow dev http server settings
+ :dev-http {8007 ["target/node_modules/public"  ;  css and png from selected npm dependencies
+                  "target/demo" ; demo ui bundle
+                  "profiles/demo/public" ; demo ui resources (html, data files)
+                  "profiles/embed/public" ; embedded renderer resources
+                  "resources/public"; resources we ship without npm
+                  ;"classpath:public" 
+                  ;"classpath:resources"
+                  ;"classpath:resources/public"
+                  ]}
+
+ :builds {:demo {:target :browser
+                 :output-dir "target/demo"
+                 :asset-path "/"
+                 :modules {:main {:entries [demo.app]}}
+                 :devtools {:before-load demo.app/stop
+                            :after-load demo.app/start}
+                 :compiler-options {;; preferrably implicit by shadow-cljs compile/watch/release
+                                                        ;; Beware: releasing :none not supported by shadow
+                                                        ;; :optimizations   :none
+                                   ;:optimizations   :simple
+                                   :optimizations  :none
+                 }}
+
+          :embed {:target :browser
+                  :output-dir "target"
+                  :asset-path "/"
+                  :modules {:main {:entries [pinkgorilla.embed]}}
+                  :devtools {:before-load pinkgorilla.embed/stop
+                             :after-load pinkgorilla.embed/start}}
+
+          :ci {:target :karma
+               :output-to  "target/ci.js"
+               :ns-regexp "-test$"}}}
+

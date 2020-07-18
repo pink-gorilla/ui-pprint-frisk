@@ -15,7 +15,7 @@
 (def multi-plot-zoom
   {:$schema
    "https://vega.github.io/schema/vega-lite/v4.json"
-   :data {:url "data/sp500.csv"}
+   :data {:url "/r/data/sp500.csv"}
    :vconcat
    [{:width 480
      :mark "area"
@@ -45,7 +45,7 @@
    "https://vega.github.io/schema/vega-lite/v4.json"
    :description
    "Stock prices of 5 Tech Companies over Time."
-   :data {:url "data/stocks.csv"}
+   :data {:url "/r/data/stocks.csv"}
     :transform [
   	;{:filter "datum.symbol==='GOOG'"},
   	{:filter {:field "date", :timeUnit "year", :range [2007, 2010]}}

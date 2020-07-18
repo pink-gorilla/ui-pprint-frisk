@@ -19,7 +19,7 @@
   "react-player" "^1.14.2"
   "react-sparklines" "^1.7.0"
   "tails-ui" "^0.5.5"
-  "tailwindcss" "^1.4.6"
+  ;"tailwindcss" "^1.5.1"in webly
   "vega" "^5.11.1"
   "vega-embed" "^6.7.0"
   "vega-lite" "^4.11.0"}}
