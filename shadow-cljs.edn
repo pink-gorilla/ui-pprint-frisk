@@ -1,1 +1,0 @@
-{:lein {:profile "+demo"}, :dev-http {9000 {:handler demo.app/handler}}, :http {:port 9001, :host "localhost"}, :nrepl {:port 9002}, :builds {:webly {:target :browser, :output-dir "target/webly/public", :asset-path "/r", :modules {:main {:entries [demo.app]}}, :compiler-options {:optimizations :simple}}, :ci {:target :karma, :output-to "target/ci.js", :ns-regexp "-test$"}}}

@@ -8,3 +8,4 @@ target
 .project
 .settings/*
 .vscode/*
+shadow-cljs.edn
