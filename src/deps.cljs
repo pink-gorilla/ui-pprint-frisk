@@ -18,7 +18,7 @@
   "react-leaflet" "^2.6.0"
   "react-player" "^1.14.2"
   "react-sparklines" "^1.7.0"
-  "shadow-cljs" "^2.10.19"
+  ;"shadow-cljs" "^2.10.19" - thheller does not allow this as transitive dep. - has to be in package.json though.
   "tails-ui" "^0.5.5"
   ;"tailwindcss" "^1.5.1" - in webly
   "vega" "^5.11.1"
