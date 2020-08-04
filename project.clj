@@ -147,7 +147,7 @@
             ;; SHADOW - APP
 
             "shadow-demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "demo"]
+            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "webly"]
 
             "embed"  ^{:doc "Runs UI embedding via webserver."}
             ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "embed"]

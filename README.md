@@ -42,3 +42,7 @@ Add a dependency to your clojurescript project, and you are good to go. Note tha
 If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
 the compiler is from the CLJ dependency you have in project.clj.
 the npm stuff never does any actual compilation, just runs the java process
+
+you do not need to worry about process or buffer at all
+you can fix this easily by bumping :compiler-options {:output-feature-set :es6} or whatever language level is appropriate
+:es8 is good if you have bunch of async/await code in libs

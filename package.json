@@ -28,7 +28,7 @@
     "react-leaflet": "^2.6.0",
     "react-player": "^1.14.2",
     "react-sparklines": "^1.7.0",
-    "shadow-cljs": "^2.9.10",
+    "shadow-cljs": "^2.10.19",
     "tails-ui": "^0.5.5",
     "tailwindcss": "1.5.1",
     "vega": "^5.11.1",

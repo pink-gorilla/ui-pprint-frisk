@@ -18,8 +18,9 @@
   "react-leaflet" "^2.6.0"
   "react-player" "^1.14.2"
   "react-sparklines" "^1.7.0"
+  "shadow-cljs" "^2.10.19"
   "tails-ui" "^0.5.5"
-  ;"tailwindcss" "^1.5.1"in webly
+  ;"tailwindcss" "^1.5.1" - in webly
   "vega" "^5.11.1"
   "vega-embed" "^6.7.0"
   "vega-lite" "^4.11.0"}}
