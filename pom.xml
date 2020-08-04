@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.29</version>
+  <version>0.2.30</version>
   <name>gorilla-ui</name>
   <description>Reagent components for data visualisation.</description>
   <url>https://github.com/pink-gorilla/gorilla-ui</url>
@@ -17,7 +17,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>919a421f4370d9b52c50daca1fed55e974ec7f10</tag>
+    <tag>7bf3dcbe6d989155b8de314abf30bf7c3100b523</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -125,7 +125,7 @@
       <dependency>
         <groupId>com.google.javascript</groupId>
         <artifactId>closure-compiler-unshaded</artifactId>
-        <version>v20200504</version>
+        <version>v20200719</version>
       </dependency>
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
@@ -141,6 +141,16 @@
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
         <version>3.0.2</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>2.3.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.ow2.asm</groupId>
+        <artifactId>asm</artifactId>
+        <version>8.0.1</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -180,7 +190,7 @@
     <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>webly</artifactId>
-      <version>0.0.24</version>
+      <version>0.0.25</version>
       <scope>test</scope>
     </dependency>
     <dependency>
