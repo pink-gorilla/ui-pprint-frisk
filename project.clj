@@ -68,17 +68,19 @@
                                {:includes [#".*\.css"]
                                 :target-path "target/node_modules/public/react-resizable/css/"}]]}
 
-  :managed-dependencies
-  [[org.clojure/data.json "1.0.0"]
-   [com.fasterxml.jackson.core/jackson-core "2.11.2"]
-   [com.cognitect/transit-cljs "0.8.264"]
-   [com.cognitect/transit-clj "1.0.324"]
-   [com.cognitect/transit-java "1.0.343"]
-   [org.apache.httpcomponents/httpcore "4.4.13"]
-   [com.google.javascript/closure-compiler-unshaded "v20200504"]
-   [org.apache.httpcomponents/httpasyncclient "4.1.4"]
-   [commons-codec "1.14"]
-   [com.google.code.findbugs/jsr305 "3.0.2"]]
+  :managed-dependencies [[org.clojure/data.json "1.0.0"]
+                         [com.fasterxml.jackson.core/jackson-core "2.11.2"]
+                         [com.cognitect/transit-cljs "0.8.264"]
+                         [com.cognitect/transit-clj "1.0.324"]
+                         [com.cognitect/transit-java "1.0.343"]
+                         [org.apache.httpcomponents/httpcore "4.4.13"]
+                         [com.google.javascript/closure-compiler-unshaded "v20200719"]
+                         [org.apache.httpcomponents/httpasyncclient "4.1.4"]
+                         [commons-codec "1.14"]
+                         [com.google.code.findbugs/jsr305 "3.0.2"]
+                         [javax.xml.bind/jaxb-api "2.3.1"]
+                          [org.ow2.asm/asm "8.0.1"]
+                         ]
 
 
   :dependencies [; gorilla-ui is a cljs project, so in here are cljs dependencies
@@ -97,7 +99,7 @@
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.1"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.0.24"] ; brings shadow-cljs
+                                   [org.pinkgorilla/webly "0.0.25"] ; brings shadow-cljs
                                    [thheller/shadow-cljsjs "0.0.21"]
                                    [clj-kondo "2020.07.29"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
