@@ -6,7 +6,7 @@
   "ag-grid-react" "^22.0.0"
   "create-react-class" "^15.6.3"
   "highcharts" "^8.0.4"
-  "highlight.js" "^10.0.3" ; code-coloring
+  ; "highlight.js" "^10.0.3" ; code-coloring - notebook-ui
   "jquery" "^3.5.1" ; required by react-ion-slider as peer dependency
   "leaflet" "^1.6.0"
   "marked" "^0.7.0"

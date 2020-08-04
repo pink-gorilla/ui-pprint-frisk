@@ -9,11 +9,8 @@
 
   :min-lein-version "2.9.4" ; nrepl 0.7.0
 
-  :prep-tasks [;"javac"
+  :prep-tasks ["css"
                ;"compile" - aot
-               "resource"
-               "css"
-               ;"shadowcompile2"
                ]
 
   :release-tasks [["vcs" "assert-committed"]
@@ -27,46 +24,13 @@
 
   :source-paths ["src"] ; "test"
   ;:test-paths ["test"]
-
   :target-path  "target/jar"
-  :clean-targets ^{:protect false} [:target-path
-                                    [:demo :builds :app :compiler :output-dir]
-                                    [:demo :builds :app :compiler :output-to]]
-
   :resource-paths  ["resources" ; not from npm
                     "target/webly" ; bundle
                     "target/node_modules"] ; css png resources from npm modules
-
-
-  :resource {:silent false
-             :resource-paths [["node_modules/tailwindcss/dist"
-                               {:includes [#".*"]
-                                :target-path "target/node_modules/public/tailwindcss/dist"}]
-                              ; font awesome from webly
-                              #_["node_modules/@fortawesome/fontawesome-free/css"
-                                 {:includes [#".*\.css"]
-                                  :target-path "target/node_modules/public/@fortawesome/fontawesome-free/css"}]
-                              ; this does ot work - resource plugin fucks up copied files
-                              #_["node_modules/@fortawesome/fontawesome-free/webfonts"
-                                 {:includes [#".*"]
-                                  :target-path "target/node_modules/public/@fortawesome/fontawesome-free/webfonts"}]
-
-                              ["node_modules/leaflet/dist"
-                               {:includes [#".*\.css"] ;  #".*\.png"  png copy gets destroyed
-                                :target-path "target/node_modules/public/leaflet/dist"}]
-                              ["node_modules/ag-grid-community/dist/styles"
-                               {:includes [#".*\.css"]
-                                :target-path "target/node_modules/public/ag-grid-community/dist/styles"}]
-                              ;["node_modules/highlight.js/styles"
-                              ; {:includes [#".*\.css"]
-                              ;  :target-path "target/node_modules/public/highlight.js/styles"}]
-                              ;  http://localhost:8000/highlight.js/styles/github.css
-                              ["node_modules/react-grid-layout/css"
-                               {:includes [#".*\.css"]
-                                :target-path "target/node_modules/public/react-grid-layout/css/"}]
-                              ["node_modules/react-resizable/css"
-                               {:includes [#".*\.css"]
-                                :target-path "target/node_modules/public/react-resizable/css/"}]]}
+  :clean-targets ^{:protect false} [:target-path
+                                    [:demo :builds :app :compiler :output-dir]
+                                    [:demo :builds :app :compiler :output-to]]
 
   :managed-dependencies [[org.clojure/data.json "1.0.0"]
                          [com.fasterxml.jackson.core/jackson-core "2.11.2"]
@@ -79,8 +43,7 @@
                          [commons-codec "1.14"]
                          [com.google.code.findbugs/jsr305 "3.0.2"]
                          [javax.xml.bind/jaxb-api "2.3.1"]
-                          [org.ow2.asm/asm "8.0.1"]
-                         ]
+                         [org.ow2.asm/asm "8.0.1"]]
 
 
   :dependencies [; gorilla-ui is a cljs project, so in here are cljs dependencies
@@ -99,12 +62,11 @@
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.1"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.0.25"] ; brings shadow-cljs
+                                   [org.pinkgorilla/webly "0.0.26"] ; brings shadow-cljs
                                    [thheller/shadow-cljsjs "0.0.21"]
                                    [clj-kondo "2020.07.29"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]
-                                   [lein-resource "17.06.1"]
                                    [lein-shell "0.5.0"]
                                    [lein-ancient "0.6.15"]]
                     :aliases      {"clj-kondo"
