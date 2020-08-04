@@ -70,7 +70,7 @@
 
   :managed-dependencies
   [[org.clojure/data.json "1.0.0"]
-   [com.fasterxml.jackson.core/jackson-core "2.11.1"]
+   [com.fasterxml.jackson.core/jackson-core "2.11.2"]
    [com.cognitect/transit-cljs "0.8.264"]
    [com.cognitect/transit-clj "1.0.324"]
    [com.cognitect/transit-java "1.0.343"]
@@ -85,11 +85,6 @@
                  [org.clojure/clojurescript "1.10.773"]
                  [thi.ng/strf "0.2.2"
                   :exclusions [org.clojure/clojurescript]]
-                 #_[reagent "0.10.0"  ; from webly
-                    :exclusions [org.clojure/tools.reader
-                                 cljsjs/react
-                                 cljsjs/react-dom]]
-                 ; [re-frame "0.10.9"] ; from webly
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  [org.pinkgorilla/pinkie "0.2.10"]]
@@ -102,11 +97,9 @@
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.1"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.0.20"]
-                                   ;[thheller/shadow-cljs "2.10.15"]
-                                   ;[thheller/shadow-cljs "2.8.81"]
+                                   [org.pinkgorilla/webly "0.0.24"] ; brings shadow-cljs
                                    [thheller/shadow-cljsjs "0.0.21"]
-                                   [clj-kondo "2020.06.21"]]
+                                   [clj-kondo "2020.07.29"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]
                                    [lein-resource "17.06.1"]
