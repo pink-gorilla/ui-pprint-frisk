@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 cpr () {
   sourcedir="node_modules/$1"
