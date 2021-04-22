@@ -4,11 +4,10 @@
    [goog.object :as g]
    [reagent.core :as r]
    [pinkie.pinkie :refer [tag-inject]]
-   [demo.example :as example]))
-
+   [example.example :as example]))
 
 (example/add
- "tab"
+ :layout/tab
  [:div
   [:ul {:class "list-reset flex border-b"}
    [:li {:class "-mb-px mr-1"}
@@ -22,7 +21,6 @@
 
 (defn debug [v]
   (g/set js/window "x" v))
-
 
 (def demo
   (let [languages ["javascript" "ruby" "clojure" "clojurescript" "ocaml" "scheme" "elixir" "c#" "R" "python"]
@@ -77,10 +75,10 @@
 
       [:p/panel {:title "display only controls"}
        [:h2 "Popover"]
-       [:p/popover {:color "orange"
+       [:p/popover {:color "yellow"
                     :placement "left"
-                    :button-text "orange-l"}
-        [:p/tooltip {:color "orange"
+                    :button-text "yellow-l"}
+        [:p/tooltip {:color "red"
                      :title  "oranges"
                      :content "Lets make orange juice"}]]
        [:p/popover {:color "green"
@@ -100,5 +98,6 @@
   (tag-inject demo))
 
 (example/add
- "controls" ;[demo]
+ :layout/controls
+ ;[demo]
  [demo2])

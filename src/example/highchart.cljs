@@ -1,6 +1,6 @@
 (ns example.highchart
   (:require
-   [demo.example :as example]))
+   [example.example :as example]))
 
 (defn make-chart-config [data]
   {:chart {:type "line"
@@ -42,9 +42,8 @@
      {:name "Manufacturing" :data [249 244 292 291 390 302 381 404]}
      {:name "Sales & Distribution" :data [117 172 165 191 285 247 321 393]}]}))
 
-
 (example/add
- "highchart"
+ :viz/highchart
  [:div  {:style {:height "400px"
                  :width "600px"}}
   [:p/highchart highchart-spec]])

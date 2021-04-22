@@ -1,32 +1,22 @@
 (ns demo.app
   (:require
    [webly.user.app.app :refer [webly-run!]]
-   [demo.routes :refer [routes-api routes-app]]
-
+   [webly.web.handler :refer [reagent-page]]
    [pinkgorilla.ui.default-renderer] ; add ui renderer definitions 
-
-   ; examples
-   [example.pinkie]
-   [example.controls]
-   ; from renderable-ui
-   [example.gtable]
-   ; js based enderer
-   [example.highchart]
-   [example.json]
-   [example.vega]
-   [example.math]
-   ; reagent based renderer
-   [example.leaflet]
-   [example.sparklines]
-   [example.player]
-   [example.aggrid]
-   [example.clock]
-   [example.gridlayout]
-   [example.pydoc]
+   [example.core :refer [example-component]]
    ; demo
-   [demo.views]
-   [demo.events]
+   [demo.routes :refer [routes-api routes-app]]
+   [demo.events] ; side-effects
    ))
+
+(defmethod reagent-page :demo/main [& args]
+  [example-component])
+
+(defmethod reagent-page :demo/viz [& args]
+  (let [nsf (namespace :viz/all)]
+    (println "nsf: " nsf)
+    [example-component nsf]))
+
 
 (defn ^:export start []
   (webly-run! routes-api routes-app))

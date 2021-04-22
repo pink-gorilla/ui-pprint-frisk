@@ -1,7 +1,9 @@
 (ns demo.routes)
 
 (def routes-app
-  {"" :demo/main})
+  {"" :demo/main
+   "viz" :demo/viz
+   })
 
 (def routes-api
   {})

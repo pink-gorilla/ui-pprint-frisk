@@ -14,7 +14,7 @@
         ;doc (or (get-in c [:meta :doc]) "No docstring!")
         ]
     [:span.m-2.p-2
-     {:class (if docstring? " bg-blue-300" " bg-orange-300")
+     {:class (if docstring? " bg-blue-300" " bg-yellow-300")
       :on-mouse-over #(show-comp c)}
      name]))
 

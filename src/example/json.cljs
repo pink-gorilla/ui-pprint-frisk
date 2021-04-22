@@ -1,7 +1,7 @@
 (ns example.json
   (:require
    [re-frame.core :refer [dispatch]]
-   [demo.example :as example]))
+   [example.example :as example]))
 
 (def data
   {:title "Economic Activity"
@@ -31,9 +31,10 @@
      :on-click #(dispatch [:modal/open [hello]])}
     "default-size dialog!"]])
 
+(example/add
+ :controls/dialog
+ [awesome-dialogs])
 
 (example/add
- "json"
- [:div.json-demo
-  [:p/json data]
-  [awesome-dialogs]])
+ :viz/json
+ [:p/json data])

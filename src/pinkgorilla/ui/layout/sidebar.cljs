@@ -82,7 +82,7 @@
      name])
 
 #_(defn sidebar [{:keys [examples goto-page]}]
-    [:div {:class "bg-orange-300 h-full w-1/12 min-h-screen xl:py-2"}
+    [:div {:class "bg-yellow-300 h-full w-1/12 min-h-screen xl:py-2"}
      [:div {:class "xl:block uppercase font-bold text-grey-darker text-xs px-4 py-2"}
 
       (map-indexed

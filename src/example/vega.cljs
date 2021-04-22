@@ -1,6 +1,6 @@
 (ns example.vega
   (:require
-   [demo.example :as example]))
+   [example.example :as example]))
 
 (def data
   {:$schema "https://vega.github.io/schema/vega-lite/v4.json"
@@ -10,7 +10,6 @@
    :mark "bar"
    :encoding {:x {:field "a" :type "ordinal"}
               :y {:field "b" :type "quantitative"}}})
-
 
 (def multi-plot-zoom
   {:$schema
@@ -39,53 +38,47 @@
        :type "quantitative"
        :axis {:tickCount 3, :grid false}}}}]})
 
-
-(def multi-line 
+(def multi-line
   {:$schema
    "https://vega.github.io/schema/vega-lite/v4.json"
    :description
    "Stock prices of 5 Tech Companies over Time."
    :data {:url "/r/data/stocks.csv"}
-    :transform [
-  	;{:filter "datum.symbol==='GOOG'"},
-  	{:filter {:field "date", :timeUnit "year", :range [2007, 2010]}}
-  ],
+   :transform [;{:filter "datum.symbol==='GOOG'"},
+               {:filter {:field "date", :timeUnit "year", :range [2007, 2010]}}],
    :width 1200
    :height 600
    :mark "line"
-   :selection 
-   {:brush {:type "interval" }} ; :encodings ["x"]
+   :selection
+   {:brush {:type "interval"}} ; :encodings ["x"]
    :encoding
    {;:row {:field "symbol" :type "nominal"}
     ;:x {:field "date", :type "temporal"   :scale {:domain {:selection "brush"}}}
-    :x {
-        :field "date" :type "temporal"
-        :axis {
-               :tickCount 8,
+    :x {:field "date" :type "temporal"
+        :axis {:tickCount 8,
                :labelAlign "left",
                :labelExpr "[timeFormat(datum.value, '%b'), timeFormat(datum.value, '%m') == '01' ? timeFormat(datum.value, '%Y') : '']"
                :labelOffset 4,
                :labelPadding -24,
                :tickSize 30,
-               :gridDash {
-                          :condition {:test {:field "value" :timeUnit "month", :equal 1}, :value []},
-                          :value [2,2]
-                          }
-               :tickDash {
-                          :condition {:test {:field "value", :timeUnit "month", :equal 1}, :value []},
-                          :value [2,2]
-                          }
-               }
-        }
+               :gridDash {:condition {:test {:field "value" :timeUnit "month", :equal 1}, :value []},
+                          :value [2,2]}
+               :tickDash {:condition {:test {:field "value", :timeUnit "month", :equal 1}, :value []},
+                          :value [2,2]}}}
+
     :y {:field "price", :type "quantitative"}
     :color {:field "symbol", :type "nominal"}}})
 
+(example/add :viz/vega
+             [:div.w-full.h-full.overflow-scroll ; .vega-demo
+              [:h1 "vega spec with bad url:"]
+              [:p/vega "http://bongistan.com/spec-demo"]])
 
-(example/add "vega"
-  [:div.w-full.h-full.overflow-scroll ; .vega-demo
-   [:h1 "vega spec with bad url:"]
-   [:p/vega "http://bongistan.com/spec-demo"]
-   [:h1 "specs that should be working:"]
-   [:p/vega data]
-   [:p/vega multi-plot-zoom]
-   [:p/vega multi-line]])
+(example/add :viz/vega
+             [:p/vega data])
+
+(example/add :viz/vega
+             [:p/vega multi-plot-zoom])
+
+(example/add :viz/vega
+             [:p/vega multi-line])

@@ -24,7 +24,7 @@
 (defn py-entry [f]
   (let [name (:name f)
         name (if (str/blank? name) "<no-name>" name)]
-    [:span.mx-1.bg-orange-300.tooltip name
+    [:span.mx-1.bg-yellow-300.tooltip name
      [:span.tooltip-text.bg-blue-200 {:class ".w-6/12"} (:doc f)]]))
 
 (defn py-category [category-name items]

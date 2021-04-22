@@ -1,7 +1,7 @@
 (ns example.aggrid
   (:require
    [thi.ng.strf.core :as f]
-   [demo.example :as example]
+   [example.example :as example]
    [pinkgorilla.ui.data.aggrid :refer [aggrid]]))
 
 (def columnDefs [{:headerName "Make" :field "make"}
@@ -62,26 +62,23 @@
                {:headerName "Vol-F" :field "vol-factor" :width 50 :valueFormatter currency-formatter :sortable false :filter false}
                {:headerName "Comment" :field "s" :width 300 :sortable false :filter false}])
 
+(example/add
+ :viz/aggrid
+ [:div {:style {:height "150px"
+                :width "600px"}}
+  [:p/aggrid {:columnDefs columnDefs
+              :rowData rowData}]])
 
 (example/add
- "aggrid"
-  [:div ; .aggrid-demo ; .aggrid-container
-
-   [:h1 "simple demo:"]
-   [:div {:style {:height "150px"
-                  :width "600px"}}
-    [aggrid {:columnDefs columnDefs
-             :rowData rowData}]]
-
-   [:h1 "complex demo:"]
-   [:div {:className "ag-theme-balham"
-          :style {; either both pixels, or both percentage.
-                  :height "400px"
-                  :width "600px"
+ :viz/aggrid
+ [:div {:className "ag-theme-balham"
+        :style {; either both pixels, or both percentage.
+                :height "400px"
+                :width "600px"
                  ;:height "100%"
                  ;:width "100%"
-                  :color "blue"}}
-    [aggrid {:columnDefs  rateCols
-             :rowData rates
-             :pagination true
-             :paginationAutoPageSize true}]]])
+                :color "blue"}}
+  [:p/aggrid {:columnDefs  rateCols
+              :rowData rates
+              :pagination true
+              :paginationAutoPageSize true}]])
