@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.36</version>
+  <version>0.2.37</version>
   <name>gorilla-ui</name>
   <description>Reagent components for data visualisation.</description>
   <url>https://github.com/pink-gorilla/gorilla-ui</url>
@@ -17,7 +17,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>fda69cd850b6d03ba91a473ae6708cd810e3d30f</tag>
+    <tag>2997733b56099eb199886a0ca9d6f1fe64823000</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -91,75 +91,9 @@
     </repository>
   </repositories>
   <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.clojure</groupId>
-        <artifactId>data.json</artifactId>
-        <version>1.0.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
-        <version>2.11.2</version>
-      </dependency>
-      <dependency>
-        <groupId>com.cognitect</groupId>
-        <artifactId>transit-cljs</artifactId>
-        <version>0.8.264</version>
-      </dependency>
-      <dependency>
-        <groupId>com.cognitect</groupId>
-        <artifactId>transit-clj</artifactId>
-        <version>1.0.324</version>
-      </dependency>
-      <dependency>
-        <groupId>com.cognitect</groupId>
-        <artifactId>transit-java</artifactId>
-        <version>1.0.343</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpcore</artifactId>
-        <version>4.4.13</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.javascript</groupId>
-        <artifactId>closure-compiler-unshaded</artifactId>
-        <version>v20200719</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.httpcomponents</groupId>
-        <artifactId>httpasyncclient</artifactId>
-        <version>4.1.4</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>1.14</version>
-      </dependency>
-      <dependency>
-        <groupId>com.google.code.findbugs</groupId>
-        <artifactId>jsr305</artifactId>
-        <version>3.0.2</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.xml.bind</groupId>
-        <artifactId>jaxb-api</artifactId>
-        <version>2.3.1</version>
-      </dependency>
-      <dependency>
-        <groupId>org.ow2.asm</groupId>
-        <artifactId>asm</artifactId>
-        <version>8.0.1</version>
-      </dependency>
-    </dependencies>
+    <dependencies/>
   </dependencyManagement>
   <dependencies>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>clojurescript</artifactId>
-      <version>1.10.773</version>
-    </dependency>
     <dependency>
       <groupId>thi.ng</groupId>
       <artifactId>strf</artifactId>
@@ -184,25 +118,19 @@
     <dependency>
       <groupId>org.clojure</groupId>
       <artifactId>clojure</artifactId>
-      <version>1.10.1</version>
+      <version>1.10.3</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>webly</artifactId>
-      <version>0.0.26</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>thheller</groupId>
-      <artifactId>shadow-cljsjs</artifactId>
-      <version>0.0.21</version>
+      <version>0.2.6</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>clj-kondo</groupId>
       <artifactId>clj-kondo</artifactId>
-      <version>2020.07.29</version>
+      <version>2021.03.31</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
