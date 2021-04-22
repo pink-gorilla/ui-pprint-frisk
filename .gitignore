@@ -8,4 +8,8 @@ target
 .project
 .settings/*
 .vscode/*
+.lsp
+creds.edn
+package.json
+package-lock.json
 shadow-cljs.edn

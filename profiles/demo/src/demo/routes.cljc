@@ -1,13 +1,7 @@
-(ns demo.routes
-  (:require
-   [webly.web.resources :refer [resource-handler]]))
+(ns demo.routes)
 
-(def demo-routes-app
+(def routes-app
   {"" :demo/main})
 
-(def demo-routes-frontend
-  ["/" demo-routes-app])
-
-(def demo-routes-backend
-  ["/" {"" demo-routes-app
-        "r" resource-handler}])
+(def routes-api
+  {})

@@ -32,22 +32,9 @@
                                     [:demo :builds :app :compiler :output-dir]
                                     [:demo :builds :app :compiler :output-to]]
 
-  :managed-dependencies [[org.clojure/data.json "1.0.0"]
-                         [com.fasterxml.jackson.core/jackson-core "2.11.2"]
-                         [com.cognitect/transit-cljs "0.8.264"]
-                         [com.cognitect/transit-clj "1.0.324"]
-                         [com.cognitect/transit-java "1.0.343"]
-                         [org.apache.httpcomponents/httpcore "4.4.13"]
-                         [com.google.javascript/closure-compiler-unshaded "v20200719"]
-                         [org.apache.httpcomponents/httpasyncclient "4.1.4"]
-                         [commons-codec "1.14"]
-                         [com.google.code.findbugs/jsr305 "3.0.2"]
-                         [javax.xml.bind/jaxb-api "2.3.1"]
-                         [org.ow2.asm/asm "8.0.1"]]
-
 
   :dependencies [; gorilla-ui is a cljs project, so in here are cljs dependencies
-                 [org.clojure/clojurescript "1.10.773"]
+                 ;[org.clojure/clojurescript "1.10.773"]
                  [thi.ng/strf "0.2.2"
                   :exclusions [org.clojure/clojurescript]]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
@@ -56,22 +43,23 @@
 
   :profiles {:test {:source-paths ["src" "test"]
                     :test-paths   ["test"]}
-             :demo {:source-paths ["src"
+             :demo {:dependencies [ [fipp "0.6.23"] ; edn pretty printing
+                                   ]
+                    :resource-paths  ["profiles/demo/resources"]
+                    :source-paths ["src"
                                    "profiles/demo/src"
                                    "profiles/embed/src"
                                    "test"]}
-             :dev  {:dependencies [[org.clojure/clojure "1.10.1"]
+             :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.0.26"] ; brings shadow-cljs
-                                   [thheller/shadow-cljsjs "0.0.21"]
-                                   [clj-kondo "2020.07.29"]]
+                                   [org.pinkgorilla/webly "0.2.6"] ; brings shadow-cljs
+                                   [clj-kondo "2021.03.31"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]
                                    [lein-shell "0.5.0"]
                                    [lein-ancient "0.6.15"]]
                     :aliases      {"clj-kondo"
                                    ["run" "-m" "clj-kondo.main"]
-
                                    "bump-version" ^{:doc "Increases project.clj version number (used by CI)."}
                                    ["change" "version" "leiningen.release/bump-version"]}
                     :cloverage    {:codecov? true ; https://github.com/codecov/example-clojure
