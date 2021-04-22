@@ -1,7 +1,7 @@
 ;; gorilla-repl.fileformat = 2
 
 ;; @@ [meta]
-{:name "", :tagline "Video Demo (Youtube, and more)", :tags "cljs,cool,ui,video,youtube", :description ""}
+{:name "", :tagline "Video Demo (Youtube, ...)", :tags "cljs,cool,ui,video,youtube", :description ""}
 
 ;; @@
 
