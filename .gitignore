@@ -13,3 +13,4 @@ creds.edn
 package.json
 package-lock.json
 shadow-cljs.edn
+pom.xml
