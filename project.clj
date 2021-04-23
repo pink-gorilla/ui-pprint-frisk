@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-ui "0.2.38-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-ui "0.3.1-SNAPSHOT"
   :description "Reagent components for data visualisation."
   :url "https://github.com/pink-gorilla/gorilla-ui"
   :license {:name "MIT"}
@@ -39,20 +39,24 @@
                   :exclusions [org.clojure/clojurescript]]
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [org.pinkgorilla/pinkie "0.2.11"]]
+                 [fipp "0.6.23"] ; edn pretty printing - for examples (examples get shipped)
+                 [org.pinkgorilla/pinkie "0.3.3"]]
 
-  :profiles {:test {:source-paths ["src" "test"]
+  :profiles {:test {:source-paths ["src"
+                                   "test"]
                     :test-paths   ["test"]}
-             :demo {:dependencies [ [fipp "0.6.23"] ; edn pretty printing
-                                   ]
+
+             :embed {:source-paths ["profiles/embed/src"
+                                    "test"]}
+
+             :demo {:dependencies []
                     :resource-paths  ["profiles/demo/resources"]
                     :source-paths ["src"
                                    "profiles/demo/src"
-                                   "profiles/embed/src"
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.2.6"] ; brings shadow-cljs
+                                   [org.pinkgorilla/webly "0.2.7"] ; brings shadow-cljs
                                    [clj-kondo "2021.03.31"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]
@@ -78,9 +82,6 @@
             "css"  ^{:doc "Copies certain npm package dependecies"}
             ["shell" "./scripts/copy_res.sh"]
 
-             ;"build-shadow-ci" ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":demo"] ; :ci
-            ;"shadow-watch-demo" ["run" "-m" "shadow.cljs.devtools.cli" "watch" ":demo"]
-
             ;; TEST
 
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
@@ -94,24 +95,7 @@
             "test-js" ^{:doc "Run Unit Tests. Will compile bundle first."}
             ["do" "build-test" ["test-run"]]
 
-            ;; SHADOW - APP
-
-            "shadow-demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "webly"]
-
-            "embed"  ^{:doc "Runs UI embedding via webserver."}
-            ["with-profile" "+demo" "run" "-m" "shadow.cljs.devtools.cli" "watch" "embed"]
-
             ; APP
-
-            "build-dev"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "compile" "+demo" "demo.app/handler" "demo.app"]
-
-            "build-prod"  ^{:doc "compiles bundle via webly"}
-            ["with-profile" "+demo" "run" "-m" "webly.build-cli" "release" "+demo" "demo.app/handler" "demo.app"]
-
-            "run-web"  ^{:doc "runs compiles bundle on shadow dev server"}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "run"]
 
             "demo"  ^{:doc "Runs UI components via webserver."}
             ["with-profile" "+demo" "run" "-m" "demo.app" "watch"]})

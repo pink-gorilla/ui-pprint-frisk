@@ -145,4 +145,9 @@
   ([features]
    (leaflet-map default-options features)))
 
-(register-component :p/leaflet leaflet-map)
+(defn leaflet-map-default [data]
+  (let [{:keys [features]} data]
+    (println "features: " features)
+    [leaflet-map default-options features]))
+
+(register-component :p/leaflet leaflet-map-default)

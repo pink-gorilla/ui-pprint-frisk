@@ -10,7 +10,7 @@
 
 ; type= {} min= {} max= {} from= {} to= {} step= {} values= {} keyboard= {}
 
-(println "slider..ion..")
+;(println "slider..ion..")
 
 (def default-options
   {:type "single"})
@@ -45,9 +45,9 @@
                         options-to)]
      [slider-ion options])))
 
-(println "slider..ion.. registering..")
+;(println "slider..ion.. registering..")
 (register-component :p/sliderion slider-ion)
 (register-component :p/slideriona slider-ion-a)
 
-(println "slider..ion.. registering done.")
+;(println "slider..ion.. registering done.")
 

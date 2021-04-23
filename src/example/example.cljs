@@ -34,21 +34,20 @@
 (defn example-page [name components]
   ;[:div.flex.flex-col.w-full.h-full ; {:style {:background-color "yellow"}}
    ;[:h1.mb-5 name]
-  [:div.w-full.h-screen
-   [:h1 "Example: " name]
+  [:div.w-full.h-screen.ml-5
+   ;[:h1 "Example: " name]
    (into [:<>] (map example components))])
 
 (defn ns-comp [c]
-  (println "checking: " (:name c))
+  ;(println "checking: " (:name c))
   (let [n (namespace (:name c))]
-
     n))
 
 (defn examples-wrapped [nsf]
   (let [all (map (fn [[name-kw components]]
                    ;(let [name (if (keyword? name-kw) (str name-kw) name-kw)]
                    {:name name-kw
-                    :page (example-page name components)})
+                    :page (example-page name-kw components)})
                  @examples)
         visible (if nsf
                   (filter #(= nsf (ns-comp %)) all)

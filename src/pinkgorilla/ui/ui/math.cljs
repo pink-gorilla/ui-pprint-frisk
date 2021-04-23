@@ -10,9 +10,7 @@
    [pinkie.jsrender :refer [render-js]]
    ["/pinkgorilla/ui/ui/mathinit" :as mathjax-init]))
 
-
-; (mathjax-init/mathinit)
-
+(mathjax-init/mathinit)
 
 #_(defn add-math-css []
     (let [mathjax (.-MathJax js/window)

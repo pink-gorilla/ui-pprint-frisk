@@ -10,7 +10,7 @@ window.MathJax = {
   };
   
 function mathinit () {
-      var url = '/mathjax/tex-svg-full.js';
+      var url = '/r/mathjax/tex-svg-full.js';
       //var url = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
       console.log ("loading mathjax from: " + url)
     var script = document.createElement('script');

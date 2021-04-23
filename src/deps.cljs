@@ -37,6 +37,7 @@
 
   "shadow-cljs" "^2.12.5" ; buffer polyfill fix
 
+  ; react is coming all from webly
   ;"react" "^16.13.0"
   ;"react-dom" "^16.13.0"
   ;"react-dom-factories" "^1.0.2"
