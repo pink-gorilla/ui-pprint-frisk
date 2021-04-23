@@ -4,7 +4,7 @@
   <groupId>org.pinkgorilla</groupId>
   <artifactId>gorilla-ui</artifactId>
   <packaging>jar</packaging>
-  <version>0.2.38</version>
+  <version>0.3.1</version>
   <name>gorilla-ui</name>
   <description>Reagent components for data visualisation.</description>
   <url>https://github.com/pink-gorilla/gorilla-ui</url>
@@ -17,7 +17,7 @@
     <url>https://github.com/pink-gorilla/gorilla-ui</url>
     <connection>scm:git:git://github.com/pink-gorilla/gorilla-ui.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/pink-gorilla/gorilla-ui.git</developerConnection>
-    <tag>41af9575f059b337662a4744ca32a7e822f3861f</tag>
+    <tag>61fb5f6031b201293bd8aabdd4c703c7481ebf03</tag>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -111,9 +111,14 @@
       <version>1.0.2</version>
     </dependency>
     <dependency>
+      <groupId>fipp</groupId>
+      <artifactId>fipp</artifactId>
+      <version>0.6.23</version>
+    </dependency>
+    <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>pinkie</artifactId>
-      <version>0.2.11</version>
+      <version>0.3.3</version>
     </dependency>
     <dependency>
       <groupId>org.clojure</groupId>
@@ -124,7 +129,7 @@
     <dependency>
       <groupId>org.pinkgorilla</groupId>
       <artifactId>webly</artifactId>
-      <version>0.2.6</version>
+      <version>0.2.7</version>
       <scope>test</scope>
     </dependency>
     <dependency>
