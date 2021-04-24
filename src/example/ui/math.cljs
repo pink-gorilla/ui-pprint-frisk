@@ -1,4 +1,4 @@
-(ns example.math
+(ns example.ui.math
   (:require
    [example.example :as example]))
 

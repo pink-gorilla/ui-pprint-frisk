@@ -6,26 +6,26 @@
    ["react-cytoscapejs" :as CytoscapeComponent ;:refer [CytoscapeComponent]
     ]
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.size :refer [size]]))
+   [pinkgorilla.ui.box :refer [box]]))
+
+(println "cb:" cs)
+(println "c:" c)
+(.use c cs) ; COSEBilkent)
 
 (defn ^{:category :data}
   cytoscape
   [data]
-  (println "data: " data)
-  (println "cc:" CytoscapeComponent)
   [:> CytoscapeComponent data])
 
-(defn ag-theme-classname [theme]
-  (if (= theme true)
-    ""
-    (str "ag-theme-" theme)))
+(register-component :p/cytoscape-raw cytoscape)
 
-(defn cytoscape-styled [data]
-  (let [theme (rf/subscribe [:css/theme-component :aggrid])]
-    (fn [data]
-      [:div (merge
-             {:className (ag-theme-classname @theme)} ;(str "ag-theme-balham"
-             (size (:size data)))
-       [cytoscape data]])))
+(defn ^{:category :data}
+  cytoscape-boxed
+  "reagent component to render highchart-spec via highcharts.js
+   Usage:  [:p/highchart spec-as-clj-data]"
+  [data]
+  [box {:s :small
+        :render cytoscape
+        :data data}])
 
-(register-component :p/cytoscape cytoscape)
+(register-component :p/cytoscape cytoscape-boxed)

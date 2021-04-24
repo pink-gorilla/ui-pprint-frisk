@@ -34,7 +34,7 @@
 (defn example-page [name components]
   ;[:div.flex.flex-col.w-full.h-full ; {:style {:background-color "yellow"}}
    ;[:h1.mb-5 name]
-  [:div.w-full.h-screen.ml-5
+  [:div.w-full.h-screen.m-0
    ;[:h1 "Example: " name]
    (into [:<>] (map example components))])
 

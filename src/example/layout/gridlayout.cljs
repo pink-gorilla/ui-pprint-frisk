@@ -1,4 +1,4 @@
-(ns example.gridlayout
+(ns example.layout.gridlayout
   (:require
    [example.example :as example]))
 

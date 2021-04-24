@@ -1,4 +1,4 @@
-(ns example.highchart
+(ns example.data.highchart
   (:require
    [example.example :as example]))
 
@@ -44,6 +44,4 @@
 
 (example/add
  :viz/highchart
- [:div  {:style {:height "400px"
-                 :width "600px"}}
-  [:p/highchart highchart-spec]])
+ [:p/highchart highchart-spec])

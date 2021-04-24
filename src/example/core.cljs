@@ -1,28 +1,35 @@
 (ns example.core
   (:require
-
    [pinkgorilla.ui.layout.sidebar :refer [sidebar]]
    [example.example :refer [examples-wrapped]]
 
    ; examples
-   [example.pinkie]
-   [example.controls]
-   ; from renderable-ui
-   [example.gtable]
-   ; js based enderer
-   [example.highchart]
-   [example.json]
-   [example.vega]
-   [example.math]
-   ; reagent based renderer
-   [example.leaflet]
-   [example.sparklines]
-   [example.player]
-   [example.aggrid]
-   [example.cytoscape]
-   [example.clock]
-   [example.gridlayout]
-   [example.pydoc]))
+
+   ; controls / layout
+   [example.layout.controls]
+   [example.layout.gridlayout]
+
+   ; pinkie
+   [example.pinkie.pinkie]
+   [example.pinkie.clock]
+   [example.pinkie.pydoc]
+   [example.pinkie.gtable]
+
+   ; data
+   [example.data.leaflet]
+   [example.data.sparklines]
+   [example.data.vega]
+   [example.data.highchart]
+   [example.data.aggrid]
+   [example.data.cytoscape]
+   [example.data.desc]
+
+   ; ui
+   [example.ui.player]
+   [example.ui.math]
+   [example.ui.json]
+;
+   ))
 
 (def welcome
   [:section {:class "text-gray-700 body-font"}
@@ -43,8 +50,6 @@
 
 (defn example-component [nsf]
   [:div
-   ;[:link {:rel "stylesheet" :href "tailwindcss/dist/tailwind.css"}]
-   ;[modal-container]
    [sidebar (examples-wrapped nsf) welcome]])
 
 

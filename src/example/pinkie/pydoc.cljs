@@ -1,4 +1,4 @@
-(ns example.pydoc
+(ns example.pinkie.pydoc
   (:require
    [example.example :as example]))
 

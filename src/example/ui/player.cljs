@@ -1,4 +1,4 @@
-(ns example.player
+(ns example.ui.player
   (:require
    [example.example :as example]))
 

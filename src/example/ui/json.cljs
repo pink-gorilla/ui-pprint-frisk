@@ -1,4 +1,4 @@
-(ns example.json
+(ns example.ui.json
   (:require
    [re-frame.core :refer [dispatch]]
    [example.example :as example]))

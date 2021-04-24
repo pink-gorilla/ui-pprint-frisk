@@ -1,4 +1,4 @@
-(ns example.gtable
+(ns example.pinkie.gtable
   (:require
    [example.example :as example]))
 

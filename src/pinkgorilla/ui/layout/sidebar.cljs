@@ -1,10 +1,7 @@
 (ns pinkgorilla.ui.layout.sidebar
   (:require
    [reagent.core :as r]
-   [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.config :refer [link-css]]
-   ;["font-awesome"] ; not possible, as npm module is only css
-   ))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ; from:
 ; https://github.com/tailwindtoolbox/Sidebar-Bottom/blob/master/index.html
@@ -33,6 +30,20 @@
                             "text-white md:font-bold"
                             "text-gray-600 md:text-gray-400"))} name]]]))
 
+(defn sidebar-menu [goto-page active? items]
+  [:div {:class (str "w-full bg-blue-500 px-2 text-center fixed bottom-0 " ; sm: w-full bg-blue-500
+                     "lg:w-1/6 "
+                     "md:w-1/5 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-pink-600 md:bg-teal-800 ")}
+   [:div {:class (str " mx-auto "
+                      "lg:float-right lg:px-6 "
+                      "md:relative")}
+    (into [:ul {:class (str "list-reset flex flex-row text-center "
+                            "md:flex-col  md:text-left")}]
+          (map (fn [item]
+                 [sidebar-item (assoc item
+                                      :goto-page goto-page
+                                      :active? active?)]) items))]])
+
 (defn ^{:category :layout}
   sidebar
   "a sidebar menu; on mobile moves to bottom"
@@ -40,7 +51,6 @@
   (let [active-name (r/atom "")
         active-page (r/atom default-page)
         goto-page (fn [item]
-                    ;(println "page selected: " (:name item))
                     (reset! active-page (:page item))
                     (reset! active-name (:name item)))
         active? (fn [item]
@@ -48,7 +58,6 @@
                   (= (:name item) @active-name))]
     (fn []
       [:div
-       ;[link-css "@fortawesome/fontawesome-free/css/all.min.css"]
        ;flexbox container
        [:div {:class (str "flex flex-wrap h-screen w-screen "
                           "md:flex-row-reverse")}
@@ -60,18 +69,7 @@
           (when @active-page
             @active-page)]]
         ; Sidebar
-        [:div {:class (str "w-full bg-blue-500 px-2 text-center fixed bottom-0 " ; sm: w-full bg-blue-500
-                           "lg:w-1/6 "
-                           "md:w-1/5 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-pink-600 md:bg-teal-800 ")}
-         [:div {:class (str " mx-auto "
-                            "lg:float-right lg:px-6 "
-                            "md:relative")}
-          (into [:ul {:class (str "list-reset flex flex-row text-center "
-                                  "md:flex-col  md:text-left")}]
-                (map (fn [item]
-                       [sidebar-item (assoc item
-                                            :goto-page goto-page
-                                            :active? active?)]) items))]]]])))
+        [sidebar-menu goto-page active? items]]])))
 
 (register-component :p/sidebar sidebar)
 

@@ -3,7 +3,7 @@
    [re-frame.core :as rf]
    ["ag-grid-react" :as rs :refer [AgGridReact]]
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.size :refer [size]]))
+   [pinkgorilla.ui.box :refer [size]]))
 
 (defn ^{:category :data}
   aggrid

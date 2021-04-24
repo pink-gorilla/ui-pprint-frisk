@@ -1,4 +1,4 @@
-(ns example.clock
+(ns example.pinkie.clock
   (:require [example.example :as example]))
 
 (example/add

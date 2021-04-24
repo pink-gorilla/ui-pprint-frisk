@@ -1,4 +1,4 @@
-(ns example.aggrid
+(ns example.data.aggrid
   (:require
    [thi.ng.strf.core :as f]
    [example.example :as example]

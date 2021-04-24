@@ -1,4 +1,4 @@
-(ns example.pinkie
+(ns example.pinkie.pinkie
   (:require
    [cljs.pprint]
    [reagent.core :as r]

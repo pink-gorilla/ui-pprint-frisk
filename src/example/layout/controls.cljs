@@ -1,4 +1,4 @@
-(ns example.controls
+(ns example.layout.controls
   (:require
    [cljs.pprint]
    [goog.object :as g]

@@ -1,4 +1,4 @@
-(ns example.sparklines
+(ns example.data.sparklines
   (:require
    [example.example :as example]
    [pinkgorilla.ui.data.sparklines :refer [sparkline sparkline-bar sparkline-spot]]))

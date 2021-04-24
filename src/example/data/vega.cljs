@@ -1,4 +1,4 @@
-(ns example.vega
+(ns example.data.vega
   (:require
    [example.example :as example]))
 

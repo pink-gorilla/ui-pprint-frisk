@@ -1,4 +1,4 @@
-(ns example.leaflet
+(ns example.data.leaflet
   (:require
    [reagent.core :as r]
    ["react-leaflet" :refer [Map Marker TileLayer]]

@@ -36,6 +36,7 @@
    [pinkgorilla.ui.ui.math]
    [pinkgorilla.ui.ui.player]
    [pinkgorilla.ui.ui.popover]
+   [pinkgorilla.ui.ui.description-list]
 
    ; pinkie
    [pinkgorilla.ui.pinkie.components-ui]
