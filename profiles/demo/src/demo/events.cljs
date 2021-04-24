@@ -1,7 +1,9 @@
 (ns demo.events
   (:require
    [taoensso.timbre :as timbre :refer [info]]
-   [re-frame.core :refer [reg-event-db dispatch]]))
+   [re-frame.core :refer [reg-event-db dispatch]]
+   [example.example :refer [examples]]
+   ))
 
 (reg-event-db
  :demo/start
@@ -14,6 +16,15 @@
                             (dispatch [:webly/status :running])) 100)
 
    db))
+
+(reg-event-db
+ :webly/before-load
+ (fn [db [_]]
+   (info "gorilla-ui reload..")
+   (reset! examples {})
+   db
+   ))
+
 
 
 

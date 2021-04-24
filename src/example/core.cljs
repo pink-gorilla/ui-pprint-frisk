@@ -19,6 +19,7 @@
    [example.sparklines]
    [example.player]
    [example.aggrid]
+   [example.cytoscape]
    [example.clock]
    [example.gridlayout]
    [example.pydoc]))

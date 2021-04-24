@@ -3,6 +3,8 @@
    ; parent project setups
    [pinkie.default-setup]
 
+   [pinkgorilla.ui.css]
+
    ; control
    [pinkgorilla.ui.control.button]
    [pinkgorilla.ui.control.checkbox]
@@ -14,6 +16,7 @@
 
    ; data
    [pinkgorilla.ui.data.aggrid]
+   [pinkgorilla.ui.data.cytoscape]
    [pinkgorilla.ui.data.highchart]
    [pinkgorilla.ui.data.leaflet]
    [pinkgorilla.ui.data.sparklines]

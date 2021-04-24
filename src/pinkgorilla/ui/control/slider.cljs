@@ -92,4 +92,4 @@
 
 (register-component :p/slider slider)
 
-(println ":p/slider was registered!")
+;(println ":p/slider was registered!")

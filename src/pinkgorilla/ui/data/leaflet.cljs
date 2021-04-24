@@ -9,7 +9,7 @@
 ; config cannot be overritten by the user. this is ui renderer configuration
 
 (def config
-  {:css "leaflet/dist/leaflet.css" ; "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  {;:css "/r/leaflet/dist/leaflet.css" ; "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    :tile-layer-url "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
    ;:tile-layer-url "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
    :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"})
@@ -123,8 +123,7 @@
          ;{:keys [view]} data
          ]
      [:div.z-10
-      [link-css css]
-      ;[:link {:rel "stylesheet" :href css}]
+      ;[link-css css]
       [:> Map (merge  {:zoom zoom
                        :center center
                        :style {:width width :height height}
@@ -147,7 +146,7 @@
 
 (defn leaflet-map-default [data]
   (let [{:keys [features]} data]
-    (println "features: " features)
+    ;(println "features: " features)
     [leaflet-map default-options features]))
 
 (register-component :p/leaflet leaflet-map-default)

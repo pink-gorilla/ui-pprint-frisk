@@ -18,6 +18,11 @@
   "react-leaflet" "^2.6.0"
   "leaflet" "^1.6.0"
 
+  ; graphs
+  "cytoscape" "^3.18.2"
+  "cytoscape-cose-bilkent" "^4.1.0"
+  "react-cytoscapejs" "^1.2.1"
+
   ; video
   "react-player" "^1.14.2"
 

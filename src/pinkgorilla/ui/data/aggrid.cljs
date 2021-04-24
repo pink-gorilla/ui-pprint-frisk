@@ -1,13 +1,9 @@
 (ns pinkgorilla.ui.data.aggrid
   (:require
+   [re-frame.core :as rf]
    ["ag-grid-react" :as rs :refer [AgGridReact]]
- ; ["ag-grid-community/dist/styles/ag-grid.css"]
- ;  ["ag-grid-community/dist/styles/ag-theme-balham.css"]
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.config :refer [link-css]]))
-
-;node_modules/ag-grid-community/dist/styles/
-
+   [pinkgorilla.ui.size :refer [size]]))
 
 (defn ^{:category :data}
   aggrid
@@ -21,8 +17,19 @@
    "
   [data]
   [:<>
-   [link-css "ag-grid-community/dist/styles/ag-grid.css"]
-   [link-css "ag-grid-community/dist/styles/ag-theme-balham.css"]
    [:> AgGridReact data]])
 
-(register-component :p/aggrid aggrid)
+(defn ag-theme-classname [theme]
+  (if (= theme true)
+    ""
+    (str "ag-theme-" theme)))
+
+(defn aggrid-styled [data]
+  (let [theme (rf/subscribe [:css/theme-component :aggrid])]
+    (fn [data]
+      [:div (merge
+             {:className (ag-theme-classname @theme)} ;(str "ag-theme-balham"
+             (size (:size data)))
+       [aggrid data]])))
+
+(register-component :p/aggrid aggrid-styled)

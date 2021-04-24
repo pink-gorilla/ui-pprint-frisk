@@ -64,21 +64,14 @@
 
 (example/add
  :viz/aggrid
- [:div {:style {:height "150px"
-                :width "600px"}}
-  [:p/aggrid {:columnDefs columnDefs
-              :rowData rowData}]])
+ [:p/aggrid {:size :small
+             :columnDefs columnDefs
+             :rowData rowData}])
 
 (example/add
  :viz/aggrid
- [:div {:className "ag-theme-balham"
-        :style {; either both pixels, or both percentage.
-                :height "400px"
-                :width "600px"
-                 ;:height "100%"
-                 ;:width "100%"
-                :color "blue"}}
-  [:p/aggrid {:columnDefs  rateCols
-              :rowData rates
-              :pagination true
-              :paginationAutoPageSize true}]])
+ [:p/aggrid {:size :medium
+             :columnDefs  rateCols
+             :rowData rates
+             :pagination true
+             :paginationAutoPageSize true}])

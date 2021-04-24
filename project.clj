@@ -56,7 +56,7 @@
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.2.7"] ; brings shadow-cljs
+                                   [org.pinkgorilla/webly "0.2.10"] ; brings shadow-cljs
                                    [clj-kondo "2021.03.31"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]

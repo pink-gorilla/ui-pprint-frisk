@@ -2,19 +2,17 @@
   (:require
    ["react-grid-layout" :as ReactGridLayout]
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.config :refer [link-css]]))
+   ;[pinkgorilla.ui.config :refer [link-css]]
+   ))
 
 ; https://github.com/STRML/react-grid-layout
 
 
 (defn ^{:category :layout}
   gridlayout [data & children]
-
   [:<>
-   [link-css "react-grid-layout/css/styles.css"]
-   [link-css "react-resizable/css/styles.css"]
-   ;[:link {:rel "stylesheet" :href "react-grid-layout/css/styles.css"}]
-   ;[:link {:rel "stylesheet" :href "react-resizable/css/styles.css"}]
+   ;[link-css "react-grid-layout/css/styles.css"]
+   ;[link-css "react-resizable/css/styles.css"]
    [:> ReactGridLayout data
     children]])
 

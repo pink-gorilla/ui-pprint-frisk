@@ -48,7 +48,7 @@
                   (= (:name item) @active-name))]
     (fn []
       [:div
-       [link-css "@fortawesome/fontawesome-free/css/all.min.css"]
+       ;[link-css "@fortawesome/fontawesome-free/css/all.min.css"]
        ;flexbox container
        [:div {:class (str "flex flex-wrap h-screen w-screen "
                           "md:flex-row-reverse")}
