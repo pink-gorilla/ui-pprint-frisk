@@ -1,16 +1,16 @@
 (ns pinkgorilla.ui.data.cytoscape
   (:require
    [re-frame.core :as rf]
-   ["cytoscape" :as c :refer [Cytoscape]]
-   ["cytoscape-cose-bilkent" :as cs :refer [COSEBilkent]]
-   ["react-cytoscapejs" :as CytoscapeComponent ;:refer [CytoscapeComponent]
-    ]
+   ["cytoscape" :as cytoscope]
+   ["cytoscape-cose-bilkent" :as cose-bilkent]
+   ["cytoscape-dagre" :as dagre]
+   ["react-cytoscapejs" :as CytoscapeComponent]
    [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.box :refer [box]]))
 
-(println "cb:" cs)
-(println "c:" c)
-(.use c cs) ; COSEBilkent)
+(println "c:" cytoscope)
+(.use cytoscope cose-bilkent)
+(.use cytoscope dagre);
 
 (defn ^{:category :data}
   cytoscape
@@ -29,3 +29,11 @@
         :data data}])
 
 (register-component :p/cytoscape cytoscape-boxed)
+
+; https://js.cytoscape.org/
+; https://github.com/plotly/react-cytoscapejs
+
+
+; other options:
+; http://www.graphviz.org/
+; geschichte

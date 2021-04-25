@@ -2,6 +2,9 @@
  {; shadow cljs creates package.json 
   ; based on this dependencies 
 
+  ; fullscreen
+  "react-full-screen" "^1.0.2"
+
   ;vega
   "vega" "^5.11.1"
   "vega-embed" "^6.7.0"
@@ -21,6 +24,7 @@
   ; graphs
   "cytoscape" "^3.18.2"
   "cytoscape-cose-bilkent" "^4.1.0"
+  "cytoscape-dagre" "^2.3.2"
   "react-cytoscapejs" "^1.2.1"
 
   ; video
