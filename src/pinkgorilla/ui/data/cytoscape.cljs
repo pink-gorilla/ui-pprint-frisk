@@ -8,7 +8,6 @@
    [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.box :refer [box]]))
 
-(println "c:" cytoscope)
 (.use cytoscope cose-bilkent)
 (.use cytoscope dagre);
 
