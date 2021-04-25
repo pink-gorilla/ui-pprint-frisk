@@ -32,7 +32,7 @@
         b (assoc data :chart s)
         ;b (assoc data :chart  {:width 300 :height 300})
         ]
-    (println "highchart boxed: " b)
+    ;(println "highchart boxed: " b)
     b))
 
 (defn ^{:category :data}

@@ -12,6 +12,12 @@
                {:make "Ford" :model "Mondeo" :price 32000}
                {:make "Porsche" :model "Boxter" :price 72000}])
 
+(example/add
+ :viz/aggrid
+ [:p/aggrid {:size :small
+             ;:columns columnDefs
+             :data rowData}])
+
 (def rates
   [{:tenor "1D" :rate 1 :vol-factor 1 :s "asdköfj adkfj alkdsfj löasfj ölkdjaf löksdfj löa f" :metrics {:a 1} :report-metrics {:a 1}}
    {:tenor "5D" :rate 3 :vol-factor 1.5 :s "asdköfj adkfj alkdsfj löasfj ölkdjaf löksdfj löa f" :metrics {:a 1} :report-metrics {:a 1}}
@@ -64,14 +70,8 @@
 
 (example/add
  :viz/aggrid
- [:p/aggrid {:size :small
-             :columnDefs columnDefs
-             :rowData rowData}])
-
-(example/add
- :viz/aggrid
  [:p/aggrid {:size :medium
-             :columnDefs  rateCols
-             :rowData rates
+             :columns  rateCols
+             :data rates
              :pagination true
              :paginationAutoPageSize true}])

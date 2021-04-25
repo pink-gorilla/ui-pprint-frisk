@@ -1,9 +1,29 @@
 (ns pinkgorilla.ui.data.aggrid
   (:require
+   [clojure.set :refer [rename-keys]]
    [re-frame.core :as rf]
    ["ag-grid-react" :as rs :refer [AgGridReact]]
    [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.box :refer [size]]))
+
+(defn default-column [k]
+  {:headerName (name k)
+   :field (name k)})
+
+(defn default-cols [spec]
+  (let [spec (rename-keys spec  {:columns :columnDefs
+                                 :data :rowData})
+        {:keys [columnDefs rowData]} spec]
+    (if (and (not columnDefs) rowData)
+      (let [row1 (first rowData)
+            col-keys (keys row1)
+            columns (into []
+                          (map default-column col-keys))
+            r (assoc spec
+                     :columnDefs columns)]
+        (println "r:" r)
+        r)
+      spec)))
 
 (defn ^{:category :data}
   aggrid
@@ -16,8 +36,8 @@
                       {:make \"Porsche\" :model \"Boxter\" :price 72000}]}]
    "
   [data]
-  [:<>
-   [:> AgGridReact data]])
+  (let [data-conv (default-cols data)]
+    [:> AgGridReact data-conv]))
 
 (defn ag-theme-classname [theme]
   (if (= theme true)
@@ -33,3 +53,7 @@
        [aggrid data]])))
 
 (register-component :p/aggrid aggrid-styled)
+
+
+;; https://www.ag-grid.com/
+;; 
