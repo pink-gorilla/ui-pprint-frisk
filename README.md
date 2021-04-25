@@ -8,7 +8,7 @@
 
 ## Demo
 
-Run `lein demo` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.
+Run `lein webly watch` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.
 
 Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.
 

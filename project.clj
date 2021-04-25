@@ -9,9 +9,7 @@
 
   :min-lein-version "2.9.4" ; nrepl 0.7.0
 
-  :prep-tasks ["css"
-               ;"compile" - aot
-               ]
+  :prep-tasks ["css"]
 
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]
@@ -23,7 +21,7 @@
                   ["vcs" "push"]]
 
   :source-paths ["src"] ; "test"
-  ;:test-paths ["test"]
+  :test-paths ["test"]
   :target-path  "target/jar"
   :resource-paths  ["resources" ; not from npm
                     "target/webly" ; bundle
@@ -97,5 +95,5 @@
 
             ; APP
 
-            "demo"  ^{:doc "Runs UI components via webserver."}
-            ["with-profile" "+demo" "run" "-m" "demo.app" "watch"]})
+            "webly"
+            ["with-profile" "+demo" "run" "-m" "demo.app"]})

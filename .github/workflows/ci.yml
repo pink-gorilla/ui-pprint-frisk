@@ -32,8 +32,9 @@ jobs:
           ${{ runner.os }}-node-
     - name: Install dependencies
       run: |
-        npm install
         lein deps
+        lein webly npm-install
+    # npm install    
     - name: Check formatting
       run: lein cljfmt check
     - name: Run tests
@@ -50,6 +51,7 @@ jobs:
       run: |
         git config --global user.email "ci@pinkgorilla.org"
         git config --global user.name "CI/CD"
+        lein css
         lein release
     - name: CodeCoverage
       run: |
