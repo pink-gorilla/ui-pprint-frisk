@@ -12,22 +12,6 @@ Run `lein webly watch` to run the demo app. This will run a web server at port 8
 
 Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.
 
-## Tailwind CSS
-
-Tailwind css makes it really easy to build custom ui.
-
-- https://umeshmk.github.io/Tailwindcss-cheatsheet/
-- https://mertjf.github.io/tailblocks/
-- https://merakiui.com/
-- https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
-- https://tailwindcomponents.com/
-- http://www.heropatterns.com/
-- htmp 2 hiccup: useful to convert tailwind html templates
-  http://html2hiccup.buttercloud.com/
-
-## reagent 
-- https://blog.ducky.io/clojurescript/reagent/2016/05/11/reagent-dynamic-children/
-- - http://pschwarz.bicycle.io/json-to-edn/   json->edn converter 
 
 ## Develop with gorilla-ui
 
