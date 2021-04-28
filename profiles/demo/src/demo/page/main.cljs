@@ -3,11 +3,14 @@
    [webly.web.handler :refer [reagent-page]]))
 
 
+(defn box [text link]
+   [:a {:href link}
+    [:span.bg-yellow-300.w-12.border.border-round.p-2
+     text]]
+  )
+
 (defn category [c]
-  [:a {:href (str "/examples/" c)}
-  [:span.bg-yellow-300.w-12.border.border-round.p-2
-   c
-   ]])
+  [box c (str "/examples/" c)])
 
 (defmethod reagent-page :demo/main [{:keys [route-params query-params handler] :as route}]
   [:div.bg-blue-300
@@ -18,7 +21,6 @@
     [category "layout"]
     [category "app"]
     [category "pinkie"]
-    
+    [box "test page (for development)" "/test" ]
     ]
-   [:a {:href "/test"}
-    [:p "test page (for development)"]]])
+   ])
