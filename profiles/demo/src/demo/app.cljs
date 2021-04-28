@@ -7,8 +7,10 @@
    [pinkgorilla.ui.css :refer [components config]]
    ; demo
    [demo.routes :refer [routes-api routes-app]]
-   [demo.events] ; side-effects
-   [demo.page.test] ; side-effects
+   ; side-effects
+   [demo.events]
+   [demo.page.main]
+   [demo.page.test] 
    [demo.page.examples]
    ))
 

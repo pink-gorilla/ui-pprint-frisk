@@ -8,10 +8,7 @@
 
 ## Demo
 
-Run `lein webly watch` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.
-
-Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.
-
+Run `lein gorilla-ui watch` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.
 
 ## Develop with gorilla-ui
 
@@ -34,3 +31,7 @@ you do not need to worry about process or buffer at all
 you can fix this easily by bumping 
 :compiler-options {:output-feature-set :es6} or whatever language level is appropriate
 :es8 is good if you have bunch of async/await code in libs
+
+# embed
+
+Run `lein embed` to see how to embed pinkie ui components in ordinary html pages.

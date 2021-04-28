@@ -1,16 +1,16 @@
 (ns pinkgorilla.ui.css
   (:require
-   ;[webly.user.css.helper :refer [add-themes]]
+   [webly.user.css.helper :refer [add-themes]]
    [goog.string :as gstring]
    [goog.string.format]))
 
-(defn add-themes [m theme-base themes]
-  (let [theme-link (fn [theme]
-                     (gstring/format theme-base theme))
-        add-theme (fn [acc theme]
-                    (println "adding:" theme)
-                    (assoc acc theme [(theme-link theme)]))]
-    (reduce add-theme m themes)))
+#_(defn add-themes [m theme-base themes]
+    (let [theme-link (fn [theme]
+                       (gstring/format theme-base theme))
+          add-theme (fn [acc theme]
+                      (println "adding:" theme)
+                      (assoc acc theme [(theme-link theme)]))]
+      (reduce add-theme m themes)))
 
 (def themes-aggrid
   ["balham" "balham-dark"

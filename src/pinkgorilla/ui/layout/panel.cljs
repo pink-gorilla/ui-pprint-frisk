@@ -10,7 +10,7 @@
   panel
   "a panel displays a seq of components
   has a header"
-  [{:keys [color title extra]
+  [{:keys [title extra color extra]
     :or {color "grey"
          title  "Panel Title"}}
    & children]

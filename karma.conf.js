@@ -1,6 +1,7 @@
+// automatically copied from webly resources
 module.exports = function (config) {
     config.set({
-        browsers: ['ChromeHeadless'],
+        browsers: ['ChromiumHeadless'],
         // The directory where the output file lives
         basePath: 'target',
         // The file itself

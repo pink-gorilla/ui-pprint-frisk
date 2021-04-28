@@ -40,10 +40,7 @@
                  [fipp "0.6.23"] ; edn pretty printing - for examples (examples get shipped)
                  [org.pinkgorilla/pinkie "0.3.3"]]
 
-  :profiles {:test {:source-paths ["src"
-                                   "test"]
-                    :test-paths   ["test"]}
-
+  :profiles {:test {:test-paths   ["test"]}
              :embed {:source-paths ["profiles/embed/src"
                                     "test"]}
 
@@ -83,17 +80,15 @@
             ;; TEST
 
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
-            ["with-profile" "+test" "run" "-m" "shadow.cljs.devtools.cli" "compile" "ci"]
+           ["gorilla-ui" "ci"]
 
             "test-run" ^{:doc "Runs unit tests. Does not build the bundle first.."}
-            ["shell" "./node_modules/karma/bin/karma" "start" "--single-run"]
+            ["shell" "npm" "test"]
 
-           ; "test-js"                          ^{:doc "Test compiled JavaScript."}
-           ; ["shell" "npm" "run" "test"]
             "test-js" ^{:doc "Run Unit Tests. Will compile bundle first."}
             ["do" "build-test" ["test-run"]]
 
             ; APP
 
-            "webly"
+            "gorilla-ui"
             ["with-profile" "+demo" "run" "-m" "demo.app"]})

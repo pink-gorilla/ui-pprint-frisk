@@ -2,7 +2,7 @@
 
 (def routes-app
   {"" :demo/main
-   "viz" :demo/viz
+   ["examples/" :category] :demo/example
    "test" :demo/test
    })
 
