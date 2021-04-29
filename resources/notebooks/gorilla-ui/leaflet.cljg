@@ -11,12 +11,14 @@
 ;;; leaflet-gorilla is a renderer for Gorilla REPL that lets you put data on maps using the [Leaflet](http://leafletjs.com/) javascript library.
 ;; **
 
-;; @@ [cljs]
-; instead of ^:R meta syntax, here we use a notebook.helper function.
-(pinkgorilla.notebook.repl/r! [:p/leaflet [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}]])
+;; @@ [clj]
+^:R [:p/leaflet [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}]]
 ;; @@
+;; ->
+;;; 
+;; <-
 ;; =>
-;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/leaflet",[["^ ","^0","~:view","~:center",[51.49,-0.08],"~:zoom",12,"~:height",600,"~:width",700]]],"~:map-keywords",true]]
+;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/leaflet",[["^ ","^0","~:view","~:center",[51.49,-0.08],"~:zoom",12,"~:height",600,"~:width",700]]],"~:map-keywords",true]]]
 ;; <=
 
 ;; @@ [clj]
