@@ -10,9 +10,9 @@
 ; https://github.com/creativetimofficial/tailwind-starter-kit/blob/master/Dashboard%20Page/react-dashboard-page/src/components/Sidebar.js
 
 
-(defn sidebar-item [{:as item
-                     :keys [name fas page active? goto-page]
-                     :or {fas "link"}}]
+(defn sidebar-menu-item [{:as item
+                          :keys [name fas #_page active? goto-page]
+                          :or {fas "link"}}]
   (let [active? (active? item)]
     [:li {:class "mr-3 flex-1"}
      [:a {;:href "#"
@@ -31,18 +31,18 @@
                             "text-gray-600 md:text-gray-400"))} name]]]))
 
 (defn sidebar-menu [goto-page active? items]
-  [:div {:class (str "w-full bg-blue-500 px-2 text-center fixed bottom-0 " ; sm: w-full bg-blue-500
+  [:div {:class (str "w-full bg-blue-500 px-2 text-center  bottom-0 "; fixed ; sm: w-full bg-blue-500
                      "lg:w-1/6 "
-                     "md:w-1/5 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-pink-600 md:bg-teal-800 ")}
+                     "md:w-1/5 md:pt-8 md:top-0 md:left-0 h-16 md:h-full md:border-r-4 md:border-pink-600 md:bg-teal-800 ")}
    [:div {:class (str " mx-auto "
                       "lg:float-right lg:px-6 "
                       "md:relative")}
     (into [:ul {:class (str "list-reset flex flex-row text-center "
                             "md:flex-col  md:text-left")}]
           (map (fn [item]
-                 [sidebar-item (assoc item
-                                      :goto-page goto-page
-                                      :active? active?)]) items))]])
+                 [sidebar-menu-item (assoc item
+                                           :goto-page goto-page
+                                           :active? active?)]) items))]])
 
 (defn ^{:category :layout}
   sidebar
@@ -57,19 +57,17 @@
                   ;(println "active? " (:name item) (= (:name item) @active-name))
                   (= (:name item) @active-name))]
     (fn []
-      [:div
        ;flexbox container
-       [:div {:class (str "flex flex-wrap h-screen w-screen "
-                          "md:flex-row-reverse")}
+      [:div {:class (str "flex flex-wrap h-full w-full "
+                         "md:flex-row-reverse")}
        ; Main Content
-        [:div {:class (str "w-full h-full bg-blue-100 " ; sm: w-full
-                           "lg:w-5/6 "
-                           "md:w-4/5 ")}
-         [:div {:class "p-0 m-0"} ; "pt-16 px-6"} ; bg-gray-100 container
-          (when @active-page
-            @active-page)]]
+       [:div {:class (str "w-full h-full bg-blue-100 " ; sm: w-full
+                          "lg:w-5/6 "
+                          "md:w-4/5 ")}
+        (when @active-page
+          @active-page)]
         ; Sidebar
-        [sidebar-menu goto-page active? items]]])))
+       [sidebar-menu goto-page active? items]])))
 
 (register-component :p/sidebar sidebar)
 

@@ -1,7 +1,8 @@
 (ns pinkgorilla.ui.box
   (:require
    [reagent.core :as r]
-   ["react-full-screen" :refer [FullScreen useFullScreenHandle]]))
+   ;["react-full-screen" :refer [FullScreen useFullScreenHandle]]
+   ))
 
 
 ; https://www.npmjs.com/package/react-full-screen
@@ -53,7 +54,7 @@
           [size-selector :small "sm" @size-a set-size!]
           [size-selector :medium "md" @size-a set-size!]
           [size-selector :large "lg" @size-a set-size!]
-          [size-selector :full "fs" @size-a set-size!]]
+          #_[size-selector :full "fs" @size-a set-size!]]
 
          [:div.bg-blue-300.overflow-hidden  ; in case the renderer ignores our size
           style

@@ -24,7 +24,7 @@
   ([n] (take n (repeatedly #(string/join \space (random-sentence 5))))))
 
 (defn wrap-p [s]
-  [:p.mt-3 s])
+  [:p.pb-3 s])
 
 (defn ipsum [n]
   (let [ps (random-paragraph n)

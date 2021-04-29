@@ -23,7 +23,6 @@
       "UI"]]]])
 
 (defn example-component [nsf]
-  [:div
-   [sidebar (examples-wrapped nsf) welcome]])
+  [sidebar (examples-wrapped nsf) welcome])
 
 

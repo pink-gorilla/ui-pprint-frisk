@@ -3,7 +3,7 @@
   ; based on this dependencies 
 
   ; fullscreen
-  "react-full-screen" "^1.0.2"
+  ;"react-full-screen" "^1.0.2"; does not work - hooks issue needs to be investigated
 
   ;vega
   "vega" "^5.11.1"

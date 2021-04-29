@@ -5,6 +5,8 @@
    [pinkie.error :refer [error-boundary]]
    [pinkie.pinkie :refer [tag-inject]]))
 
+; build example data structure
+
 (defonce examples (atom {}))
 
 (defn- add-example [acc example]
@@ -17,6 +19,8 @@
   (swap! examples add-example {:name name
                                :ns (namespace name)
                                :component component}))
+
+; show one example
 
 (defn pr-str-nice [config]
   (let [spec (with-out-str
@@ -34,7 +38,7 @@
 (defn example-page [name components]
   ;[:div.flex.flex-col.w-full.h-full ; {:style {:background-color "yellow"}}
    ;[:h1.mb-5 name]
-  [:div.w-full.h-screen.m-0
+  [:div.w-full.h-full.m-0.height-full
    ;[:h1 "Example: " name]
    (into [:<>] (map example components))])
 
