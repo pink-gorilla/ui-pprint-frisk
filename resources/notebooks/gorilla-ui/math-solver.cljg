@@ -21,6 +21,26 @@
 ;; <=
 
 ;; @@ [clj]
+ ^:R [:p/math "(+ (** y 5) (* 5 x ( … ** x 4) y) (** x 5))"]
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/math","(+ (** y 5) (* 5 x ( … ** x 4) y) (** x 5))"],"~:map-keywords",true]]]
+;; <=
+
+;; @@ [clj]
+^:R [:p/math "(x + y)^n"]
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/math","(x + y)^n"],"~:map-keywords",true]]]
+;; <=
+
+;; @@ [clj]
 (use 'numeric.expresso.core)
 ;; @@
 ;; =>

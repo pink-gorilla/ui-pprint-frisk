@@ -1,7 +1,6 @@
 (ns example.viz.leaflet
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.viz.leaflet :refer [leaflet-map]]
    [pinkgorilla.ui.control.select :refer [select-map]]
    [example.example :as example]))
 
