@@ -38,6 +38,7 @@
                  ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  [fipp "0.6.23"] ; edn pretty printing - for examples (examples get shipped)
+                 [lambdaisland/ansi "0.1.6"]
                  [org.pinkgorilla/pinkie "0.3.3"]]
 
   :profiles {:test {:test-paths   ["test"]}

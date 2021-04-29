@@ -21,6 +21,7 @@
    [example.layout.gtable]
 
    ; viz
+   [example.viz.ansi]
    [example.viz.aggrid]
    [example.viz.cytoscape]
    [example.viz.frisk]

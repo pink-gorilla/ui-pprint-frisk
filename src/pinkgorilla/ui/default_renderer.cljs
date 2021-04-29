@@ -6,6 +6,7 @@
    [pinkgorilla.ui.css]
 
     ; viz
+   [pinkgorilla.ui.viz.ansi]
    [pinkgorilla.ui.viz.aggrid]
    [pinkgorilla.ui.viz.cytoscape]
    [pinkgorilla.ui.viz.highchart]
