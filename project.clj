@@ -8,9 +8,6 @@
                                      :sign-releases false}]]
 
   :min-lein-version "2.9.4" ; nrepl 0.7.0
-
-  :prep-tasks ["css"]
-
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]
                   ["vcs" "commit" "Release %s"]
@@ -24,7 +21,6 @@
   :test-paths ["test"]
   :target-path  "target/jar"
   :resource-paths  ["resources" ; not from npm
-                    "target/webly" ; bundle
                     "target/node_modules"] ; css png resources from npm modules
   :clean-targets ^{:protect false} [:target-path
                                     [:demo :builds :app :compiler :output-dir]
@@ -46,14 +42,16 @@
                                     "test"]}
 
              :demo {:dependencies []
-                    :resource-paths  ["profiles/demo/resources"]
+                    :resource-paths  ["profiles/demo/resources"
+                                      "target/webly" ; bundle
+                                      ]
                     :source-paths ["src"
                                    "profiles/demo/src"
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.2.19"] ; brings shadow-cljs
-                                   [clj-kondo "2021.03.31"]]
+                                   [org.pinkgorilla/webly "0.2.23"] ; brings shadow-cljs
+                                   [clj-kondo "2021.04.23"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]
                                    [lein-shell "0.5.0"]
@@ -81,7 +79,7 @@
             ;; TEST
 
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
-           ["gorilla-ui" "ci"]
+            ["gorilla-ui" "ci"]
 
             "test-run" ^{:doc "Runs unit tests. Does not build the bundle first.."}
             ["shell" "npm" "test"]

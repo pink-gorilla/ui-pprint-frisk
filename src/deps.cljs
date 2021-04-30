@@ -11,15 +11,18 @@
   "vega-lite" "^4.11.0"
 
   ; highcharts
-  "highcharts" "^8.0.4"
+  "highcharts" "^9.0.1" ; "^8.0.4"
 
   ; ag grid
-  "ag-grid-community" "^22.0.0"
-  "ag-grid-react" "^22.0.0"
+  "ag-grid-community" "^25.2.0"
+  "ag-grid-react" "^25.2.0"
+
 
   ; leaflet maps
-  "react-leaflet" "^2.6.0"
-  "leaflet" "^1.6.0"
+
+
+  "react-leaflet" "^3.1.0" ; "^2.6.0"
+  "leaflet" "^1.6.0"  ; icons
 
   ; graphs
   "cytoscape" "^3.18.2"
@@ -28,7 +31,7 @@
   "react-cytoscapejs" "^1.2.1"
 
   ; video
-  "react-player" "^1.14.2"
+  "react-player" "^2.9.0" ; "^1.14.2"
 
   ;sparklines
   "react-sparklines" "^1.7.0"
@@ -42,7 +45,7 @@
   "tails-ui" "^0.5.5"
   "react-ion-slider" "^1.0.5"
   "jquery" "^3.5.1" ; required by react-ion-slider as peer dependency
-  "react-grid-layout" "^0.18.3"
+  "react-grid-layout" "^1.2.4" ; "^0.18.3"
 
   "shadow-cljs" "^2.12.5" ; buffer polyfill fix
 

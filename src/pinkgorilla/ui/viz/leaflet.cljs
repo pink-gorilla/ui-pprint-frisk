@@ -1,16 +1,17 @@
 (ns pinkgorilla.ui.viz.leaflet
   (:require
-   ["react-leaflet" :refer [Map TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
+   ["react-leaflet" :refer [MapContainer TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.config :refer [link-css res-href]]
+   [pinkgorilla.ui.config :refer [res-href]]
    [pinkgorilla.dsl.leaflet :refer [default-options]]))
+
 
 ; config cannot be overritten by the user. this is ui renderer configuration
 
+
 (def config
-  {;:css "/r/leaflet/dist/leaflet.css" ; "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-   :tile-layer-url "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  {:tile-layer-url "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
    ;:tile-layer-url "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
    :attribution "&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"})
 
@@ -123,17 +124,16 @@
          ;{:keys [view]} data
          ]
      [:div.z-10
-      ;[link-css css]
-      [:> Map (merge  {:zoom zoom
-                       :center center
-                       :style {:width width :height height}
-                       :keyboard true ; navigate map with arrows and +-
-                       :class "z-10"
+      [:> MapContainer (merge  {:zoom zoom
+                                :center center
+                                :style {:width width :height height}
+                                :keyboard true ; navigate map with arrows and +-
+                                :class "z-10"
                        ;:ref {this.mapRef}
                        ;:onClick {this.handleClick}
                        ;:onLocationfound= {this.handleLocationFound}
-                       }
-                      view-map)
+                                }
+                               view-map)
 ;{:center marker-position :zoom zoom}
        [:> TileLayer
         {:url tile-layer-url

@@ -1,21 +1,19 @@
 (ns pinkgorilla.ui.css
   (:require
-   [webly.user.css.helper :refer [add-themes]]
-   [goog.string :as gstring]
-   [goog.string.format]))
-
-#_(defn add-themes [m theme-base themes]
-    (let [theme-link (fn [theme]
-                       (gstring/format theme-base theme))
-          add-theme (fn [acc theme]
-                      (println "adding:" theme)
-                      (assoc acc theme [(theme-link theme)]))]
-      (reduce add-theme m themes)))
+   [webly.user.css.helper :refer [add-themes]]))
 
 (def themes-aggrid
-  ["balham" "balham-dark"
-   "blue" "bootstrap" "dark" "fresh"
+  ["alpine-dark" "alpine"
+   "balham" "balham-dark"
+   "blue" "bootstrap"
+   "dark" "fresh"
    "material"])
+
+(def fonts-aggrid
+  ["Alpine"
+   "Balham"
+   "Classic"
+   "Material"])
 
 (def components
   {:leaflet {true ["leaflet/dist/leaflet.css"]} ; "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
