@@ -6,6 +6,12 @@
 - renderers can use npm (js/react) dependencies, or
   maven (cljs) dependencies
 
+## Goldly
+
+Run `lein goldly` to run goldly with gorilla-ui snippets.
+This will run a web server at port 8000 with lots of examples of ui components.
+Navigate to snippets registry.
+
 ## Demo
 
 Run `lein gorilla-ui watch` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.

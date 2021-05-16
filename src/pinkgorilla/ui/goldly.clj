@@ -90,3 +90,8 @@
               :id :leaflet-london
               :filename "snippets/gorilla-ui/leaflet_london.clj"})
 
+(add-snippet {:type :pinkie
+              :category :gorilla-ui
+              :id :description-box
+              :filename "snippets/gorilla-ui/desc.edn"})
+

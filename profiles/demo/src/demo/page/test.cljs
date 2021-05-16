@@ -5,7 +5,6 @@
    [demo.site :refer [main-with-header demo-header]]
    [example.viz.cytoscape :refer [c-ex]]
    [pinkgorilla.ui.viz.highchart :refer [highchart-boxed]]
-   [example.viz.highchart :refer [highchart-spec]]
    [pinkgorilla.ui.lorem-ipsum :refer [ipsum]]))
 
 ; this page is useful when developing new components

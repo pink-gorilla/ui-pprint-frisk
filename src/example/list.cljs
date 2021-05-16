@@ -3,7 +3,6 @@
 
    ; app
    [example.app.aspectratio]
-   [example.app.desc]
    [example.app.popover]
 
    ; control
@@ -21,18 +20,9 @@
    [example.layout.gtable]
 
    ; viz
-   [example.viz.ansi]
    [example.viz.aggrid]
    [example.viz.cytoscape]
-   [example.viz.frisk]
-   [example.viz.highchart]
-   [example.viz.json]
-   [example.viz.html]
    [example.viz.leaflet]
-   [example.viz.math]
-   [example.viz.sparklines]
-   [example.viz.vega]
-   [example.viz.video]
 
    ; pinkie
    [example.pinkie.pinkie]

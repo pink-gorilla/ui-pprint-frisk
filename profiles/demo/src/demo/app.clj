@@ -7,4 +7,4 @@
 
 (defn -main
   [profile-name]
-    (webly-run! profile-name))
+    (webly-run! profile-name "webly-gorillaui.edn"))
