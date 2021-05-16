@@ -7,5 +7,6 @@
              :f (clj->js {:i-am "an-object"})
              "g" "String key"
              0 nil
-             "not a number" js/NaN}]
+             ;"not a number" js/NaN
+             }]
   [:p "Frisk Demo end"]]

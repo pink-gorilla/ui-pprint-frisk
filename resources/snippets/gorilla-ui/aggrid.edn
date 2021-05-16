@@ -1,0 +1,12 @@
+;(def columnDefs [{:headerName "Make" :field "make"}
+;                 {:headerName "Model" :field "model"}
+;                 {:headerName "Price" :field "price"}])
+
+
+ [:p/aggrid {:size :small
+             ;:columns columnDefs
+             :data [{:make "Toyota" :model "Celica" :price 35000}
+                    {:make "Ford" :model "Mondeo" :price 32000}
+                    {:make "Porsche" :model "Boxter" :price 72000}]
+             }]
+

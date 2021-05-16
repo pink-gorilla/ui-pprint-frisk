@@ -4,20 +4,6 @@
    [example.example :as example]
    [pinkgorilla.ui.viz.aggrid :refer [aggrid]]))
 
-(def columnDefs [{:headerName "Make" :field "make"}
-                 {:headerName "Model" :field "model"}
-                 {:headerName "Price" :field "price"}])
-
-(def 	rowData [{:make "Toyota" :model "Celica" :price 35000}
-               {:make "Ford" :model "Mondeo" :price 32000}
-               {:make "Porsche" :model "Boxter" :price 72000}])
-
-(example/add
- :viz/aggrid
- [:p/aggrid {:size :small
-             ;:columns columnDefs
-             :data rowData}])
-
 (def rates
   [{:tenor "1D" :rate 1 :vol-factor 1 :s "asdköfj adkfj alkdsfj löasfj ölkdjaf löksdfj löa f" :metrics {:a 1} :report-metrics {:a 1}}
    {:tenor "5D" :rate 3 :vol-factor 1.5 :s "asdköfj adkfj alkdsfj löasfj ölkdjaf löksdfj löa f" :metrics {:a 1} :report-metrics {:a 1}}

@@ -3,7 +3,6 @@
    [clojure.set :refer [rename-keys]]
    [re-frame.core :as rf]
    ["ag-grid-react" :as rs :refer [AgGridReact]]
-   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.box :refer [size]]))
 
 (defn default-column [k]
@@ -52,7 +51,7 @@
              (size (:size data)))
        [aggrid data]])))
 
-(register-component :p/aggrid aggrid-styled)
+
 
 
 ;; https://www.ag-grid.com/

@@ -1,13 +1,12 @@
 (ns pinkgorilla.ui.default-renderer
   (:require
    ; parent project setups
-   [pinkie.default-setup]
-
-   [pinkgorilla.ui.css]
+   [pinkie.default-setup] ; side-effects
+   [pinkie.pinkie :refer-macros [register-component]]
 
     ; viz
    [pinkgorilla.ui.viz.ansi]
-   [pinkgorilla.ui.viz.aggrid]
+   [pinkgorilla.ui.viz.aggrid :refer [aggrid-styled]]
    [pinkgorilla.ui.viz.cytoscape]
    [pinkgorilla.ui.viz.highchart]
    [pinkgorilla.ui.viz.leaflet]
@@ -47,4 +46,5 @@
    [pinkgorilla.ui.pinkie.clock] ; has no dependencies
    ))
 
+(register-component :p/aggrid aggrid-styled)
 

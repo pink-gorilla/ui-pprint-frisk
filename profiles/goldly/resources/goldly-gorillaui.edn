@@ -1,11 +1,3 @@
-{:webly {:title "Goldly Gorilla-UI"
-         :lein-cljs-profile "+goldly"
-         :ns-cljs-app [demo.app]
-         :bundle-entry  "demo.app.start ();"
-         :start-user-app [:goldly-server/init]
-         :user-routes-app "goldly-server.routes/routes-app"
-         :user-routes-api "goldly-server.routes/routes-api"}
-
- :goldly {:enabled true
-          :systems-ns [systems.snippet-registry]}}
+{:goldly {:extensions [[pinkgorilla.ui.goldly]]
+}}
 

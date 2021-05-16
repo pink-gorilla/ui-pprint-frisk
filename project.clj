@@ -41,15 +41,15 @@
              :embed {:source-paths ["profiles/embed/src"
                                     "test"]}
 
-             :goldly {:dependencies [[org.pinkgorilla/goldly "0.2.35"]
-                                     [org.pinkgorilla/webly "0.2.35"]]
+             :goldly {:dependencies [[org.pinkgorilla/webly "0.2.37"] ; not having this crashes
+                                     [org.pinkgorilla/goldly "0.2.37"]]
                       :resource-paths  ["profiles/goldly/resources"
                                         "target/webly"] ; bundle
                       :source-paths ["src"
                                      "profiles/goldly/src"
                                      "test"]}
 
-             :demo {:dependencies []
+             :demo {:dependencies [[org.pinkgorilla/webly "0.2.37"]]
                     :resource-paths  ["profiles/demo/resources"
                                       "target/webly" ; bundle
                                       ]
@@ -58,7 +58,6 @@
                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
-                                   [org.pinkgorilla/webly "0.2.35"] ; brings shadow-cljs
                                    [clj-kondo "2021.04.23"]]
                     :plugins      [[lein-cljfmt "0.6.6"]
                                    [lein-cloverage "1.1.2"]

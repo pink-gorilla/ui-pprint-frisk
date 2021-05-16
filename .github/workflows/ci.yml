@@ -30,10 +30,10 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - name: Install dependencies
-      run: |
-        lein deps
-        lein gorilla-ui npm-install
+    - name: clj-deps
+      run: lein deps
+    - name: cljs-deps
+      run: lein gorilla-ui npm-install
     # npm install    
     - name: Check formatting
       run: lein cljfmt check

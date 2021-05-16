@@ -3,7 +3,6 @@
    [webly.user.app.app :refer [webly-run!]]
     ; side effects
    [demo.routes]
-   [pinkgorilla.ui.goldly] ; side-effects snippets
    ))
 
 (defn -main
