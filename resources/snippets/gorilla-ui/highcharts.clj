@@ -1,7 +1,10 @@
-(ns example.viz.highchart
-  (:require
-   [example.example :as example]))
+(require '[goldly.system :as goldly])
+(require '[goldly.runner :refer [system-start!]])
 
+
+
+; this is our helper function to assemble a highchart object. it contains
+; default values that we will use for multiple charts
 (defn make-chart-config [data]
   {:chart {:type "line"
            :animation false}
@@ -32,7 +35,7 @@
    :credits {:enabled false}
    :series (:series data)})
 
-(def highchart-spec
+(goldly/def-ui highchart-spec
   (make-chart-config
    {:title "Economic Activity"
     :subtitle "made with Love"
@@ -42,6 +45,11 @@
      {:name "Manufacturing" :data [249 244 292 291 390 302 381 404]}
      {:name "Sales & Distribution" :data [117 172 165 191 285 247 321 393]}]}))
 
-(example/add
- :viz/highchart
- [:p/highchart highchart-spec])
+
+(system-start!
+ (goldly/system
+  {:id :highcharts
+   :state {}
+   :html [:p/highchart highchart-spec]
+   :fns {}}
+  {:fns {}}))

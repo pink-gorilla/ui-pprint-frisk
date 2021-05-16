@@ -1,9 +1,3 @@
-(ns example.viz.frisk
-  (:require
-   [example.example :as example]))
-
-(example/add
- :viz/frisk
  [:div
   [:p/frisk {:a "I'm a string"
              :b :imakeyword
@@ -14,4 +8,4 @@
              "g" "String key"
              0 nil
              "not a number" js/NaN}]
-  [:p "Frisk Demo end"]])
+  [:p "Frisk Demo end"]]

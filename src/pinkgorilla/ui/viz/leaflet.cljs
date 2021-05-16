@@ -3,9 +3,10 @@
    ["react-leaflet" :refer [MapContainer TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.config :refer [res-href]]
    [pinkgorilla.dsl.leaflet :refer [default-options]]))
 
+(defn res-href [href]
+  (str "/r/" href))
 
 ; config cannot be overritten by the user. this is ui renderer configuration
 

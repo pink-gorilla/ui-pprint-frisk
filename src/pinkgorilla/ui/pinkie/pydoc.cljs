@@ -1,8 +1,7 @@
 (ns pinkgorilla.ui.pinkie.pydoc
   (:require
    [clojure.string :as str]
-   [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.config :refer [link-css]]))
+   [pinkie.pinkie :refer-macros [register-component]]))
 
 ;{:module "numpy"
 ; :name "transpose"
@@ -59,8 +58,6 @@
         ;_ (println "function count: " (count f-items))
         ]
     [:<>
-     [link-css "pydoc.css"]
-     ;[:link {:rel "stylesheet" :href "pydoc.css"}]
      [py-category "Functions" f-items]
 
      [py-category "Types" t-items]
