@@ -37,16 +37,18 @@
              :embed {:source-paths ["profiles/embed/src"
                                     "test"]}
 
-             :goldly {:dependencies [[org.pinkgorilla/webly "0.2.38"] ; not having this crashes
-                                     [org.pinkgorilla/goldly "0.2.47"]]
+             :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
+                                     [org.pinkgorilla/goldly "0.2.48"]]
                       :resource-paths ["target/webly"]} ; bundle
 
-             :demo {:dependencies [[org.pinkgorilla/webly "0.2.38"]]
-                    :resource-paths  ["profiles/demo/resources"
-                                      "target/webly"] ; bundle
-                    :source-paths ["src"
-                                   "profiles/demo/src"
-                                   "test"]}
+             :webly {:dependencies [[org.clojure/clojure "1.10.3"]
+                                    [org.pinkgorilla/webly "0.2.38"]]
+                     :resource-paths  ["profiles/webly/resources"
+                                       "target/webly"] ; bundle
+                     :source-paths ["src"
+                                    "profiles/webly/src"
+                                    "test"
+                                    ]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
                                    [clj-kondo "2021.04.23"]]
@@ -77,7 +79,8 @@
             ;; TEST
 
             "gorilla-ui"
-            ["with-profile" "+demo" "run" "-m" "demo.app"]
+            ["with-profile" "-dev,+webly" 
+             "run" "-m" "demo.app"]
 
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
             ["gorilla-ui" "ci"]
@@ -90,5 +93,9 @@
 
             ; APP
 
+            "develop"
+            ["gorilla-ui" "watch"]
+
             "goldly"
-            ["with-profile" "+goldly" "run" "-m" "goldly-server.app" "watch" "goldly-gorillaui.edn"]})
+            ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
+             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaui.edn"]})

@@ -9,18 +9,10 @@
      text]]
   )
 
-(defn category [c]
-  [box c (str "/examples/" c)])
 
 (defmethod reagent-page :demo/main [{:keys [route-params query-params handler] :as route}]
   [:div.bg-blue-300
-   [:p.mb-3 "gorilla-ui has ui components"]
-   [:div.bg-blue-300
-    [category "viz"]
-    [category "control"]
-    [category "layout"]
-    [category "app"]
-    [category "pinkie"]
-    [box "test page (for development)" "/test" ]
+    [box "layout" "/layout" ]
+    [box "leaflet" "/leaflet"]
     ]
-   ])
+   )

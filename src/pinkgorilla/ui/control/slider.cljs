@@ -93,3 +93,13 @@
 (register-component :p/slider slider)
 
 ;(println ":p/slider was registered!")
+
+
+#_(fn [param value min max]
+    [:input {:type "range" :value value :min min :max max
+             :style {:width "100%"}
+             :on-change (fn [e]
+                          (println "slider has changed!")
+                          (swap! state assoc param (evt-val e))
+                          (when (not= param :bmi)
+                            (swap! state assoc :bmi nil)))}])

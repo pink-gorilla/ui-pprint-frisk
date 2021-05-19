@@ -5,12 +5,9 @@
 
 (add-cljs-namespace [pinkgorilla.ui.goldly])
 
-#_(add-snippet {:type :goldly-clj
-                :category :goldly-bundel
-                :id :holiday-snippet
-                :filename "snippets/goldly-bundel/holiday.clj"})
 
 ; gorilla-ui
+
 
 (add-snippet {:type :goldly-clj
               :category :gorilla-ui
@@ -26,11 +23,6 @@
               :category :gorilla-ui
               :id :video
               :filename "snippets/gorilla-ui/video.edn"})
-
-(add-snippet {:type :pinkie
-              :category :gorilla-ui
-              :id :vega
-              :filename "snippets/gorilla-ui/vega.edn"})
 
 (add-snippet {:type :pinkie
               :category :gorilla-ui
@@ -166,7 +158,34 @@
               :id :iss-realtime
               :filename "snippets/realworld/leaflet_iss_realtime.clj"})
 
-(add-snippet {:type  :goldly-clj
+(add-snippet {:type :goldly-clj
               :category :ui-realworld
+              :id :holiday
+              :filename "snippets/realworld/holiday.clj"})
+
+; vega
+
+(add-snippet {:type :pinkie
+              :category :gorilla-ui-vega
+              :id :vega
+              :filename "snippets/vega/vega.edn"})
+
+(add-snippet {:type :goldly-clj
+              :category :gorilla-ui-vega
+              :id :vega-bar
+              :filename "snippets/vega/bar.clj"})
+
+(add-snippet {:type :pinkie
+              :category  :gorilla-ui-vega
+              :id :vega-multiline
+              :filename "snippets/vega/multiline.edn"})
+
+(add-snippet {:type :pinkie
+              :category  :gorilla-ui-vega
+              :id :vega-zoom
+              :filename "snippets/vega/zoom.edn"})
+
+(add-snippet {:type  :goldly-clj
+              :category  :gorilla-ui-vega
               :id :vega-combo
-              :filename "snippets/realworld/vega_combo.clj"})
+              :filename "snippets/vega/vega_combo.clj"})

@@ -2,8 +2,8 @@
 
 (def routes-app
   {"" :demo/main
-   ["examples/" :category] :demo/example
-   "test" :demo/test
+   "layout" :demo/layout
+   "leaflet" :demo/leaflet
    })
 
 (def routes-api

@@ -14,10 +14,11 @@ This will run a web server at port 8000 with lots of examples of ui components.
 Navigate to snippets registry.
 
 
-
 ## Develop with gorilla-ui
 
-Run `lein gorilla-ui watch` to run the demo app. This will run a web server at port 8000 with lots of examples of ui components.
+Run `lein develop` to run the demo app at port 8000. 
+This will run a webly build, some test pages of components 
+that you want to improve.
 
 Documentation: 
 
@@ -29,6 +30,8 @@ Documentation:
 
 - we also ship deps.cljs, which tells shadow-cljs to add transient npm deps
   from gorilla-ui.
+
+**vega problems**
 
 If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
 the compiler is from the CLJ dependency you have in project.clj.
