@@ -1,0 +1,16 @@
+{:id :slider-ion
+ :state {:slider 3
+         :slider-to 7}
+ :html [:p/panel {:title "panel with controls"}
+        [:h2 "ion-slider " (:slider @state)]
+        [:p/slideriona {:min 1
+                        :max 10
+                      ;:from (:slider @state)
+                     ;:on-change #((let [v  %] ; (-> % .-target .-value)]
+                     ;               (debug v)
+                     ;               (js/alert v)))
+                        } state :slider]
+        [:p/slideriona {:min 1 :max 10} state :slider :slider-to]]
+ :fns {}
+ :fns-raw {}}
+

@@ -1,0 +1,5 @@
+
+  [:p/panel {:title "panel with controls"}
+   [:div {:class "flex items-center justify-between"}
+    [:p/button {:on-click #(alert "clicked")} "click me!"]]]
+

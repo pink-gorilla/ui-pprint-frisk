@@ -42,9 +42,7 @@
 
    ; pinkie
    [pinkgorilla.ui.pinkie.components-ui]
-   [pinkgorilla.ui.pinkie.pydoc]
-   [pinkgorilla.ui.pinkie.clock] ; has no dependencies
-   ))
+   [pinkgorilla.ui.pinkie.pydoc]))
 
 (register-component :p/aggrid aggrid-styled)
 

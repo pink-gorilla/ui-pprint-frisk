@@ -26,12 +26,8 @@
                                     [:demo :builds :app :compiler :output-dir]
                                     [:demo :builds :app :compiler :output-to]]
 
-
-  :dependencies [; gorilla-ui is a cljs project, so in here are cljs dependencies
-                 ;[org.clojure/clojurescript "1.10.773"]
-                 [thi.ng/strf "0.2.2"
+  :dependencies [[thi.ng/strf "0.2.2"
                   :exclusions [org.clojure/clojurescript]]
-                 ;[com.taoensso/timbre "4.10.0"] ; clojurescript logging awb99: this fucks up kernel-cljs-shadowdeps
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  [fipp "0.6.23"] ; edn pretty printing - for examples (examples get shipped)
                  [lambdaisland/ansi "0.1.6"]
@@ -41,18 +37,13 @@
              :embed {:source-paths ["profiles/embed/src"
                                     "test"]}
 
-             :goldly {:dependencies [[org.pinkgorilla/webly "0.2.37"] ; not having this crashes
-                                     [org.pinkgorilla/goldly "0.2.37"]]
-                      :resource-paths  ["profiles/goldly/resources"
-                                        "target/webly"] ; bundle
-                      :source-paths ["src"
-                                     "profiles/goldly/src"
-                                     "test"]}
+             :goldly {:dependencies [[org.pinkgorilla/webly "0.2.38"] ; not having this crashes
+                                     [org.pinkgorilla/goldly "0.2.47"]]
+                      :resource-paths ["target/webly"]} ; bundle
 
-             :demo {:dependencies [[org.pinkgorilla/webly "0.2.37"]]
+             :demo {:dependencies [[org.pinkgorilla/webly "0.2.38"]]
                     :resource-paths  ["profiles/demo/resources"
-                                      "target/webly" ; bundle
-                                      ]
+                                      "target/webly"] ; bundle
                     :source-paths ["src"
                                    "profiles/demo/src"
                                    "test"]}
@@ -85,6 +76,9 @@
 
             ;; TEST
 
+            "gorilla-ui"
+            ["with-profile" "+demo" "run" "-m" "demo.app"]
+
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
             ["gorilla-ui" "ci"]
 
@@ -96,11 +90,5 @@
 
             ; APP
 
-            "gorilla-ui"
-            ["with-profile" "+demo" "run" "-m" "demo.app"]
-            
             "goldly"
-            ["with-profile" "+goldly" "run" "-m" "demo.app"]
-            
-            
-            })
+            ["with-profile" "+goldly" "run" "-m" "goldly-server.app" "watch" "goldly-gorillaui.edn"]})

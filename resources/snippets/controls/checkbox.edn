@@ -1,0 +1,9 @@
+{:id :checkbox
+ :state {:super? true}
+ :html [:p/panel {:title "panel with controls"}
+        [:div {:class "flex items-center justify-between"}
+         [:p/checkbox state :super?]
+         [:h1 "state:"
+          [:p (pr-str @state)]]]]
+ :fns {}}
+

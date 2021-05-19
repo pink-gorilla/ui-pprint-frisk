@@ -1,0 +1,13 @@
+[:div
+ [:h2 "Tabs"]
+ [:p/tabs
+  [:p/tab {:title "a"
+           :isActive false
+           :color "red"
+           :tabIndex 1}
+   [:h4 "We love the A-team !"]]
+  [:p/tab {:title "b"
+           :isActive true
+           :color "green"
+           :tabIndex 0}
+   [:h4 "Bananas are a great potassium source!"]]]]

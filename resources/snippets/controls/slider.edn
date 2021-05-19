@@ -1,0 +1,10 @@
+{:id :slider
+ :state {}
+ :html  [:div
+         [:h2 "slider"]
+         [:p/slider]]
+ :fns {}
+ :fns-raw {}}
+
+
+
