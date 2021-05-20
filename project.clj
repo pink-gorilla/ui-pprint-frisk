@@ -38,11 +38,11 @@
                                     "test"]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.48"]]
+                                     [org.pinkgorilla/goldly "0.2.50"]]
                       :resource-paths ["target/webly"]} ; bundle
 
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                    [org.pinkgorilla/webly "0.2.38"]]
+                                    [org.pinkgorilla/webly "0.2.39"]]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle
                      :source-paths ["src"

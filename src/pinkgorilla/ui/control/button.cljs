@@ -1,6 +1,4 @@
-(ns pinkgorilla.ui.control.button
-  (:require
-   [pinkie.pinkie :refer-macros [register-component]]))
+(ns pinkgorilla.ui.control.button)
 
 ; for ideas for props for button look at:
 ; https://github.com/knipferrc/tails-ui/blob/master/src/components/Button.re
@@ -14,4 +12,3 @@
              :on-click (fn [_ & _] (when on-click (on-click)))}
     text]))
 
-(register-component :p/button button)

@@ -7,17 +7,14 @@
 
 (defn ^{:category :control}
   input
-  "textbox that is bound to a key of an external atom"
-  [a k]
+  [{:keys [on-change value] :as opts}]
   [:div {:class "mb-3 pt-0"}
-   [:input {:type "text"
-            :placeholder "Placeholder"
-            :class "px-2 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:shadow-outline w-full"
-            :value (if (nil? (k @a)) "" (k @a))
-            :on-change (fn [e]
-                         (println "onchange input")
-                         (let [v (-> e .-target .-value)]
-                           (println "new value: " v)
-                           (swap! a assoc k v)))}]])
+   [:input (merge opts
+                  {:type "text"
+                   :placeholder "Placeholder"
+                   :class "px-2 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:shadow-outline w-full"
+                   :value (if (nil? value) "" value)
+                   :on-change (fn [e]
+                                (let [v (-> e .-target .-value)]
+                                  (on-change v)))})]])
 
-(register-component :p/input input)

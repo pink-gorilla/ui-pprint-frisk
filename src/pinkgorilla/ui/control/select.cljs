@@ -1,8 +1,7 @@
 (ns pinkgorilla.ui.control.select
   (:require
    [reagent.core :as r]
-   [pinkgorilla.ui.control.button :refer [button]]
-   [pinkie.pinkie :refer-macros [register-component]]))
+   [pinkgorilla.ui.control.button :refer [button]]))
 
 (defn css []
   [:style ".top-100 {top: 100%}
@@ -61,7 +60,7 @@
        [:polyline {:points points}]]]]))
 
 (defn ^{:category :control}
-  select [items val change-fn]
+  select [{:keys [items value on-change]}]
   (let [l (count items)
         l1 (- l 1)
         dropdown? (r/atom false)
@@ -72,11 +71,11 @@
                     0 :first
                     l1 :last
                     nil))
-        select #(do (change-fn %)
+        select #(do (on-change %)
                     (reset! dropdown? false))
-        unselect #(change-fn "") ; #(reset! val-atom "")
+        unselect #(on-change nil)
         no-op #()]
-    (fn [items val change-fn]
+    (fn [{:keys [items value on-change]}]
       [:<>
        [css]
        ;[:div {:class "flex-auto flex flex-col items-center"} ; h-64
@@ -85,14 +84,14 @@
         [:div {:class "w-full svelte-1l8159u"}
          [:div {:class "my-2 bg-white p-1 flex border border-gray-200 rounded svelte-1l8159u"}
           [:div {:class "flex flex-auto flex-wrap"}]
-          [:input {:value val
+          [:input {:value value
                    :on-change no-op
                    :class "p-1 px-2 appearance-none outline-none w-full text-gray-800 svelte-1l8159u"}]
           [button-remove-selection unselect]
           [button-dropdown @dropdown? toggle-dropdown]]]
 
         (when @dropdown?
-          [:div {:class (str "absolute shadow z-50 w-full lef-0 rounded max-h-select top-100 " ; top-100
+          [:div {:class (str "absolute shadow z-500 w-full lef-0 rounded max-h-select top-100 " ; top-100
                              "overflow-y-auto svelte-5uyqqj")}
            [:div {:class "flex flex-col w-full"}
             (doall (map-indexed (fn [i v]
@@ -124,36 +123,15 @@
         new-value (nth list new-index)]
     (action new-value)))
 
-(defn nav-buttons [items v change-fn]
-  [:<>
-   [button {:on-click #(go-next v items change-fn)} "<"]
-   [button {:on-click #(go-next v items change-fn)} ">"]])
-
 (defn ^{:category :control}
-  select-map
-  "select one item from a seq of items
-   parameters:
-     options: this is an optional parameter, a map with keys:
-              on-change fn with parameter selected-val 
-              nav?      bool (show < > buttons)
-     items: vec of selectable items
-     val-atom: map inside an atom
-     k: the key that the selected value is bound to in the val-atom
+  select-nav [{:keys [items value on-change nav?] :as opts}]
+  (if nav?
+    [:<>
+     [select opts]
+     [button {:on-click #(go-prior value items on-change)} "<"]
+     [button {:on-click #(go-next value items on-change)} ">"]]
+    [select opts]))
 
-   examle:
-   (def state reagent.core/atom {:letter \"a\"})
-   [select-map [\"a\" \"b\"] state :letter]
-  "
-  ([items val-atom k]
-   (select-map {:nav? false} items val-atom k))
-  ([{:keys [on-change nav?] :as options} items val-atom k]
-   (let [change-fn (fn [v]
-                     (swap! val-atom assoc k v)
-                     (when on-change (on-change v)))]
-     [:<>
-      [select items (k @val-atom) change-fn]
-      (when nav?
-        [nav-buttons items (k @val-atom) change-fn])])))
 
-(register-component :p/pselect select)
-(register-component :p/pselectm select-map)
+
+
