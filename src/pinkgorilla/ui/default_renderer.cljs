@@ -13,7 +13,7 @@
    [pinkgorilla.ui.viz.leaflet]
    [pinkgorilla.ui.viz.sparklines]
    [pinkgorilla.ui.viz.vega]
-   [pinkgorilla.ui.viz.markdown]
+
    [pinkgorilla.ui.viz.math]
    [pinkgorilla.ui.viz.video]
    [pinkgorilla.ui.viz.json]

@@ -33,9 +33,6 @@
   ;sparklines
   "react-sparklines" "^1.7.0"
 
-  ; markdown viewer
-  "marked" "^2.0.3"
-
   ; ui controls
   "@popperjs/core" "^2.4.0"
   "tails-ui" "^0.5.5"
@@ -44,7 +41,6 @@
   "react-grid-layout" "^1.2.4" ; "^0.18.3"
 
   "shadow-cljs" "^2.12.5" ; buffer polyfill fix
-
 
  ;
   }}
