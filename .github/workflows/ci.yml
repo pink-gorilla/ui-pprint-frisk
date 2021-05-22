@@ -53,7 +53,7 @@ jobs:
         git config --global user.name "CI/CD"
         lein css
         lein release
-    - name: CodeCoverage
-      run: |
-        lein with-profile +goldly cloverage
-        bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json
+    #- name: CodeCoverage
+    #  run: |
+    #    lein with-profile +goldly cloverage
+    #    bash <(curl -s https://codecov.io/bash) -f target/coverage/codecov.json
