@@ -12,7 +12,7 @@
 
 (defmethod reagent-page :demo/main [{:keys [route-params query-params handler] :as route}]
   [:div.bg-blue-300
-    [box "layout" "/layout" ]
+    ;[box "layout" "/layout" ]
     [box "leaflet" "/leaflet"]
     ]
    )

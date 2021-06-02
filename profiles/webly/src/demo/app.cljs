@@ -10,7 +10,6 @@
    ; side-effects
    [demo.events]
    [demo.page.main]
-   [demo.page.layout] 
    [demo.page.leaflet]
    ))
 

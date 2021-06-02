@@ -1,7 +1,6 @@
 (ns pinkgorilla.ui.viz.vega
   "plugin to render vega-charts in pink-gorilla"
   (:require
-   [pinkie.pinkie :refer-macros [register-component]]
    [pinkie.jsrender :refer [render-js]]
    ["vega-embed" :as vega-embed]))
 
@@ -35,8 +34,6 @@
   [data-clj]
   [render-js {:f render-vega :data data-clj}])
 
-(register-component :p/vega vega)
-
 (defn ^{:category :data}
   vegaa
   "displays chart defined in vega spec
@@ -45,4 +42,3 @@
   [s k]
   [vega (k @s)])
 
-(register-component :p/vegaa vegaa)
