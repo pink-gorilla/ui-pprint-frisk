@@ -38,14 +38,14 @@
                                     "test"]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.50"]]
+                                     [org.pinkgorilla/goldly "0.2.81"]]
                       :resource-paths ["target/webly"]} ; bundle
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook-bundel "0.5.18"]]}
+                                       [org.pinkgorilla/notebook-bundel "0.5.19"]]}
 
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                    [org.pinkgorilla/webly "0.2.39"]]
+                                    [org.pinkgorilla/webly "0.2.45"]]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle
                      :source-paths ["src"

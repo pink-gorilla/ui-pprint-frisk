@@ -17,4 +17,4 @@ pom.xml
 karma.conf.js
 .calva
 goldly_bindings_generated.cljs
-webly-routes.edn
+.webly
