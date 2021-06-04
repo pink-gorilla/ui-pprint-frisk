@@ -11,15 +11,16 @@
            }
           "])
 
-(defn- select-item [text selected? position select]
-  (let [s (when selected? "border-teal-600")
+(defn- select-item [{:keys [value display selected? position select]}]
+  (let [text (if display (display value) value)
+        s (when selected? "bg-red-500 border-teal-600")
         p (case position
             :first   "rounded-t"
             :last    "rounded-b"
             "")]
-    [:div {:class (str "cursor-pointer w-full border-gray-100 border-b hover:bg-teal-100 " p)}
-     [:div {:on-click #(select text)
-            :class (str "flex w-full items-center p-2 pl-2 border-transparent bg-white border-l-2 relative hover:bg-teal-600 hover:text-teal-100 " s)}
+    [:div {:class (str "cursor-pointer w-full border-gray-100 border-b hover:bg-blue-300 " p)}
+     [:div {:on-click #(select value)
+            :class (str "flex w-full items-center p-2 pl-2 border-transparent border-l-2 relative hover:bg-teal-600 hover:text-teal-100 " s)}
       [:div {:class "w-full items-center flex"}
        [:div {:class "mx-2 leading-6"} text]]]]))
 
@@ -65,17 +66,16 @@
         l1 (- l 1)
         dropdown? (r/atom false)
         toggle-dropdown #(swap! dropdown? not)
-        selected? (fn [name] (= name val))
         pos-key (fn [i]
                   (case i
                     0 :first
                     l1 :last
                     nil))
-        select #(do (on-change %)
-                    (reset! dropdown? false))
-        unselect #(on-change nil)
+        select #(do (reset! dropdown? false)
+                    (when on-change (on-change %)))
+        unselect #(when on-change (on-change nil))
         no-op #()]
-    (fn [{:keys [items value on-change]}]
+    (fn [{:keys [items value display on-change]}]
       [:<>
        [css]
        ;[:div {:class "flex-auto flex flex-col items-center"} ; h-64
@@ -84,32 +84,27 @@
         [:div {:class "w-full svelte-1l8159u"}
          [:div {:class "my-2 bg-white p-1 flex border border-gray-200 rounded svelte-1l8159u"}
           [:div {:class "flex flex-auto flex-wrap"}]
-          [:input {:value value
+          [:input {:value (if display (display value) value)
                    :on-change no-op
                    :class "p-1 px-2 appearance-none outline-none w-full text-gray-800 svelte-1l8159u"}]
           [button-remove-selection unselect]
           [button-dropdown @dropdown? toggle-dropdown]]]
 
         (when @dropdown?
-          [:div {:class (str "absolute shadow z-500 w-full lef-0 rounded max-h-select top-100 " ; top-100
-                             "overflow-y-auto svelte-5uyqqj")}
+          [:div {:class (str "absolute bg-blue-200 shadow z-50 w-full lef-0 rounded max-h-select top-100 " ; top-100
+                             "overflow-y-auto")}
            [:div {:class "flex flex-col w-full"}
             (doall (map-indexed (fn [i v]
                                   ^{:key i}
-                                  [select-item v (selected? v) (pos-key i) select]) items))]])]
+                                  [select-item
+                                   {:value v
+                                    :display display
+                                    :selected? (= value v)
+                                    :position (pos-key i)
+                                    :select select}])
+                                items))]])]
 ;        ]
        ])))
-
-#_(defn list-selector
-    "combobox that is bound to an external atom.
-      list is supplied"
-    ([value-atom list action]
-     (let [keys  {:on-change #(on-combo-changed- value-atom  list action %)} ;  #(reset! value-atom (.. % -target -value))
-           keys  (if (nil? @value-atom) keys (assoc keys :value @value-atom))]
-       [:select keys :value
-        (when list (map-indexed (fn [idx item] [:option {:key idx :value item} item]) list))]))
-    ([value-atom list]
-     (list-selector value-atom list #(info (str "list selected: " %)))))
 
 (defn go-next [v list action]
   (let [new-index (inc (.indexOf list v))
