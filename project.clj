@@ -41,14 +41,16 @@
                                      [org.pinkgorilla/goldly "0.2.50"]]
                       :resource-paths ["target/webly"]} ; bundle
 
+             :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
+                                       [org.pinkgorilla/notebook-bundel "0.5.18"]]}
+
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
                                     [org.pinkgorilla/webly "0.2.39"]]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle
                      :source-paths ["src"
                                     "profiles/webly/src"
-                                    "test"
-                                    ]}
+                                    "test"]}
              :dev  {:dependencies [[org.clojure/clojure "1.10.3"]
                                    ; shadow-cljs MAY NOT be a dependency in lein deps :tree -> if so, bundeler will fail because shadow contains core.async which is not compatible with self hosted clojurescript
                                    [clj-kondo "2021.04.23"]]
@@ -79,7 +81,7 @@
             ;; TEST
 
             "gorilla-ui"
-            ["with-profile" "-dev,+webly" 
+            ["with-profile" "-dev,+webly"
              "run" "-m" "demo.app"]
 
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
@@ -98,4 +100,13 @@
 
             "goldly"
             ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
-             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaui.edn"]})
+             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaui.edn"]
+
+            "notebook"
+            ["with-profile" "notebook"
+             "run" "-m" "pinkgorilla.notebook-bundel"
+             "notebook-gorillaui.edn"
+             ]
+
+            ;
+            })

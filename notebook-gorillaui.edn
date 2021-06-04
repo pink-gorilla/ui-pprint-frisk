@@ -1,0 +1,9 @@
+{:explorer {:client {:repositories [{:name "local"  :url "/api/explorer" :save true}
+                                    #_{:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]}
+            :server {:resource-root-path "notebooks"
+                     :roots
+                     {:gorilla-ui "./resources/notebooks/gorilla-ui"
+                      :gorilla-plot "../../gorilla/gorilla-plot/notebooks"
+                      }}}
+ 
+ }
