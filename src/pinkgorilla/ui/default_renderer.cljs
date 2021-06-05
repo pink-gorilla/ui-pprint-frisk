@@ -12,8 +12,6 @@
    [pinkgorilla.ui.viz.highchart]
    [pinkgorilla.ui.viz.leaflet]
    [pinkgorilla.ui.viz.sparklines]
-   [pinkgorilla.ui.viz.vega :refer [vega vegaa]]
-
    [pinkgorilla.ui.viz.math]
    [pinkgorilla.ui.viz.video]
    [pinkgorilla.ui.viz.json]
@@ -65,7 +63,3 @@
 (def select-a (bind select-nav))
 (register-component :p/select-a select-a)
 
-; vega
-
-(register-component :p/vega vega)
-(register-component :p/vegaa vegaa)

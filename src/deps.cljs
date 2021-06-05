@@ -5,10 +5,6 @@
   ; fullscreen
   ;"react-full-screen" "^1.0.2"; does not work - hooks issue needs to be investigated
 
-  ;vega
-  "vega" "^5.11.1"
-  "vega-embed" "^6.7.0"
-  "vega-lite" "^4.11.0"
 
   ; highcharts
   "highcharts" "^9.0.1" ; "^8.0.4"

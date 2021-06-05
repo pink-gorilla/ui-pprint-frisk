@@ -33,19 +33,28 @@
                  [lambdaisland/ansi "0.1.6"]
                  [org.pinkgorilla/pinkie "0.3.3"]]
 
+  :managed-dependencies [; conflict resolution for notebook
+                         [borkdude/sci "0.2.5"]
+                         [com.fasterxml.jackson.core/jackson-core "2.12.3"]
+                         [cljs-ajax "0.8.3"]
+
+                         
+
+  ]
+
   :profiles {:test {:test-paths   ["test"]}
              :embed {:source-paths ["profiles/embed/src"
                                     "test"]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.81"]]
+                                     [org.pinkgorilla/goldly "0.2.83"]]
                       :resource-paths ["target/webly"]} ; bundle
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook-bundel "0.5.19"]]}
+                                       [org.pinkgorilla/notebook "0.5.25"]]}
 
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                    [org.pinkgorilla/webly "0.2.45"]]
+                                    [org.pinkgorilla/webly "0.2.46"]]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle
                      :source-paths ["src"
@@ -100,13 +109,15 @@
 
             "goldly"
             ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
-             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaui.edn"]
+             "run" "-m" "goldly-server.app"
+             "goldly-gorillaui.edn"
+             "watch"]
 
             "notebook"
-            ["with-profile" "notebook"
-             "run" "-m" "pinkgorilla.notebook-bundel"
+            ["with-profile" "+notebook"
+             "run" "-m" "pinkgorilla.notebook-ui.app.app"
              "notebook-gorillaui.edn"
-             ]
+             "watch"]
 
             ;
             })

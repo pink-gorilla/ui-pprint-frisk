@@ -163,29 +163,3 @@
               :id :holiday
               :filename "snippets/realworld/holiday.clj"})
 
-; vega
-
-(add-snippet {:type :pinkie
-              :category :gorilla-ui-vega
-              :id :vega
-              :filename "snippets/vega/vega.edn"})
-
-(add-snippet {:type :goldly-clj
-              :category :gorilla-ui-vega
-              :id :vega-bar
-              :filename "snippets/vega/bar.clj"})
-
-(add-snippet {:type :pinkie
-              :category  :gorilla-ui-vega
-              :id :vega-multiline
-              :filename "snippets/vega/multiline.edn"})
-
-(add-snippet {:type :pinkie
-              :category  :gorilla-ui-vega
-              :id :vega-zoom
-              :filename "snippets/vega/zoom.edn"})
-
-(add-snippet {:type  :goldly-clj
-              :category  :gorilla-ui-vega
-              :id :vega-combo
-              :filename "snippets/vega/vega_combo.clj"})
