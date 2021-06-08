@@ -1,8 +1,0 @@
-{:id :checkbox
- :state {:super? false}
- :html [:p/panel {:title "panel with controls"}
-         [:p/checkbox-a {} state [:super?]]
-         [:h1 "state:"
-          [:p (pr-str @state)]]]
- :fns {}}
-

@@ -13,13 +13,8 @@ cpr () {
   fi
 }
 
-# already done in webly:
-#cpr "@fortawesome/fontawesome-free/webfonts" "*.*"
-
 cpr "leaflet/dist" "*.css"
 cpr "ag-grid-community/dist/styles" "*.css"
-cpr "react-grid-layout/css" "*.css"
-cpr "react-resizable/css" "*.css"
 
-# this is done in notebook-ui:
-# cpr "highlight.js/styles" "*.css"
+
+

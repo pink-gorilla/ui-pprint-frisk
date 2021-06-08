@@ -23,16 +23,13 @@
               }
              "ag-grid-community/dist/styles/ag-theme-%s.css"
              themes-aggrid)
-   :gridlayout {true ["react-grid-layout/css/styles.css"
-                      "react-resizable/css/styles.css"]}
-   :tailsui {true ["tails-ui/dist/index.css"]}
+
    :pydoc {true ["gorilla-ui/pydoc.css"]}})
 
 (def config
   {:leaflet true
    :aggrid   "balham" ; true 
-   :gridlayout true
-   :tailsui false
+
    :pydoc true})
 
 (println "gorilla-ui css config: " components)
