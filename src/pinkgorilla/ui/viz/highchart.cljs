@@ -5,7 +5,6 @@
   (:require
    [clojure.set :refer [rename-keys]]
    ["highcharts" :as highcharts]
-   [pinkie.pinkie :refer-macros [register-component]]
    [pinkie.jsrender :refer [render-js]]
    [pinkgorilla.ui.box :refer [box]]))
 
@@ -40,10 +39,10 @@
   "reagent component to render highchart-spec via highcharts.js
    Usage:  [:p/highchart spec-as-clj-data]"
   [data]
-  [box {:s :small
-        :render highchart
-        :box highchart-box
+  [box {:size :small
+        :render-fn highchart
+        :box-fn highchart-box
         :data data}])
 
-(register-component :p/highchart highchart-boxed)
+
 

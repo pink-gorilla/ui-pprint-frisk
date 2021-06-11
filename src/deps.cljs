@@ -14,7 +14,7 @@
 
   ; leaflet maps
   "leaflet" "^1.6.0"  ; icons
-  "react-leaflet" "^3.1.0" ; "^2.6.0"
+  "react-leaflet" "^3.2.0"
 
   ; graphs
   "cytoscape" "^3.18.2"

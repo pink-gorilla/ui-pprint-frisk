@@ -1,4 +1,0 @@
-[:p/leaflet 
-   {:features [{:type :view :center [51.505, -0.09]}  ; no center -> no visible features, but will show panamas nicest beach
-               {:type :rectangle :bounds [[51.49, -0.08]
-                                          [51.5, -0.06]]}]}]

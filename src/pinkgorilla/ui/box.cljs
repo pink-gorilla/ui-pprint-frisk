@@ -10,12 +10,12 @@
 ; (println "fs: " FullScreen)
 
 
-(defn size [s]
+(defn container-style [size]
   ; either both pixels, or both percentage.
-  (case  s
+  (case  size
     :small  {:style {:width "400px" :max-width "400px" :height "300px" :width-px 400 :height-px 300}}
     :medium {:style {:width "600px" :max-width "600px" :height "500px" :width-px 600 :height-px 500}}
-    :large    {:style {:width "100%"  :max-width "100%" :height "100%"}}
+    :large  {:style {:width "100%"  :max-width "100%" :height "100%"}}
     :full   {:style {:width "100%"  :max-width "100%" :height "100%"
                      :position "absolute"
                      :top 0
@@ -33,29 +33,28 @@
      {:class bg
       :on-click #(set-size! size)} text]))
 
-(defn box-default [data box]
+(defn box-fn-default [data box]
   (let [b  (merge data box)]
     (println "box default: " b)
     b))
 
-(defn box [{:keys [s render data box]}]
-  (let [size-a (r/atom s)
-        set-size! (fn [s]
-                    (println "size: " s)
-                    (reset! size-a s))
+(defn box [{:keys [size render-fn box-fn data]}]
+  (let [size-a (r/atom (or size :small))
+        set-size! (fn [size-new]
+                    (println "size: " size-new)
+                    (reset! size-a size-new))
          ;handle (useFullScreenHandle)  ; hooks need :f> -  https://github.com/reagent-project/reagent/blob/master/doc/ReactFeatures.md
          ;_ (println "handle: " handle)
         ]
-    (fn [{:keys [s render data box]}]
-      (let [style (size @size-a)
-            box (or box box-default)]
+    (fn [{:keys [size render-fn box-fn data]}]
+      (let [style (container-style @size-a)
+            box-fn (or box-fn box-fn-default)]
         [:div
          [:span
           [size-selector :small "sm" @size-a set-size!]
           [size-selector :medium "md" @size-a set-size!]
           [size-selector :large "lg" @size-a set-size!]
           #_[size-selector :full "fs" @size-a set-size!]]
-
          [:div.bg-blue-300.overflow-hidden  ; in case the renderer ignores our size
           style
-          [render (box data style)]]]))))
+          [render-fn (box-fn data style)]]]))))

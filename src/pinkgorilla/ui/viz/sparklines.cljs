@@ -1,7 +1,6 @@
 (ns pinkgorilla.ui.viz.sparklines
   (:require
-   ["react-sparklines" :as rs :refer [Sparklines SparklinesLine SparklinesBars SparklinesSpots]]
-   [pinkie.pinkie :refer-macros [register-component]]))
+   ["react-sparklines" :as rs :refer [Sparklines SparklinesLine SparklinesBars SparklinesSpots]]))
 
 (defn ^{:category :data}
   sparkline
@@ -33,7 +32,3 @@
   [:> Sparklines data
    [:> SparklinesLine {:color "blue"}]
    [:> SparklinesSpots {:color "blue"}]])
-
-(register-component :p/sparkline sparkline)
-(register-component :p/sparklinebar sparkline-bar)
-(register-component :p/sparklinespot sparkline-spot)

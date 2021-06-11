@@ -3,11 +3,16 @@
    [clojure.set :refer [rename-keys]]
    [re-frame.core :as rf]
    ["ag-grid-react" :as rs :refer [AgGridReact]]
-   [pinkgorilla.ui.box :refer [size]]))
+   [pinkgorilla.ui.box :refer [box container-style]]))
+
+;; https://www.ag-grid.com/
 
 (defn default-column [k]
   {:headerName (name k)
-   :field (name k)})
+   :field (name k)
+   :resizable true
+   :sortable true
+   :filter true})
 
 (defn default-cols [spec]
   (let [spec (rename-keys spec  {:columns :columnDefs
@@ -35,7 +40,10 @@
                       {:make \"Porsche\" :model \"Boxter\" :price 72000}]}]
    "
   [data]
-  (let [data-conv (default-cols data)]
+  (let [data-conv (default-cols data)
+        ;on-grid-ready
+        ;opts (assoc data-conv :onGridReady on-grid-ready)
+        ]
     [:> AgGridReact data-conv]))
 
 (defn ag-theme-classname [theme]
@@ -43,16 +51,24 @@
     ""
     (str "ag-theme-" theme)))
 
-(defn aggrid-styled [data]
+(defn aggrid-styled [{:keys [size] :as spec}]
   (let [theme (rf/subscribe [:css/theme-component :aggrid])]
-    (fn [data]
-      [:div (merge
-             {:className (ag-theme-classname @theme)} ;(str "ag-theme-balham"
-             (size (:size data)))
-       [aggrid data]])))
+    (fn [{:keys [size] :as spec}]
+      [:div {:className (ag-theme-classname @theme)
+             :style (:style (container-style (or size :small))) ;{:width "400px" :max-width "400px" :height "300px"}
+             }
+       [aggrid spec]])))
 
+#_(defn ^{:category :data}
+    aggrid-boxed
+    "reagent component to render highchart-spec via highcharts.js
+   Usage:  [:p/highchart spec-as-clj-data]"
+    [data]
+    [box {:size :small
+          :render-fn aggrid-styled
+        ;:box-fn highchart-box
+          :data data}])
 
-
-
-;; https://www.ag-grid.com/
-;; 
+#_(defn aggrid-b [data]
+    [:div {:style {:width "400px" :max-width "400px" :height "300px"}}
+     [aggrid-styled data]])

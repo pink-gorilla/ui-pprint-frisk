@@ -21,14 +21,8 @@ that you want to improve.
 
 Documentation: 
 
-- gorilla-ui is a library
-  We therefore do NOT bundle compiled javascript bundles.
-
-- however, we ship static images and css files that we collect 
+- we ship static images and css files that we collect 
   from selected npm modules. This makes it easier to consume gorilla-ui library.
-
-- we also ship deps.cljs, which tells shadow-cljs to add transient npm deps
-  from gorilla-ui.
 
 
 # embed

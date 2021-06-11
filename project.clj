@@ -36,25 +36,26 @@
   :managed-dependencies [; conflict resolution for notebook
                          [borkdude/sci "0.2.5"]
                          [com.fasterxml.jackson.core/jackson-core "2.12.3"]
-                         [cljs-ajax "0.8.3"]
-
-                         
-
-  ]
+                         [cljs-ajax "0.8.3"]]
 
   :profiles {:test {:test-paths   ["test"]}
              :embed {:source-paths ["profiles/embed/src"
                                     "test"]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.83"]]
-                      :resource-paths ["target/webly"]} ; bundle
+                                     [org.pinkgorilla/ui-repl "0.0.9"]
+                                     [org.pinkgorilla/ui-input "0.0.2"]
+                                     [org.pinkgorilla/goldly "0.2.89"]]
+                      ;:resource-paths ["target/webly"]
+                      } ; bundle
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook "0.5.25"]]}
+                                       [org.pinkgorilla/notebook "0.5.32"]]}
 
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                    [org.pinkgorilla/webly "0.2.46"]]
+                                    [org.pinkgorilla/webly "0.3.1"]
+                                    [org.pinkgorilla/ui-input "0.0.2"]
+                                    ]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle
                      :source-paths ["src"
@@ -89,9 +90,8 @@
 
             ;; TEST
 
-            "gorilla-ui"
-            ["with-profile" "-dev,+webly"
-             "run" "-m" "demo.app"]
+            "gorilla-ui"  
+            ["with-profile" "-dev,+webly" "run" "-m" "webly.user.app.app" "webly-gorillaui.edn"]
 
             "build-test"  ^{:doc "Builds Bundle. Gets executed automatically before unit tests."}
             ["gorilla-ui" "ci"]

@@ -1,14 +1,14 @@
 (ns pinkgorilla.ui.viz.leaflet
   (:require
+   [reagent.core :as r]
    ["react-leaflet" :refer [MapContainer TileLayer Popup Marker CircleMarker Circle Rectangle Polygon Polyline GeoJSON]]
    ["leaflet" :refer [Icon]]
-   [pinkie.pinkie :refer-macros [register-component]]
    [pinkgorilla.dsl.leaflet :refer [default-options]]))
 
 (defn res-href [href]
   (str "/r/" href))
 
-; config cannot be overritten by the user. this is ui renderer configuration
+; config cannot be overwritten by the user. this is ui renderer configuration
 
 
 (def config
@@ -99,55 +99,62 @@
   "displays a map with leaflet.
    example:
   [:p/leaflet
-   [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}
-    {:type :rectangle :bounds rectangle}
-    {:type :circle :center center :fillColor :blue :radius 200}
-    {:type :polygon :positions polygon :color :purple}
-    {:type :polygon :positions multiPolygon :color :purple}
-    {:type :line :positions polyline :color :lime}
-    {:type :line :positions multi-polyline :color :lime}
-    {:type :marker :position [51.505, -0.09]}
-    {:type :marker :position [51.51, -0.12] :popup \"wow\"}
-    {:type :circlemarker :center [51.52, -0.06] :fillColor :blue :radius 200 :popup \"square the circle\"}
-    {:type :geojson :data geojson}]]"
-
-  ([options features-incl-view]
-   (let [{:keys [css tile-layer-url attribution]} config ; config cannot be set by user
-         {:keys [width height zoom center]} options
-         view (first (filter view? features-incl-view))
-        ; _ (log (str "view:" view))
-         features (remove view? features-incl-view)
-         view-map (view-map-props view)
-        ; (partition 2 features)
-         ;_ (log (str "features:" features))
-        ;_ (log (str "map prop:" view-map))
-         ;_ (log (str "view:" view))
-         ;{:keys [view]} data
-         ]
-     [:div.z-10
-      [:> MapContainer (merge  {:zoom zoom
-                                :center center
-                                :style {:width width :height height}
-                                :keyboard true ; navigate map with arrows and +-
-                                :class "z-10"
+    {:center [51 0]
+     :features
+      [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}
+       {:type :rectangle :bounds rectangle}
+       {:type :circle :center center :fillColor :blue :radius 200}
+       {:type :polygon :positions polygon :color :purple}
+       {:type :polygon :positions multiPolygon :color :purple}
+       {:type :line :positions polyline :color :lime}
+       {:type :line :positions multi-polyline :color :lime}
+       {:type :marker :position [51.505, -0.09]}
+       {:type :marker :position [51.51, -0.12] :popup \"wow\"}
+       {:type :circlemarker :center [51.52, -0.06] :fillColor :blue :radius 200 :popup \"square the circle\"}
+       {:type :geojson :data geojson}]}]"
+  [spec]
+  (let [props (r/atom (select-keys spec [:width :height :zoom :center]))]
+    (fn [spec]
+      (let [{:keys [css tile-layer-url attribution]} config ; config cannot be set by user
+            {:keys [width height zoom center features]
+             :or {width 600
+                  height 400
+                  zoom 10
+                  center [8.5407166 -79.8833319]
+                  features []}} spec
+            current-props (select-keys spec [:width :height :zoom :center])
+            container-props {:zoom zoom
+                             :center center
+                             :style {:width width :height height}
+                             :keyboard true ; navigate map with arrows and +-
+                             :scrollWheelZoom false
+                             :dragging false
+                             :doubleClickZoom false
+                             :attributionControl false
+                             :zoomControl false
+                             :class "z-10"
                        ;:ref {this.mapRef}
                        ;:onClick {this.handleClick}
                        ;:onLocationfound= {this.handleLocationFound}
-                                }
-                               view-map)
-;{:center marker-position :zoom zoom}
-       [:> TileLayer
-        {:url tile-layer-url
-         :attribution attribution}]
-       ;[:> Marker {:position [51.505, -0.09]}]
-       (into  [:<>]
-              (map feature features))]]))
-  ([features]
-   (leaflet-map default-options features)))
+                             }
+         ;view (first (filter view? features))
+        ; _ (log (str "view:" view))
+         ;features (remove view? features)
+         ;view-map (view-map-props view)
+            ]
 
-(defn leaflet-map-default [data]
-  (let [{:keys [features]} data]
-    ;(println "features: " features)
-    [leaflet-map default-options features]))
+        (if (= current-props @props)
+          [:div.z-10
+           (println "map: " container-props)
+           [:> MapContainer container-props
+            [:> TileLayer
+             {:url tile-layer-url
+              :attribution attribution}]
+            [:> Marker {:position center}]
+            (into  [:<>] (map feature features))]]
 
-(register-component :p/leaflet leaflet-map-default)
+          (do (reset! props current-props) ; https://react-leaflet.js.org/docs/api-components a containe is immuteable
+              [:div "loading"]))))))
+
+
+

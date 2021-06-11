@@ -16,7 +16,6 @@
 (def default-options
   {:width 600
    :height 400
-
    :zoom 10
    :center [8.5407166 -79.8833319] ; panama, but better to calculate center automatically
    ;{style: {color: '{{color}}',

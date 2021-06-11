@@ -46,13 +46,22 @@
 
 (add-snippet {:type :pinkie
               :category :gorilla-ui
-              :id :aggrid
-              :filename "snippets/gorilla-ui/aggrid.edn"})
-
-(add-snippet {:type :pinkie
-              :category :gorilla-ui
               :id :ansi
               :filename "snippets/gorilla-ui/ansi.edn"})
+
+; aggrid
+
+(add-snippet {:type :pinkie
+              :category :aggrid
+              :id :aggrid-small
+              :filename "snippets/aggrid/aggrid_small.edn"})
+
+(add-snippet {:type :goldly-clj
+              :category :aggrid
+              :id :aggrid-large
+              :filename "snippets/aggrid/aggrid_large.clj"})
+
+; cytoscape
 
 (add-snippet {:type :pinkie
               :category :gorilla-ui
@@ -74,25 +83,25 @@
               :id :cytoscape4
               :filename "snippets/gorilla-ui/cytoscape4.edn"})
 
+; leaflet
+
 (add-snippet {:type :pinkie
-              :category :gorilla-ui
-              :id :leaflet-coronado
-              :filename "snippets/gorilla-ui/leaflet_coronado.edn"})
+              :category :leaflet
+              :id :leaflet-simpel
+              :filename "snippets/leaflet/leaflet_simpel.edn"})
 
 (add-snippet {:type  :goldly-clj
-              :category :gorilla-ui
+              :category :leaflet
               :id :leaflet-london
-              :filename "snippets/gorilla-ui/leaflet_london.clj"})
-
-; realworld
+              :filename "snippets/leaflet/leaflet_london.clj"})
 
 (add-snippet {:type  :goldly-clj
-              :category :ui-realworld
-              :id :iss-realtime
-              :filename "snippets/realworld/leaflet_iss_realtime.clj"})
+              :category :leaflet
+              :id :leaflet-iss-realtime
+              :filename "snippets/leaflet/leaflet_iss_realtime.clj"})
 
 (add-snippet {:type :goldly-clj
-              :category :ui-realworld
-              :id :holiday
-              :filename "snippets/realworld/holiday.clj"})
+              :category :leaflet
+              :id :leaflet-holiday
+              :filename "snippets/leaflet/holiday.clj"})
 

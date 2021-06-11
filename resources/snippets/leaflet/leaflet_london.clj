@@ -39,8 +39,11 @@
   {:id :leaflet-london
    :state {}
    :html [:p/leaflet ; leaflet-map
-          {:features [{:type :view :center [51.49, -0.08] :zoom 12 :height 600 :width 700}
-                      {:type :rectangle :bounds rectangle}
+          {:center [51.49, -0.08] 
+           :zoom 12 
+           :height 600 
+           :width 700
+           :features [{:type :rectangle :bounds rectangle}
                       {:type :circle :center center :fillColor "blue" :radius 200}
                       {:type :polygon :positions polygon :color "purple"}
                       {:type :polygon :positions multiPolygon :color "purple"}
@@ -52,3 +55,4 @@
                       {:type :geojson :data geojson}]}]
    :fns {}}
   {:fns {}}))
+
