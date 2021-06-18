@@ -1,4 +1,5 @@
-{:clj-require [[pinkgorilla.vega :refer [vega]]
+{:name "gorilla-ui"
+ :clj-require [[pinkgorilla.vega :refer [vega]]
                [pinkgorilla.vega.plot.core]
                [pinkgorilla.grid :refer [grid]]]
 
