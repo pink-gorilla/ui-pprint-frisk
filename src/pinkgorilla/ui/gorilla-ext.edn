@@ -1,0 +1,58 @@
+{:clj-require [[pinkgorilla.vega :refer [vega]]
+               [pinkgorilla.vega.plot.core]
+               [pinkgorilla.grid :refer [grid]]]
+
+ :cljs-namespace [pinkgorilla.vega.pinkie
+                  pinkgorilla.vega
+                  pinkgorilla.vega.plot.core
+                  pinkgorilla.grid]
+
+ :cljs-bindings {'vega pinkgorilla.vega/vega
+                 'vegalite pinkgorilla.vega/vegalite
+                 'grid pinkgorilla.grid/grid}
+
+ :cljs-ns-bindings
+ {'plot {'list-plot pinkgorilla.vega.plot.core/list-plot
+         'bar-chart pinkgorilla.vega.plot.core/bar-chart
+         'histogram pinkgorilla.vega.plot.core/histogram
+         'plot pinkgorilla.vega.plot.core/plot
+         'compose pinkgorilla.vega.plot.core/compose
+         'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
+         'multi-plot pinkgorilla.vega.plot.core/multi-plot}}
+
+
+ :snippets [;vegalite
+            {:type :pinkie
+             :category :vega
+             :id :vegalite-point
+             :filename "snippets/vegalite/point.edn"}
+            {:type :goldly-clj
+             :category :vega
+             :id :vegalite-bar
+             :filename "snippets/vegalite/bar.clj"}
+            {:type :pinkie
+             :category  :vega
+             :id :vegalite-zoom
+             :filename "snippets/vegalite/zoom.edn"}
+            {:type :pinkie
+             :category  :vega
+             :id :vegalite-multiline
+             :filename "snippets/vegalite/multiline.edn"}
+            ;; vega
+            {:type :pinkie
+             :category :vega
+             :id :vega-rect
+             :filename "snippets/vega/rect.edn"}
+            {:type  :goldly-clj
+             :category  :vega
+             :id :vega-combo
+             :filename "snippets/vega/combo.clj"}
+            ;; plot
+            {:type :pinkie
+             :category :vega-plot
+             :id :swing-chart
+             :filename "snippets/vega.plot/swings.edn"}
+            #_{:type :goldly-clj
+               :category :vega-plot
+               :id :vega-gorilla-plot
+               :filename "snippets/vega.plot/gorilla_plot.clj"}]}

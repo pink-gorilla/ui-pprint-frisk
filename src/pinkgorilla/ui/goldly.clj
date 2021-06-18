@@ -11,11 +11,6 @@
 
 (add-snippet {:type :goldly-clj
               :category :gorilla-ui
-              :id :highcharts
-              :filename "snippets/gorilla-ui/highcharts.clj"})
-
-(add-snippet {:type :goldly-clj
-              :category :gorilla-ui
               :id :sparkline
               :filename "snippets/gorilla-ui/sparkline.clj"})
 

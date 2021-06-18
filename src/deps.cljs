@@ -5,9 +5,6 @@
   ; fullscreen
   ;"react-full-screen" "^1.0.2"; does not work - hooks issue needs to be investigated
 
-  ; highcharts
-  "highcharts" "^9.0.1" ; "^8.0.4"
-
   ; ag grid
   "ag-grid-community" "^25.2.0"
   "ag-grid-react" "^25.2.0"
