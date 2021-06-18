@@ -45,7 +45,7 @@
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
                                      [org.pinkgorilla/ui-repl "0.0.9"]
                                      [org.pinkgorilla/ui-input "0.0.2"]
-                                     [org.pinkgorilla/goldly "0.2.89"]]
+                                     [org.pinkgorilla/goldly "0.2.93"]]
                       ;:resource-paths ["target/webly"]
                       } ; bundle
 

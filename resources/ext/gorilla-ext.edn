@@ -1,59 +1,77 @@
 {:name "gorilla-ui"
- :clj-require [[pinkgorilla.vega :refer [vega]]
-               [pinkgorilla.vega.plot.core]
-               [pinkgorilla.grid :refer [grid]]]
-
- :cljs-namespace [pinkgorilla.vega.pinkie
-                  pinkgorilla.vega
-                  pinkgorilla.vega.plot.core
-                  pinkgorilla.grid]
-
- :cljs-bindings {'vega pinkgorilla.vega/vega
-                 'vegalite pinkgorilla.vega/vegalite
-                 'grid pinkgorilla.grid/grid}
-
- :cljs-ns-bindings
- {'plot {'list-plot pinkgorilla.vega.plot.core/list-plot
-         'bar-chart pinkgorilla.vega.plot.core/bar-chart
-         'histogram pinkgorilla.vega.plot.core/histogram
-         'plot pinkgorilla.vega.plot.core/plot
-         'compose pinkgorilla.vega.plot.core/compose
-         'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
-         'multi-plot pinkgorilla.vega.plot.core/multi-plot}}
-
-
- :snippets [;vegalite
+ :clj-require []
+ :cljs-namespace [pinkgorilla.ui.goldly]
+ :cljs-bindings {}
+ :cljs-ns-bindings {}
+ :snippets [{:type :goldly-clj
+             :category :gorilla-ui
+             :id :sparkline
+             :filename "snippets/gorilla-ui/sparkline.clj"}
             {:type :pinkie
-             :category :vega
-             :id :vegalite-point
-             :filename "snippets/vegalite/point.edn"}
+             :category :gorilla-ui
+             :id :video
+             :filename "snippets/gorilla-ui/video.edn"}
+            {:type :pinkie
+             :category :gorilla-ui
+             :id :json
+             :filename "snippets/gorilla-ui/json.edn"}
+            {:type :pinkie
+             :category :gorilla-ui
+             :id :html
+             :filename "snippets/gorilla-ui/html.edn"}
+            {:type :pinkie
+             :category :gorilla-ui
+             :id :frisk
+             :filename "snippets/gorilla-ui/frisk.edn"}
+            {:type :pinkie
+             :category :gorilla-ui
+             :id :math
+             :filename "snippets/gorilla-ui/math.edn"}
+            {:type :pinkie
+             :category :gorilla-ui
+             :id :ansi
+             :filename "snippets/gorilla-ui/ansi.edn"}
+            ; aggrid
+            {:type :pinkie
+             :category :aggrid
+             :id :aggrid-small
+             :filename "snippets/aggrid/aggrid_small.edn"}
             {:type :goldly-clj
-             :category :vega
-             :id :vegalite-bar
-             :filename "snippets/vegalite/bar.clj"}
+             :category :aggrid
+             :id :aggrid-large
+             :filename "snippets/aggrid/aggrid_large.clj"}
+            ; cytoscape
             {:type :pinkie
-             :category  :vega
-             :id :vegalite-zoom
-             :filename "snippets/vegalite/zoom.edn"}
+             :category :gorilla-ui
+             :id :cytoscape1
+             :filename "snippets/gorilla-ui/cytoscape1.edn"}
             {:type :pinkie
-             :category  :vega
-             :id :vegalite-multiline
-             :filename "snippets/vegalite/multiline.edn"}
-            ;; vega
+             :category :gorilla-ui
+             :id :cytoscape2
+             :filename "snippets/gorilla-ui/cytoscape2.edn"}
             {:type :pinkie
-             :category :vega
-             :id :vega-rect
-             :filename "snippets/vega/rect.edn"}
+             :category :gorilla-ui
+             :id :cytoscape3
+             :filename "snippets/gorilla-ui/cytoscape3.edn"}
+            {:type :pinkie
+             :category :gorilla-ui
+             :id :cytoscape4
+             :filename "snippets/gorilla-ui/cytoscape4.edn"}
+            ; leaflet
+            {:type :pinkie
+             :category :leaflet
+             :id :leaflet-simpel
+             :filename "snippets/leaflet/leaflet_simpel.edn"}
             {:type  :goldly-clj
-             :category  :vega
-             :id :vega-combo
-             :filename "snippets/vega/combo.clj"}
-            ;; plot
-            {:type :pinkie
-             :category :vega-plot
-             :id :swing-chart
-             :filename "snippets/vega.plot/swings.edn"}
-            #_{:type :goldly-clj
-               :category :vega-plot
-               :id :vega-gorilla-plot
-               :filename "snippets/vega.plot/gorilla_plot.clj"}]}
+             :category :leaflet
+             :id :leaflet-london
+             :filename "snippets/leaflet/leaflet_london.clj"}
+            {:type  :goldly-clj
+             :category :leaflet
+             :id :leaflet-iss-realtime
+             :filename "snippets/leaflet/leaflet_iss_realtime.clj"}
+            {:type :goldly-clj
+             :category :leaflet
+             :id :leaflet-holiday
+             :filename "snippets/leaflet/holiday.clj"}]}
+
