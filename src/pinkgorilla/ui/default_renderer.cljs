@@ -27,7 +27,7 @@
 
 (register-component :p/leaflet leaflet-map)
 
-(register-component :p/cytoscape-raw cytoscape)
+;(register-component :p/cytoscape-raw cytoscape)
 (register-component :p/cytoscape cytoscape-boxed)
 
 (register-component :p/sparkline sparkline)

@@ -1,5 +1,3 @@
-{:goldly {:extensions [;[pinkgorilla.ui.goldly]
-                       [pinkgorilla.input.goldly]
-                       ]
+{:goldly {:extensions []
 }}
 

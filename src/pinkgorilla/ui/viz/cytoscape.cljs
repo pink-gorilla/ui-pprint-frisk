@@ -17,12 +17,17 @@
 
 (defn ^{:category :data}
   cytoscape-boxed
-  "reagent component to render highchart-spec via highcharts.js
-   Usage:  [:p/highchart spec-as-clj-data]"
+  ""
   [data]
-  [box {:s :small
-        :render cytoscape
-        :data data}])
+  #_[box {:s :small
+          :render cytoscape
+          :data data}]
+  ;[:div {:style {:width "600px" :max-width "600px" :height "500px"}}
+  [cytoscape (merge data
+                    {:style {:width "600px" :max-width "600px" :height "500px"}})]
+
+   ;]
+  )
 
 
 
