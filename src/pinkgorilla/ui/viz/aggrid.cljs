@@ -29,22 +29,23 @@
         r)
       spec)))
 
+(defn on-grid-ready [p]
+  ; https://www.ag-grid.com/javascript-grid/column-sizing/
+  ; It is possible to have the grid auto size the columns to fill the width by default. 
+  ; Do this by calling api.sizeColumnsToFit () on the gridReady event.
+  (let [cols  (.. p -columnApi getAllColumns)
+        col-ids (into []
+                      (map #(. % -colId) cols))]
+    (.. p -columnApi (autoSizeColumns (clj->js col-ids) true))))
+
 (defn ^{:category :viz}
   aggrid
-  "displays a seq in a table, uses ag-grid
-   [aggrid {:columnDefs [{:headerName \"Make\" :field \"make\"}
-                         {:headerName \"Model\" :field \"model\"}
-                         {:headerName \"Price\" :field \"price\"}]
-            :rowData [{:make \"Toyota\" :model \"Celica\" :price 35000}
-                      {:make \"Ford\" :model \"Mondeo\" :price 32000}
-                      {:make \"Porsche\" :model \"Boxter\" :price 72000}]}]
-   "
+  "displays a seq in a table, uses ag-grid"
   [data]
-  (let [data-conv (default-cols data)
-        ;on-grid-ready
-        ;opts (assoc data-conv :onGridReady on-grid-ready)
-        ]
-    [:> AgGridReact data-conv]))
+  (let [spec (default-cols data)
+        ;spec (assoc spec :onFirstDataRendered on-grid-ready)
+        spec (assoc spec :onGridReady on-grid-ready)]
+    [:> AgGridReact spec]))
 
 (defn ag-theme-classname [theme]
   (if (= theme true)
