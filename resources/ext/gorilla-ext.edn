@@ -3,6 +3,16 @@
  :cljs-namespace [pinkgorilla.ui.goldly]
  :cljs-bindings {}
  :cljs-ns-bindings {}
+
+ :theme {:available  {:leaflet {true ["leaflet/dist/leaflet.css"]}
+                      :pydoc {true ["gorilla-ui/pydoc.css"]}}
+         :current {:leaflet true
+                   :pydoc true}}
+
+ ; modules and pinkie not yet via loader
+ :pinkie {}
+ :modules {}
+
  :snippets [{:type :goldly-clj
              :category :gorilla-ui
              :id :sparkline
