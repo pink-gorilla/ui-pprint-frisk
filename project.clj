@@ -43,17 +43,17 @@
                                     "test"]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/ui-repl "0.0.10"]
-                                     [org.pinkgorilla/ui-input "0.0.4"]
-                                     [org.pinkgorilla/goldly "0.2.96"]]
+                                     [org.pinkgorilla/ui-repl "0.0.17"]
+                                     [org.pinkgorilla/ui-input "0.0.7"]
+                                     [org.pinkgorilla/goldly "0.2.104"]]
                       } ; bundle
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook "0.5.35"]]}
+                                       [org.pinkgorilla/notebook "0.5.40"]]}
 
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                    [org.pinkgorilla/webly "0.3.8"]
-                                    [org.pinkgorilla/ui-input "0.0.4"]
+                                    [org.pinkgorilla/webly "0.3.23"]
+                                    [org.pinkgorilla/ui-input "0.0.7"]
                                     ]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle

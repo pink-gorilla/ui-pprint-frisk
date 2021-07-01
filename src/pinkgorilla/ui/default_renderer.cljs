@@ -9,7 +9,7 @@
    [pinkgorilla.ui.viz.cytoscape :refer [cytoscape cytoscape-boxed]]
    [pinkgorilla.ui.viz.leaflet :refer [leaflet-map]]
    [pinkgorilla.ui.viz.sparklines :refer [sparkline sparkline-bar sparkline-spot]]
-   [pinkgorilla.ui.viz.math]
+
    [pinkgorilla.ui.viz.video]
    [pinkgorilla.ui.viz.json]
    [pinkgorilla.ui.viz.frisk]

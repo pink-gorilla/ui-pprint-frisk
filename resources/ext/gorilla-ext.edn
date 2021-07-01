@@ -33,10 +33,7 @@
              :category :gorilla-ui
              :id :frisk
              :filename "snippets/gorilla-ui/frisk.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :math
-             :filename "snippets/gorilla-ui/math.edn"}
+            
             {:type :pinkie
              :category :gorilla-ui
              :id :ansi
