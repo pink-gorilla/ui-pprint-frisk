@@ -7,7 +7,7 @@
     ; viz
    [pinkgorilla.ui.viz.aggrid :refer [aggrid-styled]]
    [pinkgorilla.ui.viz.cytoscape :refer [cytoscape cytoscape-boxed]]
-   
+
    [pinkgorilla.ui.viz.sparklines :refer [sparkline sparkline-bar sparkline-spot]]
 
    [pinkgorilla.ui.viz.video]
@@ -28,6 +28,8 @@
 
 
 ;(register-component :p/cytoscape-raw cytoscape)
+
+
 (register-component :p/cytoscape cytoscape-boxed)
 
 (register-component :p/sparkline sparkline)
