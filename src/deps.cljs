@@ -9,10 +9,6 @@
   "ag-grid-community" "^25.2.0"
   "ag-grid-react" "^25.2.0"
 
-  ; leaflet maps
-  "leaflet" "^1.6.0"  ; icons
-  "react-leaflet" "^3.2.0"
-
   ; graphs
   "cytoscape" "^3.18.2"
   "cytoscape-cose-bilkent" "^4.1.0"

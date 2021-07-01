@@ -64,21 +64,5 @@
              :category :gorilla-ui
              :id :cytoscape4
              :filename "snippets/gorilla-ui/cytoscape4.edn"}
-            ; leaflet
-            {:type :pinkie
-             :category :leaflet
-             :id :leaflet-simpel
-             :filename "snippets/leaflet/leaflet_simpel.edn"}
-            {:type  :goldly-clj
-             :category :leaflet
-             :id :leaflet-london
-             :filename "snippets/leaflet/leaflet_london.clj"}
-            {:type  :goldly-clj
-             :category :leaflet
-             :id :leaflet-iss-realtime
-             :filename "snippets/leaflet/leaflet_iss_realtime.clj"}
-            {:type :goldly-clj
-             :category :leaflet
-             :id :leaflet-holiday
-             :filename "snippets/leaflet/holiday.clj"}]}
+            ]}
 

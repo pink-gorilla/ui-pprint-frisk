@@ -7,7 +7,7 @@
     ; viz
    [pinkgorilla.ui.viz.aggrid :refer [aggrid-styled]]
    [pinkgorilla.ui.viz.cytoscape :refer [cytoscape cytoscape-boxed]]
-   [pinkgorilla.ui.viz.leaflet :refer [leaflet-map]]
+   
    [pinkgorilla.ui.viz.sparklines :refer [sparkline sparkline-bar sparkline-spot]]
 
    [pinkgorilla.ui.viz.video]
@@ -25,7 +25,7 @@
 
 (register-component :p/aggrid aggrid-styled)
 
-(register-component :p/leaflet leaflet-map)
+
 
 ;(register-component :p/cytoscape-raw cytoscape)
 (register-component :p/cytoscape cytoscape-boxed)

@@ -13,7 +13,7 @@ cpr () {
   fi
 }
 
-cpr "leaflet/dist" "*.css"
+
 cpr "ag-grid-community/dist/styles" "*.css"
 
 
