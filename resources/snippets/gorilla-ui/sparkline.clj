@@ -19,6 +19,14 @@
   {:id :sparkline
    :state {}
    :html [:div.sparklines-container
+          [spark/line {:data data-20
+                         :limit 20
+                         :width 100
+                         :height 20
+                         :svgWidth 300
+                         :svgHeight 20
+                         :margin 5}]
+
           [:p/sparkline {:data data-20
                          :limit 20
                          :width 100
@@ -49,4 +57,4 @@
                             :svgHeight 20
                             :margin 1}]]
    :fns {}}
-  {:fns {}}))
+  ))

@@ -1,8 +1,11 @@
 {:name "gorilla-ui"
  :clj-require []
  :cljs-namespace [pinkgorilla.ui.goldly]
- :cljs-bindings {}
- :cljs-ns-bindings {}
+ :cljs-bindings {'aggrid pinkgorilla.ui.viz.aggrid/aggrid-styled}
+ :cljs-ns-bindings {'spark {'bar pinkgorilla.ui.viz.sparklines/sparkline-bar
+                            'spot pinkgorilla.ui.viz.sparklines/sparkline-spot
+                            'line pinkgorilla.ui.viz.sparklines/sparkline
+                                }}
 
  :theme {:available  {:leaflet {true ["leaflet/dist/leaflet.css"]}
                       :pydoc {true ["gorilla-ui/pydoc.css"]}}
@@ -43,6 +46,10 @@
              :category :aggrid
              :id :aggrid-small
              :filename "snippets/aggrid/aggrid_small.edn"}
+            {:type :pinkie
+             :category :aggrid
+             :id :aggrid-small2
+             :filename "snippets/aggrid/aggrid_small2.edn"}
             {:type :goldly-clj
              :category :aggrid
              :id :aggrid-large
