@@ -9,17 +9,13 @@
    ; from renderable-ui
    [pinkgorilla.ui.demo.gtable]
    ; js based enderer
-   [pinkgorilla.ui.demo.highchart]
    [pinkgorilla.ui.demo.json]
    [pinkgorilla.ui.demo.vega]
    [pinkgorilla.ui.demo.math]
    ; reagent based renderer
-   [pinkgorilla.ui.demo.leaflet]
    [pinkgorilla.ui.demo.sparklines]
    [pinkgorilla.ui.demo.player]
-   [pinkgorilla.ui.demo.aggrid]
    [pinkgorilla.ui.demo.clock]
-
    [clojure.edn :as edn]
    [pinkgorilla.pinkie :refer [pinkie]]))
 

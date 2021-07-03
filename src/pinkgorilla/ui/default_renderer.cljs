@@ -5,7 +5,6 @@
    [pinkie.pinkie :refer-macros [register-component]]
 
     ; viz
-   [pinkgorilla.ui.viz.aggrid :refer [aggrid-styled]]
    [pinkgorilla.ui.viz.cytoscape :refer [cytoscape cytoscape-boxed]]
 
    [pinkgorilla.ui.viz.sparklines :refer [sparkline sparkline-bar sparkline-spot]]
@@ -23,13 +22,7 @@
    [pinkgorilla.ui.pinkie.components-ui]
    [pinkgorilla.ui.pinkie.pydoc]))
 
-(register-component :p/aggrid aggrid-styled)
-
-
-
 ;(register-component :p/cytoscape-raw cytoscape)
-
-
 (register-component :p/cytoscape cytoscape-boxed)
 
 (register-component :p/sparkline sparkline)

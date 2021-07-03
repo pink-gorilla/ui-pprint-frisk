@@ -5,9 +5,6 @@
   ; fullscreen
   ;"react-full-screen" "^1.0.2"; does not work - hooks issue needs to be investigated
 
-  ; ag grid
-  "ag-grid-community" "^25.2.0"
-  "ag-grid-react" "^25.2.0"
 
   ; graphs
   "cytoscape" "^3.18.2"
