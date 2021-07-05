@@ -1,7 +1,5 @@
 (ns pinkgorilla.ui.viz.ansi
-
   (:require
-   [pinkie.pinkie :refer-macros [register-component]]
    [lambdaisland.ansi :as ansi]))
 
 (defn ^{:category :ui}
@@ -13,5 +11,5 @@
     (println "hiccup: " h)
     (into [:div h] h)))
 
-(register-component :p/ansi ansi)
+
 

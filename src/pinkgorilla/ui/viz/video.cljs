@@ -1,7 +1,6 @@
 (ns pinkgorilla.ui.viz.video
   (:require
-   ["react-player" :as rp :refer [ReactPlayer]]
-   [pinkie.pinkie :refer-macros [register-component]]))
+   ["react-player" :as rp :refer [ReactPlayer]]))
 
 (defn ^{:category :ui}
   video
@@ -16,4 +15,3 @@
   ;[:div ; -player
   [:> rp/default options]) ; {:url url :playing true}
 
-(register-component :p/video video)

@@ -4,7 +4,6 @@
    JSON to the dom node that is passed.
    In early state component development this is helpful."
   (:require
-   [pinkie.pinkie :refer-macros [register-component]]
    [pinkie.jsrender :refer [render-js]]))
 
 (defn render-json [dom-node data-js]
@@ -20,5 +19,4 @@
   [data-clj]
   [render-js {:f render-json :data data-clj}])
 
-(register-component :p/json json)
 

@@ -1,7 +1,6 @@
 (ns pinkgorilla.ui.pinkie.pydoc
   (:require
-   [clojure.string :as str]
-   [pinkie.pinkie :refer-macros [register-component]]))
+   [clojure.string :as str]))
 
 ;{:module "numpy"
 ; :name "transpose"
@@ -68,6 +67,4 @@
      [py-category "Int" int-items]
      [py-category "Float" float-items]
      [py-category "Str" str-items]]))
-
-(register-component :p/pydoc py-doc)
 

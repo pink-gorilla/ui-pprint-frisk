@@ -1,6 +1,4 @@
-(ns pinkgorilla.ui.app.aspect-ratio
-  (:require
-   [pinkie.pinkie :refer-macros [register-component]]))
+(ns pinkgorilla.ui.app.aspect-ratio)
 
 ; https://www.youtube.com/watch?v=nqNIy8HkEQ8
 
@@ -15,4 +13,4 @@
   (into [:div {:style {:padding-bottom (padding-ratio w h)}}
          children]))
 
-(register-component :p/aspectratio aspect-ratio)
+

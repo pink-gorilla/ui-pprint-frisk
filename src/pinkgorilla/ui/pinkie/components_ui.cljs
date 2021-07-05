@@ -3,7 +3,7 @@
    [clojure.string :as str]
    [reagent.core :as r]
    [pinkie.text :refer [text]]
-   [pinkie.pinkie :refer [component-list] :refer-macros [register-component]]))
+   [pinkie.pinkie :refer [component-list]]))
 
 (defn docstring [c]
   (get-in c [:meta :doc]))
@@ -53,6 +53,3 @@
         (if-let [c @selected-comp]
           [comp-doc c]
           [:p "Hover on components.."])]])))
-
-(register-component :p/componentsui components-ui)
-

@@ -45,7 +45,7 @@
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
                                      [org.pinkgorilla/ui-repl "0.0.18"]
                                      [org.pinkgorilla/ui-input "0.0.7"]
-                                     [org.pinkgorilla/goldly "0.2.108"]]
+                                     [org.pinkgorilla/goldly "0.3.3"]]
                       } ; bundle
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]

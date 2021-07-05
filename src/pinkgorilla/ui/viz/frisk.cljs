@@ -1,8 +1,7 @@
 (ns pinkgorilla.ui.viz.frisk
   (:require
    [cljs.pprint :refer [pprint]]
-   [reagent.core :as r]
-   [pinkie.pinkie :refer-macros [register-component]]))
+   [reagent.core :as r]))
 
 ;; stolen from: https://github.com/Odinodin/data-frisk-reagent
 
@@ -433,4 +432,3 @@
             (map-indexed (fn [id x]
                            ^{:key id} [Root x id state-atom]) data)])]))))
 
-(register-component :p/frisk DataFriskView)

@@ -1,17 +1,37 @@
 {:name "gorilla-ui"
  :clj-require []
- :cljs-namespace [pinkgorilla.ui.default-renderer]
+ :theme {:available {:pydoc {true ["gorilla-ui/pydoc.css"]}}
+         :current {:pydoc true}}
+ :cljs-namespace [pinkie.default-setup ; side-effects
+                  pinkgorilla.ui.viz.sparklines
+                  pinkgorilla.ui.viz.frisk
+                  pinkgorilla.ui.viz.video
+                  pinkgorilla.ui.viz.json
+                  pinkgorilla.ui.viz.ansi
+                  pinkgorilla.ui.app.card
+                  pinkgorilla.ui.app.aspect-ratio
+                  pinkgorilla.ui.pinkie.components-ui
+                  pinkgorilla.ui.pinkie.pydoc]
  :cljs-bindings {}
  :cljs-ns-bindings {'spark {'bar pinkgorilla.ui.viz.sparklines/sparkline-bar
                             'spot pinkgorilla.ui.viz.sparklines/sparkline-spot
-                            'line pinkgorilla.ui.viz.sparklines/sparkline
-                                }}
+                            'line pinkgorilla.ui.viz.sparklines/sparkline}}
 
- :theme {:available {:pydoc {true ["gorilla-ui/pydoc.css"]}}
-         :current {:pydoc true}}
+ :pinkie {:p/frisk pinkgorilla.ui.viz.frisk/DataFriskView
+          :p/video pinkgorilla.ui.viz.video/video
+          :p/json pinkgorilla.ui.viz.json/json
+          :p/ansi pinkgorilla.ui.viz.ansi/ansi
+          :p/card  pinkgorilla.ui.app.card/card
+          :p/aspectratio  pinkgorilla.ui.app.aspect-ratio/aspect-ratio
+          :p/componentsui  pinkgorilla.ui.pinkie.components-ui/components-ui
+          :p/pydoc pinkgorilla.ui.pinkie.pydoc/py-doc
+          :p/sparklinebar pinkgorilla.ui.viz.sparklines/sparkline-bar
+          :p/sparklinespot pinkgorilla.ui.viz.sparklines/sparkline-spot
+          :p/sparkline pinkgorilla.ui.viz.sparklines/sparkline}
 
- ; modules and pinkie not yet via loader
- :pinkie {}
+
+ ; modules  not yet via loader
+
  :modules {}
 
  :snippets [{:type :goldly-clj
@@ -34,28 +54,8 @@
              :category :gorilla-ui
              :id :frisk
              :filename "snippets/gorilla-ui/frisk.edn"}
-            
             {:type :pinkie
              :category :gorilla-ui
              :id :ansi
-             :filename "snippets/gorilla-ui/ansi.edn"}
-            
-            ; cytoscape
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :cytoscape1
-             :filename "snippets/gorilla-ui/cytoscape1.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :cytoscape2
-             :filename "snippets/gorilla-ui/cytoscape2.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :cytoscape3
-             :filename "snippets/gorilla-ui/cytoscape3.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :cytoscape4
-             :filename "snippets/gorilla-ui/cytoscape4.edn"}
-            ]}
+             :filename "snippets/gorilla-ui/ansi.edn"}]}
 

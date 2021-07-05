@@ -1,6 +1,4 @@
-(ns pinkgorilla.ui.app.card
-  (:require
-   [pinkie.pinkie :refer-macros [register-component]]))
+(ns pinkgorilla.ui.app.card)
 
 (defn ^{:category :layout}
   card [{:keys [heading text img href]}]
@@ -18,4 +16,4 @@
       [:img {:class "w-11 h-11 rounded-full mr-4 shadow-lg border-2 border-black"
              :src (if img img "unknown.jpg")}]]]]])
 
-(register-component :p/card card)
+
