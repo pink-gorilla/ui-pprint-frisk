@@ -31,7 +31,7 @@
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
                  [fipp "0.6.23"] ; edn pretty printing - for examples (examples get shipped)
                  [lambdaisland/ansi "0.1.6"]
-                 [org.pinkgorilla/pinkie "0.3.3"]]
+                 [org.pinkgorilla/pinkie "0.3.6"]] ; box renderer
 
   :managed-dependencies [; conflict resolution for notebook
                          [borkdude/sci "0.2.5"]

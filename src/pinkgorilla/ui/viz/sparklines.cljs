@@ -2,6 +2,8 @@
   (:require
    ["react-sparklines" :as rs :refer [Sparklines SparklinesLine SparklinesBars SparklinesSpots]]))
 
+; https://www.npmjs.com/package/react-sparklines
+
 (defn ^{:category :data}
   sparkline
   "displays sparkline line-plot

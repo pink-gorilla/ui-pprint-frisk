@@ -8,7 +8,6 @@
    ; side-effects
    [demo.events]
    [demo.page.main]
-   ;[demo.page.leaflet]
    ))
 
 

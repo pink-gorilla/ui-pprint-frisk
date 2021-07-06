@@ -1,6 +1,9 @@
 (ns pinkgorilla.ui.viz.video
   (:require
-   ["react-player" :as rp :refer [ReactPlayer]]))
+   ["react-player" :as rp]
+   [taoensso.timbre :as timbre :refer [info]]
+
+   [pinkie.box :refer [apply-style]]))
 
 (defn ^{:category :ui}
   video
@@ -11,7 +14,8 @@
    for more config options, see:
    https://www.npmjs.com/package/react-player
    "
-  [options]
-  ;[:div ; -player
-  [:> rp/default options]) ; {:url url :playing true}
+  [props]
+  (let [m (apply-style props)]
+    (info "player props: " m)
+    [:> rp/default m])) ; {:url url :playing true}
 
