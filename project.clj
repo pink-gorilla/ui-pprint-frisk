@@ -29,9 +29,9 @@
   :dependencies [[thi.ng/strf "0.2.2"
                   :exclusions [org.clojure/clojurescript]]
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"] ;; awb99: in encoding, and clj/cljs proof
-                 [fipp "0.6.23"] ; edn pretty printing - for examples (examples get shipped)
+                 [fipp "0.6.24"] ; edn pretty printing - for examples (examples get shipped)
                  [lambdaisland/ansi "0.1.6"]
-                 [org.pinkgorilla/pinkie "0.3.6"]] ; box renderer
+                 [org.pinkgorilla/pinkie "0.3.11"]] ; box renderer
 
   :managed-dependencies [; conflict resolution for notebook
                          [borkdude/sci "0.2.5"]
@@ -43,17 +43,17 @@
                                     "test"]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/ui-repl "0.0.18"]
-                                     [org.pinkgorilla/ui-input "0.0.7"]
-                                     [org.pinkgorilla/goldly "0.3.3"]]
+                                     [org.pinkgorilla/ui-repl "0.0.20"]
+                                     [org.pinkgorilla/ui-input "0.0.10"]
+                                     [org.pinkgorilla/goldly "0.3.11"]]
                       } ; bundle
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
                                        [org.pinkgorilla/notebook "0.5.40"]]}
 
              :webly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                    [org.pinkgorilla/webly "0.3.26"]
-                                    [org.pinkgorilla/ui-input "0.0.7"]
+                                    [org.pinkgorilla/webly "0.3.39"]
+                                    [org.pinkgorilla/ui-input "0.0.10"]
                                     ]
                      :resource-paths  ["profiles/webly/resources"
                                        "target/webly"] ; bundle
@@ -110,7 +110,8 @@
             ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
              "run" "-m" "goldly-server.app"
              "goldly-gorillaui.edn"
-             "watch"]
+             ;"watch"
+             ]
 
             "notebook"
             ["with-profile" "+notebook"

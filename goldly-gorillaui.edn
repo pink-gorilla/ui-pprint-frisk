@@ -1,2 +1,2 @@
-{:goldly {}}
+{:goldly {:lazy true}}
 
