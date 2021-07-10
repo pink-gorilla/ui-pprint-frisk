@@ -1,9 +1,8 @@
-{:name "gorilla-ui"
+{:name "ui-gorilla"
  :clj-require []
  :theme {:available {:pydoc {true ["gorilla-ui/pydoc.css"]}}
          :current {:pydoc true}}
- :cljs-namespace [;pinkie.default-setup ; side-effects
-                  pinkgorilla.ui.viz.sparklines
+ :cljs-namespace [pinkgorilla.ui.viz.sparklines
                   pinkgorilla.ui.viz.frisk
                   pinkgorilla.ui.viz.video
                   pinkgorilla.ui.viz.json
@@ -12,7 +11,8 @@
                   pinkgorilla.ui.app.aspect-ratio
                   pinkgorilla.ui.pinkie.components-ui
                   pinkgorilla.ui.pinkie.pydoc]
- :cljs-bindings {}
+ :cljs-bindings {'video pinkgorilla.ui.viz.video/video
+                 'frisk pinkgorilla.ui.viz.frisk/frisk}
  :cljs-ns-bindings {'spark {'bar pinkgorilla.ui.viz.sparklines/sparkline-bar
                             'spot pinkgorilla.ui.viz.sparklines/sparkline-spot
                             'line pinkgorilla.ui.viz.sparklines/sparkline}}

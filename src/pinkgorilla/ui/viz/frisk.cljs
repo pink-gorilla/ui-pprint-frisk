@@ -432,3 +432,5 @@
             (map-indexed (fn [id x]
                            ^{:key id} [Root x id state-atom]) data)])]))))
 
+(defn frisk [data]
+  [DataFriskView data])

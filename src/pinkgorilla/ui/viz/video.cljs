@@ -9,7 +9,7 @@
   video
   "plays Youtube videos
    usage:
-   [:p/player {:url url}]
+   [:p/player {:url url :playing false}]
    
    for more config options, see:
    https://www.npmjs.com/package/react-player

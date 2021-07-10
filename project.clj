@@ -1,6 +1,6 @@
-(defproject org.pinkgorilla/gorilla-ui "0.3.50-SNAPSHOT"
+(defproject org.pinkgorilla/ui-gorilla "0.3.50-SNAPSHOT"
   :description "Reagent components for data visualisation."
-  :url "https://github.com/pink-gorilla/gorilla-ui"
+  :url "https://github.com/pink-gorilla/ui-gorilla"
   :license {:name "MIT"}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
