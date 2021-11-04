@@ -1,10 +1,8 @@
 (ns pinkgorilla.ui.macros
   (:require [clojure.java.io :as io]))
 
-
 ;; inline-resources cannot be used in self-hosted clojurescript,
 ;; as the java.io is not available there.
-
 
 (defmacro inline-resource
   [resource-path]

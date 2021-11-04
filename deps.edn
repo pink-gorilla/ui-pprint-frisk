@@ -1,0 +1,68 @@
+{:paths ["src"
+         "resources" ; snippets, demo data and specs
+         "target/node_modules"] ; vega specs json
+ :deps
+ {org.clojure/clojure    {:mvn/version "1.10.3"}
+  lambdaisland/ansi {:mvn/version "0.1.6"}}
+
+ :aliases
+ {;https://github.com/applied-science/deps-library
+  :release
+  {:extra-deps {applied-science/deps-library {:mvn/version "0.4.0"}}
+   :main-opts ["-m" "applied-science.deps-library"]}
+
+  ; https://github.com/weavejester/cljfmt
+  :cljfmt
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
+   :main-opts ["-m" "cljfmt.main" "check" "--indents" "cljfmt.edn"]}
+  :cljfmt-fix
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
+   :main-opts ["-m" "cljfmt.main" "fix" "--indents" "cljfmt.edn"]}
+
+ ; https://github.com/clj-kondo/clj-kondo/blob/master/doc/jvm.md
+  :lint
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "clj-kondo.main"
+               "--lint"
+               "src" "test"
+               "--config" "cljkondo.edn"]}
+
+  :outdated
+  {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "antq.core"]}
+
+  :check
+  {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
+                                 :sha "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
+   :main-opts ["-m" "clj-check.check"]}
+
+  :garamond
+  {:main-opts ["-m" "garamond.main"]
+   :extra-deps {com.workframe/garamond {:mvn/version "0.4.0"}}}
+
+  :test
+  {:extra-paths ["test" "demo"]
+   :extra-deps {io.github.cognitect-labs/test-runner
+                {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                 :sha "dd6da11611eeb87f08780a30ac8ea6012d4c05ce"}}
+   :main-opts ["-m" "cognitect.test-runner"]
+   :exec-fn cognitect.test-runner.api/test}
+
+  ; demo ui
+
+  :ci {:extra-paths ["test"]
+       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.67"}}
+       :exec-fn webly.user.app.app/webly-run
+       :exec-args {:profile "ci"
+                   :config nil}}
+
+  :goldly ; goldly compile (compile because we bring new cljs)
+  {:extra-paths ["demo"] ; to show static files (not auto generated ones)
+   :extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.67"
+                                        :exclusions [org.pinkgorilla/ui-gorilla]}}
+   :exec-fn goldly.app/goldly-server-run!
+   :exec-args {:profile "watch2"
+               :config "goldly-gorillaui.edn"}}
+
+;
+  }}

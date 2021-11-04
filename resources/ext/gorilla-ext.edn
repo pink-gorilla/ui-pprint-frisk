@@ -28,28 +28,5 @@
           :p/sparklinespot pinkgorilla.ui.viz.sparklines/sparkline-spot
           :p/sparkline pinkgorilla.ui.viz.sparklines/sparkline}
  :lazy true
- :snippets [{:type :goldly-clj
-             :category :gorilla-ui
-             :id :sparkline
-             :filename "snippets/gorilla-ui/sparkline.clj"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :video
-             :filename "snippets/gorilla-ui/video.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :json
-             :filename "snippets/gorilla-ui/json.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :html
-             :filename "snippets/gorilla-ui/html.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :frisk
-             :filename "snippets/gorilla-ui/frisk.edn"}
-            {:type :pinkie
-             :category :gorilla-ui
-             :id :ansi
-             :filename "snippets/gorilla-ui/ansi.edn"}]}
+ }
 

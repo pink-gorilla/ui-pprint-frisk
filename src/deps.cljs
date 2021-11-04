@@ -3,7 +3,7 @@
   ; based on this dependencies 
 
   ; video
-  "react-player" "^2.9.0" ; "^1.14.2"
+  "react-player" "^2.9.0"
 
   ;sparklines
   "react-sparklines" "^1.7.0"

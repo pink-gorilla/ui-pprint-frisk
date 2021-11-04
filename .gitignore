@@ -18,3 +18,5 @@ karma.conf.js
 .calva
 goldly_bindings_generated.cljs
 .webly
+.cpcache
+/rdocument
