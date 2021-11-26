@@ -1,5 +1,5 @@
 
-[:p/json
+[json
  {:title "Economic Activity"
   :subtitle "made with Love"
   :labels ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug"]

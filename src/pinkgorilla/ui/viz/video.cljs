@@ -2,7 +2,6 @@
   (:require
    ["react-player" :as rp]
    [taoensso.timbre :as timbre :refer [info]]
-
    [pinkie.box :refer [apply-style]]))
 
 (defn ^{:category :ui}

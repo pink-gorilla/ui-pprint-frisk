@@ -1,5 +1,5 @@
 {:name "ui-gorilla"
- :clj-require []
+ :lazy true
  :theme {:available {:pydoc {true ["gorilla-ui/pydoc.css"]}}
          :current {:pydoc true}}
  :cljs-namespace [pinkgorilla.ui.viz.sparklines
@@ -12,10 +12,13 @@
                   pinkgorilla.ui.pinkie.components-ui
                   pinkgorilla.ui.pinkie.pydoc]
  :cljs-bindings {'video pinkgorilla.ui.viz.video/video
-                 'frisk pinkgorilla.ui.viz.frisk/frisk}
+                 'frisk pinkgorilla.ui.viz.frisk/frisk
+                 'json pinkgorilla.ui.viz.json/json
+                 }
  :cljs-ns-bindings {'spark {'bar pinkgorilla.ui.viz.sparklines/sparkline-bar
                             'spot pinkgorilla.ui.viz.sparklines/sparkline-spot
                             'line pinkgorilla.ui.viz.sparklines/sparkline}}
+
  :pinkie {:p/frisk pinkgorilla.ui.viz.frisk/DataFriskView
           :p/video pinkgorilla.ui.viz.video/video
           :p/json pinkgorilla.ui.viz.json/json
@@ -27,6 +30,5 @@
           :p/sparklinebar pinkgorilla.ui.viz.sparklines/sparkline-bar
           :p/sparklinespot pinkgorilla.ui.viz.sparklines/sparkline-spot
           :p/sparkline pinkgorilla.ui.viz.sparklines/sparkline}
- :lazy true
- }
+ :clj-require []}
 
