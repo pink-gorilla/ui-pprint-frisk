@@ -1,9 +1,10 @@
 {:paths ["src"
-         "resources" ; snippets, demo data and specs
+         "resources" ; goldly extension
          "target/node_modules"] ; vega specs json
  :deps
  {org.clojure/clojure    {:mvn/version "1.10.3"}
-  lambdaisland/ansi {:mvn/version "0.1.6"}}
+  ;lambdaisland/ansi {:mvn/version "0.1.6"}
+  }
 
  :aliases
  {;https://github.com/applied-science/deps-library
