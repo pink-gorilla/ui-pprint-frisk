@@ -1,0 +1,6 @@
+{:name "ui-video"
+ :lazy true
+ :cljs-namespace [pinkgorilla.ui.viz.video]
+ :cljs-bindings {'video pinkgorilla.ui.viz.video/video}
+}
+

@@ -20,3 +20,4 @@ goldly_bindings_generated.cljs
 .webly
 .cpcache
 /rdocument
+.clj-kondo

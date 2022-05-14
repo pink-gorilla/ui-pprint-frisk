@@ -1,0 +1,14 @@
+{:name "ui-gorilla"
+ :lazy true
+ :theme {:available {:pydoc {true ["gorilla-ui/pydoc.css"]}}
+         :current {:pydoc true}}
+ :cljs-namespace [pinkgorilla.ui.viz.frisk
+                  pinkgorilla.ui.viz.json
+                  pinkgorilla.ui.viz.ansi
+                  pinkgorilla.ui.app.card
+                  pinkgorilla.ui.app.aspect-ratio
+                  pinkgorilla.ui.pinkie.components-ui
+                  pinkgorilla.ui.pinkie.pydoc]
+ :cljs-bindings {'json pinkgorilla.ui.viz.json/json}
+}
+
