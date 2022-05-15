@@ -1,4 +1,5 @@
 {:name "ui-frisk"
+ ; build
  :lazy true
  :cljs-namespace [pinkgorilla.ui.viz.frisk]
  :cljs-bindings {'frisk pinkgorilla.ui.viz.frisk/frisk}

@@ -1,5 +1,5 @@
 {:name "ui-sparklines"
- ; compile-time
+ ; build
  :lazy true
  :cljs-namespace [pinkgorilla.ui.viz.sparklines]
  :cljs-ns-bindings {'spark {'bar pinkgorilla.ui.viz.sparklines/sparkline-bar

@@ -63,7 +63,7 @@
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn goldly.app.build/goldly-build
    :exec-args {:profile "compile2"
-               :config ["webly/config.edn" "goldly/config.edn" "gorilla-ui-config.edn"]}}
+               :config ["webly/config.edn" "goldly/config.edn"]}}
 
 
 ; RUN SERVICES (keep running)
@@ -74,8 +74,7 @@
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn modular.system/start!
    :exec-args {:profile "jetty"
-               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"
-                        "gorilla-ui-config.edn"]
+               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"]
                :services "goldly/docs-services.edn"}}
 
   ; BUILD BUNDLE (then exit)
@@ -85,8 +84,7 @@
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn goldly.app.build/goldly-build
    :exec-args {:profile "compile2"
-               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"
-                        "gorilla-ui-config.edn"]}}
+               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"]}}
 
 
 
