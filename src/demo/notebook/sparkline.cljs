@@ -10,6 +10,7 @@
 (def data-100 (data 100))
 (def data-150 (data 150))
 
+^:R
 [:div
  [spark/line {:data data-20 :limit 20
                         ;:width 100 :height 20

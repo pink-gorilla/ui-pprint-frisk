@@ -57,13 +57,38 @@
        :exec-args {:profile "ci"
                    :config nil}}
 
-  :goldly ; goldly compile (compile because we bring new cljs)
-  {:extra-paths ["demo"] ; to show static files (not auto generated ones)
-   :extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.67"
+  :goldly
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.4.519"
                                         :exclusions [org.pinkgorilla/ui-gorilla]}}
-   :exec-fn goldly.app/goldly-server-run!
-   :exec-args {:profile "watch2"
-               :config "goldly-gorillaui.edn"}}
+   :jvm-opts ["-Dmaven.wagon.rto=90000"]
+   :exec-fn goldly.app.build/goldly-build
+   :exec-args {:profile "compile2"
+               :config ["webly/config.edn" "goldly/config.edn" "gorilla-ui-config.edn"]}}
+
+
+; RUN SERVICES (keep running)
+  :docs-run
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.519"
+                                             :exclusions [org.pinkgorilla/ui-gorilla]}}
+   :extra-paths ["demo"]
+   :jvm-opts ["-Dmaven.wagon.rto=90000"]
+   :exec-fn modular.system/start!
+   :exec-args {:profile "jetty"
+               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"
+                        "gorilla-ui-config.edn"]
+               :services "goldly/docs-services.edn"}}
+
+  ; BUILD BUNDLE (then exit)
+  :docs-build
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.519"
+                                             :exclusions [org.pinkgorilla/ui-gorilla]}}
+   :jvm-opts ["-Dmaven.wagon.rto=90000"]
+   :exec-fn goldly.app.build/goldly-build
+   :exec-args {:profile "compile2"
+               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"
+                        "gorilla-ui-config.edn"]}}
+
+
 
 ;
   }}
