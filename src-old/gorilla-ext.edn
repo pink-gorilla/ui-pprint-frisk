@@ -2,8 +2,7 @@
  :lazy true
  :theme {:available {:pydoc {true ["gorilla-ui/pydoc.css"]}}
          :current {:pydoc true}}
- :cljs-namespace [pinkgorilla.ui.viz.frisk
-                  pinkgorilla.ui.viz.json
+ :cljs-namespace [pinkgorilla.ui.viz.json
                   pinkgorilla.ui.viz.ansi
                   pinkgorilla.ui.app.card
                   pinkgorilla.ui.app.aspect-ratio

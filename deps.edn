@@ -57,36 +57,24 @@
        :exec-args {:profile "ci"
                    :config nil}}
 
-  :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.4.519"
-                                        :exclusions [org.pinkgorilla/ui-gorilla]}}
-   :jvm-opts ["-Dmaven.wagon.rto=90000"]
-   :exec-fn goldly.app.build/goldly-build
-   :exec-args {:profile "compile2"
-               :config ["webly/config.edn" "goldly/config.edn"]}}
-
-
 ; RUN SERVICES (keep running)
-  :docs-run
-  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.519"
-                                             :exclusions [org.pinkgorilla/ui-gorilla]}}
-   :extra-paths ["demo"]
+  :docs
+  {:extra-paths ["target/webly" ; to include the sci-bindings info
+                 "node_modules"
+                 "demo"]
+   :extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.537"
+                                             :exclusions  [org.pinkgorilla/ui-gorilla]}}
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn modular.system/start!
    :exec-args {:profile "jetty"
-               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"]
-               :services "goldly/docs-services.edn"}}
+               :services "goldly/services.edn"
+               :config  ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"]}}
+
 
   ; BUILD BUNDLE (then exit)
-  :docs-build
-  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.519"
-                                             :exclusions [org.pinkgorilla/ui-gorilla]}}
-   :jvm-opts ["-Dmaven.wagon.rto=90000"]
-   :exec-fn goldly.app.build/goldly-build
-   :exec-args {:profile "compile2"
-               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"]}}
-
-
+  :build
+  {:exec-fn goldly.app.build/goldly-build
+   :exec-args {:profile "npm-install"}}
 
 ;
   }}

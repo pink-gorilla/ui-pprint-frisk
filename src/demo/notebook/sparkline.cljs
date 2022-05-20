@@ -1,9 +1,6 @@
 
 (defn data [nr]
-  (let [d (vec (take nr (repeatedly rand)))
-       ; _ (println "d is:" d)
-        ]
-    d))
+  (vec (take nr (repeatedly rand))))
 
 (def data-20 (data 20))
 (def data-40 (data 40))
