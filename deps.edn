@@ -1,5 +1,5 @@
 {:paths ["src"
-         "resources" ; goldly extension
+         "resources" ; extension
          "target/node_modules"] ; vega specs json
  :deps
  {org.clojure/clojure    {:mvn/version "1.10.3"}
@@ -62,7 +62,7 @@
   {:extra-paths ["target/webly" ; to include the sci-bindings info
                  "node_modules"
                  "demo"]
-   :extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.537"
+   :extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.540"
                                              :exclusions  [org.pinkgorilla/ui-gorilla]}}
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn modular.system/start!

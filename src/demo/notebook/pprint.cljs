@@ -1,5 +1,6 @@
 (ns demo.notebook.pprint
-  [cljs.pprint :refer [print-table]])
+  (:require
+   [cljs.pprint :refer [print-table]]))
 
-(print-table {:name "Harry" :age "?"
-              :name "Dumbeldor" :age "old"})
+(cljs.pprint/print-table [{:name "Harry" :age "?"}
+                          {:name "Dumbeldor" :age "old"}])

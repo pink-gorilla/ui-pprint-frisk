@@ -1,7 +1,7 @@
 {:name "ui-video"
  ;build
- :lazy true
+ :lazy false
+ :lazy-sci true
  :cljs-namespace [pinkgorilla.ui.viz.video]
- :cljs-bindings {'video pinkgorilla.ui.viz.video/video}
-}
+ :cljs-ns-bindings {'video {'video pinkgorilla.ui.viz.video/video}}}
 

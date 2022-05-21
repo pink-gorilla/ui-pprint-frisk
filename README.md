@@ -10,5 +10,5 @@
 
 ## Demo 
 
-Run `clojure -X:docs-run` to run goldly-docs with ui-gorilla. 
+Run `clojure -X:docs` to run goldly-docs with ui-gorilla. 
 This will run a web server at port 8080. 
