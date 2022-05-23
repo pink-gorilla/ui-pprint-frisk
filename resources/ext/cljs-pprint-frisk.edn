@@ -1,10 +1,10 @@
 {:name "cljs-pprint-frisk"
  ; build
  :lazy-sci true ; frisk requires cljs-pprint
- :cljs-namespace [pinkgorilla.ui.viz.pprint
-                  pinkgorilla.ui.viz.frisk]
- :cljs-ns-bindings {'cljs.pprint {'pprint pinkgorilla.ui.viz.pprint/pprint
-                                  'print-table pinkgorilla.ui.viz.pprint/print-table}
-                    'frisk {'frisk pinkgorilla.ui.viz.frisk/frisk}
+ :cljs-namespace [ui.pprint
+                  ui.frisk]
+ :cljs-ns-bindings {'cljs.pprint {'pprint ui.pprint/pprint
+                                  'print-table ui.pprint/print-table}
+                    'ui.frisk {'frisk ui.frisk/frisk}
                     }}
 

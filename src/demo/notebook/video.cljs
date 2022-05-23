@@ -1,6 +1,6 @@
 (ns demo.notebook.video
   (:require
-   [video :refer [video]]))
+   [ui.video :refer [video]]))
 
 ^:R
 [:div

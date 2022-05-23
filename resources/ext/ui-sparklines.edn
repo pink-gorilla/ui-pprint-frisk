@@ -1,9 +1,0 @@
-{:name "ui-sparklines"
- ; build
- :lazy true
- :cljs-namespace [pinkgorilla.ui.viz.sparklines]
- :cljs-ns-bindings {'spark {'bar pinkgorilla.ui.viz.sparklines/sparkline-bar
-                            'spot pinkgorilla.ui.viz.sparklines/sparkline-spot
-                            'line pinkgorilla.ui.viz.sparklines/sparkline}}
- }
-

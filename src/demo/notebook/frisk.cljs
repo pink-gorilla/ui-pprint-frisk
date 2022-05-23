@@ -1,6 +1,6 @@
 (ns demo.notebook.frisk
   (:require
-   [frisk :refer [frisk]]))
+   [ui.frisk :refer [frisk]]))
 
 ^:R
 [:div

@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.viz.pprint
+(ns ui.pprint
   (:require
    [cljs.pprint :as pp]
    [sci.core :as sci]))

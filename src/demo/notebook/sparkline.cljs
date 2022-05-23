@@ -1,6 +1,6 @@
 (ns demo.notebook.sparkline
   (:require
-   [spark]))
+   [ui.spark :as spark]))
 
 (defn data [nr]
   (vec (take nr (repeatedly rand))))

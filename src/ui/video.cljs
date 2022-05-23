@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.viz.video
+(ns ui.video
   (:require
    ["react-player" :as rp]))
 

@@ -12,3 +12,13 @@
 
 Run `clojure -X:docs` to run goldly-docs with ui-gorilla. 
 This will run a web server at port 8080. 
+
+
+## developers
+
+```
+clojure -X:docs:build :profile "npm-install"
+clojure -X:docs:build :profile "compile2"
+clojure -X:docs
+
+```

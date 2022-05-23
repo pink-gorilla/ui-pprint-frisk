@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.viz.sparklines
+(ns ui.spark
   (:require
    ["react-sparklines" :as rs :refer [Sparklines SparklinesLine SparklinesBars SparklinesSpots]]))
 
