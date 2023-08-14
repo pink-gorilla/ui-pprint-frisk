@@ -1,6 +1,0 @@
-{:name "ui-video"
- ;build
- :lazy-sci true
- :cljs-namespace [ui.video]
- :cljs-ns-bindings {'ui.video {'video ui.video/video}}}
-
