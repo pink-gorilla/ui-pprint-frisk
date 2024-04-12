@@ -18,13 +18,15 @@ jobs:
       with:
         node-version: 12.x
     - name: Prepare java
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v2
       with:
-        java-version: 1.14
+        distribution: 'zulu' # https://github.com/actions/setup-java/blob/main/README.md#Supported-distributions
+        java-version: '14'
+        java-package: jdk # optional (jdk or jre) - defaults to jdk
     - name: Install clojure tools
       uses: DeLaGuardo/setup-clojure@3.5
       with:
-        cli: 1.10.3.882
+        cli: 1.10.3.929 # Clojure CLI based on tools.deps
     - name: clj-fmt
       if: ${{ matrix.os != 'windows-latest' }}
       run: clojure -M:cljfmt
