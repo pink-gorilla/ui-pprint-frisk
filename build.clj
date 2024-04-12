@@ -5,7 +5,7 @@
    [deps-deploy.deps-deploy :as dd]))
 
 (def lib 'org.pinkgorilla/ui-pprint-frisk)
-(def version (format "0.1.%s" (b/git-count-revs nil)))
+(def version (format "0.6.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn"}))
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
