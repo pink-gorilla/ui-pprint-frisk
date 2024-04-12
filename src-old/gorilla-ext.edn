@@ -8,6 +8,5 @@
                   pinkgorilla.ui.app.aspect-ratio
                   pinkgorilla.ui.pinkie.components-ui
                   pinkgorilla.ui.pinkie.pydoc]
- :cljs-bindings {'json pinkgorilla.ui.viz.json/json}
 }
 
