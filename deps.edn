@@ -7,10 +7,11 @@
   }
 
  :aliases
- {;https://github.com/applied-science/deps-library
-  :release
-  {:extra-deps {applied-science/deps-library {:mvn/version "0.4.0"}}
-   :main-opts ["-m" "applied-science.deps-library"]}
+ {; github ci  
+  :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.6"}
+                 slipset/deps-deploy {:mvn/version "0.2.1"}
+                 babashka/fs {:mvn/version "0.0.5"}}
+          :ns-default build}
 
   ; https://github.com/weavejester/cljfmt
   :cljfmt
@@ -28,53 +29,30 @@
                "src" "test"
                "--config" "cljkondo.edn"]}
 
-  :outdated
-  {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
-   :main-opts ["-m" "antq.core"]}
-
-  :check
-  {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
-                                 :sha "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
-   :main-opts ["-m" "clj-check.check"]}
-
-  :garamond
-  {:main-opts ["-m" "garamond.main"]
-   :extra-deps {com.workframe/garamond {:mvn/version "0.4.0"}}}
-
-  :test
-  {:extra-paths ["test" "demo"]
-   :extra-deps {io.github.cognitect-labs/test-runner
-                {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                 :sha "dd6da11611eeb87f08780a30ac8ea6012d4c05ce"}}
-   :main-opts ["-m" "cognitect.test-runner"]
-   :exec-fn cognitect.test-runner.api/test}
-
   ; demo ui
+  :webly {:exec-fn webly.app.app/webly-build
+          :extra-deps {org.pinkgorilla/webly {:mvn/version "0.5.661"}
+                       org.pinkgorilla/ui-repl {:mvn/version "0.1.94"}}
+          :extra-paths ["demo" "demo/resources"]
+          :exec-args {:config ["demo-config.edn"]
+                      :profile "npm-install"}}
 
-  :ci {:extra-paths ["test"]
-       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.67"}}
-       :exec-fn webly.user.app.app/webly-run
-       :exec-args {:profile "ci"
-                   :config nil}}
+  :npm-install {:exec-args {:profile "npm-install"}}
+  :compile {:exec-args {:profile "compile2"}}
+  :release {:exec-args {:profile "release"}}
+  :release-adv {:exec-args {:profile "release-adv"}}
+  :static {:exec-args {:profile "static"}}
+  :ci {:exec-args {:profile "ci"}}
 
-; RUN SERVICES (keep running)
-  :docs
-  {:extra-paths ["target/webly" ; to include the sci-bindings info
-                 "node_modules"
-                 "demo"]
-   :extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.545"
-                                             :exclusions  [org.pinkgorilla/ui-gorilla]}}
-   :jvm-opts ["-Dmaven.wagon.rto=90000"]
-   :exec-fn modular.system/start!
-   :exec-args {:profile "jetty"
-               :services "goldly/services.edn"
-               :config  ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"]}}
+  :run {:exec-fn modular.system/start!
+        :extra-paths ["demo" "demo/resources"]
+        :exec-args {:profile "jetty"
+                    :config  ["demo-config.edn"]
+                    :services "demo-services.edn"}}
 
 
-  ; BUILD BUNDLE (then exit)
-  :build
-  {:exec-fn goldly.app.build/goldly-build
-   :exec-args {:profile "npm-install"}}
+
+
 
 ;
   }}

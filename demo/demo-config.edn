@@ -1,0 +1,9 @@
+{:build {:disabled-extensions #{; extensions using sci-configs will not work in webly.
+                                "reagent" "re-frame"
+                                "funcool-promesa"
+                                "applied-science.js-interop"
+                                 ; webly2 is now in webly. needs to be removed from ui-repl.
+                                "webly2"
+                                "ui-repl"
+                                "cljs-pprint-frisk"
+                                "cljs-ajax"}}}

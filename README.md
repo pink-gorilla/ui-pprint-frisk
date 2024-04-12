@@ -16,8 +16,8 @@ This will run a web server at port 8080.
 ## developers
 
 ```
-clojure -X:docs:build :profile "npm-install"
-clojure -X:docs:build :profile "compile2"
-clojure -X:docs
+clojure -X:webly:npm-install
+clojure -X:webly:compile
+clojure -X:webly:run
 
 ```

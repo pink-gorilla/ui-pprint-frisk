@@ -4,7 +4,6 @@ target
 .shadow-cljs
 .nrepl-port
 .classpath
-.lein-failures
 .project
 .settings/*
 .vscode/*
@@ -16,7 +15,6 @@ shadow-cljs.edn
 pom.xml
 karma.conf.js
 .calva
-goldly_bindings_generated.cljs
 .webly
 .cpcache
 /rdocument
