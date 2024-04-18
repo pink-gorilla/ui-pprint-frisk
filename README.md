@@ -3,7 +3,6 @@
 - end users: this project is not for you!
 
 - UI components:
-  - pprint (pprint-table)
   - frisk (datastructure navigation)
 
 

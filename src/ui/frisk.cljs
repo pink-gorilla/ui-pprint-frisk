@@ -333,7 +333,7 @@
       expanded-paths)))
 
 (defn copy-to-clipboard [data]
-  (let [pretty (with-out-str (pr-str data)#_(pprint data))
+  (let [pretty (with-out-str (pr-str data) #_(pprint data))
         textArea (.createElement js/document "textarea")]
     (doto textArea
       ;; Put in top left corner of screen
