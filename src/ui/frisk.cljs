@@ -1,6 +1,6 @@
 (ns ui.frisk
   (:require
-   [cljs.pprint :refer [pprint]]
+   ;[cljs.pprint :refer [pprint]]
    [reagent.core :as r]))
 
 ;; stolen from: https://github.com/Odinodin/data-frisk-reagent
@@ -333,7 +333,7 @@
       expanded-paths)))
 
 (defn copy-to-clipboard [data]
-  (let [pretty (with-out-str (pprint data))
+  (let [pretty (with-out-str (pr-str data)#_(pprint data))
         textArea (.createElement js/document "textarea")]
     (doto textArea
       ;; Put in top left corner of screen

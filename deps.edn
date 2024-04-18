@@ -50,9 +50,6 @@
                     :config  ["demo-config.edn"]
                     :services "demo-services.edn"}}
 
-
-
-
-
+  
 ;
   }}

@@ -1,0 +1,6 @@
+{:name "cljs-frisk"
+ ; build
+ :lazy true ; frisk requires cljs-pprint
+ :cljs-namespace [ui.frisk]
+ :cljs-ns-bindings {'ui.frisk {'frisk ui.frisk/frisk}}}
+
